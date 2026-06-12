@@ -1,0 +1,99 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+provider: TagoIO
+providerId: tago-io
+created: '2026-06-12'
+modified: '2026-06-12'
+url: https://tago.io/pricing
+billingModel: subscription-plus-metered
+description: >
+  TagoIO uses a tiered subscription model (Free, Starter, Scale) combined with
+  metered consumption for data transactions, analysis execution minutes,
+  notifications, end-users, and file storage. Costs grow with usage beyond
+  included quotas. The enterprise TagoDeploy tier uses a post-paid model
+  based on actual resource consumption.
+focusColumns:
+  - ChargeCategory: Usage
+  - Provider: TagoIO
+  - ServiceName: IoT Platform
+  - ServiceCategory: Application Services
+  - ResourceType: Device | Dashboard | Analysis | Data | Notification | File | EndUser
+  - Region: us-e1 | eu-w1
+  - BillingCurrency: USD
+  - BillingPeriod: Monthly
+  - ChargePeriod: Monthly
+meters:
+  - name: Data Input Transactions
+    unit: transaction
+    description: >
+      Each data record sent to a device counts as one input transaction.
+    includedPerMonth:
+      starter: 1000000
+      scale: 1000000
+    billable: true
+    notes: Additional transactions billed beyond plan quota
+
+  - name: Data Output Transactions
+    unit: transaction
+    description: >
+      Each data record read from a device or dashboard counts as one output
+      transaction.
+    includedPerMonth:
+      starter: 3000000
+      scale: 3000000
+    billable: true
+    notes: Additional transactions billed beyond plan quota
+
+  - name: Analysis Execution Minutes
+    unit: minute
+    description: >
+      Time spent executing analysis scripts on TagoIO infrastructure.
+    billable: true
+    notes: Metered separately from data transactions
+
+  - name: Notifications
+    unit: notification
+    description: >
+      Alerts and notifications sent via email, SMS, push, or webhooks.
+    billable: true
+
+  - name: End Users (TagoRUN)
+    unit: user
+    description: >
+      External end-users accessing the application via TagoRUN.
+    billable: true
+
+  - name: File Storage
+    unit: GB-month
+    description: >
+      Storage for files uploaded and managed via the Files Management API.
+    billable: true
+
+  - name: Devices
+    unit: device
+    description: >
+      Active devices connected to the platform.
+    includedPerMonth:
+      free: 5
+      starter: 100
+      scale: 10000
+    billable: false
+    notes: Included in base plan price; upgrade required to exceed limits
+
+principles:
+  - name: Visibility
+    description: >
+      TagoIO provides a cost calculator at tago.io/cost-calculator to forecast
+      spending before committing to a plan. The Admin dashboard surfaces hard
+      limit usage statistics in real time. The Control Tower add-on provides
+      enhanced historical tracking across profiles and projects.
+    url: https://tago.io/cost-calculator
+
+  - name: Optimization
+    description: >
+      Developers should monitor data transaction rates to avoid overages.
+      MQTT batching and reducing polling frequency lower output transaction
+      counts. Starting on the Free tier for prototyping before scaling to
+      Starter or Scale reduces premature spend. Yearly billing provides a
+      discount over monthly billing.
+    url: https://tago.io/blog/how-much-will-your-iot-application-cost-a-complete-guide-to-tagoio-pricing

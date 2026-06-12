@@ -1,0 +1,86 @@
+aid: tago-io
+name: TagoIO
+description: >
+  TagoIO is an IoT cloud application development platform that enables businesses
+  to build, deploy, and manage IoT applications with a comprehensive REST API.
+  The platform provides full programmatic control over devices, dashboards, data
+  storage, analysis scripts, alerts, and user management. TagoIO exposes regional
+  REST API endpoints covering device data ingestion, entity management, access
+  control policies, and file storage, all secured with token-based authentication.
+  Plans range from a free tier supporting five devices up to an enterprise-grade
+  TagoDeploy option supporting millions of devices with dedicated cloud instances
+  and customizable rate limits.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - IoT
+  - Internet of Things
+  - Devices
+  - Data Storage
+  - Dashboards
+  - Analysis
+  - Alerts
+  - MQTT
+  - Telemetry
+url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: tago-io:tago-io-rest-api
+    name: TagoIO REST API
+    description: >
+      The TagoIO REST API provides full programmatic access to the TagoIO IoT
+      platform, covering device management, device data ingestion and retrieval,
+      dashboards and widgets, analysis scripts, file management, access control
+      policies, entities, and account/profile operations. Regional endpoints are
+      available for US East and Europe West regions.
+    humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+    baseURL: https://api.us-e1.tago.io/
+    tags:
+      - IoT
+      - Devices
+      - Data
+      - Dashboards
+      - Analysis
+    properties:
+      - type: Documentation
+        url: https://docs.tago.io/docs/tagoio/api/api_overview
+      - type: OpenAPI
+        url: https://api.docs.tago.io/
+common:
+  - type: Website
+    url: https://tago.io/
+  - type: Documentation
+    url: https://docs.tago.io/
+  - type: GitHubOrganization
+    url: https://github.com/tago-io
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/tago.io
+  - type: Blog
+    url: https://tago.io/blog
+  - type: Pricing
+    url: https://tago.io/pricing
+  - type: StatusPage
+    url: https://status.tago.io/
+  - type: Changelog
+    url: https://changelog.tago.io/
+  - type: X
+    url: https://x.com/tagoio
+  - type: Developers
+    url: https://tago.io/developers
+  - type: SDKJavaScript
+    url: https://github.com/tago-io/sdk-js
+  - type: SDKPython
+    url: https://github.com/tago-io/sdk-python
+  - type: CLI
+    url: https://github.com/tago-io/tagoio-cli
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/plans/tago-io-plans-pricing.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/rate-limits/tago-io-rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/finops/tago-io-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

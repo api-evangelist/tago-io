@@ -1,0 +1,190 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: TagoIO
+providerId: tago-io
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+url: https://tago.io/pricing
+plans:
+  - name: Free
+    description: >
+      Forever-free plan for prototyping and MVPs. Includes all core features
+      with no credit card required.
+    type: free
+    quotas:
+      - name: Devices
+        metric: devices
+        limit: 5
+        timeFrame: account
+        description: Maximum devices per profile
+      - name: Dashboards
+        metric: dashboards
+        limit: 5
+        timeFrame: account
+        description: Maximum dashboards per profile
+    metered: []
+    boolean:
+      - name: All Key Features
+        value: true
+    price:
+      amount: 0
+      currency: USD
+      interval: month
+
+  - name: Starter
+    description: >
+      Basic plan for small IoT projects. Includes community support and basic
+      branding customization.
+    type: paid
+    quotas:
+      - name: Devices
+        metric: devices
+        limit: 100
+        timeFrame: account
+        description: Maximum devices per profile
+      - name: Dashboards
+        metric: dashboards
+        limit: 100
+        timeFrame: account
+        description: Maximum dashboards per profile
+      - name: Profiles
+        metric: profiles
+        limit: 2
+        timeFrame: account
+        description: Number of profiles included
+      - name: Data Inputs
+        metric: data-input-transactions
+        limit: 1000000
+        timeFrame: month
+        description: Monthly data input transactions
+      - name: Data Outputs
+        metric: data-output-transactions
+        limit: 3000000
+        timeFrame: month
+        description: Monthly data output transactions
+    metered:
+      - name: Additional Data Transactions
+        metric: data-transactions
+        description: Additional input/output transactions beyond plan quota
+    boolean:
+      - name: Branding Customization
+        value: true
+      - name: Custom Sub-Domain
+        value: true
+      - name: 1-to-1 Onboarding
+        value: true
+      - name: Community Support
+        value: true
+    price:
+      amount: 49
+      currency: USD
+      interval: month
+
+  - name: Scale
+    description: >
+      Intermediate plan for growing IoT deployments. Includes team management,
+      SSO with SAML, complete audit log, and a dedicated customer success manager.
+    type: paid
+    quotas:
+      - name: Devices
+        metric: devices
+        limit: 10000
+        timeFrame: account
+        description: Maximum devices per profile
+      - name: Dashboards
+        metric: dashboards
+        limit: 1000
+        timeFrame: account
+        description: Maximum dashboards per profile
+      - name: Profiles
+        metric: profiles
+        limit: 5
+        timeFrame: account
+        description: Number of profiles included
+      - name: Data Inputs
+        metric: data-input-transactions
+        limit: 1000000
+        timeFrame: month
+        description: Monthly data input transactions
+      - name: Data Outputs
+        metric: data-output-transactions
+        limit: 3000000
+        timeFrame: month
+        description: Monthly data output transactions
+    metered:
+      - name: Additional Data Transactions
+        metric: data-transactions
+        description: Additional input/output transactions beyond plan quota
+    boolean:
+      - name: Team Management
+        value: true
+      - name: SSO with SAML
+        value: true
+      - name: Complete Audit Log
+        value: true
+      - name: Dedicated Customer Success Manager
+        value: true
+      - name: Multi-Language Support
+        value: true
+      - name: Email Support
+        value: true
+    price:
+      amount: 199
+      currency: USD
+      interval: month
+
+  - name: TagoDeploy (Enterprise)
+    description: >
+      Advanced enterprise plan with dedicated cloud instances, customizable API URLs
+      and MQTT brokers, multi-region deployment, high availability SLA, and
+      fully customizable rate limits. Minimum commitment of $850/month.
+    type: enterprise
+    quotas:
+      - name: Devices
+        metric: devices
+        limit: 1000000
+        timeFrame: account
+        description: Up to 1M+ devices per project
+    metered:
+      - name: All Services
+        metric: usage
+        description: Post-paid model for all service consumption
+    boolean:
+      - name: Dedicated Instances
+        value: true
+      - name: Custom API URLs
+        value: true
+      - name: Custom MQTT Brokers
+        value: true
+      - name: Multi-Region Deployment (12+ regions)
+        value: true
+      - name: Automatic Backups
+        value: true
+      - name: High Availability SLA
+        value: true
+      - name: Fully Customizable Rate Limits
+        value: true
+    price:
+      amount: 850
+      currency: USD
+      interval: month
+      notes: Minimum monthly commitment; actual cost depends on usage
+
+addons:
+  - name: Custom Domain and Whitelabel
+    price:
+      amount: 99
+      currency: USD
+      interval: month
+  - name: Custom Mobile App
+    price:
+      oneTime: 2000
+      recurring: 99
+      currency: USD
+      interval: month
+  - name: Control Tower
+    price:
+      amount: 79
+      currency: USD
+      interval: month

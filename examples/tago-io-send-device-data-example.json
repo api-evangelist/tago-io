@@ -1,0 +1,33 @@
+{
+  "summary": "Send single temperature reading to a TagoIO device",
+  "description": "POST /data — send a single measurement using a Device-Token header. The variable field is required; value, unit, location, time, group, and metadata are optional.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.us-e1.tago.io/data",
+    "headers": {
+      "Device-Token": "5e12345a-d70a-4e2d-b83d-5c0123456789",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "variable": "temperature",
+      "value": 23.5,
+      "unit": "°C",
+      "time": "2024-06-12T10:00:00.000Z",
+      "location": {
+        "lat": 35.770723,
+        "lng": -78.677328
+      },
+      "metadata": {
+        "sensor_id": "S001",
+        "battery": 87
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "result": "Data Created"
+    }
+  }
+}

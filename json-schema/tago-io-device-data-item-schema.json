@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tago-io/main/json-schema/tago-io-device-data-item-schema.json",
+  "title": "TagoIO Device Data Item",
+  "description": "A single measurement or data point sent to or retrieved from a TagoIO device.",
+  "type": "object",
+  "required": ["variable"],
+  "properties": {
+    "variable": {
+      "type": "string",
+      "description": "The variable name for the data point.",
+      "example": "temperature"
+    },
+    "value": {
+      "description": "The value of the measurement. Can be a string, number, or boolean.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" }
+      ],
+      "example": 23.5
+    },
+    "location": {
+      "type": "object",
+      "description": "Geographic coordinates associated with the data point.",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "description": "Latitude in decimal degrees.",
+          "example": 35.770723
+        },
+        "lng": {
+          "type": "number",
+          "description": "Longitude in decimal degrees.",
+          "example": -78.677328
+        }
+      },
+      "required": ["lat", "lng"]
+    },
+    "time": {
+      "type": "string",
+      "description": "ISO 8601 timestamp or Unix timestamp string for the data point.",
+      "example": "2023-12-01T12:34:56.000Z"
+    },
+    "group": {
+      "type": "string",
+      "description": "Unique grouping ID for the data point. Widgets often group data by this field.",
+      "example": "16731887966346"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement. Most widgets will display this alongside the value.",
+      "example": "%"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Arbitrary metadata attached to the data point to influence widget behavior or store additional information.",
+      "additionalProperties": true,
+      "example": {
+        "color": "red",
+        "icon": "car"
+      }
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier assigned by TagoIO to the data record (returned on retrieval).",
+      "example": "6144a25e280ad80019688e689"
+    },
+    "device": {
+      "type": "string",
+      "description": "Device ID that owns this data record (returned on retrieval).",
+      "example": "5f1c3b2a4e6d7a0019abcdef"
+    },
+    "origin": {
+      "type": "string",
+      "description": "Origin identifier indicating the source that created the record.",
+      "example": "5f1c3b2a4e6d7a0019abcdef"
+    }
+  },
+  "additionalProperties": false
+}

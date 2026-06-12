@@ -1,0 +1,46 @@
+{
+  "summary": "List all devices in a TagoIO account",
+  "description": "GET /device — retrieve a paginated list of devices using a Profile-Token. Supports filtering by tags, name, and pagination via qty/page query params.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.us-e1.tago.io/device",
+    "headers": {
+      "Profile-Token": "a15ea5ea-dd2d-4c63-8945-92b54da4772a"
+    },
+    "queryParams": {
+      "qty": 20,
+      "page": 1,
+      "fields": "name,active,type,tags,last_input"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "result": [
+        {
+          "id": "5f1c3b2a4e6d7a0019abcdef",
+          "name": "Weather Station Alpha",
+          "active": true,
+          "type": "mutable",
+          "tags": [
+            { "key": "location", "value": "rooftop" },
+            { "key": "project", "value": "smart-building" }
+          ],
+          "last_input": "2024-06-12T10:00:00.000Z"
+        },
+        {
+          "id": "6a2d4c3b5f7e8b001acdfegh",
+          "name": "Soil Moisture Sensor B",
+          "active": true,
+          "type": "mutable",
+          "tags": [
+            { "key": "location", "value": "greenhouse" },
+            { "key": "project", "value": "precision-agri" }
+          ],
+          "last_input": "2024-06-12T09:45:00.000Z"
+        }
+      ]
+    }
+  }
+}

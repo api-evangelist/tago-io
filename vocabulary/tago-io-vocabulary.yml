@@ -1,0 +1,136 @@
+vocabulary:
+  - term: Device
+    definition: >
+      A logical representation of a physical or virtual IoT sensor, actuator, or
+      data source in TagoIO. Devices store time-series data (variables), have
+      configuration parameters, tokens for authentication, and can be mutable
+      (editable data) or immutable (append-only storage).
+    tags: [core, iot, device-management]
+
+  - term: Variable
+    definition: >
+      The named field for a data measurement within a DeviceDataItem. Every data
+      point in TagoIO must include a variable name (e.g., "temperature",
+      "humidity", "location"). Variables are queryable and drive widget rendering.
+    tags: [core, data, telemetry]
+
+  - term: DeviceDataItem
+    definition: >
+      The atomic unit of data in TagoIO — a JSON object containing at minimum a
+      variable name and optionally a value, unit, timestamp, geographic location,
+      group ID, and metadata. Both individual items and arrays are accepted on
+      ingest.
+    tags: [core, data, schema]
+
+  - term: Device-Token
+    definition: >
+      An API authentication token scoped to a single device, used for data
+      ingest and device-level operations (POST /data, GET /info, GET /device/params).
+      Generated per device and distinct from Profile-Tokens.
+    tags: [auth, security, token]
+
+  - term: Profile-Token
+    definition: >
+      An account-level API authentication token (also called Account-Token) that
+      grants administrative access to devices, dashboards, analyses, users, and
+      all profile resources. Used in the Authorization header as Profile-Token.
+    tags: [auth, security, token]
+
+  - term: Network-Token
+    definition: >
+      A token scoped to a specific network integration, used for ingesting data
+      from hardware networks (e.g., LoRaWAN, Sigfox). Enables the
+      POST /integration/network/data endpoint for batch payload ingestion.
+    tags: [auth, security, token, network]
+
+  - term: Analysis-Token
+    definition: >
+      A token scoped to a specific analysis script, granting the script access
+      to platform resources during its execution run. Automatically injected into
+      analysis environments.
+    tags: [auth, security, token, analysis]
+
+  - term: Dashboard
+    definition: >
+      A visual interface in TagoIO composed of one or more widgets. Dashboards
+      are managed via the Profile API and can be shared publicly or with specific
+      TagoRUN users.
+    tags: [visualization, dashboard]
+
+  - term: Widget
+    definition: >
+      A visual component within a Dashboard that renders device data (charts,
+      maps, gauges, tables, etc.). Widgets are linked to devices and variables
+      to pull and display real-time or historical data.
+    tags: [visualization, widget, dashboard]
+
+  - term: TagoRUN
+    definition: >
+      The white-label IoT portal feature of TagoIO that lets platform operators
+      expose dashboards, device data, and notifications to end-users under a
+      custom domain and branding. Managed via the /run/* API endpoints.
+    tags: [portal, white-label, run]
+
+  - term: Entity
+    definition: >
+      A generic data object type in TagoIO (outside device data) used to model
+      structured domain objects — e.g., assets, locations, or custom records.
+      Entities support schemas, data storage, and backup operations.
+    tags: [core, entity, data-model]
+
+  - term: Payload Parser
+    definition: >
+      A JavaScript function attached to a device that translates raw (often
+      hexadecimal) payloads from hardware into the TagoIO DeviceDataItem JSON
+      format. Executed server-side on data ingestion when Content-Type is text/plain.
+    tags: [integration, parser, device, network]
+
+  - term: Chunk
+    definition: >
+      An immutable data segment in an Immutable Device. Unlike mutable device
+      data, chunks cannot be edited or deleted once written, ensuring data
+      integrity for audit and compliance scenarios.
+    tags: [immutable, storage, device]
+
+  - term: Configuration Parameter (Param)
+    definition: >
+      A key-value setting stored on a device that can be read by the device or
+      updated via the Profile API. Params enable remote configuration of hardware
+      without redeployment (e.g., reporting interval, thresholds).
+    tags: [device, configuration, param]
+
+  - term: Access Management (AM)
+    definition: >
+      The TagoIO role-based access control system. AM policies define which
+      profile resources (devices, dashboards, files) a token or user can access,
+      enabling fine-grained permission delegation across teams and portals.
+    tags: [auth, security, access-control, rbac]
+
+  - term: Dictionary
+    definition: >
+      A TagoRUN localization resource mapping slug keys to translated string
+      values for multiple languages. Enables multi-language portal UIs without
+      code changes.
+    tags: [localization, i18n, run]
+
+  - term: Regional Endpoint
+    definition: >
+      TagoIO operates separate API endpoints per geographic region to reduce
+      latency and meet data-residency requirements. Current regions: US East 1
+      (api.us-e1.tago.io) and Europe West 1 (api.eu-w1.tago.io). TagoDeploy
+      instances use custom domain URLs.
+    tags: [infrastructure, region, endpoint]
+
+  - term: TagoDeploy
+    definition: >
+      An enterprise deployment mode of TagoIO that provisions dedicated cloud
+      infrastructure for a single customer, supporting millions of devices,
+      custom domains, and configurable rate limits well beyond shared-cloud plans.
+    tags: [enterprise, deployment, infrastructure]
+
+  - term: Group
+    definition: >
+      An optional string field on a DeviceDataItem used to correlate multiple
+      data points recorded in the same event or transaction. Widgets and queries
+      can aggregate or filter by group to reconstruct compound readings.
+    tags: [data, grouping, correlation]

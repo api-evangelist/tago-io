@@ -1,0 +1,97 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "tago": "https://tago.io/vocab#",
+    "iot": "https://www.w3.org/2019/wot/td#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Device": "tago:Device",
+    "DeviceDataItem": "tago:DeviceDataItem",
+    "Dashboard": "tago:Dashboard",
+    "Widget": "tago:Widget",
+    "Entity": "tago:Entity",
+    "Profile": "tago:Profile",
+    "Network": "tago:Network",
+    "AccessPolicy": "tago:AccessPolicy",
+    "Dictionary": "tago:Dictionary",
+    "Notification": "tago:Notification",
+    "ConfigParam": "tago:ConfigParam",
+
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "last_input": {
+      "@id": "tago:lastInput",
+      "@type": "xsd:dateTime"
+    },
+    "active": "tago:active",
+    "visible": "tago:visible",
+    "type": "tago:deviceType",
+
+    "variable": "tago:variable",
+    "value": "schema:value",
+    "unit": "schema:unitText",
+    "time": {
+      "@id": "schema:observationDate",
+      "@type": "xsd:dateTime"
+    },
+    "group": "tago:group",
+    "metadata": "tago:metadata",
+    "origin": "tago:origin",
+    "device": {
+      "@id": "tago:ownedByDevice",
+      "@type": "@id"
+    },
+
+    "location": "schema:geo",
+    "lat": "schema:latitude",
+    "lng": "schema:longitude",
+
+    "tags": "schema:keywords",
+    "key": "schema:name",
+
+    "connector": {
+      "@id": "tago:connector",
+      "@type": "@id"
+    },
+    "network": {
+      "@id": "tago:network",
+      "@type": "@id"
+    },
+    "bucket": {
+      "@id": "tago:bucket",
+      "@type": "@id"
+    },
+    "payload_decoder": "tago:payloadDecoder",
+
+    "widgets": {
+      "@id": "tago:hasWidget",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "devices": {
+      "@id": "tago:linkedDevice",
+      "@type": "@id",
+      "@container": "@set"
+    },
+
+    "region": "tago:region",
+    "endpoint": "schema:url",
+    "baseURL": "schema:url",
+    "humanURL": "schema:url",
+
+    "token": "tago:token",
+    "profile": {
+      "@id": "tago:profile",
+      "@type": "@id"
+    }
+  }
+}

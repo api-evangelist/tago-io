@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tago-io/main/json-schema/tago-io-device-schema.json",
+  "title": "TagoIO Device",
+  "description": "A TagoIO IoT device with its configuration, tags, and metadata.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique device identifier assigned by TagoIO.",
+      "example": "5f1c3b2a4e6d7a0019abcdef"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the device.",
+      "example": "Weather Station Alpha"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the device.",
+      "example": "Outdoor weather sensor on rooftop"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether the device is currently active and accepting data.",
+      "example": true
+    },
+    "visible": {
+      "type": "boolean",
+      "description": "Whether the device is visible in the TagoRUN portal.",
+      "example": true
+    },
+    "type": {
+      "type": "string",
+      "description": "Device storage type: mutable or immutable.",
+      "enum": ["mutable", "immutable"],
+      "example": "mutable"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Key-value tags for organizing and filtering devices.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string", "example": "location" },
+          "value": { "type": "string", "example": "rooftop" }
+        },
+        "required": ["key", "value"]
+      }
+    },
+    "connector": {
+      "type": "string",
+      "description": "Connector ID linking the device to a network integration.",
+      "example": "5f1c3b2a4e6d7a0019abc000"
+    },
+    "network": {
+      "type": "string",
+      "description": "Network ID the device belongs to.",
+      "example": "5f1c3b2a4e6d7a0019abc111"
+    },
+    "payload_decoder": {
+      "type": "string",
+      "description": "JavaScript payload parser script for decoding raw device payloads.",
+      "example": "var payload = [{ variable: 'temperature', value: parseInt(payload_raw, 16) / 100 }];"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the device was created.",
+      "example": "2023-01-15T10:30:00.000Z"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the device was last updated.",
+      "example": "2024-03-20T08:45:00.000Z"
+    },
+    "last_input": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the last data ingestion.",
+      "example": "2024-06-10T14:22:00.000Z"
+    },
+    "bucket": {
+      "type": "string",
+      "description": "Internal storage bucket ID associated with the device.",
+      "example": "5f1c3b2a4e6d7a0019abc222"
+    }
+  }
+}

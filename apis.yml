@@ -54,9 +54,9 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
       - type: JSONSchema
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
-      - type: Example
+      - type: Examples
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
-      - type: Example
+      - type: Examples
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
 common:
   - type: Website
@@ -73,7 +73,7 @@ common:
     url: https://tago.io/pricing
   - type: StatusPage
     url: https://status.tago.io/
-  - type: Changelog
+  - type: ChangeLog
     url: https://changelog.tago.io/
   - type: X
     url: https://x.com/tagoio

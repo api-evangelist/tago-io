@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://security.tago.io/
+url: https://security.tago.io/
+certifications:
+- ISO 27001
+- PCI DSS
+- GDPR
+evidence:
+- source: https://security.tago.io/
+  keywords:
+  - iso/iec 27001
+  - pci dss
+  - gdpr

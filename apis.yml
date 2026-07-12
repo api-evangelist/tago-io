@@ -59,6 +59,12 @@ apis:
       - type: Examples
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
 common:
+  - type: TrustCenter
+    url: security/tago-io-trust-center.yml
+  - type: DomainSecurity
+    url: security/tago-io-domain-security.yml
+  - type: Authentication
+    url: authentication/tago-io-authentication.yml
   - type: Website
     url: https://tago.io/
   - type: Documentation

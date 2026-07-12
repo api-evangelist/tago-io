@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/tago-io-tago-io-rest-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: Device-Token
+  type: apiKey
+  in: header
+  parameter: Device-Token
+  description: A Device-Token that is unique to your device. Generate a token by accessing your
+    Device's page.
+  sources:
+  - openapi/tago-io-tago-io-rest-api-openapi.yml
+- name: Network-Token
+  type: apiKey
+  in: header
+  parameter: Token
+  description: A Network Token that is unique to your Network. Access Integrations > Network
+    > Tokens to generate a token for your Network.
+  sources:
+  - openapi/tago-io-tago-io-rest-api-openapi.yml
+- name: Profile-Token
+  type: apiKey
+  in: header
+  parameter: Profile-Token
+  description: A Profile token that is unique to your entire profile. Generate in your account
+    settings.
+  sources:
+  - openapi/tago-io-tago-io-rest-api-openapi.yml

@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: tago.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  4 23:59:59 2026 GMT
+  hsts: false
+- host: docs.tago.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  7 23:59:59 2026 GMT
+  hsts: false
+- host: api.us-e1.tago.io
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Feb  3 23:59:59 2027 GMT
+  hsts: false
+domains:
+- domain: tago.io
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

@@ -5,7 +5,7 @@
       "source": "https://tago.io/blog/rss.xml",
       "feed_url": "https://tago.io/blog/rss.xml",
       "title": "",
-      "saved": 12,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -13,6 +13,6 @@
       "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-27T12:03:07Z",
-  "post_count": 15
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 57
 }

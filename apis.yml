@@ -59,6 +59,8 @@ apis:
       - type: Examples
         url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/tago-io-agentic-access.yml
   - type: TrustCenter
     url: security/tago-io-trust-center.yml
   - type: DomainSecurity

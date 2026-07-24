@@ -1,0 +1,482 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Backup API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Backup
+paths:
+  /profile/{profile_id}/backup:
+    parameters:
+    - name: profile_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 61fac4d9a5c9f40012a5ff92
+      description: The ID of the profile
+    post:
+      tags:
+      - Backup
+      summary: Create Backup
+      description: 'Initiates a new backup generation for the specified profile. The backup is processed asynchronously in a background queue.
+
+
+        **What''s included in the backup:**
+
+        - User storage files (uploaded via `/files` route)
+
+        - Dashboard version history
+
+        - Analysis script versions
+
+        - All resource configurations as JSON files (devices, actions, dashboards, analysis, access management, networks, connectors, secrets, dictionaries, run users, etc.)
+
+
+        **Important notes:**
+
+        - Backups are rate-limited (1 per day based on your account timezone)
+
+        - Free plan users do not have access to backup features
+
+        - Backup generation may take several minutes depending on profile size
+
+        - Restoration is manual - you can write scripts to parse the JSON files and recreate resources via API, or contact TagoIO support
+
+        '
+      operationId: createProfileBackup
+      responses:
+        '200':
+          description: Backup creation initiated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Backup generation has been queued and will be processed shortly. You can check the status using the list backups endpoint.
+                  profile:
+                    type: string
+                    example: 61fac4d9a5c9f40012a5ff92
+                  backup_id:
+                    type: string
+                    example: 678abc123def456789012345
+        '403':
+          description: Forbidden - Free plan or rate limit exceeded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Daily backup limit reached (1 backups per day). Please try again in 8 hours or contact support to increase your limit.
+    get:
+      tags:
+      - Backup
+      summary: List Backups
+      description: 'Retrieves a paginated list of all backups for the specified profile. Use this endpoint to check backup status and find backup IDs for download or deletion.
+
+
+        **Backup statuses:**
+
+        - `queued` - Backup request received, waiting for processing
+
+        - `processing` - Backup generation in progress
+
+        - `completed` - Backup ready for download
+
+        - `failed` - Backup generation failed (check error_message)
+
+        '
+      operationId: listProfileBackups
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          example: 1
+        description: Page number for pagination (default 1)
+      - name: amount
+        in: query
+        required: false
+        schema:
+          type: integer
+          example: 20
+        description: Number of items per page (default 20)
+      - name: orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+          example: created_at,desc
+        description: Sort order (e.g., 'created_at,desc' or 'created_at,asc')
+      responses:
+        '200':
+          description: List of backups retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 678abc123def456789012345
+                        profile:
+                          type: string
+                          example: 61fac4d9a5c9f40012a5ff92
+                        file_path:
+                          type: string
+                          example: profile/61fac4d9a5c9f40012a5ff92/versioning/backup/backup-61fac4d9a5c9f40012a5ff92.zip
+                        version_id:
+                          type: string
+                          example: abc123def456
+                        file_size:
+                          type: number
+                          example: 15728640
+                          description: File size in bytes
+                        status:
+                          type: string
+                          enum:
+                          - queued
+                          - processing
+                          - completed
+                          - failed
+                          example: completed
+                        error_message:
+                          type: string
+                          example: null
+                          description: Error message if status is 'failed'
+                        created_at:
+                          type: string
+                          example: '2025-01-07T14:30:00.000Z'
+        '403':
+          description: Forbidden - Free plan users cannot access backup features
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Backup feature is not available on the free plan. Please upgrade your plan to access backup functionality.
+  /profile/{profile_id}/backup/{backup_id}/download:
+    parameters:
+    - name: profile_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 61fac4d9a5c9f40012a5ff92
+      description: The ID of the profile
+    - name: backup_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 678abc123def456789012345
+      description: The ID of the backup to download
+    post:
+      tags:
+      - Backup
+      summary: Download Backup
+      description: 'Generates a secure, time-limited download URL for a specific backup. The download URL is valid for **2 hours**.
+
+
+        **Security:** This endpoint requires account password verification to prevent unauthorized access to backup data. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.
+
+
+        **Important:** Only backups with status `completed` can be downloaded.
+
+        '
+      operationId: downloadProfileBackup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - password
+              properties:
+                password:
+                  type: string
+                  description: Your account password for verification
+                  example: your_account_password
+                otp_type:
+                  type: string
+                  enum:
+                  - authenticator
+                  - sms
+                  - email
+                  description: Type of OTP if 2FA is enabled (optional)
+                  example: authenticator
+                pin_code:
+                  type: string
+                  description: OTP code if 2FA is enabled (optional)
+                  example: '123456'
+            examples:
+              Without 2FA:
+                value:
+                  password: your_account_password
+              With 2FA enabled:
+                value:
+                  password: your_account_password
+                  otp_type: authenticator
+                  pin_code: '123456'
+      responses:
+        '200':
+          description: Download URL generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://s3.amazonaws.com/tago-io/...?X-Amz-Algorithm=...
+                    description: Pre-signed S3 URL for downloading the backup (valid for 2 hours)
+                  size:
+                    type: number
+                    example: 15728640
+                    description: File size in bytes
+                  size_unit:
+                    type: string
+                    example: bytes
+                  file_size_mb:
+                    type: string
+                    example: '15.00'
+                    description: File size in megabytes (formatted)
+                  expire_at:
+                    type: string
+                    example: '2025-01-07T16:30:00.000Z'
+                    description: When the download URL expires
+                  backup_id:
+                    type: string
+                    example: 678abc123def456789012345
+                  created_at:
+                    type: string
+                    example: '2025-01-07T14:30:00.000Z'
+        '400':
+          description: Bad request - Backup not ready or invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Backup is not ready for download. Current status: processing'
+        '401':
+          description: Unauthorized - Invalid password or OTP
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Invalid password
+        '404':
+          description: Not found - Backup does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Backup not found or you don't have permission to access it.
+  /profile/{profile_id}/backup/{backup_id}:
+    parameters:
+    - name: profile_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 61fac4d9a5c9f40012a5ff92
+      description: The ID of the profile
+    - name: backup_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 678abc123def456789012345
+      description: The ID of the backup to delete
+    delete:
+      tags:
+      - Backup
+      summary: Delete Backup
+      description: 'Permanently removes a backup from storage. This action is irreversible.
+
+
+        **Security:** This endpoint requires account password verification to prevent accidental or unauthorized deletion. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.
+
+        '
+      operationId: deleteProfileBackup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - password
+              properties:
+                password:
+                  type: string
+                  description: Your account password for verification
+                  example: your_account_password
+                otp_type:
+                  type: string
+                  enum:
+                  - authenticator
+                  - sms
+                  - email
+                  description: Type of OTP if 2FA is enabled (optional)
+                  example: authenticator
+                pin_code:
+                  type: string
+                  description: OTP code if 2FA is enabled (optional)
+                  example: '123456'
+            examples:
+              Without 2FA:
+                value:
+                  password: your_account_password
+              With 2FA enabled:
+                value:
+                  password: your_account_password
+                  otp_type: authenticator
+                  pin_code: '123456'
+      responses:
+        '200':
+          description: Backup deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Backup successfully removed
+                  status:
+                    type: boolean
+                    example: true
+        '401':
+          description: Unauthorized - Invalid password or OTP
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Invalid password
+        '404':
+          description: Not found - Backup does not exist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: Backup not found or you don't have permission to delete it.
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

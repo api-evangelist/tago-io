@@ -1,0 +1,1383 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Devices API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Devices
+  description: Manage devices using a Profile Token (admin-level).
+paths:
+  /device:
+    get:
+      tags:
+      - Devices
+      summary: List of Devices
+      description: 'Retrieves a list with all devices from the profile
+
+        '
+      operationId: listOfDevices
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: string
+          example: '1'
+        description: Page number.
+      - name: amount
+        in: query
+        schema:
+          type: string
+          example: '10'
+        description: Amount of devices by page.
+      - name: filter[id]
+        in: query
+        schema:
+          type: string
+          example: ''
+        description: Filter the device by ID.
+      - name: filter[name]
+        in: query
+        schema:
+          type: string
+          example: ''
+        description: Filter the device name.
+      - name: filter[visible]
+        in: query
+        schema:
+          type: string
+          example: true / false
+        description: Filter the device visible status.
+      - name: filter[active]
+        in: query
+        schema:
+          type: string
+          example: true / false
+        description: Filter the device active status.
+      - name: filter[connector]
+        in: query
+        schema:
+          type: string
+          example: ''
+        description: Filter the devices by the Connector ID.
+      - name: filter[network]
+        in: query
+        schema:
+          type: string
+          example: ''
+        description: Filter the devices by the Network ID.
+      - name: filter[tags]
+        in: query
+        schema:
+          type: string
+          example: ''
+        description: Filter device by it's tag. Check the example.
+      - name: filter[updated_at]
+        in: query
+        schema:
+          type: string
+          example: 1 day
+        description: Filter by time the device was received data. Can be an ISO-8601 or a relative date
+      - name: filter[created_at]
+        in: query
+        schema:
+          type: string
+          example: 1 day
+        description: Filter by time the device was created. Can be an ISO-8601 or a relative date
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+          example: created_at
+      responses:
+        '200':
+          description: List of devices retrieved using query params
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        connector:
+                          type: string
+                          example: 5f5a8f3351d4db99c40ded2d
+                        id:
+                          type: string
+                          example: 5dcad1c216174c001ca23ab9
+                        name:
+                          type: string
+                          example: 'Device #1'
+                        network:
+                          type: string
+                          example: 5bbd120d4051a50034cd1a05
+                        tags:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              key:
+                                type: string
+                                example: type
+                              value:
+                                type: string
+                                example: Smoke Detector
+                          example:
+                          - key: type
+                            value: Smoke Detector
+                    example:
+                    - connector: 5f5a8f3351d4db99c40ded2d
+                      id: 5dcad1c216174c001ca23ab9
+                      name: 'Device #1'
+                      network: 5bbd120d4051a50034cd1a05
+                      tags:
+                      - key: type
+                        value: Smoke Detector
+                    - connector: 5f5a8f3351d4db99c40ded2d
+                      id: 5dcad25016174c001ca24a09
+                      name: 'Device #2'
+                      network: 5bbd120d4051a50034cd1a05
+                      tags:
+                      - key: type
+                        value: Smoke Detector
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                List of devices retrieved using query params:
+                  value:
+                    result:
+                    - connector: 5f5a8f3351d4db99c40ded2d
+                      id: 5dcad1c216174c001ca23ab9
+                      name: 'Device #1'
+                      network: 5bbd120d4051a50034cd1a05
+                      tags:
+                      - key: type
+                        value: Smoke Detector
+                    - connector: 5f5a8f3351d4db99c40ded2d
+                      id: 5dcad25016174c001ca24a09
+                      name: 'Device #2'
+                      network: 5bbd120d4051a50034cd1a05
+                      tags:
+                      - key: type
+                        value: Smoke Detector
+                    status: true
+    post:
+      tags:
+      - Devices
+      summary: Create Device
+      description: Create either an immutable or a mutable device. Immutable devices require chunking parameters and are optimized for long-term, append-only storage. Mutable devices behave like classic devices and do not require chunk settings.
+      operationId: createNewDevice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - title: Immutable Device Creation
+                type: object
+                required:
+                - name
+                - type
+                - network
+                - connector
+                - chunk_period
+                - chunk_retention
+                properties:
+                  name:
+                    type: string
+                    description: Device name
+                    example: My first immutable device
+                  type:
+                    type: string
+                    enum:
+                    - immutable
+                    description: Device type - must be 'immutable' for immutable devices
+                    example: immutable
+                  network:
+                    type: string
+                    description: Network ID where the device will be created
+                    example: 5bbd0d144051a50034cd19fb
+                  connector:
+                    type: string
+                    description: Connector ID for the device
+                    example: 5f5a8f3351d4db99c40dece5
+                  chunk_period:
+                    type: string
+                    enum:
+                    - day
+                    - week
+                    - month
+                    - quarter
+                    description: Chunk period for data storage - one of day, week, month, quarter
+                    example: quarter
+                  chunk_retention:
+                    type: number
+                    minimum: 0
+                    maximum: 36
+                    description: Number of chunks to retain (0-36)
+                    example: 36
+                  serie_number:
+                    type: string
+                    description: Serial number - only required if specified by the network
+                    example: AB87392C17CA
+                  tags:
+                    type: array
+                    description: Device tags as key-value string pairs
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                          description: Tag key
+                          example: tagKey1
+                        value:
+                          type: string
+                          description: Tag value
+                          example: value1
+                    example:
+                    - key: tagKey1
+                      value: value1
+                    - key: tagKey2
+                      value: value2
+              - title: Mutable Device Creation
+                type: object
+                required:
+                - name
+                - type
+                - network
+                - connector
+                properties:
+                  name:
+                    type: string
+                    description: Device name
+                    example: My first device
+                  type:
+                    type: string
+                    enum:
+                    - mutable
+                    description: Device type - must be 'mutable' for mutable devices
+                    example: mutable
+                  network:
+                    type: string
+                    description: Network ID where the device will be created
+                    example: 5bbd0d144051a50034cd19fb
+                  connector:
+                    type: string
+                    description: Connector ID for the device
+                    example: 5f5a8f3351d4db99c40dece5
+                  serie_number:
+                    type: string
+                    description: Serial number - only required if specified by the network
+                    example: AB87392C12CA
+                  active:
+                    type: boolean
+                    description: Device active status
+                    example: true
+                  payload_decoder:
+                    type: string
+                    description: Base64 encoded payload decoder function
+                  tags:
+                    type: array
+                    description: Device tags
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                          example: tagKey1
+                        value:
+                          type: string
+                          example: value1
+                    example:
+                    - key: tagKey1
+                      value: value1
+                    - key: tagKey2
+                      value: value2
+                  visible:
+                    type: boolean
+                    description: Device visibility status
+                    example: true
+            examples:
+              Create Immutable Device:
+                value:
+                  name: My first immutable device
+                  type: immutable
+                  network: 5bbd0d144051a50034cd19fb
+                  connector: 5f5a8f3351d4db99c40dece5
+                  chunk_period: quarter
+                  chunk_retention: 36
+                  serie_number: AB87392C17CA
+              Create Mutable Device:
+                value:
+                  name: My first device
+                  type: mutable
+                  network: 5bbd0d144051a50034cd19fb
+                  connector: 5f5a8f3351d4db99c40dece5
+                  serie_number: AB87392C12CA
+              Create Mutable Device with Parse Function:
+                value:
+                  name: Mutable device
+                  type: mutable
+                  network: 5bbd0d144051a50034cd19fb
+                  connector: 5f5a8f3351d4db99c40dece5
+                  action: true
+                  active: true
+                  visible: true
+                  tags:
+                  - key: tagKey1
+                    value: value1
+                  - key: tagKey2
+                    value: value2
+          text/plain:
+            examples:
+              Create Immutable Device:
+                value: "{\r\n  \"name\": \"My first immutable device\",\r\n  \"type\": \"immutable\",\r\n  \"network\": \"5bbd0d144051a50034cd19fb\",\r\n  \"connector\": \"5f5a8f3351d4db99c40dece5\",\r\n  \"chunk_period\": \"quarter\", //define a chunk period by \"day\",\"week\", \"month\", \"quarter\"\r\n  \"chunk_retention\": 36, //acceptable range between 0-36\r\n  \"serie_number\": \"AB87392C17CA\" //only if required by network (optional)\r\n }"
+              Create Mutable Device:
+                value: "{\r\n  \"name\": \"My first device\",\r\n  \"type\": \"mutable\",\r\n  \"network\": \"5bbd0d144051a50034cd19fb\",\r\n  \"connector\": \"5f5a8f3351d4db99c40dece5\",\r\n  \"serie_number\": \"AB87392C12CA\" //only if required by network (optional)\r\n }"
+      responses:
+        '201':
+          description: Mutable device created / Mutable device created with parse function / Immutable device created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      deviceID:
+                        type: string
+                        example: 5dcad1c216174c001ca23ab9
+                      token:
+                        type: string
+                        example: 5a16405f-b32c-4c91-ae39-cbb2caba18d8
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    get:
+      tags:
+      - Devices
+      summary: Device Information
+      description: Device information
+      operationId: deviceInformation
+      responses:
+        '200':
+          description: Getting a device information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      active:
+                        type: boolean
+                        example: true
+                      connector:
+                        type: string
+                        example: 60f19bda2889a60012d34167
+                      created_at:
+                        type: string
+                        example: '2022-06-09T21:21:51.877Z'
+                      data_retention:
+                        type: string
+                        example: forever
+                      description:
+                        type: string
+                        example: Simulates a Extrusion machine with temperature, speed and pressure
+                      id:
+                        type: string
+                        example: 62a2646ffdea2f0013b1bfe7
+                      last_input:
+                        type: string
+                        example: '2022-06-23T11:19:54.369Z'
+                      name:
+                        type: string
+                        example: Test Chunk Monthly
+                      network:
+                        type: string
+                        example: 6073cdfec79ed00011228e47
+                      payload_decoder:
+                        example: null
+                      profile:
+                        type: string
+                        example: 612ea05e3cc0780012715111
+                      tags:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                              example: maxTemp
+                            value:
+                              type: string
+                              example: '20'
+                        example:
+                        - key: maxTemp
+                          value: '20'
+                        - key: minTemp
+                          value: '0'
+                      type:
+                        type: string
+                        example: mutable
+                      updated_at:
+                        type: string
+                        example: '2022-06-09T21:53:22.752Z'
+                      visible:
+                        type: boolean
+                        example: true
+                  status:
+                    type: boolean
+                    example: true
+    put:
+      tags:
+      - Devices
+      summary: Edit Device
+      description: 'Modify any property of the device.
+
+
+        You''re only required to send the parameters you want to edit.
+
+
+        If changing network/connector, make sure you''ve deleted all tokens in the device first. Is also required to send both network and connector to edit any of both fields.
+
+        '
+      operationId: editDevice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  example: false
+                connector:
+                  type: string
+                  example: 6148de43683cae0018940d0c
+                name:
+                  type: string
+                  example: 'Device #2'
+                network:
+                  type: string
+                  example: 5bbd120d4051a50034cd1a05
+                payload_decoder:
+                  type: string
+                  description: Base64 formatted javascript code
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                        example: my_tag_key
+                      value:
+                        type: string
+                        example: my_tag_value
+                  example:
+                  - key: my_tag_key
+                    value: my_tag_value
+                visible:
+                  type: boolean
+                  example: false
+            examples:
+              Edit device:
+                value:
+                  active: false
+                  connector: 6148de43683cae0018940d0c
+                  name: 'Device #2'
+                  network: 5bbd120d4051a50034cd1a05
+                  payload_decoder: LyogVGhpcyBpcyBhIGRlZmF1bHQgZXhhbXBsZSBmb3IgcGF5bG9hZCBwYXJzZXIuCioqIFRoZSBpZ25vcmVfdmFycyB2YXJpYWJsZSBpbiB0aGlzIGNvZGUgc2hvdWxkIGJlIHVzZWQgdG8gaWdub3JlIHZhcmlhYmxlcwoqKiBmcm9tIHRoZSBkZXZpY2UgdGhhdCB5b3UgZG9uJ3Qgd2FudC4KKioKKiogVGVzdGluZzoKKiogWW91IGNhbiBkbyBtYW51YWwgdGVzdHMgdG8gdGhpcyBwYXJzZSBieSB1c2luZyB0aGUgRGV2aWNlIEVtdWxhdG9yLiBDb3B5IGFuZCBQYXN0ZSB0aGUgZm9sbG93aW5nIGNvZGU6CioqIFt7ICJ2YXJpYWJsZSI6ICJwYXlsb2FkIiwgInZhbHVlIjogIjAxMDk2MTEzOTUiIH1dCioqCiovCi8vIEFkZCBpZ25vcmFibGUgdmFyaWFibGVzIGluIHRoaXMgYXJyYXkuCmNvbnN0IGlnbm9yZV92YXJzID0gWydyZl9jaGFpbicsICdjaGFubmVsJywgJ21vZHVsYXRpb24nLCAnYXBwX2lkJywgJ2Rldl9pZCcsICd0aW1lJywgJ2d0d190cnVzdGVkJywgJ3BvcnQnXTsKCi8vIFJlbW92ZSB1bndhbnRlZCB2YXJpYWJsZXMuCnBheWxvYWQgPSBwYXlsb2FkLmZpbHRlcih4ID0+ICFpZ25vcmVfdmFycy5pbmNsdWRlcyh4LnZhcmlhYmxlKSk7CgovLyBZb3UgY2FuIGVkaXQgYW55IHZhcmlhYmxlIHRoYXQncyBiZWluZyBhZGRlZCB0byB5b3VyIGRldmljZS4KLy8gRm9yIGV4YW1wbGUsIGlmIHlvdSBuZWVkIHRvIGNvbnZlcnQgYSB2YXJpYWJsZSBmcm9tIEZhaHJlaW50aCB0byBDZWxzaXVzLCB1bmNvbW1lbnQgdGhlIGZvbGxvd2luZyBjb2RlOgovLyBjb25zdCB0ZW1wZXJhdHVyZSA9IHBheWxvYWQuZmluZCh4ID0+IHgudmFyaWFibGUgPT09ICJ0ZW1wZXJhdHVyZSIpOwovLyBpZiAodGVtcGVyYXR1cmUpIHsKLy8gICB0ZW1wZXJhdHVyZS52YWx1ZSA9ICg1IC8gOSkgKiAodGVtcGVyYXR1cmUudmFsdWUgLSAzMik7Ci8vICAgdGVtcGVyYXR1cmUudW5pdCA9ICJDIjsKLy8gfQ==
+                  tags:
+                  - key: my_tag_key
+                    value: my_tag_value
+                  visible: false
+                  chunk_retention: 20
+              Immutable Chunk retention:
+                value: "{\r\n    \"chunk_retention\": 20 // acceptable range by period: day(0-31), week(0-26), month(0-36), quarter(0-36)\r\n}"
+      responses:
+        '200':
+          description: Updating device settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+    delete:
+      tags:
+      - Devices
+      summary: Delete Device
+      description: 'Deletes a device from the profile
+
+        '
+      operationId: deleteDevice
+      responses:
+        '200':
+          description: Deleting a device by ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Successfully Removed
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/convert:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    post:
+      tags:
+      - Devices
+      summary: Convert Device Type
+      description: 'Convert the device immutable or mutable.
+
+
+        The device must be empty before being converted. You can empty your device through your device''s page. The Device-Token is preserved when converting using this route.
+
+        The device must be disabled before being converted. You can disable the device by going to the device''s page and turn off the active switch.'
+      operationId: convertDeviceType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              title: ConvertDeviceTypeRequest
+              properties:
+                type:
+                  type: string
+                  example: immutable
+                chunk_period:
+                  type: string
+                  example: quarter
+                  description: Only required when converting to immutable. Defines the period for data chunking (e.g., quarter, month, year).
+                chunk_retention:
+                  type: number
+                  example: 4
+                  description: Only required when converting to immutable. Number of chunk periods to retain.
+            examples:
+              Convert to Immutable:
+                value:
+                  type: immutable
+                  chunk_period: quarter
+                  chunk_retention: 4
+              Convert to Mutable:
+                value:
+                  type: mutable
+      responses:
+        '200':
+          description: Converting a device type
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Device type/chunk was converted
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/data_amount:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    get:
+      tags:
+      - Devices
+      summary: Data Amount
+      description: Get the total number of data items stored within the device.
+      operationId: deviceDataAmount
+      responses:
+        '200':
+          description: Getting a device data amount
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 529
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/empty:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    post:
+      tags:
+      - Devices
+      summary: Empty Device Storage
+      description: Empty a Device's Data
+      operationId: emptyADeviceSData
+      responses:
+        '200':
+          description: Device's Data empty
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Data Successfully Removed
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/data:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+      description: Device ID
+    get:
+      tags:
+      - Devices
+      summary: Get Device Data
+      description: Get Device Data for a specific Device within your profile
+      operationId: getDeviceData
+      parameters:
+      - name: qty
+        in: query
+        schema:
+          type: string
+          example: '10'
+        description: Numeric quantity of data to be returned
+      - name: end_date
+        in: query
+        schema:
+          type: string
+          example: '2023-10-10T13:17:16.290Z'
+        description: Final date to get the data returned in ISO timestamp format (Not Required)
+      responses:
+        '200':
+          description: Get Device Data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created_at:
+                          type: string
+                          example: '2023-09-20T14:26:44.918Z'
+                        device:
+                          type: string
+                          example: 6307b0b1b41f1b001a45c7e3
+                        group:
+                          type: string
+                          example: 63956cf0000a19e44210b056
+                        id:
+                          type: string
+                          example: 650b01244e91a0000fc65937
+                        location:
+                          type: object
+                          properties:
+                            coordinates:
+                              type: array
+                              items:
+                                type: number
+                                example: -77.757328
+                              example:
+                              - -77.757328
+                              - 36.68072299999999
+                            type:
+                              type: string
+                              example: Point
+                        time:
+                          type: string
+                          example: '2023-09-20T14:26:44.918Z'
+                        unit:
+                          type: string
+                          example: C
+                        value:
+                          type: string
+                          example: '16'
+                        variable:
+                          type: string
+                          example: temperature
+                    example:
+                    - created_at: '2023-09-20T14:26:44.918Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 63956cf0000a19e44210b056
+                      id: 650b01244e91a0000fc65937
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:44.918Z'
+                      unit: C
+                      value: '16'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:38.015Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: f863379000439d95e110b056
+                      id: 650b011e59d9340009733690
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:38.015Z'
+                      unit: C
+                      value: '86'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:25.477Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: aa756cf0000a19e41110b056
+                      id: 650b01114e91a0000fc657ab
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:25.477Z'
+                      unit: C
+                      value: '16'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:14.180Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b0ee2101006e7e786010b056
+                      id: 650b010687e7e6001012ee0c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:14.180Z'
+                      unit: C
+                      value: '58'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:03.199Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 5b33379000439d95bf00b056
+                      id: 650b00fb59d93400097333b6
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:03.199Z'
+                      unit: C
+                      value: '11'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:53.034Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: e2456cf0000a19e41f00b056
+                      id: 650b00f14e91a0000fc6542f
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:53.034Z'
+                      unit: C
+                      value: '3'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:43.099Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 6f40e7f0001ad1107e00b056
+                      id: 650b00e7011da1000f7e04f7
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:43.099Z'
+                      unit: C
+                      value: '10'
+                      variable: test
+                    - created_at: '2023-09-20T14:25:33.027Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b77fbff000c901bddd00b056
+                      id: 650b00dddb109c000ffbf77c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:33.027Z'
+                      unit: C
+                      value: '7'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:23.020Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b7e298900029919a3d00b056
+                      id: 650b00d3a919920009892e7c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:23.020Z'
+                      unit: C
+                      value: '1'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:13.079Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 7320e7f0001ad1109c00b056
+                      id: 650b00c9011da1000f7e0238
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:13.079Z'
+                      unit: C
+                      value: '12'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:03.133Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: c14fbff000c901bdfb00b056
+                      id: 650b00bfdb109c000ffbf41d
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:03.133Z'
+                      unit: C
+                      value: '66'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:24:53.135Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 64a2379000439d955b00b056
+                      id: 650b00b559d9340009732a47
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:24:53.134Z'
+                      unit: C
+                      value: '19'
+                      variable: temperature
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Get Device Data:
+                  value:
+                    result:
+                    - created_at: '2023-09-20T14:26:44.918Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 63956cf0000a19e44210b056
+                      id: 650b01244e91a0000fc65937
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:44.918Z'
+                      unit: C
+                      value: '16'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:38.015Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: f863379000439d95e110b056
+                      id: 650b011e59d9340009733690
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:38.015Z'
+                      unit: C
+                      value: '86'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:25.477Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: aa756cf0000a19e41110b056
+                      id: 650b01114e91a0000fc657ab
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:25.477Z'
+                      unit: C
+                      value: '16'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:14.180Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b0ee2101006e7e786010b056
+                      id: 650b010687e7e6001012ee0c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:14.180Z'
+                      unit: C
+                      value: '58'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:26:03.199Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 5b33379000439d95bf00b056
+                      id: 650b00fb59d93400097333b6
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:26:03.199Z'
+                      unit: C
+                      value: '11'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:53.034Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: e2456cf0000a19e41f00b056
+                      id: 650b00f14e91a0000fc6542f
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:53.034Z'
+                      unit: C
+                      value: '3'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:43.099Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 6f40e7f0001ad1107e00b056
+                      id: 650b00e7011da1000f7e04f7
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:43.099Z'
+                      unit: C
+                      value: '10'
+                      variable: test
+                    - created_at: '2023-09-20T14:25:33.027Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b77fbff000c901bddd00b056
+                      id: 650b00dddb109c000ffbf77c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:33.027Z'
+                      unit: C
+                      value: '7'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:23.020Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: b7e298900029919a3d00b056
+                      id: 650b00d3a919920009892e7c
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:23.020Z'
+                      unit: C
+                      value: '1'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:13.079Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 7320e7f0001ad1109c00b056
+                      id: 650b00c9011da1000f7e0238
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:13.079Z'
+                      unit: C
+                      value: '12'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:25:03.133Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: c14fbff000c901bdfb00b056
+                      id: 650b00bfdb109c000ffbf41d
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:25:03.133Z'
+                      unit: C
+                      value: '66'
+                      variable: temperature
+                    - created_at: '2023-09-20T14:24:53.135Z'
+                      device: 6307b0b1b41f1b001a45c7e3
+                      group: 64a2379000439d955b00b056
+                      id: 650b00b559d9340009732a47
+                      location:
+                        coordinates:
+                        - -77.757328
+                        - 36.68072299999999
+                        type: Point
+                      time: '2023-09-20T14:24:53.134Z'
+                      unit: C
+                      value: '19'
+                      variable: temperature
+                    status: true
+    post:
+      tags:
+      - Devices
+      summary: Send Device Data
+      description: 'Send data to a specific Device within your profile
+
+        '
+      operationId: sendDataToDevice
+      security:
+      - Device-Token: []
+      requestBody:
+        $ref: '#/components/requestBodies/DeviceDataBody'
+      responses:
+        '200':
+          description: Sending data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 2 Data Added
+                  status:
+                    type: boolean
+                    example: true
+    put:
+      tags:
+      - Devices
+      summary: Edit Device Data
+      description: "Edit specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+      operationId: editDeviceData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: 653aa3ab617c10000990718f
+                value:
+                  type: number
+                  example: 20
+            examples:
+              Edit Device Data:
+                value:
+                  id: 653aa3ab617c10000990718f
+                  value: 20
+      responses:
+        '200':
+          description: Editing a device data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 1 item(s) updated
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Editing a device data:
+                  value:
+                    result: 1 item(s) updated
+                    status: true
+    delete:
+      tags:
+      - Devices
+      summary: Delete Device Data
+      description: "Delete specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+      operationId: deleteDeviceData
+      parameters:
+      - $ref: '#/components/parameters/DeleteFilterQty'
+      - $ref: '#/components/parameters/DeleteFilterOrdination'
+      - $ref: '#/components/parameters/DeleteFilterSkip'
+      - $ref: '#/components/parameters/DeleteFilterVariables'
+      - $ref: '#/components/parameters/DeleteFilterValues'
+      - $ref: '#/components/parameters/DeleteFilterIds'
+      - $ref: '#/components/parameters/DeleteFilterGroups'
+      responses:
+        '200':
+          description: Delete Device Data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 1 Data Removed
+                  status:
+                    type: boolean
+                    example: true
+components:
+  schemas:
+    DeviceDataItem:
+      type: object
+      required:
+      - variable
+      properties:
+        variable:
+          type: string
+          example: location
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+              example: 35.770723
+            lng:
+              type: number
+              example: -78.677328
+        value:
+          type: string
+          example: TagoIO Headquarters
+        time:
+          type: string
+          description: ISO 8601 string or Unix timestamp
+          example: '2023-12-01T12:34:56.000Z'
+        group:
+          type: string
+          description: Unique grouping ID for your data. Widgets often group by this.
+        unit:
+          type: string
+          example: '%'
+          description: Provide a unit of measurement to the data. Most widgets will display the unit.
+        metadata:
+          type: object
+          description: Can be attached to the data to influence widget behavior and store additional information.
+          additionalProperties: true
+          example:
+            color: red
+            icon: car
+    DeviceDataArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceDataItem'
+      description: Accepts a single item or an array of items.
+    DeviceData:
+      description: 'Accepts a single item or an array of items when sent as application/json.
+
+        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
+
+        '
+      oneOf:
+      - $ref: '#/components/schemas/DeviceDataItem'
+      - $ref: '#/components/schemas/DeviceDataArray'
+  requestBodies:
+    DeviceDataBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeviceData'
+          examples:
+            Send data (object):
+              value:
+                variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+            Send data (array):
+              value:
+              - variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+              - variable: location
+                value: New York Office
+                location:
+                  lat: 40.712776
+                  lng: -74.005974
+        text/plain:
+          schema:
+            type: string
+            description: Raw text data that will be processed by the device's Payload Parser to normalize into TagoIO JSON format.
+          examples:
+            Raw sensor data:
+              value: temperature:23.5,humidity:45.2,battery:87
+            HEX payload:
+              value: 41BC7E1F2A
+            Custom format:
+              value: sensor_id=123&temp=25.6&status=ok
+  parameters:
+    DeleteFilterIds:
+      name: ids
+      in: query
+      description: Filter data by id. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: 6144a25e280ad80019688e689
+    DeleteFilterOrdination:
+      name: ordination
+      in: query
+      description: Sort direction. Default is descending.
+      schema:
+        type: string
+        enum:
+        - ascending
+        - descending
+        default: descending
+        example: descending
+    DeleteFilterQty:
+      name: qty
+      in: query
+      description: Quantity of data records to delete. Default is 15.
+      schema:
+        type: integer
+        minimum: 1
+        default: 15
+        example: 20
+    DeleteFilterVariables:
+      name: variables
+      in: query
+      description: Filter data by variable.
+      schema:
+        type: string
+        example: temperature
+    DeleteFilterGroups:
+      name: groups
+      in: query
+      description: 'Filter data by group. Accepts single or multiple values.
+
+        For multiple, send `groups[0]=foo&groups[1]=bar`.
+
+        '
+      schema:
+        type: string
+        items:
+          type: string
+        example: '16731887966346'
+    DeleteFilterSkip:
+      name: skip
+      in: query
+      description: Number of items to skip (pagination).
+      schema:
+        type: integer
+        minimum: 0
+        example: 15
+    DeleteFilterValues:
+      name: values
+      in: query
+      description: Filter data by value. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: '12'
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

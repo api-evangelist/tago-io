@@ -1,0 +1,567 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Access Management
+  description: Roles, permissions, and sharing (Profile Token).
+paths:
+  /am:
+    get:
+      tags:
+      - Access Management
+      summary: List Policies
+      description: List all access policies in your profile
+      operationId: getPolicyList
+      parameters:
+      - name: orderBy
+        in: query
+        required: true
+        schema:
+          type: string
+          example: created_at
+      responses:
+        '200':
+          description: Getting Policy List
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        active:
+                          type: boolean
+                          description: Indicates if the policy is active
+                          example: true
+                        id:
+                          type: string
+                          example: 654a7e62a34b9c000006886c2
+                        profile:
+                          type: string
+                          example: 62fa9e65e0badb0019200
+                        name:
+                          type: string
+                          example: My Analysis Policy
+                        created_at:
+                          type: string
+                          description: Date and time when the policy was created
+                          example: '2023-11-01T12:34:56.789Z'
+                        tags:
+                          type: array
+                          items: {}
+                          example: []
+                  status:
+                    type: boolean
+                    example: true
+    post:
+      tags:
+      - Access Management
+      summary: Create Policy
+      description: Create a policy that targets either Run User or Analysis
+      operationId: createPolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - type: object
+                title: User Policy
+                required:
+                - name
+                - permissions
+                - targets
+                - active
+                properties:
+                  name:
+                    type: string
+                    description: Name of the policy
+                    example: User permissions
+                  permissions:
+                    type: array
+                    description: Array of permission objects
+                    items:
+                      type: object
+                      properties:
+                        effect:
+                          type: string
+                          enum:
+                          - allow
+                          - deny
+                          description: Allow or deny the permission
+                          example: allow
+                        action:
+                          type: array
+                          items:
+                            type: string
+                          description: 'Actions allowed: access, edit, delete, create'
+                          example:
+                          - access
+                        resource:
+                          type: array
+                          items:
+                            type: string
+                          description: 'Resources: device, dashboard, analysis, run_user, etc.'
+                          example:
+                          - device
+                  targets:
+                    type: array
+                    description: 'Global: ["run_user"]. Specific: ["run_user", "id", "user_id"]. Tag-based: ["run_user", "tag_match", "tag_key"]'
+                    items:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - run_user
+                    example:
+                    - - run_user
+                  tags:
+                    type: array
+                    description: Optional tags for targeting specific users/analysis
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                          description: Tag key
+                          example: user
+                        value:
+                          type: string
+                          description: Tag value
+                          example: admin
+                    example:
+                    - key: user
+                      value: admin
+                  active:
+                    type: boolean
+                    description: Whether the policy is active
+                    example: true
+              - type: object
+                title: Analysis Policy
+                required:
+                - name
+                - permissions
+                - targets
+                - active
+                properties:
+                  name:
+                    type: string
+                    description: Name of the policy
+                    example: Policy
+                  permissions:
+                    type: array
+                    description: Array of permission objects
+                    items:
+                      type: object
+                      properties:
+                        effect:
+                          type: string
+                          enum:
+                          - allow
+                          - deny
+                          description: Allow or deny the permission
+                          example: allow
+                        action:
+                          type: array
+                          items:
+                            type: string
+                          description: 'Actions allowed: access, edit, delete, create'
+                          example:
+                          - edit
+                          - delete
+                          - create
+                          - access
+                        resource:
+                          type: array
+                          items:
+                            type: string
+                          description: 'Resources: device, dashboard, analysis, run_user, etc.'
+                          example:
+                          - device
+                  targets:
+                    type: array
+                    description: 'Global: ["analysis"]. Specific: ["analysis", "id", "analysis_id"]. Tag-based: ["analysis", "tag_match", "tag_key"]'
+                    items:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - analysis
+                    example:
+                    - - analysis
+                  tags:
+                    type: array
+                    description: Optional tags for targeting specific users/analysis
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                          description: Tag key
+                          example: user
+                        value:
+                          type: string
+                          description: Tag value
+                          example: admin
+                    example:
+                    - key: user
+                      value: admin
+                  active:
+                    type: boolean
+                    description: Whether the policy is active
+                    example: true
+            examples:
+              Create Policy - Run User (Global):
+                value:
+                  name: User permissions
+                  permissions:
+                  - effect: allow
+                    action:
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - run_user
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+              Create Policy - Run User (Specific ID):
+                value:
+                  name: User permissions
+                  permissions:
+                  - effect: allow
+                    action:
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - run_user
+                    - id
+                    - 68b5dd292ee817000af854dc
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+              Create Policy - Run User (Tag Match):
+                value:
+                  name: User permissions
+                  permissions:
+                  - effect: allow
+                    action:
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - run_user
+                    - tag_match
+                    - account_token
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+              Create Policy - Analysis (Global):
+                value:
+                  name: Policy
+                  permissions:
+                  - effect: allow
+                    action:
+                    - edit
+                    - delete
+                    - create
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - analysis
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+              Create Policy - Analysis (Specific ID):
+                value:
+                  name: Policy
+                  permissions:
+                  - effect: allow
+                    action:
+                    - edit
+                    - delete
+                    - create
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - analysis
+                    - id
+                    - 68b5dd292ee817000af854dc
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+              Create Policy - Analysis (Tag Match):
+                value:
+                  name: Policy
+                  permissions:
+                  - effect: allow
+                    action:
+                    - edit
+                    - delete
+                    - create
+                    - access
+                    resource:
+                    - device
+                  targets:
+                  - - analysis
+                    - tag_match
+                    - account_token
+                  tags:
+                  - key: user
+                    value: admin
+                  active: true
+          text/plain:
+            examples:
+              Create Policy - Run User (Global):
+                value: "{\n    \"name\": \"User permissions\",\n    \"permissions\": [\n        {\n            \"effect\": \"allow\",\n            \"action\": [\"access\"],\n            \"resource\": [\"device\"]\n        }\n    ],\n    \"targets\": [[\"run_user\"]],\n    \"tags\": [{\"key\": \"user\", \"value\": \"admin\"}],\n    \"active\": true\n}"
+              Create Policy - Analysis (Global):
+                value: "{\n    \"name\": \"Policy\",\n    \"permissions\": [\n        {\n            \"effect\": \"allow\",\n            \"action\": [\"edit\", \"delete\", \"create\", \"access\"],\n            \"resource\": [\"device\"]\n        }\n    ],\n    \"targets\": [[\"analysis\"]],\n    \"tags\": [{\"key\": \"user\", \"value\": \"admin\"}],\n    \"active\": true\n}"
+      responses:
+        '201':
+          description: Create Policy - Run User / Create Policy - Analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      am_id:
+                        type: string
+                        example: 654a8bf3fefe2f00099a16a2
+                  status:
+                    type: boolean
+                    example: true
+  /{am_id}:
+    parameters:
+    - name: am_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type a Access Management/Policy ID)
+      description: Can be obtained in the GET Policy response
+    put:
+      tags:
+      - Access Management
+      summary: Update Policy
+      description: Update policy
+      operationId: updatePolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active:
+                  type: boolean
+                  example: true
+                name:
+                  type: string
+                  example: Updated policy name
+                permissions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      action:
+                        type: array
+                        items:
+                          type: string
+                          example: access
+                        example:
+                        - access
+                      effect:
+                        type: string
+                        example: denied
+                      resource:
+                        type: array
+                        items:
+                          type: string
+                          example: device
+                        example:
+                        - device
+                  example:
+                  - action:
+                    - access
+                    effect: denied
+                    resource:
+                    - device
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                        example: access
+                      value:
+                        type: string
+                        example: blocked
+                  example:
+                  - key: access
+                    value: blocked
+                targets:
+                  type: array
+                  items:
+                    type: array
+                    items:
+                      type: string
+                      example: run_user
+                    example:
+                    - run_user
+                  example:
+                  - - run_user
+            examples:
+              Update policy:
+                value:
+                  active: true
+                  name: Updated policy name
+                  permissions:
+                  - action:
+                    - access
+                    effect: denied
+                    resource:
+                    - device
+                  tags:
+                  - key: access
+                    value: blocked
+                  targets:
+                  - - run_user
+          text/plain:
+            examples:
+              Update policy:
+                value: "{\n    \"name\": \"Updated Policy Name\", //edit the policy name\n    \"permissions\": [\n        {\n            \"effect\": \"allow\",\n            \"action\": [\n                \"access\"\n            ],\n            \"resource\": [\n                \"device\"\n            ] //updating resouces, they can be \"device\", \"dashboard\" and \"run_user\" types\n        }\n    ],\n    \"targets\": [\n        [\n            \"run_user\"\n        ] // update  the target, possible \"run_user\" and \"analysis\" types\n    ],\n    \"tags\": [\n        {\n            \"key\": \"access\",\n            \"value\": \"admin\"\n        }\n        ], //able to update tags \n    \"active\": true //able to active and deactive policy (true or false)\n}"
+      responses:
+        '200':
+          description: Updating a policy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Access Management Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Updating a policy:
+                  value:
+                    result: Access Management Successfully Updated
+                    status: true
+  /am/{am_id}:
+    parameters:
+    - name: am_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type an Access Management/Policy ID)
+      description: Can be obtained in the GET Policy request response
+    delete:
+      tags:
+      - Access Management
+      summary: Delete Policy
+      description: Delete Policy
+      operationId: deletePolicy
+      responses:
+        '200':
+          description: Delete policy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Access Management Successfully Deleted
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Delete policy:
+                  value:
+                    result: Access Management Successfully Deleted
+                    status: true
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

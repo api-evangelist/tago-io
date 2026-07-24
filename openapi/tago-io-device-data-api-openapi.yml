@@ -1,0 +1,658 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Device Data API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Device Data
+  description: Endpoints that act as a device using a Device Token (device-level permissions).
+paths:
+  /info:
+    get:
+      tags:
+      - Device Data
+      summary: Device Information
+      description: 'Get information about the current device
+
+        '
+      operationId: currentDeviceInformation
+      security:
+      - Device-Token: []
+      responses:
+        '200':
+          description: Get information about current device successfuly
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      active:
+                        type: boolean
+                        example: true
+                      connector:
+                        type: string
+                        example: 62333bd36977fc001a2990c8
+                      created_at:
+                        type: string
+                        example: '2022-06-02T18:09:07.135Z'
+                      id:
+                        type: string
+                        example: 6298fcc3e0b6840012b6abfa
+                      last_input:
+                        type: string
+                        example: '2022-06-02T19:40:54.517Z'
+                      name:
+                        type: string
+                        example: TagoIO Device
+                      network:
+                        type: string
+                        example: 62336c32ab6e0d0012e06c04
+                      payload_decoder:
+                        type: string
+                        example: LyogVGhpcyBpcyBhIGRlZmF1bHQgZXhhbXBsZSBmb3IgcGF5bG9hZCBwYXJzZXIuCioqIFRoZSBpZ25vcmVfdmFycyB2YXJpYWJsZSBpbiB0aGlzIGNvZGUgc2hvdWxkIGJlIHVzZWQgdG8gaWdub3JlIHZhcmlhYmxlcwoqKiBmcm9tIHRoZSBkZXZpY2UgdGhhdCB5b3UgZG9uJ3Qgd2FudC4KKioKKiogVGVzdGluZzoKKiogWW91IGNhbiBkbyBtYW51YWwgdGVzdHMgdG8gdGhpcyBwYXJzZSBieSB1c2luZyB0aGUgRGV2aWNlIEVtdWxhdG9yLiBDb3B5IGFuZCBQYXN0ZSB0aGUgZm9sbG93aW5nIGNvZGU6CioqIFt7ICJ2YXJpYWJsZSI6ICJwYXlsb2FkIiwgInZhbHVlIjogIjAxMDk2MTEzOTUiIH1dCioqCiovCi8vIEFkZCBpZ25vcmFibGUgdmFyaWFibGVzIGluIHRoaXMgYXJyYXkuCmNvbnN0IGlnbm9yZV92YXJzID0gWydyZl9jaGFpbicsICdjaGFubmVsJywgJ21vZHVsYXRpb24nLCAnYXBwX2lkJywgJ2Rldl9pZCcsICd0aW1lJywgJ2d0d190cnVzdGVkJywgJ3BvcnQnXTsKCi8vIFJlbW92ZSB1bndhbnRlZCB2YXJpYWJsZXMuCnBheWxvYWQgPSBwYXlsb2FkLmZpbHRlcih4ID0+ICFpZ25vcmVfdmFycy5pbmNsdWRlcyh4LnZhcmlhYmxlKSk7CgovLyBZb3UgY2FuIGVkaXQgYW55IHZhcmlhYmxlIHRoYXQncyBiZWluZyBhZGRlZCB0byB5b3VyIGRldmljZS4KLy8gRm9yIGV4YW1wbGUsIGlmIHlvdSBuZWVkIHRvIGNvbnZlcnQgYSB2YXJpYWJsZSBmcm9tIEZhaHJlaW50aCB0byBDZWxzaXVzLCB1bmNvbW1lbnQgdGhlIGZvbGxvd2luZyBjb2RlOgovLyBjb25zdCB0ZW1wZXJhdHVyZSA9IHBheWxvYWQuZmluZCh4ID0+IHgudmFyaWFibGUgPT09ICJ0ZW1wZXJhdHVyZSIpOwovLyBpZiAodGVtcGVyYXR1cmUpIHsKLy8gICB0ZW1wZXJhdHVyZS52YWx1ZSA9ICg1IC8gOSkgKiAodGVtcGVyYXR1cmUudmFsdWUgLSAzMik7Ci8vICAgdGVtcGVyYXR1cmUudW5pdCA9ICJDIjsKLy8gfQ==
+                      profile:
+                        type: string
+                        example: 5e1e192a06fbee00265ccfb0
+                      tags:
+                        type: array
+                        items: {}
+                        example: []
+                      type:
+                        type: string
+                        example: mutable
+                      updated_at:
+                        type: string
+                        example: '2022-06-10T20:22:59.405Z'
+                      visible:
+                        type: boolean
+                        example: true
+                  status:
+                    type: boolean
+                    example: true
+  /data:
+    get:
+      tags:
+      - Device Data
+      summary: Get Data
+      description: Get data from the device.
+      operationId: getData
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+          enum:
+          - count
+          - min
+          - max
+          - avg
+          - sum
+          - last_item
+          - last_location
+          - aggregate
+          - conditional
+        description: Select the query mode.
+      - name: qty
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          example: 20
+        description: Total quantity of data to retrieve.
+      - name: details
+        in: query
+        schema:
+          type: boolean
+          example: true
+        description: Include additional fields (e.g., created_at).
+      - name: ordination
+        in: query
+        schema:
+          type: string
+          enum:
+          - ascending
+          - descending
+          example: descending
+        description: Sort order.
+      - name: skip
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          example: 15
+        description: Number of items to skip.
+      - name: variables
+        in: query
+        schema:
+          type: string
+          example: temperature
+        description: Filter data by variable.
+      - name: values
+        in: query
+        schema:
+          type: string
+          example: '25'
+        description: Filter data by value.
+      - name: groups
+        in: query
+        schema:
+          type: string
+          example: 0923092039
+        description: Filter by group identifier.
+      - name: start_date
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: '2022-09-09T10:28:44Z'
+        description: Start timestamp or relative date.
+      - name: end_date
+        in: query
+        schema:
+          type: string
+          format: date-time
+          example: '2022-09-10T10:28:44Z'
+        description: End timestamp or relative date.
+      - name: function
+        in: query
+        schema:
+          type: string
+          enum:
+          - avg
+          - sum
+          - min
+          - max
+          - gt
+          - gte
+          - lt
+          - lte
+          - eq
+          - ne
+          example: avg
+        description: 'Allowed values depend on query mode: aggregate → avg,sum,min,max; conditional → gt,gte,lt,lte,eq,ne.'
+      security:
+      - Device-Token: []
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created_at:
+                          type: string
+                          example: '2021-09-16T17:51:43.672Z'
+                        device:
+                          type: string
+                          example: 612ea1694035dd0012f6d238
+                        group:
+                          type: string
+                          example: '1631814703672'
+                        id:
+                          type: string
+                          example: 6143842f561c4e00199f517b
+                        location:
+                          type: object
+                          properties:
+                            coordinates:
+                              type: array
+                              items:
+                                type: number
+                                example: -78.677328
+                              example:
+                              - -78.677328
+                              - 35.770723
+                            type:
+                              type: string
+                              example: point
+                        time:
+                          type: string
+                          example: '2021-09-16T17:51:43.672Z'
+                        unit:
+                          type: string
+                          example: °C
+                        value:
+                          type: number
+                          example: -12.67
+                        variable:
+                          type: string
+                          example: temperature
+                    example:
+                    - created_at: '2021-09-16T17:51:43.672Z'
+                      device: 612ea1694035dd0012f6d238
+                      group: '1631814703672'
+                      id: 6143842f561c4e00199f517b
+                      location:
+                        coordinates:
+                        - -78.677328
+                        - 35.770723
+                        type: point
+                      time: '2021-09-16T17:51:43.672Z'
+                      unit: °C
+                      value: -12.67
+                      variable: temperature
+                  status:
+                    type: boolean
+                    example: true
+    put:
+      tags:
+      - Device Data
+      summary: Edit Data
+      description: "Edit specific data stored in the device. Same properties as the Create Data is accepted, edit requires the ID field of the data to be edited.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+      operationId: editData
+      security:
+      - Device-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                - id
+                properties:
+                  id:
+                    type: string
+                    example: 6298fcc3e0b6840012bb6abfa
+                  metadata:
+                    type: object
+                    properties:
+                      color:
+                        type: string
+                        example: blue
+                  value:
+                    type: string
+                    example: '27'
+              example:
+              - id: 6298fcc3e0b6840012bb6abfa
+                metadata:
+                  color: blue
+                value: '27'
+          text/plain:
+            examples:
+              Edit data:
+                value: "[\n    {\n        \"id\": \"6298fcc3e0b6840012bb6abfa\",\n        \"value\": \"27\", // edit the value field\n        \"metadata\": { // edit the metadata field\n            \"color\": \"blue\"\n        }\n    }\n]"
+      responses:
+        '200':
+          description: Editing data register by ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 1 item(s) updated
+                  status:
+                    type: boolean
+                    example: true
+    post:
+      tags:
+      - Device Data
+      summary: Send Data
+      description: 'Send Device Data
+
+        '
+      operationId: sendData
+      security:
+      - Device-Token: []
+      requestBody:
+        $ref: '#/components/requestBodies/DeviceDataBody'
+      responses:
+        '200':
+          description: Sending data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 2 Data Added
+                  status:
+                    type: boolean
+                    example: true
+    delete:
+      tags:
+      - Device Data
+      summary: Delete Data
+      description: "Delete data from the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices.  \n:::\n"
+      operationId: deleteData
+      parameters:
+      - $ref: '#/components/parameters/DeleteFilterQty'
+      - $ref: '#/components/parameters/DeleteFilterOrdination'
+      - $ref: '#/components/parameters/DeleteFilterSkip'
+      - $ref: '#/components/parameters/DeleteFilterVariables'
+      - $ref: '#/components/parameters/DeleteFilterValues'
+      - $ref: '#/components/parameters/DeleteFilterIds'
+      - $ref: '#/components/parameters/DeleteFilterGroups'
+      security:
+      - Device-Token: []
+      responses:
+        '200':
+          description: Deleting data using params
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: 1 Data Removed
+                  status:
+                    type: boolean
+                    example: true
+  /device/params:
+    get:
+      tags:
+      - Device Data
+      summary: List Config. parameters
+      description: 'Retrieve configuration parameters for the current device. This is useful for delivering settings or instructions that your device can periodically check for updates.
+
+
+        [Configuration Parameters](/docs/tagoio/devices/configuration-parameters-for-devices) can be used to provide URLs (such as for firmware updates) or any other settings needed to control device behavior.
+
+        '
+      operationId: getConfigurationParameters
+      parameters:
+      - name: sent_status
+        in: query
+        schema:
+          type: string
+          example: 'true'
+        description: Filter by `sent` status.
+      security:
+      - Device-Token: []
+      responses:
+        '200':
+          description: List of configuration parameters returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 6244401fe689b90014f9b299
+                        key:
+                          type: string
+                          example: param_key
+                        sent:
+                          type: boolean
+                          example: false
+                        value:
+                          type: string
+                          example: param_value
+                  status:
+                    type: boolean
+                    example: true
+  /device/params/{paramID}:
+    parameters:
+    - name: paramID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type your param ID)
+    put:
+      tags:
+      - Device Data
+      summary: Mark Config. Parameter as Read
+      description: "Marks a configuration parameter as read on the current device.  \n\nThis is useful when collecting settings from Configuration Parameters and you need to track whether you have already processed the current value. Use this endpoint to set the `sent` field to `true`.\n"
+      operationId: markAConfigurationParameterAsRead
+      security:
+      - Device-Token: []
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Params Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+components:
+  schemas:
+    DeviceDataItem:
+      type: object
+      required:
+      - variable
+      properties:
+        variable:
+          type: string
+          example: location
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+              example: 35.770723
+            lng:
+              type: number
+              example: -78.677328
+        value:
+          type: string
+          example: TagoIO Headquarters
+        time:
+          type: string
+          description: ISO 8601 string or Unix timestamp
+          example: '2023-12-01T12:34:56.000Z'
+        group:
+          type: string
+          description: Unique grouping ID for your data. Widgets often group by this.
+        unit:
+          type: string
+          example: '%'
+          description: Provide a unit of measurement to the data. Most widgets will display the unit.
+        metadata:
+          type: object
+          description: Can be attached to the data to influence widget behavior and store additional information.
+          additionalProperties: true
+          example:
+            color: red
+            icon: car
+    DeviceDataArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceDataItem'
+      description: Accepts a single item or an array of items.
+    DeviceData:
+      description: 'Accepts a single item or an array of items when sent as application/json.
+
+        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
+
+        '
+      oneOf:
+      - $ref: '#/components/schemas/DeviceDataItem'
+      - $ref: '#/components/schemas/DeviceDataArray'
+  requestBodies:
+    DeviceDataBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeviceData'
+          examples:
+            Send data (object):
+              value:
+                variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+            Send data (array):
+              value:
+              - variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+              - variable: location
+                value: New York Office
+                location:
+                  lat: 40.712776
+                  lng: -74.005974
+        text/plain:
+          schema:
+            type: string
+            description: Raw text data that will be processed by the device's Payload Parser to normalize into TagoIO JSON format.
+          examples:
+            Raw sensor data:
+              value: temperature:23.5,humidity:45.2,battery:87
+            HEX payload:
+              value: 41BC7E1F2A
+            Custom format:
+              value: sensor_id=123&temp=25.6&status=ok
+  parameters:
+    DeleteFilterIds:
+      name: ids
+      in: query
+      description: Filter data by id. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: 6144a25e280ad80019688e689
+    DeleteFilterOrdination:
+      name: ordination
+      in: query
+      description: Sort direction. Default is descending.
+      schema:
+        type: string
+        enum:
+        - ascending
+        - descending
+        default: descending
+        example: descending
+    DeleteFilterQty:
+      name: qty
+      in: query
+      description: Quantity of data records to delete. Default is 15.
+      schema:
+        type: integer
+        minimum: 1
+        default: 15
+        example: 20
+    DeleteFilterVariables:
+      name: variables
+      in: query
+      description: Filter data by variable.
+      schema:
+        type: string
+        example: temperature
+    DeleteFilterGroups:
+      name: groups
+      in: query
+      description: 'Filter data by group. Accepts single or multiple values.
+
+        For multiple, send `groups[0]=foo&groups[1]=bar`.
+
+        '
+      schema:
+        type: string
+        items:
+          type: string
+        example: '16731887966346'
+    DeleteFilterSkip:
+      name: skip
+      in: query
+      description: Number of items to skip (pagination).
+      schema:
+        type: integer
+        minimum: 0
+        example: 15
+    DeleteFilterValues:
+      name: values
+      in: query
+      description: Filter data by value. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: '12'
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

@@ -1,0 +1,617 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Account API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Account
+  description: Account-level operations (Profile Token).
+paths:
+  /account/allocation:
+    get:
+      tags:
+      - Account
+      summary: Resources Allocation
+      description: Get account resources allocation
+      operationId: getAccountResourcesAllocation
+      responses:
+        '200':
+          description: Get account resources' allocation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        analysis:
+                          type: number
+                          example: 200
+                        data_records:
+                          type: number
+                          example: 6667
+                        email:
+                          type: number
+                          example: 17
+                        file_storage:
+                          type: number
+                          example: 80
+                        input:
+                          type: number
+                          example: 33334
+                        output:
+                          type: number
+                          example: 100000
+                        profile:
+                          type: string
+                          example: 62cdb70512b7320012dc2880
+                        push_notification:
+                          type: number
+                          example: 4
+                        run_users:
+                          type: number
+                          example: 0
+                        sms:
+                          type: number
+                          example: 5
+                        updated_at:
+                          type: string
+                          example: '2022-07-15T12:11:07.521Z'
+                    example:
+                    - analysis: 200
+                      data_records: 6667
+                      email: 17
+                      file_storage: 80
+                      input: 33334
+                      output: 100000
+                      profile: 62cdb70512b7320012dc2880
+                      push_notification: 4
+                      run_users: 0
+                      sms: 5
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                    - analysis: 1600
+                      data_records: 633333
+                      email: 43
+                      file_storage: 100
+                      input: 433333
+                      output: 1800000
+                      profile: 612ea05e3cc0780012715111
+                      push_notification: 83
+                      run_users: 8
+                      sms: 0
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                    - analysis: 1200
+                      data_records: 160000
+                      email: 40
+                      file_storage: 20
+                      input: 533333
+                      output: 1100000
+                      profile: 61fab4d9a5c9f40012a5ff93
+                      push_notification: 13
+                      run_users: 2
+                      sms: 5
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Get account resources' allocation:
+                  value:
+                    result:
+                    - analysis: 200
+                      data_records: 6667
+                      email: 17
+                      file_storage: 80
+                      input: 33334
+                      output: 100000
+                      profile: 62cdb70512b7320012dc2880
+                      push_notification: 4
+                      run_users: 0
+                      sms: 5
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                    - analysis: 1600
+                      data_records: 633333
+                      email: 43
+                      file_storage: 100
+                      input: 433333
+                      output: 1800000
+                      profile: 612ea05e3cc0780012715111
+                      push_notification: 83
+                      run_users: 8
+                      sms: 0
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                    - analysis: 1200
+                      data_records: 160000
+                      email: 40
+                      file_storage: 20
+                      input: 533333
+                      output: 1100000
+                      profile: 61fab4d9a5c9f40012a5ff93
+                      push_notification: 13
+                      run_users: 2
+                      sms: 5
+                      updated_at: '2022-07-15T12:11:07.521Z'
+                    status: true
+    post:
+      tags:
+      - Account
+      summary: Update Resources Allocation
+      description: Update the account resources allocation
+      operationId: updateTheAccountResourcesAllocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                - profile
+                properties:
+                  profile:
+                    type: string
+                    example: 62cdb70512b7320012dc0880
+                  analysis:
+                    type: number
+                    example: 200
+                  data_records:
+                    type: number
+                    example: 6667
+                  email:
+                    type: number
+                    example: 17
+                  file_storage:
+                    type: number
+                    example: 80
+                  input:
+                    type: number
+                    example: 33334
+                  output:
+                    type: number
+                    example: 100000
+                  push_notification:
+                    type: number
+                    example: 4
+                  run_users:
+                    type: number
+                    example: 0
+                  sms:
+                    type: number
+                    example: 5
+              example:
+              - analysis: 200
+                data_records: 6667
+                email: 17
+                file_storage: 80
+                input: 33334
+                output: 100000
+                profile: 62cdb70512b7320012dc0880
+                push_notification: 4
+                run_users: 0
+                sms: 5
+              - analysis: 1600
+                data_records: 633333
+                email: 43
+                file_storage: 100
+                input: 433333
+                output: 1800000
+                profile: 612ea05e3cc07800127u5111
+                push_notification: 83
+                run_users: 8
+                sms: 0
+              - analysis: 1100
+                data_records: 160000
+                email: 40
+                file_storage: 20
+                input: 533333
+                output: 1100000
+                profile: 61fab4d9a5c9f40012a5wf93
+                push_notification: 13
+                run_users: 2
+                sms: 5
+            examples:
+              Update the account resources allocation:
+                value:
+                - analysis: 200
+                  data_records: 6667
+                  email: 17
+                  file_storage: 80
+                  input: 33334
+                  output: 100000
+                  profile: 62cdb70512b7320012dc0880
+                  push_notification: 4
+                  run_users: 0
+                  sms: 5
+                - analysis: 1600
+                  data_records: 633333
+                  email: 43
+                  file_storage: 100
+                  input: 433333
+                  output: 1800000
+                  profile: 612ea05e3cc07800127u5111
+                  push_notification: 83
+                  run_users: 8
+                  sms: 0
+                - analysis: 1100
+                  data_records: 160000
+                  email: 40
+                  file_storage: 20
+                  input: 533333
+                  output: 1100000
+                  profile: 61fab4d9a5c9f40012a5wf93
+                  push_notification: 13
+                  run_users: 2
+                  sms: 5
+      responses:
+        '200':
+          description: Update the account's allocation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Profile resource allocation Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Update the account's allocation:
+                  value:
+                    result: Profile resource allocation Successfully Updated
+                    status: true
+  /account/login:
+    post:
+      tags:
+      - Account
+      summary: Login to Account
+      description: 'Login to account using email and password
+
+        '
+      operationId: loginToAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - password
+              properties:
+                email:
+                  type: string
+                  example: example@mail.com
+                password:
+                  type: string
+                  example: yourpassword
+            examples:
+              Login to Account:
+                value:
+                  email: example@mail.com
+                  password: yourpassword
+      responses:
+        '200':
+          description: Login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      company:
+                        type: string
+                        example: companyname
+                      email:
+                        type: string
+                        example: example@mail.com
+                      id:
+                        type: string
+                        example: 612ea05e3cc078001371895110
+                      name:
+                        type: string
+                        example: Your Name
+                      phone:
+                        type: string
+                        example: '+9396363457126'
+                      profiles:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            account:
+                              type: string
+                              example: 612ea05e3cc078001371895110
+                            id:
+                              type: string
+                              example: 612ea05e3cc078001371895111
+                            logo_url:
+                              example: null
+                            name:
+                              type: string
+                              example: profilename
+                        example:
+                        - account: 612ea05e3cc078001371895110
+                          id: 612ea05e3cc078001371895111
+                          logo_url: null
+                          name: profilename
+                      type:
+                        type: string
+                        example: user
+                  status:
+                    type: boolean
+                    example: true
+  /account:
+    get:
+      tags:
+      - Account
+      summary: Account Information
+      description: 'Get all information from current account
+
+        '
+      operationId: getAccountInformation
+      responses:
+        '200':
+          description: Get information about account
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      active:
+                        type: boolean
+                        example: true
+                      blocked:
+                        type: boolean
+                        example: false
+                      company:
+                        type: string
+                        example: companyname
+                      created_at:
+                        type: string
+                        example: '2021-08-31T21:34:22.107Z'
+                      email:
+                        type: string
+                        example: example@email.com
+                      id:
+                        type: string
+                        example: 612ea05e3cc07800127152207
+                      language:
+                        type: string
+                        example: en
+                      last_login:
+                        type: string
+                        example: '2021-09-13T17:59:30.983Z'
+                      name:
+                        type: string
+                        example: Account Name
+                      newsletter:
+                        type: boolean
+                        example: true
+                      options:
+                        type: object
+                        properties:
+                          decimal_separator:
+                            type: string
+                            example: ','
+                          last_whats_new:
+                            type: string
+                            example: '2021-08-02T18:00:00.000Z'
+                          thousand_separator:
+                            type: string
+                            example: .
+                          user_view_welcome:
+                            type: boolean
+                            example: true
+                      otp:
+                        type: object
+                        properties: {}
+                      phone:
+                        example: null
+                      plan:
+                        type: string
+                        example: free
+                      send_invoice:
+                        type: boolean
+                        example: false
+                      stripe_id:
+                        example: null
+                      timezone:
+                        type: string
+                        example: America/Sao_Paulo
+                      type:
+                        type: string
+                        example: user
+                      updated_at:
+                        type: string
+                        example: '2021-09-09T19:21:52.049Z'
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Get information about account:
+                  value:
+                    result:
+                      active: true
+                      blocked: false
+                      company: companyname
+                      created_at: '2021-08-31T21:34:22.107Z'
+                      email: example@email.com
+                      id: 612ea05e3cc07800127152207
+                      language: en
+                      last_login: '2021-09-13T17:59:30.983Z'
+                      name: Account Name
+                      newsletter: true
+                      options:
+                        decimal_separator: ','
+                        last_whats_new: '2021-08-02T18:00:00.000Z'
+                        thousand_separator: .
+                        user_view_welcome: true
+                      otp: {}
+                      phone: null
+                      plan: free
+                      send_invoice: false
+                      stripe_id: null
+                      timezone: America/Sao_Paulo
+                      type: user
+                      updated_at: '2021-09-09T19:21:52.049Z'
+                    status: true
+    put:
+      tags:
+      - Account
+      summary: Edit Account
+      description: 'Edit current account
+
+        '
+      operationId: editAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  example: TagoIO
+                language:
+                  type: string
+                  example: en
+                name:
+                  type: string
+                  example: John Doee
+                options:
+                  type: object
+                  properties:
+                    date_format:
+                      type: string
+                      example: YYYY-MM-DD
+                    decimal_separator:
+                      type: string
+                      example: .
+                    show_last_updated_at:
+                      type: string
+                      example: footer
+                    thousand_separator:
+                      type: string
+                      example: ','
+                    time_format:
+                      type: string
+                      example: '24'
+                phone:
+                  type: string
+                  example: '+00000000000'
+                timezone:
+                  type: string
+                  example: America/Glace_Bay
+            examples:
+              Edit Account:
+                value:
+                  company: TagoIO
+                  language: en
+                  name: John Doee
+                  options:
+                    date_format: YYYY-MM-DD
+                    decimal_separator: .
+                    show_last_updated_at: footer
+                    thousand_separator: ','
+                    time_format: '24'
+                  phone: '+00000000000'
+                  timezone: America/Glace_Bay
+          text/plain:
+            examples:
+              Edit Account:
+                value: "{\n    \"language\": \"en\",\n    \"name\": \"Account Name\",\n    \"options\": {\n        \"date_format\": \"YYYY-MM-DD\", //\"YYYY-MM-DD\", \"DD-MM-YYYY\", or \"MM-DD-YYYY\"\n        \"time_format\": \"12\", //\"12\" or \"24\"\n        \"decimal_separator\": \".\", //must be the oposite of the \"thousand_separator value\"\n        \"thousand_separator\": \",\", //must be the oposite of the \"decimal_separator value\"\n        \"show_last_updated_at\": \"footer\" //widget \"footer\" or \"menu\"\n    },\n    \"phone\": \"+00000000000\", //type the country code plus the phone number\n    \"timezone\": \"America/Glace_Bay\",\n    \"company\": \"TagoIO\"\n}"
+      responses:
+        '200':
+          description: Account edited successfuly
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Account Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Account edited successfuly:
+                  value:
+                    result: Account Successfully Updated
+                    status: true
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

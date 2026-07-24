@@ -1,0 +1,625 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Entity API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Entity
+  description: Manage entities (Profile Token).
+paths:
+  /entity:
+    get:
+      tags:
+      - Entity
+      summary: List Entities
+      description: List Entities
+      operationId: listEntities
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: string
+          example: number
+        description: (default 1)
+      - name: amount
+        in: query
+        schema:
+          type: string
+          example: number
+        description: '(default: 20, max: 100)'
+      - name: filter
+        in: query
+        schema:
+          type: string
+          example: '[name]'
+        description: string
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+          example: created_at | updated_at
+      - name: fields
+        in: query
+        schema:
+          type: string
+        description: comma-separated list of fields to return
+      responses:
+        '200':
+          description: Listing entity by field / Listing entity by tags
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created_at:
+                          type: string
+                          example: '2024-11-05T18:32:25.522Z'
+                        id:
+                          type: string
+                          example: 672a64b91807cd0008baa4d5
+                        name:
+                          type: string
+                          example: Control Entity
+                        profile:
+                          type: string
+                          example: 63c82c9e6a7fb4000a1f95a0
+                        tags:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              key:
+                                type: string
+                                example: active
+                              value:
+                                type: string
+                                example: 'yes'
+                          example:
+                          - key: active
+                            value: 'yes'
+                        updated_at:
+                          type: string
+                          example: '2024-11-05T18:32:25.522Z'
+                    example:
+                    - created_at: '2024-11-05T18:32:25.522Z'
+                      id: 672a64b91807cd0008baa4d5
+                      name: Control Entity
+                      profile: 63c82c9e6a7fb4000a1f95a0
+                      tags:
+                      - key: active
+                        value: 'yes'
+                      updated_at: '2024-11-05T18:32:25.522Z'
+                    - created_at: '2024-11-05T18:49:16.438Z'
+                      id: 672a68ac640f330009872ca3
+                      name: Test Entity
+                      profile: 63c82c9e6a7fb4000a1f95a0
+                      tags: []
+                      updated_at: '2024-11-05T18:49:16.438Z'
+                  status:
+                    type: boolean
+                    example: true
+    post:
+      tags:
+      - Entity
+      summary: Create Entity
+      description: Create Entity
+      operationId: createEntity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '2938924293'
+                index:
+                  type: object
+                  properties:
+                    index_charge_amount:
+                      type: object
+                      properties:
+                        fields:
+                          type: array
+                          items:
+                            type: string
+                            example: charge_amount
+                          example:
+                          - charge_amount
+                name:
+                  type: string
+                  example: Control Entity
+                schema:
+                  type: object
+                  properties:
+                    charge_amount:
+                      type: object
+                      properties:
+                        required:
+                          type: boolean
+                          example: false
+                        type:
+                          type: string
+                          example: int
+                    update_date:
+                      type: object
+                      properties:
+                        required:
+                          type: boolean
+                          example: true
+                        type:
+                          type: string
+                          example: timestamp
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                        example: active
+                      value:
+                        type: string
+                        example: 'yes'
+                  example:
+                  - key: active
+                    value: 'yes'
+            examples:
+              Create Entity:
+                value:
+                  id: '2938924293'
+                  index:
+                    index_charge_amount:
+                      fields:
+                      - charge_amount
+                  name: Control Entity
+                  schema:
+                    charge_amount:
+                      required: false
+                      type: int
+                    update_date:
+                      required: true
+                      type: timestamp
+                  tags:
+                  - key: active
+                    value: 'yes'
+      responses:
+        '200':
+          description: Creating an entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 672a64b91807cd7008bae4d5
+                  status:
+                    type: boolean
+                    example: true
+  /entity/{entity_id}:
+    parameters:
+    - name: entity_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type an entity ID)
+    description: Entity ID
+    get:
+      tags:
+      - Entity
+      summary: Entity Information
+      description: Get Entity Details
+      operationId: getEntityInfo
+      responses:
+        '200':
+          description: Getting an entity information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        example: '2024-11-05T18:32:25.522Z'
+                      database:
+                        type: string
+                        example: 6229032d0620c89169acbdc0
+                      id:
+                        type: string
+                        example: 672a64b91807cd0008baa4d5
+                      index:
+                        type: object
+                        properties:
+                          id_created_at_idx:
+                            type: object
+                            properties:
+                              fields:
+                                type: array
+                                items:
+                                  type: string
+                                  example: id
+                                example:
+                                - id
+                                - created_at
+                          id_idx:
+                            type: object
+                            properties:
+                              fields:
+                                type: array
+                                items:
+                                  type: string
+                                  example: id
+                                example:
+                                - id
+                          id_updated_at_idx:
+                            type: object
+                            properties:
+                              fields:
+                                type: array
+                                items:
+                                  type: string
+                                  example: id
+                                example:
+                                - id
+                                - updated_at
+                          index_charge_amount:
+                            type: object
+                            properties:
+                              fields:
+                                type: array
+                                items:
+                                  type: string
+                                  example: charge_amount
+                                example:
+                                - charge_amount
+                      name:
+                        type: string
+                        example: Control Entity
+                      payload_decoder:
+                        example: null
+                      profile:
+                        type: string
+                        example: 63c82c9e6a7fb4000a1f95a0
+                      schema:
+                        type: object
+                        properties:
+                          charge_amount:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: false
+                              type:
+                                type: string
+                                example: int
+                          created_at:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: false
+                              type:
+                                type: string
+                                example: timestamp
+                          id:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: true
+                              type:
+                                type: string
+                                example: uuid
+                          int_field:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: false
+                              type:
+                                type: string
+                                example: int
+                          update_date:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: true
+                              type:
+                                type: string
+                                example: timestamp
+                          updated_at:
+                            type: object
+                            properties:
+                              required:
+                                type: boolean
+                                example: false
+                              type:
+                                type: string
+                                example: timestamp
+                      tags:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                              example: active
+                            value:
+                              type: string
+                              example: 'yes'
+                        example:
+                        - key: active
+                          value: 'yes'
+                      updated_at:
+                        type: string
+                        example: '2024-11-05T20:21:40.797Z'
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Getting an entity information:
+                  value:
+                    result:
+                      created_at: '2024-11-05T18:32:25.522Z'
+                      database: 6229032d0620c89169acbdc0
+                      id: 672a64b91807cd0008baa4d5
+                      index:
+                        id_created_at_idx:
+                          fields:
+                          - id
+                          - created_at
+                        id_idx:
+                          fields:
+                          - id
+                        id_updated_at_idx:
+                          fields:
+                          - id
+                          - updated_at
+                        index_charge_amount:
+                          fields:
+                          - charge_amount
+                      name: Control Entity
+                      payload_decoder: null
+                      profile: 63c82c9e6a7fb4000a1f95a0
+                      schema:
+                        charge_amount:
+                          required: false
+                          type: int
+                        created_at:
+                          required: false
+                          type: timestamp
+                        id:
+                          required: true
+                          type: uuid
+                        int_field:
+                          required: false
+                          type: int
+                        update_date:
+                          required: true
+                          type: timestamp
+                        updated_at:
+                          required: false
+                          type: timestamp
+                      tags:
+                      - key: active
+                        value: 'yes'
+                      updated_at: '2024-11-05T20:21:40.797Z'
+                    status: true
+    put:
+      tags:
+      - Entity
+      summary: Update Entity
+      description: Update Entity
+      operationId: updateEntity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Updated Entity
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                        example: active
+                      value:
+                        type: string
+                        example: 'no'
+                  example:
+                  - key: active
+                    value: 'no'
+            examples:
+              Update Entity:
+                value:
+                  name: Updated Entity
+                  tags:
+                  - key: active
+                    value: 'no'
+      responses:
+        '200':
+          description: Updating entity name and tag
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        example: Entity Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Updating entity name and tag:
+                  value:
+                    result:
+                      message: Entity Successfully Updated
+                    status: true
+    delete:
+      tags:
+      - Entity
+      summary: Delete Entity
+      description: Delete Entity
+      operationId: deleteEntity
+      responses:
+        '200':
+          description: Deleting an entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Entity Successfully Removed
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Deleting an entity:
+                  value:
+                    result: Entity Successfully Removed
+                    status: true
+  /entity/{entity_id}/schema:
+    parameters:
+    - name: entity_id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type an entity ID)
+    description: Entity ID
+    put:
+      tags:
+      - Entity
+      summary: Update Entity Schema
+      description: Update Entity Schema
+      operationId: updateEntitySchema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                schema:
+                  type: object
+                  properties:
+                    update_new_date:
+                      type: object
+                      properties:
+                        action:
+                          type: string
+                          example: delete
+            examples:
+              Update Entity Schema:
+                value:
+                  schema:
+                    update_new_date:
+                      action: delete
+      responses:
+        '200':
+          description: Updating any entity field
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        example: Entity Successfully Updated
+                  status:
+                    type: boolean
+                    example: true
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

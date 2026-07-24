@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Upload API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Upload
+paths:
+  /files:
+    post:
+      tags:
+      - Upload
+      summary: Upload File
+      description: Upload file
+      operationId: uploadFilePart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filename:
+                  type: string
+                  example: /Screenshot 2023-11-03 at 16.35.29.png
+                multipart_action:
+                  type: string
+                  example: end
+                parts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ETag:
+                        type: string
+                        example: '"0f75e3da7675ca382dac146ed1247162"'
+                      PartNumber:
+                        type: number
+                        example: 1
+                  example:
+                  - ETag: '"0f75e3da7675ca382dac146ed1247162"'
+                    PartNumber: 1
+                upload_id:
+                  type: string
+                  example: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+            examples:
+              Upload file part 1:
+                value:
+                  contentType: image/png
+                  filename: /Screenshot 2023-11-03 at 16.35.29.png
+                  multipart_action: start
+                  public: true
+              Upload file part 2:
+                value:
+                  file: (binary)
+                  filename: /Screenshot 2023-11-03 at 16.35.29.png
+                  multipart_action: upload
+                  part: 1
+                  upload_id: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW. k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+              Upload file part 3:
+                value:
+                  filename: /Screenshot 2023-11-03 at 16.35.29.png
+                  multipart_action: end
+                  parts:
+                  - ETag: '"0f75e3da7675ca382dac146ed1247162"'
+                    PartNumber: 1
+                  upload_id: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+      responses:
+        '200':
+          description: Upload file part 1 / Upload file part 2 / Upload file part 3
+          headers:
+            Etag:
+              schema:
+                type: string
+                example: W/"12e-fdk/2Vt3///sBaogLtoHsVN43c0"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    example: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+                    anyOf:
+                    - type: string
+                      example: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+                    - type: object
+                      properties:
+                        $metadata:
+                          type: object
+                          properties:
+                            attempts:
+                              type: number
+                              example: 1
+                            extendedRequestId:
+                              type: string
+                              example: etfQlHP3vxwKW5DnCMCxnNvqHxmq8YxostIXn3qP0GwM34BtB11KAKuU7it4+REbO7iJKMobqZI=
+                            httpStatusCode:
+                              type: number
+                              example: 200
+                            requestId:
+                              type: string
+                              example: 7V63NVZWY2EZFVQJ
+                            totalRetryDelay:
+                              type: number
+                              example: 0
+                        ETag:
+                          type: string
+                          example: '"0f75e3da7675ca382dac146ed1247162"'
+                        ServerSideEncryption:
+                          type: string
+                          example: AES256
+                    - type: object
+                      properties:
+                        file:
+                          type: string
+                          example: https://api.tago.io/file/61fab40aa5c9f40012a5ff93/Screenshot%202023-11-03%20at%2016.35.29.png
+                  status:
+                    type: boolean
+                    example: true
+              examples:
+                Upload file part 1:
+                  value:
+                    result: TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-
+                    status: true
+                Upload file part 2:
+                  value:
+                    result:
+                      $metadata:
+                        attempts: 1
+                        extendedRequestId: etfQlHP3vxwKW5DnCMCxnNvqHxmq8YxostIXn3qP0GwM34BtB11KAKuU7it4+REbO7iJKMobqZI=
+                        httpStatusCode: 200
+                        requestId: 7V63NVZWY2EZFVQJ
+                        totalRetryDelay: 0
+                      ETag: '"0f75e3da7675ca382dac146ed1247162"'
+                      ServerSideEncryption: AES256
+                    status: true
+                Upload file part 3:
+                  value:
+                    result:
+                      file: https://api.tago.io/file/61fab40aa5c9f40012a5ff93/Screenshot%202023-11-03%20at%2016.35.29.png
+                    status: true
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

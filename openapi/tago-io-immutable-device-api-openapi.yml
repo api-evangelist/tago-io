@@ -1,0 +1,231 @@
+openapi: 3.1.0
+info:
+  title: TagoIO Access Management Immutable Device API
+  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://api.us-e1.tago.io
+- url: https://api.eu-w1.tago.io
+security:
+- ProfileToken: []
+tags:
+- name: Immutable Device
+  description: Operations specific to immutable device type (Profile Token).
+paths:
+  /device/{deviceID}/chunk:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    get:
+      tags:
+      - Immutable Device
+      summary: List Chunks
+      description: List of chunks
+      operationId: listOfChunks
+      responses:
+        '200':
+          description: Getting a list of chunks by device
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amount:
+                          type: number
+                          example: 1584
+                        from:
+                          type: string
+                          example: '2022-07-18T00:00:00.000+00:00'
+                        id:
+                          type: string
+                          example: '1658102400_1658707199'
+                        to:
+                          type: string
+                          example: '2022-07-24T23:59:59.999+00:00'
+                    example:
+                    - amount: 1584
+                      from: '2022-07-18T00:00:00.000+00:00'
+                      id: '1658102400_1658707199'
+                      to: '2022-07-24T23:59:59.999+00:00'
+                    - amount: 13383
+                      from: '2022-07-11T00:00:00.000+00:00'
+                      id: '1657497600_1658102399'
+                      to: '2022-07-17T23:59:59.999+00:00'
+                    - amount: 12788
+                      from: '2022-07-04T00:00:00.000+00:00'
+                      id: '1656892800_1657497599'
+                      to: '2022-07-10T23:59:59.999+00:00'
+                    - amount: 12784
+                      from: '2022-06-27T00:00:00.000+00:00'
+                      id: '1656288000_1656892799'
+                      to: '2022-07-03T23:59:59.999+00:00'
+                    - amount: 4179
+                      from: '2022-03-07T00:00:00.000+00:00'
+                      id: '1646611200_1647215999'
+                      to: '2022-03-13T23:59:59.999+00:00'
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/chunk/backup:
+    parameters:
+    - name: deviceID
+      in: path
+      required: false
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+    description: Device ID
+    post:
+      tags:
+      - Immutable Device
+      summary: Export Chunk
+      description: Export a chunk as CSV to your TagoIO Files
+      operationId: exportAChunkAsCsvToFiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chunk_id:
+                  type: string
+                  example: '1657497600_1658102399'
+                file_address:
+                  type: string
+                  example: /device/$DEVICE$/$FROM$_$TO$
+                headers:
+                  type: boolean
+                  example: true
+            examples:
+              Export a chunk as CSV to Files:
+                value:
+                  chunk_id: '1657497600_1658102399'
+                  file_address: /device/$DEVICE$/$FROM$_$TO$
+                  headers: true
+      responses:
+        '200':
+          description: Chunk exported to Files
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      chunk_id:
+                        type: string
+                        example: '1657497600_1658102399'
+                      file_address:
+                        type: string
+                        example: device/62a2643dcc8dd60012eb4838/2022-07-11_2022-07-17.csv
+                  status:
+                    type: boolean
+                    example: true
+  /device/{deviceID}/chunk/{chunkID}:
+    parameters:
+    - name: deviceID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 67aa1f9135b1a7000a9db33c
+      description: Device ID
+    - name: chunkID
+      in: path
+      required: true
+      schema:
+        type: string
+        example: (Type a chunk ID)
+      description: Chunk ID
+    delete:
+      tags:
+      - Immutable Device
+      summary: Delete Chunk
+      description: Delete chunk
+      operationId: deleteChunk
+      responses:
+        '200':
+          description: Chunk deleted from device
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: Chunk 1657497600_1658102399 deleted
+                  status:
+                    type: boolean
+                    example: true
+components:
+  securitySchemes:
+    Device-Token:
+      type: apiKey
+      description: A Device-Token that is unique to your device. Generate a token by accessing your Device's page.
+      name: Device-Token
+      in: header
+      x-example: 5e12345a-d70a-4e2d-b83d-5c0123456789
+    Network-Token:
+      type: apiKey
+      description: A Network Token that is unique to your Network. Access Integrations > Network > Tokens to generate a token for your Network.
+      name: Token
+      in: header
+      x-DisplayName: Network-Token
+      x-example: fd549ad2-813c-4d66-bf72-508e5b98afe3
+    Profile-Token:
+      type: apiKey
+      description: A Profile token that is unique to your entire profile. Generate in your account settings.
+      name: Profile-Token
+      in: header
+      x-example: a15ea5ea-dd2d-4c63-8945-92b54da4772a
+x-tagGroups:
+- name: Device Token (Device-level)
+  tags:
+  - Device Data
+- name: Network Token (Network-level)
+  tags:
+  - Network Ingest
+- name: Device Management
+  tags:
+  - Devices
+  - Device Tokens
+  - Configuration Param
+  - Import/Export
+  - Immutable Device
+- name: Tago RUN
+  tags:
+  - Tago RUN
+  - Users
+  - Dictionary
+  - Notifications
+- name: Dashboards
+  tags:
+  - Dashboards
+  - Widgets
+- name: File(s) Management
+  tags:
+  - Files
+  - Upload
+- name: Profile
+  tags:
+  - Account
+  - Profile
+  - Statistics / Billing
+- name: Entities
+  tags:
+  - Entity
+  - Entity Data
+- name: Resources
+  tags:
+  - Access Management

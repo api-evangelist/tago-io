@@ -11,7 +11,20 @@ description: >
   TagoDeploy option supporting millions of devices with dedicated cloud instances
   and customizable rate limits.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tago-io.png
 tags:
   - IoT
   - Internet of Things
@@ -27,38 +40,537 @@ created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.19'
 apis:
-  - aid: tago-io:tago-io-rest-api
-    name: TagoIO REST API
-    description: >
-      The TagoIO REST API provides full programmatic access to the TagoIO IoT
-      platform, covering device management, device data ingestion and retrieval,
-      dashboards and widgets, analysis scripts, file management, access control
-      policies, entities, and account/profile operations. Regional endpoints are
-      available for US East and Europe West regions.
-    humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
-    baseURL: https://api.us-e1.tago.io/
-    tags:
-      - IoT
-      - Devices
-      - Data
-      - Dashboards
-      - Analysis
-    properties:
-      - type: Documentation
-        url: https://docs.tago.io/docs/tagoio/api/api_overview
-      - type: OpenAPI
-        url: https://api.docs.tago.io/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/openapi/tago-io-tago-io-rest-api-openapi.yml
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
-      - type: Examples
-        url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
-      - type: Examples
-        url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-access-management-api
+  name: TagoIO Access Management API
+  description: Roles, permissions, and sharing (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Access Management
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-access-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-account-api
+  name: TagoIO Account API
+  description: Account-level operations (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-backup-api
+  name: TagoIO Backup API
+  description: The Backup API from TagoIO — 3 operation(s) for backup.
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Backup
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-backup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-configuration-param-api
+  name: TagoIO Configuration Param API
+  description: The Configuration Param API from TagoIO — 2 operation(s) for configuration param.
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Configuration Param
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-configuration-param-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-dashboards-api
+  name: TagoIO Dashboards API
+  description: Manage dashboards (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-device-data-api
+  name: TagoIO Device Data API
+  description: Endpoints that act as a device using a Device Token (device-level permissions).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Device Data
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-device-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-device-tokens-api
+  name: TagoIO Device Tokens API
+  description: Manage device tokens (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Device Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-device-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-devices-api
+  name: TagoIO Devices API
+  description: Manage devices using a Profile Token (admin-level).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-devices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-dictionary-api
+  name: TagoIO Dictionary API
+  description: Manage Dictionary Slugs and Keys for TagoRUN (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Dictionary
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-dictionary-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-entity-api
+  name: TagoIO Entity API
+  description: Manage entities (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Entity
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-entity-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-entity-data-api
+  name: TagoIO Entity Data API
+  description: Operations specific to managing entitie stored data (Profile Token)
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Entity Data
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-entity-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-files-api
+  name: TagoIO Files API
+  description: File storage operations (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-files-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-immutable-device-api
+  name: TagoIO Immutable Device API
+  description: Operations specific to immutable device type (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Immutable Device
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-immutable-device-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-import-export-api
+  name: TagoIO Import/Export API
+  description: Import/Export Operations for devices  (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Import/Export
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-import-export-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-network-ingest-api
+  name: TagoIO Network Ingest API
+  description: Endpoints that act as a network using a Network Token (network-level permissions).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Network Ingest
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-network-ingest-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-notifications-api
+  name: TagoIO Notifications API
+  description: Manage notifications (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-profile-api
+  name: TagoIO Profile API
+  description: Manage your own profile settings (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-profile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-statistics-billing-api
+  name: TagoIO Statistics / Billing API
+  description: Usage statistics and billing (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Statistics / Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-statistics-billing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-tago-run-api
+  name: TagoIO Tago RUN API
+  description: The Tago RUN API from TagoIO — 2 operation(s) for tago run.
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Tago RUN
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-tago-run-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-upload-api
+  name: TagoIO Upload API
+  description: The Upload API from TagoIO — 1 operation(s) for upload.
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-upload-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-users-api
+  name: TagoIO Users API
+  description: Manage TagoRUN users (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
+- aid: tago-io:tago-io-widgets-api
+  name: TagoIO Widgets API
+  description: Manage widgets (Profile Token).
+  humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
+  baseURL: https://api.us-e1.tago.io/
+  tags:
+  - Widgets
+  properties:
+  - type: OpenAPI
+    url: openapi/tago-io-widgets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.tago.io/docs/tagoio/api/api_overview
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-data-item-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/json-schema/tago-io-device-schema.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-send-device-data-example.json
+  - type: Examples
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/examples/tago-io-list-devices-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/tagoio/overview
   - type: AgenticAccess
     url: agentic-access/tago-io-agentic-access.yml
   - type: TrustCenter

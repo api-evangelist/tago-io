@@ -1,0 +1,134 @@
+{
+  "info": {
+    "_postman_id": "914063f1-c28e-489e-a9db-91a0402f5577",
+    "name": "TagoIO Access Management Upload API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:32.000Z",
+    "updatedAt": "2026-07-28T03:08:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-914063f1-c28e-489e-a9db-91a0402f5577"
+  },
+  "item": [
+    {
+      "name": "files",
+      "item": [
+        {
+          "name": "Upload File",
+          "id": "0c6ac58f-392f-4b5d-838c-05d6955dd03f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"multipart_action\": \"<string>\",\n  \"parts\": [\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    },\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    }\n  ],\n  \"upload_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            },
+            "description": "Upload file"
+          },
+          "response": [
+            {
+              "id": "dfc9977a-879d-45a4-900c-1f896ebf5924",
+              "name": "Upload file part 1 / Upload file part 2 / Upload file part 3",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"multipart_action\": \"<string>\",\n  \"parts\": [\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    },\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    }\n  ],\n  \"upload_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "Etag",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:32.000Z",
+              "updatedAt": "2026-07-28T03:08:32.000Z",
+              "uid": "35240-dfc9977a-879d-45a4-900c-1f896ebf5924"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:32.000Z",
+          "updatedAt": "2026-07-28T03:08:32.000Z",
+          "uid": "35240-0c6ac58f-392f-4b5d-838c-05d6955dd03f"
+        }
+      ],
+      "id": "7cc73a12-0142-424c-bab9-d554356ae299",
+      "createdAt": "2026-07-28T03:08:32.000Z",
+      "updatedAt": "2026-07-28T03:08:32.000Z",
+      "uid": "35240-7cc73a12-0142-424c-bab9-d554356ae299"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

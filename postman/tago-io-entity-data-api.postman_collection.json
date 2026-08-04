@@ -1,0 +1,723 @@
+{
+  "info": {
+    "_postman_id": "620f5839-ac84-41ca-ab96-d162a7eda669",
+    "name": "TagoIO Access Management Entity Data API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:02.000Z",
+    "updatedAt": "2026-07-28T03:08:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-620f5839-ac84-41ca-ab96-d162a7eda669"
+  },
+  "item": [
+    {
+      "name": "entity",
+      "item": [
+        {
+          "name": "{entity_id}",
+          "item": [
+            {
+              "name": "data_amount",
+              "item": [
+                {
+                  "name": "Entity Data Amount",
+                  "id": "fc101a78-31d0-456f-9a69-3f13f6559e4b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entity_id/data_amount",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entity_id",
+                        "data_amount"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8b1dfcd7-83bb-45e9-bdd1-346217d1e59e",
+                          "key": "entity_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get Entity Data Amount"
+                  },
+                  "response": [
+                    {
+                      "id": "36c74deb-e513-4f5e-add6-0ccc5e4c0a41",
+                      "name": "Getting entity data amount",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data_amount",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data_amount"
+                          ],
+                          "variable": [
+                            {
+                              "key": "entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<number>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-36c74deb-e513-4f5e-add6-0ccc5e4c0a41"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-fc101a78-31d0-456f-9a69-3f13f6559e4b"
+                }
+              ],
+              "id": "8c7100bb-b999-4913-ab28-aa2fb99af3a4",
+              "createdAt": "2026-07-28T03:08:02.000Z",
+              "updatedAt": "2026-07-28T03:08:02.000Z",
+              "uid": "35240-8c7100bb-b999-4913-ab28-aa2fb99af3a4"
+            },
+            {
+              "name": "data",
+              "item": [
+                {
+                  "name": "backup",
+                  "item": [
+                    {
+                      "name": "Export Entity Data",
+                      "id": "329821b6-0293-47a5-80db-bb78b623bfa4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data/backup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data",
+                            "backup"
+                          ],
+                          "variable": [
+                            {
+                              "id": "46a3ecd0-017a-40d3-87c5-7eb868a7cf5a",
+                              "key": "entity_id",
+                              "value": "<string>",
+                              "description": "(Required) Entity ID"
+                            }
+                          ]
+                        },
+                        "description": "Export data from the entity to a file in the Files.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "fbc4bac1-5637-47a1-9728-ffb3424e4c6a",
+                          "name": "Exporting data",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/entity/:entity_id/data/backup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "entity",
+                                ":entity_id",
+                                "data",
+                                "backup"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"file_address\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:02.000Z",
+                          "updatedAt": "2026-07-28T03:08:02.000Z",
+                          "uid": "35240-fbc4bac1-5637-47a1-9728-ffb3424e4c6a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-329821b6-0293-47a5-80db-bb78b623bfa4"
+                    }
+                  ],
+                  "id": "713b64f4-136b-4d5e-bc00-9f59ebd10a20",
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-713b64f4-136b-4d5e-bc00-9f59ebd10a20"
+                },
+                {
+                  "name": "Get Entity Data",
+                  "id": "1bb3bbe1-f997-4d41-ae6c-77946b9b03da",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entity_id/data?page=<string>&amount=<string>&fields=<string>&order_by=<string>&filter=<string>&index=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entity_id",
+                        "data"
+                      ],
+                      "query": [
+                        {
+                          "description": "(default 1)",
+                          "key": "page",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(default: 20, max: 1000)",
+                          "key": "amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "comma-separated list of fields to return",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "order_by",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "JSON object. Filter by an entity field. Requires the index paramenter",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) First index searchable field from the entity field added to the filter parameter",
+                          "key": "index",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c4040228-00e5-4489-a6fc-d9c48c46c14c",
+                          "key": "entity_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get Entity Data"
+                  },
+                  "response": [
+                    {
+                      "id": "96c23e91-a347-433a-b9af-712e1d7c5fe9",
+                      "name": "Getting entity data by filter",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data?page=<string>&amount=<string>&fields=<string>&order_by=<string>&filter=<string>&index=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "(default 1)",
+                              "key": "page",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(default: 20, max: 1000)",
+                              "key": "amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "comma-separated list of fields to return",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "order_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON object. Filter by an entity field. Requires the index paramenter",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) First index searchable field from the entity field added to the filter parameter",
+                              "key": "index",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"charge_amount\": {},\n      \"created_at\": \"<string>\",\n      \"id\": \"<string>\",\n      \"int_field\": {},\n      \"monthly_revenue\": \"<number>\",\n      \"update_date\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"charge_amount\": {},\n      \"created_at\": \"<string>\",\n      \"id\": \"<string>\",\n      \"int_field\": {},\n      \"monthly_revenue\": \"<number>\",\n      \"update_date\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-96c23e91-a347-433a-b9af-712e1d7c5fe9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-1bb3bbe1-f997-4d41-ae6c-77946b9b03da"
+                },
+                {
+                  "name": "Edit Entity Data",
+                  "id": "6a943366-5315-4248-84eb-710f6a4c5fde",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"monthly_revenue\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entity_id/data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entity_id",
+                        "data"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b881b279-77cd-448e-a464-9ec6b58c4666",
+                          "key": "entity_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Edit Entity Data"
+                  },
+                  "response": [
+                    {
+                      "id": "c9baef96-302d-4fec-ad0f-0829d99d5f4e",
+                      "name": "Editing an entity data",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"monthly_revenue\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data"
+                          ],
+                          "variable": [
+                            {
+                              "key": "entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-c9baef96-302d-4fec-ad0f-0829d99d5f4e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-6a943366-5315-4248-84eb-710f6a4c5fde"
+                },
+                {
+                  "name": "Add Entity Data",
+                  "id": "dfff5f4a-7ec1-46e5-9794-fd863586a71c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"monthly_revenue\": \"<number>\",\n  \"update_date\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entity_id/data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entity_id",
+                        "data"
+                      ],
+                      "variable": [
+                        {
+                          "id": "78505914-fc79-472c-83fd-3df6250ca6b4",
+                          "key": "entity_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Add Entity Data"
+                  },
+                  "response": [
+                    {
+                      "id": "ce4e50fb-a4c0-47e1-8ca1-434df4e9e9fc",
+                      "name": "Add Entity Data",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"monthly_revenue\": \"<number>\",\n  \"update_date\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data"
+                          ],
+                          "variable": [
+                            {
+                              "key": "entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-ce4e50fb-a4c0-47e1-8ca1-434df4e9e9fc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-dfff5f4a-7ec1-46e5-9794-fd863586a71c"
+                },
+                {
+                  "name": "Delete Entity Data",
+                  "id": "d401c3c1-3e00-4121-86be-354b288d2e8f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entity_id/data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entity_id",
+                        "data"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f3ed08df-1764-49f4-82ed-43b7efff74f0",
+                          "key": "entity_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete Entity Data"
+                  },
+                  "response": [
+                    {
+                      "id": "7dd6dc7c-7980-48cc-8666-2acaec2d03f1",
+                      "name": "Delete Entity Data",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entity_id/data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entity_id",
+                            "data"
+                          ],
+                          "variable": [
+                            {
+                              "key": "entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:02.000Z",
+                      "updatedAt": "2026-07-28T03:08:02.000Z",
+                      "uid": "35240-7dd6dc7c-7980-48cc-8666-2acaec2d03f1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:02.000Z",
+                  "updatedAt": "2026-07-28T03:08:02.000Z",
+                  "uid": "35240-d401c3c1-3e00-4121-86be-354b288d2e8f"
+                }
+              ],
+              "id": "7cd4279f-99e5-48e0-af78-51f98c9535c3",
+              "createdAt": "2026-07-28T03:08:02.000Z",
+              "updatedAt": "2026-07-28T03:08:02.000Z",
+              "uid": "35240-7cd4279f-99e5-48e0-af78-51f98c9535c3"
+            }
+          ],
+          "id": "fe33ed5d-4f94-44d8-986d-a7d270194635",
+          "createdAt": "2026-07-28T03:08:02.000Z",
+          "updatedAt": "2026-07-28T03:08:02.000Z",
+          "uid": "35240-fe33ed5d-4f94-44d8-986d-a7d270194635"
+        }
+      ],
+      "id": "81f2737b-97b6-4eea-afd7-1ac704dda00a",
+      "createdAt": "2026-07-28T03:08:02.000Z",
+      "updatedAt": "2026-07-28T03:08:02.000Z",
+      "uid": "35240-81f2737b-97b6-4eea-afd7-1ac704dda00a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "info": {
+    "_postman_id": "32479f6e-565d-4f60-a593-2f9412480d3b",
+    "name": "TagoIO Access Management Device Tokens API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:57.000Z",
+    "updatedAt": "2026-07-28T03:07:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-32479f6e-565d-4f60-a593-2f9412480d3b"
+  },
+  "item": [
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "{deviceID}",
+              "item": [
+                {
+                  "name": "List Tokens",
+                  "id": "03181a98-2561-4061-8863-0819cabd4cae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/token/:deviceID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        "token",
+                        ":deviceID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "69835347-b58f-42a3-91e3-4956a843e542",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves list of all tokens from device\n"
+                  },
+                  "response": [
+                    {
+                      "id": "cade8d8a-c042-4b90-af80-c87ee72c129f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/token/:deviceID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            "token",
+                            ":deviceID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:58.000Z",
+                      "updatedAt": "2026-07-28T03:07:58.000Z",
+                      "uid": "35240-cade8d8a-c042-4b90-af80-c87ee72c129f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:58.000Z",
+                  "updatedAt": "2026-07-28T03:07:58.000Z",
+                  "uid": "35240-03181a98-2561-4061-8863-0819cabd4cae"
+                }
+              ],
+              "id": "ba7de0e5-5c1f-4212-baf7-4c148ea4a70b",
+              "createdAt": "2026-07-28T03:07:58.000Z",
+              "updatedAt": "2026-07-28T03:07:58.000Z",
+              "uid": "35240-ba7de0e5-5c1f-4212-baf7-4c148ea4a70b"
+            },
+            {
+              "name": "{tokenID}",
+              "item": [
+                {
+                  "name": "Delete Token",
+                  "id": "725da8e8-2454-47a0-8f60-1de396891273",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/token/:tokenID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        "token",
+                        ":tokenID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6e8378f5-2170-472e-bac6-6d1790adabe3",
+                          "key": "tokenID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete a token\n"
+                  },
+                  "response": [
+                    {
+                      "id": "2ebd5b3a-de99-46de-9856-ba1e4ed722d6",
+                      "name": "Delete Token",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/token/:tokenID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            "token",
+                            ":tokenID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tokenID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:58.000Z",
+                      "updatedAt": "2026-07-28T03:07:58.000Z",
+                      "uid": "35240-2ebd5b3a-de99-46de-9856-ba1e4ed722d6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:58.000Z",
+                  "updatedAt": "2026-07-28T03:07:58.000Z",
+                  "uid": "35240-725da8e8-2454-47a0-8f60-1de396891273"
+                }
+              ],
+              "id": "cf65caf2-11ca-46c2-b65b-6993b748cc14",
+              "createdAt": "2026-07-28T03:07:58.000Z",
+              "updatedAt": "2026-07-28T03:07:58.000Z",
+              "uid": "35240-cf65caf2-11ca-46c2-b65b-6993b748cc14"
+            },
+            {
+              "name": "Create Token",
+              "id": "369af220-31a4-4a04-a219-70ae4e529304",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"device\": \"<string>\",\n  \"expire_time\": \"<string>\",\n  \"name\": \"<string>\",\n  \"serie_number\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/device/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device",
+                    "token"
+                  ]
+                },
+                "description": "Generate and retrieve a new token\n"
+              },
+              "response": [
+                {
+                  "id": "a5c3cfd0-de34-4e06-9883-64799e23ea4a",
+                  "name": "Token created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"device\": \"<string>\",\n  \"expire_time\": \"<string>\",\n  \"name\": \"<string>\",\n  \"serie_number\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"expire_time\": \"<string>\",\n    \"permission\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:58.000Z",
+                  "updatedAt": "2026-07-28T03:07:58.000Z",
+                  "uid": "35240-a5c3cfd0-de34-4e06-9883-64799e23ea4a"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:58.000Z",
+              "updatedAt": "2026-07-28T03:07:58.000Z",
+              "uid": "35240-369af220-31a4-4a04-a219-70ae4e529304"
+            }
+          ],
+          "id": "f025a06e-6315-436e-a9f9-f9229b0d1ee5",
+          "createdAt": "2026-07-28T03:07:58.000Z",
+          "updatedAt": "2026-07-28T03:07:58.000Z",
+          "uid": "35240-f025a06e-6315-436e-a9f9-f9229b0d1ee5"
+        }
+      ],
+      "id": "6f265fa4-ee34-4211-9b85-7fbb59ff56a1",
+      "createdAt": "2026-07-28T03:07:58.000Z",
+      "updatedAt": "2026-07-28T03:07:58.000Z",
+      "uid": "35240-6f265fa4-ee34-4211-9b85-7fbb59ff56a1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

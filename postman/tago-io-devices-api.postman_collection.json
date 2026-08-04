@@ -1,0 +1,1439 @@
+{
+  "info": {
+    "_postman_id": "9c67b65f-756e-4343-a289-dccdb54fc0df",
+    "name": "TagoIO Access Management Devices API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:59.000Z",
+    "updatedAt": "2026-07-28T03:07:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9c67b65f-756e-4343-a289-dccdb54fc0df"
+  },
+  "item": [
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "{deviceID}",
+          "item": [
+            {
+              "name": "convert",
+              "item": [
+                {
+                  "name": "Convert Device Type",
+                  "id": "1a706ddb-f8f0-412c-9880-89897d819972",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"<string>\",\n  \"chunk_period\": \"<string>\",\n  \"chunk_retention\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/convert",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "convert"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7591795e-53a4-4b74-914e-3d5fe3e332c1",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Convert the device immutable or mutable.\n\nThe device must be empty before being converted. You can empty your device through your device's page. The Device-Token is preserved when converting using this route.\nThe device must be disabled before being converted. You can disable the device by going to the device's page and turn off the active switch."
+                  },
+                  "response": [
+                    {
+                      "id": "b51f0cdd-f064-439f-873f-51742a5e92b2",
+                      "name": "Converting a device type",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"<string>\",\n  \"chunk_period\": \"<string>\",\n  \"chunk_retention\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/convert",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "convert"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-b51f0cdd-f064-439f-873f-51742a5e92b2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-1a706ddb-f8f0-412c-9880-89897d819972"
+                }
+              ],
+              "id": "4af5bf99-d5b7-4a3b-b2d2-5ac531a2b2c6",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-4af5bf99-d5b7-4a3b-b2d2-5ac531a2b2c6"
+            },
+            {
+              "name": "data_amount",
+              "item": [
+                {
+                  "name": "Data Amount",
+                  "id": "c35615f4-9267-4f8a-a1c3-3e9852cbc0e1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/data_amount",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "data_amount"
+                      ],
+                      "variable": [
+                        {
+                          "id": "45a7ef3b-f720-48c7-bd3f-fc5740367d8e",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get the total number of data items stored within the device."
+                  },
+                  "response": [
+                    {
+                      "id": "12517330-b025-4461-9d89-8e0902a8b3f4",
+                      "name": "Getting a device data amount",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data_amount",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data_amount"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<number>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-12517330-b025-4461-9d89-8e0902a8b3f4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-c35615f4-9267-4f8a-a1c3-3e9852cbc0e1"
+                }
+              ],
+              "id": "c5cf9ebb-ed04-4f90-92b3-1524ce61b099",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-c5cf9ebb-ed04-4f90-92b3-1524ce61b099"
+            },
+            {
+              "name": "empty",
+              "item": [
+                {
+                  "name": "Empty Device Storage",
+                  "id": "7e533491-7515-4880-a6f3-53b33dccb60a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/empty",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "empty"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cad96a3e-f88a-48f4-93e4-f8682f4d1915",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Empty a Device's Data"
+                  },
+                  "response": [
+                    {
+                      "id": "aea6a75a-3b4e-4344-a168-354658b2cc03",
+                      "name": "Device's Data empty",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/empty",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "empty"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-aea6a75a-3b4e-4344-a168-354658b2cc03"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-7e533491-7515-4880-a6f3-53b33dccb60a"
+                }
+              ],
+              "id": "50a222ac-89b2-4440-9c49-95e036242b23",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-50a222ac-89b2-4440-9c49-95e036242b23"
+            },
+            {
+              "name": "data",
+              "item": [
+                {
+                  "name": "Get Device Data",
+                  "id": "88db5275-4538-4ffb-b154-c78323f64475",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/data?qty=<string>&end_date=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "data"
+                      ],
+                      "query": [
+                        {
+                          "description": "Numeric quantity of data to be returned",
+                          "key": "qty",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Final date to get the data returned in ISO timestamp format (Not Required)",
+                          "key": "end_date",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1cb8c01c-6f3e-41fc-b125-67746c44a1b9",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) Device ID"
+                        }
+                      ]
+                    },
+                    "description": "Get Device Data for a specific Device within your profile"
+                  },
+                  "response": [
+                    {
+                      "id": "7a383f8f-85ea-4830-a4ab-29b4f698f582",
+                      "name": "Get Device Data",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data?qty=<string>&end_date=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "Numeric quantity of data to be returned",
+                              "key": "qty",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Final date to get the data returned in ISO timestamp format (Not Required)",
+                              "key": "end_date",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"created_at\": \"<string>\",\n      \"device\": \"<string>\",\n      \"group\": \"<string>\",\n      \"id\": \"<string>\",\n      \"location\": {\n        \"coordinates\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"type\": \"<string>\"\n      },\n      \"time\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"value\": \"<string>\",\n      \"variable\": \"<string>\"\n    },\n    {\n      \"created_at\": \"<string>\",\n      \"device\": \"<string>\",\n      \"group\": \"<string>\",\n      \"id\": \"<string>\",\n      \"location\": {\n        \"coordinates\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"type\": \"<string>\"\n      },\n      \"time\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"value\": \"<string>\",\n      \"variable\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-7a383f8f-85ea-4830-a4ab-29b4f698f582"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-88db5275-4538-4ffb-b154-c78323f64475"
+                },
+                {
+                  "name": "Send Device Data",
+                  "id": "4bb847b1-8be1-497a-9a01-3131a6a32a4a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "Device-Token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"variable\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lng\": \"<number>\"\n  },\n  \"value\": \"<string>\",\n  \"time\": \"<string>\",\n  \"group\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"metadata\": {\n    \"veniam_\": 54632406.03686762,\n    \"eu_b\": \"dolore laborum reprehenderit\",\n    \"officiac4\": -15721233,\n    \"qui8_d\": false\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "data"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9191a5a6-dccd-4bf9-a62b-0583c0d3b457",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) Device ID"
+                        }
+                      ]
+                    },
+                    "description": "Send data to a specific Device within your profile\n"
+                  },
+                  "response": [
+                    {
+                      "id": "eefc24c7-874c-4cbe-b41a-17680bed887a",
+                      "name": "Sending data",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Device-Token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"variable\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lng\": \"<number>\"\n  },\n  \"value\": \"<string>\",\n  \"time\": \"<string>\",\n  \"group\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"metadata\": {\n    \"veniam_\": 54632406.03686762,\n    \"eu_b\": \"dolore laborum reprehenderit\",\n    \"officiac4\": -15721233,\n    \"qui8_d\": false\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-eefc24c7-874c-4cbe-b41a-17680bed887a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-4bb847b1-8be1-497a-9a01-3131a6a32a4a"
+                },
+                {
+                  "name": "Edit Device Data",
+                  "id": "396cfbf5-39d8-46a5-97eb-743dfc401194",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"value\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/data",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "data"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4c88a5fb-2b58-4ae7-a73d-11c9b9806702",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) Device ID"
+                        }
+                      ]
+                    },
+                    "description": "Edit specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+                  },
+                  "response": [
+                    {
+                      "id": "f336f2b8-006c-4cec-ac1c-6472932f9ef8",
+                      "name": "Editing a device data",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"value\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-f336f2b8-006c-4cec-ac1c-6472932f9ef8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-396cfbf5-39d8-46a5-97eb-743dfc401194"
+                },
+                {
+                  "name": "Delete Device Data",
+                  "id": "c1175fc0-c1fe-46d7-b694-550e2364c3ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/data?qty=15&ordination=descending&skip=<integer>&variables=<string>&values=<string>&ids=<string>&groups=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "data"
+                      ],
+                      "query": [
+                        {
+                          "description": "Quantity of data records to delete. Default is 15.",
+                          "key": "qty",
+                          "value": "15"
+                        },
+                        {
+                          "description": "Sort direction. Default is descending.",
+                          "key": "ordination",
+                          "value": "descending"
+                        },
+                        {
+                          "description": "Number of items to skip (pagination).",
+                          "key": "skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter data by variable.",
+                          "key": "variables",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter data by value. Accepts single or multiple values.",
+                          "key": "values",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter data by id. Accepts single or multiple values.",
+                          "key": "ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n",
+                          "key": "groups",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c58a9f3d-a9c8-4a23-b5e3-7bce8b53512f",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) Device ID"
+                        }
+                      ]
+                    },
+                    "description": "Delete specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+                  },
+                  "response": [
+                    {
+                      "id": "37ec3eca-d2c1-4014-89e0-d93ec25973d7",
+                      "name": "Delete Device Data",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data?qty=15&ordination=descending&skip=<integer>&variables=<string>&values=<string>&ids=<string>&groups=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "Quantity of data records to delete. Default is 15.",
+                              "key": "qty",
+                              "value": "15"
+                            },
+                            {
+                              "description": "Sort direction. Default is descending.",
+                              "key": "ordination",
+                              "value": "descending"
+                            },
+                            {
+                              "description": "Number of items to skip (pagination).",
+                              "key": "skip",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter data by variable.",
+                              "key": "variables",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter data by value. Accepts single or multiple values.",
+                              "key": "values",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter data by id. Accepts single or multiple values.",
+                              "key": "ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n",
+                              "key": "groups",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:59.000Z",
+                      "updatedAt": "2026-07-28T03:07:59.000Z",
+                      "uid": "35240-37ec3eca-d2c1-4014-89e0-d93ec25973d7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-c1175fc0-c1fe-46d7-b694-550e2364c3ca"
+                }
+              ],
+              "id": "2489db5a-4566-4f18-9c3c-69a2f00e0ba0",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-2489db5a-4566-4f18-9c3c-69a2f00e0ba0"
+            },
+            {
+              "name": "Device Information",
+              "id": "942bbcb7-cfb7-4acc-a262-b20e2c86962f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/device/:deviceID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device",
+                    ":deviceID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c4877459-f310-4503-a84d-abf087149747",
+                      "key": "deviceID",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Device information"
+              },
+              "response": [
+                {
+                  "id": "69f6017e-8101-47db-ac12-b2d4f811e2f8",
+                  "name": "Getting a device information",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deviceID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"active\": \"<boolean>\",\n    \"connector\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"data_retention\": \"<string>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_input\": \"<string>\",\n    \"name\": \"<string>\",\n    \"network\": \"<string>\",\n    \"payload_decoder\": {},\n    \"profile\": \"<string>\",\n    \"tags\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"type\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"visible\": \"<boolean>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-69f6017e-8101-47db-ac12-b2d4f811e2f8"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-942bbcb7-cfb7-4acc-a262-b20e2c86962f"
+            },
+            {
+              "name": "Edit Device",
+              "id": "2e9ab196-3e88-4f4d-8876-e595e184afd1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"connector\": \"<string>\",\n  \"name\": \"<string>\",\n  \"network\": \"<string>\",\n  \"payload_decoder\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"visible\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/device/:deviceID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device",
+                    ":deviceID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f3338c02-2163-4406-9142-5d0e174c194c",
+                      "key": "deviceID",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Modify any property of the device.\n\nYou're only required to send the parameters you want to edit.\n\nIf changing network/connector, make sure you've deleted all tokens in the device first. Is also required to send both network and connector to edit any of both fields.\n"
+              },
+              "response": [
+                {
+                  "id": "6b7f4624-46d4-4dac-b49c-9e27f288dec7",
+                  "name": "Updating device settings",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"active\": \"<boolean>\",\n  \"connector\": \"<string>\",\n  \"name\": \"<string>\",\n  \"network\": \"<string>\",\n  \"payload_decoder\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"visible\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deviceID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-6b7f4624-46d4-4dac-b49c-9e27f288dec7"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-2e9ab196-3e88-4f4d-8876-e595e184afd1"
+            },
+            {
+              "name": "Delete Device",
+              "id": "1b68bb4c-39d3-4e10-950e-0b2689e02ca3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/device/:deviceID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device",
+                    ":deviceID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b92980ef-e069-4534-8275-6a85ace19046",
+                      "key": "deviceID",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a device from the profile\n"
+              },
+              "response": [
+                {
+                  "id": "cb93affe-796a-4cde-8b2d-48641c2f392f",
+                  "name": "Deleting a device by ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deviceID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:59.000Z",
+                  "updatedAt": "2026-07-28T03:07:59.000Z",
+                  "uid": "35240-cb93affe-796a-4cde-8b2d-48641c2f392f"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-1b68bb4c-39d3-4e10-950e-0b2689e02ca3"
+            }
+          ],
+          "id": "050fa079-51a4-4d97-80bc-c87e49266079",
+          "createdAt": "2026-07-28T03:07:59.000Z",
+          "updatedAt": "2026-07-28T03:07:59.000Z",
+          "uid": "35240-050fa079-51a4-4d97-80bc-c87e49266079"
+        },
+        {
+          "name": "List of Devices",
+          "id": "3ff54ee5-03a4-4cd1-ace0-5649aec0ee39",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/device?page=<string>&amount=<string>&filter[id]=<string>&filter[name]=<string>&filter[visible]=<string>&filter[active]=<string>&filter[connector]=<string>&filter[network]=<string>&filter[tags]=<string>&filter[updated_at]=<string>&filter[created_at]=<string>&orderBy=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "device"
+              ],
+              "query": [
+                {
+                  "description": "Page number.",
+                  "key": "page",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Amount of devices by page.",
+                  "key": "amount",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the device by ID.",
+                  "key": "filter[id]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the device name.",
+                  "key": "filter[name]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the device visible status.",
+                  "key": "filter[visible]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the device active status.",
+                  "key": "filter[active]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the devices by the Connector ID.",
+                  "key": "filter[connector]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter the devices by the Network ID.",
+                  "key": "filter[network]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter device by it's tag. Check the example.",
+                  "key": "filter[tags]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by time the device was received data. Can be an ISO-8601 or a relative date",
+                  "key": "filter[updated_at]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by time the device was created. Can be an ISO-8601 or a relative date",
+                  "key": "filter[created_at]",
+                  "value": "<string>"
+                },
+                {
+                  "key": "orderBy",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves a list with all devices from the profile\n"
+          },
+          "response": [
+            {
+              "id": "e6a86996-d045-4818-b33d-14cdbbb22ed8",
+              "name": "List of devices retrieved using query params",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/device?page=<string>&amount=<string>&filter[id]=<string>&filter[name]=<string>&filter[visible]=<string>&filter[active]=<string>&filter[connector]=<string>&filter[network]=<string>&filter[tags]=<string>&filter[updated_at]=<string>&filter[created_at]=<string>&orderBy=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number.",
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount of devices by page.",
+                      "key": "amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the device by ID.",
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the device name.",
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the device visible status.",
+                      "key": "filter[visible]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the device active status.",
+                      "key": "filter[active]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the devices by the Connector ID.",
+                      "key": "filter[connector]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the devices by the Network ID.",
+                      "key": "filter[network]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter device by it's tag. Check the example.",
+                      "key": "filter[tags]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by time the device was received data. Can be an ISO-8601 or a relative date",
+                      "key": "filter[updated_at]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by time the device was created. Can be an ISO-8601 or a relative date",
+                      "key": "filter[created_at]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": [\n    {\n      \"connector\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"network\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"connector\": \"<string>\",\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"network\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-e6a86996-d045-4818-b33d-14cdbbb22ed8"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:59.000Z",
+          "updatedAt": "2026-07-28T03:07:59.000Z",
+          "uid": "35240-3ff54ee5-03a4-4cd1-ace0-5649aec0ee39"
+        },
+        {
+          "name": "Create Device",
+          "id": "5ac22672-2c7d-47e2-9251-4b8f96c767fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"immutable\",\n  \"network\": \"<string>\",\n  \"connector\": \"<string>\",\n  \"chunk_period\": \"month\",\n  \"chunk_retention\": \"<number>\",\n  \"serie_number\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/device",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "device"
+              ]
+            },
+            "description": "Create either an immutable or a mutable device. Immutable devices require chunking parameters and are optimized for long-term, append-only storage. Mutable devices behave like classic devices and do not require chunk settings."
+          },
+          "response": [
+            {
+              "id": "3733753b-f033-4ab9-a869-ab0c53ff6d76",
+              "name": "Mutable device created / Mutable device created with parse function / Immutable device created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"immutable\",\n  \"network\": \"<string>\",\n  \"connector\": \"<string>\",\n  \"chunk_period\": \"month\",\n  \"chunk_retention\": \"<number>\",\n  \"serie_number\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/device",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"deviceID\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:59.000Z",
+              "updatedAt": "2026-07-28T03:07:59.000Z",
+              "uid": "35240-3733753b-f033-4ab9-a869-ab0c53ff6d76"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:59.000Z",
+          "updatedAt": "2026-07-28T03:07:59.000Z",
+          "uid": "35240-5ac22672-2c7d-47e2-9251-4b8f96c767fe"
+        }
+      ],
+      "id": "50e2bdab-8502-4771-a734-320d4eea7f51",
+      "createdAt": "2026-07-28T03:07:59.000Z",
+      "updatedAt": "2026-07-28T03:07:59.000Z",
+      "uid": "35240-50e2bdab-8502-4771-a734-320d4eea7f51"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

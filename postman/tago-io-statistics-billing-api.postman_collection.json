@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "d6a7f336-e336-4df3-8f83-38ccf5c891db",
+    "name": "TagoIO Access Management Statistics / Billing API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:13.000Z",
+    "updatedAt": "2026-07-28T03:08:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6a7f336-e336-4df3-8f83-38ccf5c891db"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "plan",
+          "item": [
+            {
+              "name": "Account Plan",
+              "id": "a250953e-2608-422b-8db8-872da582aaff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/plan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "plan"
+                  ]
+                },
+                "description": "Get the Account Plan"
+              },
+              "response": [
+                {
+                  "id": "de7675c6-48f3-496f-9f2d-34b7909eadee",
+                  "name": "Getting the account plan",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/plan",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "plan"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"plan\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:14.000Z",
+                  "updatedAt": "2026-07-28T03:08:14.000Z",
+                  "uid": "35240-de7675c6-48f3-496f-9f2d-34b7909eadee"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:14.000Z",
+              "updatedAt": "2026-07-28T03:08:14.000Z",
+              "uid": "35240-a250953e-2608-422b-8db8-872da582aaff"
+            }
+          ],
+          "id": "8ac0bcad-4c68-4fbd-a558-68f8ca142bf1",
+          "createdAt": "2026-07-28T03:08:14.000Z",
+          "updatedAt": "2026-07-28T03:08:14.000Z",
+          "uid": "35240-8ac0bcad-4c68-4fbd-a558-68f8ca142bf1"
+        }
+      ],
+      "id": "87241106-daf6-4fb8-af0c-b1509e98d3e0",
+      "createdAt": "2026-07-28T03:08:14.000Z",
+      "updatedAt": "2026-07-28T03:08:14.000Z",
+      "uid": "35240-87241106-daf6-4fb8-af0c-b1509e98d3e0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

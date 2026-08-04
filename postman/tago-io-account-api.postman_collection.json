@@ -1,0 +1,477 @@
+{
+  "info": {
+    "_postman_id": "ff294826-3f7a-4a1c-8b9c-12a9171a0b2f",
+    "name": "TagoIO Access Management Account API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:46.000Z",
+    "updatedAt": "2026-07-28T03:07:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff294826-3f7a-4a1c-8b9c-12a9171a0b2f"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "allocation",
+          "item": [
+            {
+              "name": "Resources Allocation",
+              "id": "47afcdf8-e010-4442-ae52-c2d476c3e504",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/allocation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "allocation"
+                  ]
+                },
+                "description": "Get account resources allocation"
+              },
+              "response": [
+                {
+                  "id": "d0957403-c5f3-400b-b8b7-bf0e2e5e7cc1",
+                  "name": "Get account resources' allocation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/allocation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "allocation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": [\n    {\n      \"analysis\": \"<number>\",\n      \"data_records\": \"<number>\",\n      \"email\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"profile\": \"<string>\",\n      \"push_notification\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"sms\": \"<number>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"analysis\": \"<number>\",\n      \"data_records\": \"<number>\",\n      \"email\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"profile\": \"<string>\",\n      \"push_notification\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"sms\": \"<number>\",\n      \"updated_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-d0957403-c5f3-400b-b8b7-bf0e2e5e7cc1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-47afcdf8-e010-4442-ae52-c2d476c3e504"
+            },
+            {
+              "name": "Update Resources Allocation",
+              "id": "fa115473-453f-45a5-81c3-e072ee2210f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"profile\": \"<string>\",\n    \"analysis\": \"<number>\",\n    \"data_records\": \"<number>\",\n    \"email\": \"<number>\",\n    \"file_storage\": \"<number>\",\n    \"input\": \"<number>\",\n    \"output\": \"<number>\",\n    \"push_notification\": \"<number>\",\n    \"run_users\": \"<number>\",\n    \"sms\": \"<number>\"\n  },\n  {\n    \"profile\": \"<string>\",\n    \"analysis\": \"<number>\",\n    \"data_records\": \"<number>\",\n    \"email\": \"<number>\",\n    \"file_storage\": \"<number>\",\n    \"input\": \"<number>\",\n    \"output\": \"<number>\",\n    \"push_notification\": \"<number>\",\n    \"run_users\": \"<number>\",\n    \"sms\": \"<number>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/allocation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "allocation"
+                  ]
+                },
+                "description": "Update the account resources allocation"
+              },
+              "response": [
+                {
+                  "id": "d0fb0a2c-8818-454d-a007-9d59b7dc9abc",
+                  "name": "Update the account's allocation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"profile\": \"<string>\",\n    \"analysis\": \"<number>\",\n    \"data_records\": \"<number>\",\n    \"email\": \"<number>\",\n    \"file_storage\": \"<number>\",\n    \"input\": \"<number>\",\n    \"output\": \"<number>\",\n    \"push_notification\": \"<number>\",\n    \"run_users\": \"<number>\",\n    \"sms\": \"<number>\"\n  },\n  {\n    \"profile\": \"<string>\",\n    \"analysis\": \"<number>\",\n    \"data_records\": \"<number>\",\n    \"email\": \"<number>\",\n    \"file_storage\": \"<number>\",\n    \"input\": \"<number>\",\n    \"output\": \"<number>\",\n    \"push_notification\": \"<number>\",\n    \"run_users\": \"<number>\",\n    \"sms\": \"<number>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/allocation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "allocation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-d0fb0a2c-8818-454d-a007-9d59b7dc9abc"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-fa115473-453f-45a5-81c3-e072ee2210f6"
+            }
+          ],
+          "id": "edf8fa40-caba-4fad-81cd-c2fc447697a8",
+          "createdAt": "2026-07-28T03:07:47.000Z",
+          "updatedAt": "2026-07-28T03:07:47.000Z",
+          "uid": "35240-edf8fa40-caba-4fad-81cd-c2fc447697a8"
+        },
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "Login to Account",
+              "id": "c8a8115e-532f-4125-9d0a-d1b120c51206",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "login"
+                  ]
+                },
+                "description": "Login to account using email and password\n"
+              },
+              "response": [
+                {
+                  "id": "9227ee54-4947-499a-b62f-c7976562704c",
+                  "name": "Login",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"company\": \"<string>\",\n    \"email\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"profiles\": [\n      {\n        \"account\": \"<string>\",\n        \"id\": \"<string>\",\n        \"logo_url\": {},\n        \"name\": \"<string>\"\n      },\n      {\n        \"account\": \"<string>\",\n        \"id\": \"<string>\",\n        \"logo_url\": {},\n        \"name\": \"<string>\"\n      }\n    ],\n    \"type\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-9227ee54-4947-499a-b62f-c7976562704c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-c8a8115e-532f-4125-9d0a-d1b120c51206"
+            }
+          ],
+          "id": "fd0299c8-91a5-4844-bccf-7c24725be59b",
+          "createdAt": "2026-07-28T03:07:47.000Z",
+          "updatedAt": "2026-07-28T03:07:47.000Z",
+          "uid": "35240-fd0299c8-91a5-4844-bccf-7c24725be59b"
+        },
+        {
+          "name": "Account Information",
+          "id": "bb46ce91-1215-4acd-bc49-7f2ba3779280",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "account"
+              ]
+            },
+            "description": "Get all information from current account\n"
+          },
+          "response": [
+            {
+              "id": "1711b0a7-77b8-4662-9fd9-dbd5eef48606",
+              "name": "Get information about account",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"active\": \"<boolean>\",\n    \"blocked\": \"<boolean>\",\n    \"company\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"email\": \"<string>\",\n    \"id\": \"<string>\",\n    \"language\": \"<string>\",\n    \"last_login\": \"<string>\",\n    \"name\": \"<string>\",\n    \"newsletter\": \"<boolean>\",\n    \"options\": {\n      \"decimal_separator\": \"<string>\",\n      \"last_whats_new\": \"<string>\",\n      \"thousand_separator\": \"<string>\",\n      \"user_view_welcome\": \"<boolean>\"\n    },\n    \"otp\": {},\n    \"phone\": {},\n    \"plan\": \"<string>\",\n    \"send_invoice\": \"<boolean>\",\n    \"stripe_id\": {},\n    \"timezone\": \"<string>\",\n    \"type\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-1711b0a7-77b8-4662-9fd9-dbd5eef48606"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:47.000Z",
+          "updatedAt": "2026-07-28T03:07:47.000Z",
+          "uid": "35240-bb46ce91-1215-4acd-bc49-7f2ba3779280"
+        },
+        {
+          "name": "Edit Account",
+          "id": "93910c6d-8186-41a8-b53f-f40d16976e8a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"company\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"options\": {\n    \"date_format\": \"<string>\",\n    \"decimal_separator\": \"<string>\",\n    \"show_last_updated_at\": \"<string>\",\n    \"thousand_separator\": \"<string>\",\n    \"time_format\": \"<string>\"\n  },\n  \"phone\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "account"
+              ]
+            },
+            "description": "Edit current account\n"
+          },
+          "response": [
+            {
+              "id": "1764fa37-c735-4899-bd1e-4ffd5b936243",
+              "name": "Account edited successfuly",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"company\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"options\": {\n    \"date_format\": \"<string>\",\n    \"decimal_separator\": \"<string>\",\n    \"show_last_updated_at\": \"<string>\",\n    \"thousand_separator\": \"<string>\",\n    \"time_format\": \"<string>\"\n  },\n  \"phone\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-1764fa37-c735-4899-bd1e-4ffd5b936243"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:47.000Z",
+          "updatedAt": "2026-07-28T03:07:47.000Z",
+          "uid": "35240-93910c6d-8186-41a8-b53f-f40d16976e8a"
+        }
+      ],
+      "id": "36b58fce-e46c-4486-9669-84e672863ac9",
+      "createdAt": "2026-07-28T03:07:47.000Z",
+      "updatedAt": "2026-07-28T03:07:47.000Z",
+      "uid": "35240-36b58fce-e46c-4486-9669-84e672863ac9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

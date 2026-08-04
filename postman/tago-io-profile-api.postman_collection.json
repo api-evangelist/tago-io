@@ -1,0 +1,1219 @@
+{
+  "info": {
+    "_postman_id": "e863eea9-fa4c-4c4c-a21e-0f29cdae4e14",
+    "name": "TagoIO Access Management Profile API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:11.000Z",
+    "updatedAt": "2026-07-28T03:08:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e863eea9-fa4c-4c4c-a21e-0f29cdae4e14"
+  },
+  "item": [
+    {
+      "name": "profiled",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "statistics",
+              "item": [
+                {
+                  "name": "Profile Statistics",
+                  "id": "8f5cfb34-c412-48ee-8b91-7b3d03b4f399",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/profiled/:id/statistics?date=<string>&timezone=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profiled",
+                        ":id",
+                        "statistics"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter the statistics by specific date",
+                          "key": "date",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter the statiscs with the timezone applied if not it returns the UTC time",
+                          "key": "timezone",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "eb144da6-5512-4a1c-9c25-85230bbad074",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Can be found in the profile's information tab \"More\""
+                        }
+                      ]
+                    },
+                    "description": "Get your Profile Statistics"
+                  },
+                  "response": [
+                    {
+                      "id": "88e6add2-de86-4c74-a322-012c7bbc1890",
+                      "name": "Getting a profile statistics",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profiled/:id/statistics?date=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profiled",
+                            ":id",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter the statistics by specific date",
+                              "key": "date",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter the statiscs with the timezone applied if not it returns the UTC time",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"data_records\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"time\": \"<string>\"\n    },\n    {\n      \"data_records\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"time\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-88e6add2-de86-4c74-a322-012c7bbc1890"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-8f5cfb34-c412-48ee-8b91-7b3d03b4f399"
+                }
+              ],
+              "id": "1339f381-1a1f-4f5e-b05d-9e58b7a0061d",
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-1339f381-1a1f-4f5e-b05d-9e58b7a0061d"
+            }
+          ],
+          "id": "1372bd6a-ff9e-426c-86cc-06babac59980",
+          "createdAt": "2026-07-28T03:08:12.000Z",
+          "updatedAt": "2026-07-28T03:08:12.000Z",
+          "uid": "35240-1372bd6a-ff9e-426c-86cc-06babac59980"
+        }
+      ],
+      "id": "b43bd66b-7d47-406c-8b51-ca244906977b",
+      "createdAt": "2026-07-28T03:08:12.000Z",
+      "updatedAt": "2026-07-28T03:08:12.000Z",
+      "uid": "35240-b43bd66b-7d47-406c-8b51-ca244906977b"
+    },
+    {
+      "name": "profile",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "summary",
+              "item": [
+                {
+                  "name": "Profile Summary",
+                  "id": "a9ff2ba2-c2f1-4e2e-b2c5-23190e811e08",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/profile/:id/summary",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profile",
+                        ":id",
+                        "summary"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d572e087-6a53-41d0-84b9-1ac806238e81",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Can be found in the profile's information tab \"More\""
+                        }
+                      ]
+                    },
+                    "description": "Get your Profile Summary"
+                  },
+                  "response": [
+                    {
+                      "id": "22437e1f-399b-498a-b779-934ec76aaec6",
+                      "name": "Get a general summary of your profile resources",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:id/summary",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":id",
+                            "summary"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": {\n    \"addons\": {\n      \"control_tower\": \"<boolean>\",\n      \"custom_dns\": \"<boolean>\",\n      \"mobile\": \"<boolean>\",\n      \"profile\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    \"amount\": {\n      \"action\": \"<number>\",\n      \"am\": \"<number>\",\n      \"analysis\": \"<number>\",\n      \"connectors\": \"<number>\",\n      \"dashboard\": \"<number>\",\n      \"device\": \"<number>\",\n      \"dictionary\": \"<number>\",\n      \"networks\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"tcore\": \"<number>\",\n      \"tcore_cluster\": \"<number>\"\n    },\n    \"limit\": {\n      \"analysis\": \"<number>\",\n      \"data_records\": \"<number>\",\n      \"email\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"push_notification\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"sms\": \"<number>\",\n      \"tcore\": \"<number>\"\n    },\n    \"limit_used\": {\n      \"analysis\": \"<number>\",\n      \"dashboard_output\": \"<number>\",\n      \"data_records\": \"<number>\",\n      \"email\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"push_notification\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"sms\": \"<number>\",\n      \"tcore\": \"<number>\",\n      \"tcore_cluster\": \"<number>\"\n    },\n    \"tago_run\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-22437e1f-399b-498a-b779-934ec76aaec6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-a9ff2ba2-c2f1-4e2e-b2c5-23190e811e08"
+                }
+              ],
+              "id": "b17ee310-ff90-4aa5-a218-966c3aacb5e3",
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-b17ee310-ff90-4aa5-a218-966c3aacb5e3"
+            },
+            {
+              "name": "service",
+              "item": [
+                {
+                  "name": "test",
+                  "item": [
+                    {
+                      "name": "{service_type}",
+                      "item": [
+                        {
+                          "name": "Test Service Provider",
+                          "id": "0719e152-448c-456d-952b-9b99d46f8fdf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"to\": \"<string>\",\n  \"message\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/profile/:id/service/test/:service_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "profile",
+                                ":id",
+                                "service",
+                                "test",
+                                ":service_type"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3869c025-6f58-47ae-b0a3-6a64a497f1ba",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the profile"
+                                },
+                                {
+                                  "id": "00fd5a05-b0cd-4d5e-b786-83f746b6102e",
+                                  "key": "service_type",
+                                  "value": "email",
+                                  "description": "(Required) The type of service to test (sms or email)"
+                                }
+                              ]
+                            },
+                            "description": "Test a configured service provider by sending a test message. This helps verify that your service provider configuration is working correctly before using it in production.\n\n**Supported service types:**\n- `sms` - Sends a test SMS message to the specified phone number\n- `email` - Sends a test email to the specified email address\n\n**Important notes:**\n- A service provider must be configured before testing\n- Test messages will consume your provider's quota/credits\n- For SMS, ensure the recipient number is in E.164 format (e.g., +15551234567)\n"
+                          },
+                          "response": [
+                            {
+                              "id": "db3078de-e3e4-4a44-80db-7c43e72e0a2d",
+                              "name": "Test message sent successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"to\": \"<string>\",\n  \"message\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:id/service/test/:service_type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":id",
+                                    "service",
+                                    "test",
+                                    ":service_type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "service_type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": {\n    \"message\": \"<string>\",\n    \"message_id\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T03:08:12.000Z",
+                              "updatedAt": "2026-07-28T03:08:12.000Z",
+                              "uid": "35240-db3078de-e3e4-4a44-80db-7c43e72e0a2d"
+                            },
+                            {
+                              "id": "de7aaee3-c47e-47fa-bc7a-71a43987dfa9",
+                              "name": "Bad request - Invalid recipient or message format",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"to\": \"<string>\",\n  \"message\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:id/service/test/:service_type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":id",
+                                    "service",
+                                    "test",
+                                    ":service_type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "service_type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:08:12.000Z",
+                              "updatedAt": "2026-07-28T03:08:12.000Z",
+                              "uid": "35240-de7aaee3-c47e-47fa-bc7a-71a43987dfa9"
+                            },
+                            {
+                              "id": "f19a3f5a-33c6-4f96-b570-9fa41467ba87",
+                              "name": "Service provider not configured",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"to\": \"<string>\",\n  \"message\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:id/service/test/:service_type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":id",
+                                    "service",
+                                    "test",
+                                    ":service_type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "service_type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:08:12.000Z",
+                              "updatedAt": "2026-07-28T03:08:12.000Z",
+                              "uid": "35240-f19a3f5a-33c6-4f96-b570-9fa41467ba87"
+                            },
+                            {
+                              "id": "fff4762c-2d62-4fca-9664-a23e0ff682d5",
+                              "name": "Provider error - Failed to send test message",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"to\": \"<string>\",\n  \"message\": \"<string>\",\n  \"subject\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:id/service/test/:service_type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":id",
+                                    "service",
+                                    "test",
+                                    ":service_type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "service_type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:08:12.000Z",
+                              "updatedAt": "2026-07-28T03:08:12.000Z",
+                              "uid": "35240-fff4762c-2d62-4fca-9664-a23e0ff682d5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:08:12.000Z",
+                          "updatedAt": "2026-07-28T03:08:12.000Z",
+                          "uid": "35240-0719e152-448c-456d-952b-9b99d46f8fdf"
+                        }
+                      ],
+                      "id": "216b35a8-2eef-480e-a09a-b4b989d5a86b",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-216b35a8-2eef-480e-a09a-b4b989d5a86b"
+                    }
+                  ],
+                  "id": "16a6b223-ebd5-46ce-bb28-8c9dee6dd4af",
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-16a6b223-ebd5-46ce-bb28-8c9dee6dd4af"
+                },
+                {
+                  "name": "Configure Service Provider",
+                  "id": "b83fe861-8551-47a2-ba92-fe93ee962c0b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": {\n    \"provider\": \"smtp\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"data\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"sms\": {\n    \"provider\": \"twilio\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"twilio_sid\": \"<string>\",\n      \"twilio_token\": \"<string>\",\n      \"data\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/profile/:id/service",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profile",
+                        ":id",
+                        "service"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6a2f7903-9a06-47f7-adea-a922988bdc88",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the profile"
+                        }
+                      ]
+                    },
+                    "description": "Configure external service providers for your profile. This allows you to set up integrations with third-party services for SMS and Email messaging.\n\n**Available service providers:**\n\n| Service Type | Provider | Description |\n|--------------|----------|-------------|\n| `sms` | Twilio | Send SMS messages via Twilio |\n| `sms` | SNS | Send SMS messages via Amazon SNS |\n| `email` | SendGrid | Send emails via SendGrid API |\n| `email` | SES | Send emails via Amazon SES |\n| `email` | SMTP | Send emails via custom SMTP server |\n\n**Important notes:**\n- Credentials are securely stored using [TagoIO Secrets](/docs/tagoio/getting-started/secrets). You must create the appropriate secrets before configuring a service provider.\n- Each service type can only have one active provider configuration at a time\n- Use the test endpoint to verify your configuration before using it in production\n\n**Required secrets by provider:**\n- **Twilio SMS**: Create two Text secrets containing your Twilio SID and Auth Token\n- **SNS SMS**: Create an AWS SQS Secret with your AWS credentials (region, access key, secret key)\n- **SendGrid Email**: Create a Text secret containing your SendGrid API Key\n- **SES Email**: Create an AWS SQS Secret with your AWS credentials (region, access key, secret key)\n- **SMTP Email**: Create an SMTP Secret with your server configuration\n"
+                  },
+                  "response": [
+                    {
+                      "id": "5be78463-19e0-437e-acf4-b409b867799b",
+                      "name": "Service provider configured successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": {\n    \"provider\": \"smtp\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"data\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"sms\": {\n    \"provider\": \"twilio\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"twilio_sid\": \"<string>\",\n      \"twilio_token\": \"<string>\",\n      \"data\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:id/service",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":id",
+                            "service"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-5be78463-19e0-437e-acf4-b409b867799b"
+                    },
+                    {
+                      "id": "4cd20ea3-2b9a-48a4-a6e6-fb4ebaf22007",
+                      "name": "Bad request - Invalid configuration",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": {\n    \"provider\": \"smtp\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"data\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"sms\": {\n    \"provider\": \"twilio\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"twilio_sid\": \"<string>\",\n      \"twilio_token\": \"<string>\",\n      \"data\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:id/service",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":id",
+                            "service"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-4cd20ea3-2b9a-48a4-a6e6-fb4ebaf22007"
+                    },
+                    {
+                      "id": "7a65c04e-4cf7-4176-87be-e82636b55fdc",
+                      "name": "Unauthorized - Invalid or missing token",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": {\n    \"provider\": \"smtp\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"data\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"sms\": {\n    \"provider\": \"twilio\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"twilio_sid\": \"<string>\",\n      \"twilio_token\": \"<string>\",\n      \"data\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:id/service",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":id",
+                            "service"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-7a65c04e-4cf7-4176-87be-e82636b55fdc"
+                    },
+                    {
+                      "id": "06fc01d6-680c-4546-89fc-f681d5e99762",
+                      "name": "Forbidden - Insufficient permissions",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": {\n    \"provider\": \"smtp\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"data\": \"<string>\",\n      \"api_key\": \"<string>\"\n    }\n  },\n  \"sms\": {\n    \"provider\": \"twilio\",\n    \"from\": \"<string>\",\n    \"secrets\": {\n      \"twilio_sid\": \"<string>\",\n      \"twilio_token\": \"<string>\",\n      \"data\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:id/service",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":id",
+                            "service"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-06fc01d6-680c-4546-89fc-f681d5e99762"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-b83fe861-8551-47a2-ba92-fe93ee962c0b"
+                }
+              ],
+              "id": "80a59ba7-0003-4a6e-9d84-e81924bd12d1",
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-80a59ba7-0003-4a6e-9d84-e81924bd12d1"
+            },
+            {
+              "name": "Profile Information",
+              "id": "e19f0791-1721-40d2-9938-39a4e4e18c90",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/profile/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "profile",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6846b2b4-e53d-4dc4-b2ec-4182538e143f",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Can be found in the profile's information tab \"More\""
+                    }
+                  ]
+                },
+                "description": "Get your profile settings"
+              },
+              "response": [
+                {
+                  "id": "e95b61b6-3d99-498b-b1f6-9438447a2ded",
+                  "name": "Get a Profile Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/profile/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profile",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"account_plan\": \"<string>\",\n    \"addons\": {\n      \"control_tower\": \"<boolean>\",\n      \"custom_dns\": \"<boolean>\",\n      \"mobile\": \"<boolean>\",\n      \"profile\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    \"allocation\": {\n      \"analysis\": \"<number>\",\n      \"data_records\": \"<number>\",\n      \"email\": \"<number>\",\n      \"file_storage\": \"<number>\",\n      \"input\": \"<number>\",\n      \"output\": \"<number>\",\n      \"push_notification\": \"<number>\",\n      \"run_users\": \"<number>\",\n      \"sms\": \"<number>\"\n    },\n    \"info\": {\n      \"account\": \"<string>\",\n      \"banner_url\": {},\n      \"created_at\": \"<string>\",\n      \"id\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"name\": \"<string>\",\n      \"region\": \"<string>\",\n      \"rpm\": {\n        \"data_input\": \"<number>\",\n        \"data_output\": \"<number>\"\n      },\n      \"updated_at\": \"<string>\"\n    }\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-e95b61b6-3d99-498b-b1f6-9438447a2ded"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-e19f0791-1721-40d2-9938-39a4e4e18c90"
+            }
+          ],
+          "id": "50279268-79e8-4cbd-8595-3430846b45d1",
+          "createdAt": "2026-07-28T03:08:12.000Z",
+          "updatedAt": "2026-07-28T03:08:12.000Z",
+          "uid": "35240-50279268-79e8-4cbd-8595-3430846b45d1"
+        }
+      ],
+      "id": "56eabf45-ede2-4d6f-8232-74cb1d3e7a96",
+      "createdAt": "2026-07-28T03:08:12.000Z",
+      "updatedAt": "2026-07-28T03:08:12.000Z",
+      "uid": "35240-56eabf45-ede2-4d6f-8232-74cb1d3e7a96"
+    },
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "profile",
+          "item": [
+            {
+              "name": "token",
+              "item": [
+                {
+                  "name": "Generate Profile-Token",
+                  "id": "a869d080-4f91-465a-a20c-cfbfde8c44b8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"profile_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/profile/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "profile",
+                        "token"
+                      ]
+                    },
+                    "description": "Generates and retrieves a new token for the account\n"
+                  },
+                  "response": [
+                    {
+                      "id": "cb5d8944-4d6a-4897-b17a-2c2ca7c6fbd1",
+                      "name": "token created successfuly",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"profile_id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/profile/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "profile",
+                            "token"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": {\n    \"created_by\": \"<string>\",\n    \"name\": \"<string>\",\n    \"permission\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-cb5d8944-4d6a-4897-b17a-2c2ca7c6fbd1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-a869d080-4f91-465a-a20c-cfbfde8c44b8"
+                }
+              ],
+              "id": "1fe18525-3783-4f31-a2c0-9dcca22dffda",
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-1fe18525-3783-4f31-a2c0-9dcca22dffda"
+            }
+          ],
+          "id": "5943e156-bc10-47da-8df5-8ee5be725f10",
+          "createdAt": "2026-07-28T03:08:12.000Z",
+          "updatedAt": "2026-07-28T03:08:12.000Z",
+          "uid": "35240-5943e156-bc10-47da-8df5-8ee5be725f10"
+        }
+      ],
+      "id": "449df771-4bf1-4ebd-b3d3-484410127962",
+      "createdAt": "2026-07-28T03:08:12.000Z",
+      "updatedAt": "2026-07-28T03:08:12.000Z",
+      "uid": "35240-449df771-4bf1-4ebd-b3d3-484410127962"
+    },
+    {
+      "name": "tags",
+      "item": [
+        {
+          "name": "keys",
+          "item": [
+            {
+              "name": "{type}",
+              "item": [
+                {
+                  "name": "List Used Tags",
+                  "id": "3757d655-846a-44d9-a66d-c1fd1e7395d8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/keys/:type",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        "keys",
+                        ":type"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2c0129b9-31b0-4826-965c-258188c86d30",
+                          "key": "type",
+                          "value": "<string>",
+                          "description": "(Required) (Accepts Analysis, Device, User, Dashboard, Action)"
+                        }
+                      ]
+                    },
+                    "description": "Get a list containing all device tags in use on your profile"
+                  },
+                  "response": [
+                    {
+                      "id": "30f30de0-41c2-4eb6-8386-96fa3ce2203b",
+                      "name": "Get Device Tags",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/tags/keys/:type",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tags",
+                            "keys",
+                            ":type"
+                          ],
+                          "variable": [
+                            {
+                              "key": "type"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:12.000Z",
+                      "updatedAt": "2026-07-28T03:08:12.000Z",
+                      "uid": "35240-30f30de0-41c2-4eb6-8386-96fa3ce2203b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:12.000Z",
+                  "updatedAt": "2026-07-28T03:08:12.000Z",
+                  "uid": "35240-3757d655-846a-44d9-a66d-c1fd1e7395d8"
+                }
+              ],
+              "id": "7e1e06d7-b893-43a1-985f-bdf819bd3200",
+              "createdAt": "2026-07-28T03:08:12.000Z",
+              "updatedAt": "2026-07-28T03:08:12.000Z",
+              "uid": "35240-7e1e06d7-b893-43a1-985f-bdf819bd3200"
+            }
+          ],
+          "id": "e38af465-9241-4e6d-b131-e73b7e8fff84",
+          "createdAt": "2026-07-28T03:08:12.000Z",
+          "updatedAt": "2026-07-28T03:08:12.000Z",
+          "uid": "35240-e38af465-9241-4e6d-b131-e73b7e8fff84"
+        }
+      ],
+      "id": "18c08fd7-1ab0-4782-b9f9-526fb313c97b",
+      "createdAt": "2026-07-28T03:08:12.000Z",
+      "updatedAt": "2026-07-28T03:08:12.000Z",
+      "uid": "35240-18c08fd7-1ab0-4782-b9f9-526fb313c97b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

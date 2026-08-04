@@ -1,0 +1,417 @@
+{
+  "info": {
+    "_postman_id": "966f5310-510c-4782-b725-5e9da70c94f4",
+    "name": "TagoIO Access Management API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:45.000Z",
+    "updatedAt": "2026-07-28T03:07:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-966f5310-510c-4782-b725-5e9da70c94f4"
+  },
+  "item": [
+    {
+      "name": "am",
+      "item": [
+        {
+          "name": "{am_id}",
+          "item": [
+            {
+              "name": "Delete Policy",
+              "id": "ed419e77-8752-4eb5-911a-5f66e6f92a29",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/am/:am_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "am",
+                    ":am_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "60be7b00-4417-4f5e-b3a4-c25e62fdf208",
+                      "key": "am_id",
+                      "value": "<string>",
+                      "description": "(Required) Can be obtained in the GET Policy request response"
+                    }
+                  ]
+                },
+                "description": "Delete Policy"
+              },
+              "response": [
+                {
+                  "id": "356b2fa2-3a3a-4883-b8b9-83641670798c",
+                  "name": "Delete policy",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/am/:am_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "am",
+                        ":am_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "am_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-356b2fa2-3a3a-4883-b8b9-83641670798c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-ed419e77-8752-4eb5-911a-5f66e6f92a29"
+            }
+          ],
+          "id": "c38323b2-c1dc-4d86-b707-e26f4e198206",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-c38323b2-c1dc-4d86-b707-e26f4e198206"
+        },
+        {
+          "name": "List Policies",
+          "id": "77249b7c-683b-4926-82d7-aad2f30b8ae0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/am?orderBy=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "am"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "orderBy",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List all access policies in your profile"
+          },
+          "response": [
+            {
+              "id": "b3297251-2477-4be1-a099-0eba72a5503b",
+              "name": "Getting Policy List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/am?orderBy=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "am"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "orderBy",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": [\n    {\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<string>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-b3297251-2477-4be1-a099-0eba72a5503b"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-77249b7c-683b-4926-82d7-aad2f30b8ae0"
+        },
+        {
+          "name": "Create Policy",
+          "id": "4132095b-4db7-4cef-ac4d-f4ddf753a033",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"effect\": \"allow\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"effect\": \"allow\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"active\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/am",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "am"
+              ]
+            },
+            "description": "Create a policy that targets either Run User or Analysis"
+          },
+          "response": [
+            {
+              "id": "ac4e430d-1526-443a-b668-9e662e17902b",
+              "name": "Create Policy - Run User / Create Policy - Analysis",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"effect\": \"allow\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"effect\": \"allow\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"active\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/am",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "am"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"am_id\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-ac4e430d-1526-443a-b668-9e662e17902b"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-4132095b-4db7-4cef-ac4d-f4ddf753a033"
+        }
+      ],
+      "id": "5128e712-ae5f-48fb-b44d-be76c554bb7b",
+      "createdAt": "2026-07-28T03:07:46.000Z",
+      "updatedAt": "2026-07-28T03:07:46.000Z",
+      "uid": "35240-5128e712-ae5f-48fb-b44d-be76c554bb7b"
+    },
+    {
+      "name": "{am_id}",
+      "item": [
+        {
+          "name": "Update Policy",
+          "id": "03d55834-aa5e-4ba1-8cbe-792462431127",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:am_id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":am_id"
+              ],
+              "variable": [
+                {
+                  "id": "d88ee8cd-2656-427b-b60d-b10dd4cff4e9",
+                  "key": "am_id",
+                  "value": "<string>",
+                  "description": "(Required) Can be obtained in the GET Policy response"
+                }
+              ]
+            },
+            "description": "Update policy"
+          },
+          "response": [
+            {
+              "id": "e9142497-2011-4271-b0e5-f9fa12a5a2e3",
+              "name": "Updating a policy",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:am_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":am_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "am_id"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-e9142497-2011-4271-b0e5-f9fa12a5a2e3"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-03d55834-aa5e-4ba1-8cbe-792462431127"
+        }
+      ],
+      "id": "0aa9fea4-ed4a-441e-ba94-d55c89b10346",
+      "createdAt": "2026-07-28T03:07:46.000Z",
+      "updatedAt": "2026-07-28T03:07:46.000Z",
+      "uid": "35240-0aa9fea4-ed4a-441e-ba94-d55c89b10346"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

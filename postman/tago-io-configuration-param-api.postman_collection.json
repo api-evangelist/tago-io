@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "21ed08a1-b728-44c0-879c-8d98777a3401",
+    "name": "TagoIO Access Management Configuration Param API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:48.000Z",
+    "updatedAt": "2026-07-28T03:07:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-21ed08a1-b728-44c0-879c-8d98777a3401"
+  },
+  "item": [
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "{deviceID}",
+          "item": [
+            {
+              "name": "params",
+              "item": [
+                {
+                  "name": "{paramID}",
+                  "item": [
+                    {
+                      "name": "Delete Device Param",
+                      "id": "f4c91045-64f0-4dd4-a410-67147dac96e3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/params/:paramID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "params",
+                            ":paramID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2e2443ed-b8fc-44b1-845a-9b4148bd777b",
+                              "key": "deviceID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "2d5e7eb9-8272-4121-8438-8e2bb96d0cc4",
+                              "key": "paramID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete param from the device\n"
+                      },
+                      "response": [
+                        {
+                          "id": "2466c2f7-74d4-4cdc-82b3-24f64339b5de",
+                          "name": "Deleting a Device Param by ID",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/device/:deviceID/params/:paramID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "device",
+                                ":deviceID",
+                                "params",
+                                ":paramID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                },
+                                {
+                                  "key": "paramID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:07:49.000Z",
+                          "updatedAt": "2026-07-28T03:07:49.000Z",
+                          "uid": "35240-2466c2f7-74d4-4cdc-82b3-24f64339b5de"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:49.000Z",
+                      "updatedAt": "2026-07-28T03:07:49.000Z",
+                      "uid": "35240-f4c91045-64f0-4dd4-a410-67147dac96e3"
+                    }
+                  ],
+                  "id": "87640da1-a36b-473f-8880-d2b991de83a2",
+                  "createdAt": "2026-07-28T03:07:49.000Z",
+                  "updatedAt": "2026-07-28T03:07:49.000Z",
+                  "uid": "35240-87640da1-a36b-473f-8880-d2b991de83a2"
+                },
+                {
+                  "name": "List Device Params",
+                  "id": "1472e902-4291-4938-a66f-f1cb08052a87",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/params?sent_status=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "params"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by Boolean.",
+                          "key": "sent_status",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c1425f19-264c-4372-9fb3-691e91d9ea4f",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "List params for the device\n"
+                  },
+                  "response": [
+                    {
+                      "id": "4b5b5314-c2a1-4423-90dd-ee3d056fa3d9",
+                      "name": "List Device Params",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/params?sent_status=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "params"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Boolean.",
+                              "key": "sent_status",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"key\": \"<string>\",\n      \"sent\": \"<boolean>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"key\": \"<string>\",\n      \"sent\": \"<boolean>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:49.000Z",
+                      "updatedAt": "2026-07-28T03:07:49.000Z",
+                      "uid": "35240-4b5b5314-c2a1-4423-90dd-ee3d056fa3d9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:49.000Z",
+                  "updatedAt": "2026-07-28T03:07:49.000Z",
+                  "uid": "35240-1472e902-4291-4938-a66f-f1cb08052a87"
+                },
+                {
+                  "name": "Create and Edit Device Params",
+                  "id": "d8ad4756-74ea-4640-b088-b2868e10295f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"sent\": \"<boolean>\",\n  \"value\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/params",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "params"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a8baee06-1e47-48f8-9cde-dad25c335940",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create and edit params for the device\n"
+                  },
+                  "response": [
+                    {
+                      "id": "792fd253-d187-41db-b4cf-c7b113d04ad5",
+                      "name": "Creating or editing device parameters",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"key\": \"<string>\",\n  \"sent\": \"<boolean>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/params",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "params"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:49.000Z",
+                      "updatedAt": "2026-07-28T03:07:49.000Z",
+                      "uid": "35240-792fd253-d187-41db-b4cf-c7b113d04ad5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:49.000Z",
+                  "updatedAt": "2026-07-28T03:07:49.000Z",
+                  "uid": "35240-d8ad4756-74ea-4640-b088-b2868e10295f"
+                }
+              ],
+              "id": "68d172b9-6316-4d2a-b3f0-f6f20eaf4e4b",
+              "createdAt": "2026-07-28T03:07:49.000Z",
+              "updatedAt": "2026-07-28T03:07:49.000Z",
+              "uid": "35240-68d172b9-6316-4d2a-b3f0-f6f20eaf4e4b"
+            }
+          ],
+          "id": "35c36bf8-166a-4dc1-99a6-d7912c36b6c8",
+          "createdAt": "2026-07-28T03:07:49.000Z",
+          "updatedAt": "2026-07-28T03:07:49.000Z",
+          "uid": "35240-35c36bf8-166a-4dc1-99a6-d7912c36b6c8"
+        }
+      ],
+      "id": "788e8c50-cd82-4068-a2c5-2c17cb5c9b43",
+      "createdAt": "2026-07-28T03:07:49.000Z",
+      "updatedAt": "2026-07-28T03:07:49.000Z",
+      "uid": "35240-788e8c50-cd82-4068-a2c5-2c17cb5c9b43"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

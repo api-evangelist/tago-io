@@ -1,0 +1,993 @@
+{
+  "info": {
+    "_postman_id": "b4128c2b-2fbc-483c-ab79-85cd9cef86fb",
+    "name": "TagoIO Access Management Device Data API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:52.000Z",
+    "updatedAt": "2026-07-28T03:07:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b4128c2b-2fbc-483c-ab79-85cd9cef86fb"
+  },
+  "item": [
+    {
+      "name": "info",
+      "item": [
+        {
+          "name": "Device Information",
+          "id": "7e985e4a-f1d3-44b7-a7b9-6e2c8f712ac2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "info"
+              ]
+            },
+            "description": "Get information about the current device\n"
+          },
+          "response": [
+            {
+              "id": "e1301298-8512-4604-9118-115f462f4ef5",
+              "name": "Get information about current device successfuly",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"active\": \"<boolean>\",\n    \"connector\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"id\": \"<string>\",\n    \"last_input\": \"<string>\",\n    \"name\": \"<string>\",\n    \"network\": \"<string>\",\n    \"payload_decoder\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"type\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"visible\": \"<boolean>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-e1301298-8512-4604-9118-115f462f4ef5"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-7e985e4a-f1d3-44b7-a7b9-6e2c8f712ac2"
+        }
+      ],
+      "id": "59d8f169-3578-4e3e-9cac-4a51bbb7f851",
+      "createdAt": "2026-07-28T03:07:52.000Z",
+      "updatedAt": "2026-07-28T03:07:52.000Z",
+      "uid": "35240-59d8f169-3578-4e3e-9cac-4a51bbb7f851"
+    },
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "Get Data",
+          "id": "7bc2deab-900d-436f-ac81-2fd2a0720eb4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/data?query=max&qty=<integer>&details=<boolean>&ordination=ascending&skip=<integer>&variables=<string>&values=<string>&groups=<string>&start_date=<dateTime>&end_date=<dateTime>&function=ne",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data"
+              ],
+              "query": [
+                {
+                  "description": "Select the query mode.",
+                  "key": "query",
+                  "value": "max"
+                },
+                {
+                  "description": "Total quantity of data to retrieve.",
+                  "key": "qty",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Include additional fields (e.g., created_at).",
+                  "key": "details",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Sort order.",
+                  "key": "ordination",
+                  "value": "ascending"
+                },
+                {
+                  "description": "Number of items to skip.",
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter data by variable.",
+                  "key": "variables",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter data by value.",
+                  "key": "values",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by group identifier.",
+                  "key": "groups",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start timestamp or relative date.",
+                  "key": "start_date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "End timestamp or relative date.",
+                  "key": "end_date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Allowed values depend on query mode: aggregate \u2192 avg,sum,min,max; conditional \u2192 gt,gte,lt,lte,eq,ne.",
+                  "key": "function",
+                  "value": "ne"
+                }
+              ]
+            },
+            "description": "Get data from the device."
+          },
+          "response": [
+            {
+              "id": "a7a76fe8-c5a6-439b-8c78-162a28a49e4c",
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data?query=max&qty=<integer>&details=<boolean>&ordination=ascending&skip=<integer>&variables=<string>&values=<string>&groups=<string>&start_date=<dateTime>&end_date=<dateTime>&function=ne",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ],
+                  "query": [
+                    {
+                      "description": "Select the query mode.",
+                      "key": "query",
+                      "value": "max"
+                    },
+                    {
+                      "description": "Total quantity of data to retrieve.",
+                      "key": "qty",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Include additional fields (e.g., created_at).",
+                      "key": "details",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Sort order.",
+                      "key": "ordination",
+                      "value": "ascending"
+                    },
+                    {
+                      "description": "Number of items to skip.",
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter data by variable.",
+                      "key": "variables",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter data by value.",
+                      "key": "values",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by group identifier.",
+                      "key": "groups",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start timestamp or relative date.",
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End timestamp or relative date.",
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Allowed values depend on query mode: aggregate \u2192 avg,sum,min,max; conditional \u2192 gt,gte,lt,lte,eq,ne.",
+                      "key": "function",
+                      "value": "ne"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": [\n    {\n      \"created_at\": \"<string>\",\n      \"device\": \"<string>\",\n      \"group\": \"<string>\",\n      \"id\": \"<string>\",\n      \"location\": {\n        \"coordinates\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"type\": \"<string>\"\n      },\n      \"time\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"value\": \"<number>\",\n      \"variable\": \"<string>\"\n    },\n    {\n      \"created_at\": \"<string>\",\n      \"device\": \"<string>\",\n      \"group\": \"<string>\",\n      \"id\": \"<string>\",\n      \"location\": {\n        \"coordinates\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"type\": \"<string>\"\n      },\n      \"time\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"value\": \"<number>\",\n      \"variable\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-a7a76fe8-c5a6-439b-8c78-162a28a49e4c"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-7bc2deab-900d-436f-ac81-2fd2a0720eb4"
+        },
+        {
+          "name": "Edit Data",
+          "id": "2ce8c641-f01c-46c6-bb52-b0e1af1cee7d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/data",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data"
+              ]
+            },
+            "description": "Edit specific data stored in the device. Same properties as the Create Data is accepted, edit requires the ID field of the data to be edited.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+          },
+          "response": [
+            {
+              "id": "e246c928-4021-41f4-b5f3-5db90fa76d56",
+              "name": "Editing data register by ID",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/data",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-e246c928-4021-41f4-b5f3-5db90fa76d56"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-2ce8c641-f01c-46c6-bb52-b0e1af1cee7d"
+        },
+        {
+          "name": "Send Data",
+          "id": "e6c8882f-98d7-4289-9dfb-425524d1eab0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variable\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lng\": \"<number>\"\n  },\n  \"value\": \"<string>\",\n  \"time\": \"<string>\",\n  \"group\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"metadata\": {\n    \"aliqua_6\": \"do tempor nisi\",\n    \"ex6\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/data",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data"
+              ]
+            },
+            "description": "Send Device Data\n"
+          },
+          "response": [
+            {
+              "id": "77e0f44f-d4da-4105-831a-996ac6feae28",
+              "name": "Sending data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variable\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lng\": \"<number>\"\n  },\n  \"value\": \"<string>\",\n  \"time\": \"<string>\",\n  \"group\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"metadata\": {\n    \"aliqua_6\": \"do tempor nisi\",\n    \"ex6\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/data",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-77e0f44f-d4da-4105-831a-996ac6feae28"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-e6c8882f-98d7-4289-9dfb-425524d1eab0"
+        },
+        {
+          "name": "Delete Data",
+          "id": "49afa776-c0bc-4def-a6fb-454176e07bc2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/data?qty=15&ordination=descending&skip=<integer>&variables=<string>&values=<string>&ids=<string>&groups=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data"
+              ],
+              "query": [
+                {
+                  "description": "Quantity of data records to delete. Default is 15.",
+                  "key": "qty",
+                  "value": "15"
+                },
+                {
+                  "description": "Sort direction. Default is descending.",
+                  "key": "ordination",
+                  "value": "descending"
+                },
+                {
+                  "description": "Number of items to skip (pagination).",
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter data by variable.",
+                  "key": "variables",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter data by value. Accepts single or multiple values.",
+                  "key": "values",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter data by id. Accepts single or multiple values.",
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n",
+                  "key": "groups",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Delete data from the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices.  \n:::\n"
+          },
+          "response": [
+            {
+              "id": "fef1b46c-da7b-413e-a33a-992a05014dc4",
+              "name": "Deleting data using params",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data?qty=15&ordination=descending&skip=<integer>&variables=<string>&values=<string>&ids=<string>&groups=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data"
+                  ],
+                  "query": [
+                    {
+                      "description": "Quantity of data records to delete. Default is 15.",
+                      "key": "qty",
+                      "value": "15"
+                    },
+                    {
+                      "description": "Sort direction. Default is descending.",
+                      "key": "ordination",
+                      "value": "descending"
+                    },
+                    {
+                      "description": "Number of items to skip (pagination).",
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter data by variable.",
+                      "key": "variables",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter data by value. Accepts single or multiple values.",
+                      "key": "values",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter data by id. Accepts single or multiple values.",
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n",
+                      "key": "groups",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-fef1b46c-da7b-413e-a33a-992a05014dc4"
+            }
+          ],
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-49afa776-c0bc-4def-a6fb-454176e07bc2"
+        }
+      ],
+      "id": "bac86861-b2c6-49ac-800d-c30edd8533b4",
+      "createdAt": "2026-07-28T03:07:52.000Z",
+      "updatedAt": "2026-07-28T03:07:52.000Z",
+      "uid": "35240-bac86861-b2c6-49ac-800d-c30edd8533b4"
+    },
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "params",
+          "item": [
+            {
+              "name": "{paramID}",
+              "item": [
+                {
+                  "name": "Mark Config. Parameter as Read",
+                  "id": "db00f4b6-b53f-45d8-90ea-134fc00a83d3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "Device-Token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/params/:paramID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        "params",
+                        ":paramID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "881e1357-3761-4d32-a05d-7027da398c40",
+                          "key": "paramID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Marks a configuration parameter as read on the current device.  \n\nThis is useful when collecting settings from Configuration Parameters and you need to track whether you have already processed the current value. Use this endpoint to set the `sent` field to `true`.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "9ccc7c99-acf2-45e4-9a6b-769c47e84163",
+                      "name": "Success Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Device-Token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/params/:paramID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            "params",
+                            ":paramID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "paramID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:07:52.000Z",
+                      "updatedAt": "2026-07-28T03:07:52.000Z",
+                      "uid": "35240-9ccc7c99-acf2-45e4-9a6b-769c47e84163"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:52.000Z",
+                  "updatedAt": "2026-07-28T03:07:52.000Z",
+                  "uid": "35240-db00f4b6-b53f-45d8-90ea-134fc00a83d3"
+                }
+              ],
+              "id": "8c483844-20a0-4315-9197-8c318e3132e2",
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-8c483844-20a0-4315-9197-8c318e3132e2"
+            },
+            {
+              "name": "List Config. parameters",
+              "id": "7d5449f8-8144-45e3-8a38-23233c86b51c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "Device-Token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/device/params?sent_status=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "device",
+                    "params"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `sent` status.",
+                      "key": "sent_status",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve configuration parameters for the current device. This is useful for delivering settings or instructions that your device can periodically check for updates.\n\n[Configuration Parameters](/docs/tagoio/devices/configuration-parameters-for-devices) can be used to provide URLs (such as for firmware updates) or any other settings needed to control device behavior.\n"
+              },
+              "response": [
+                {
+                  "id": "829a64c7-77ae-4274-b2e8-c71897172327",
+                  "name": "List of configuration parameters returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Device-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/params?sent_status=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        "params"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by `sent` status.",
+                          "key": "sent_status",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"key\": \"<string>\",\n      \"sent\": \"<boolean>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"key\": \"<string>\",\n      \"sent\": \"<boolean>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:07:52.000Z",
+                  "updatedAt": "2026-07-28T03:07:52.000Z",
+                  "uid": "35240-829a64c7-77ae-4274-b2e8-c71897172327"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:52.000Z",
+              "updatedAt": "2026-07-28T03:07:52.000Z",
+              "uid": "35240-7d5449f8-8144-45e3-8a38-23233c86b51c"
+            }
+          ],
+          "id": "752c20fd-f10a-40c2-8b2d-beb06896df11",
+          "createdAt": "2026-07-28T03:07:52.000Z",
+          "updatedAt": "2026-07-28T03:07:52.000Z",
+          "uid": "35240-752c20fd-f10a-40c2-8b2d-beb06896df11"
+        }
+      ],
+      "id": "78169097-78d9-4c49-b26f-fb3712215ce8",
+      "createdAt": "2026-07-28T03:07:52.000Z",
+      "updatedAt": "2026-07-28T03:07:52.000Z",
+      "uid": "35240-78169097-78d9-4c49-b26f-fb3712215ce8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

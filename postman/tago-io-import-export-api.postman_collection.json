@@ -1,0 +1,295 @@
+{
+  "info": {
+    "_postman_id": "4aa21119-7c5d-4bd4-9796-961d8f396f91",
+    "name": "TagoIO Access Management Import/Export API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:09.000Z",
+    "updatedAt": "2026-07-28T03:08:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4aa21119-7c5d-4bd4-9796-961d8f396f91"
+  },
+  "item": [
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "{deviceID}",
+          "item": [
+            {
+              "name": "data",
+              "item": [
+                {
+                  "name": "backup",
+                  "item": [
+                    {
+                      "name": "Export data to CSV in Files",
+                      "id": "6e4f5157-c5ca-46a1-b8d2-53b44085bd86",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data/backup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data",
+                            "backup"
+                          ],
+                          "variable": [
+                            {
+                              "id": "217e2859-f71c-4453-a0e1-140ab0bca5a2",
+                              "key": "deviceID",
+                              "value": "<string>",
+                              "description": "(Required) Device ID"
+                            }
+                          ]
+                        },
+                        "description": "Export data to CSV in Files"
+                      },
+                      "response": [
+                        {
+                          "id": "bc6a3e6d-fb59-432c-bd40-d251ecca84f3",
+                          "name": "Exporting data to Files",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/device/:deviceID/data/backup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "device",
+                                ":deviceID",
+                                "data",
+                                "backup"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"file_address\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:09.000Z",
+                          "updatedAt": "2026-07-28T03:08:09.000Z",
+                          "uid": "35240-bc6a3e6d-fb59-432c-bd40-d251ecca84f3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:09.000Z",
+                      "updatedAt": "2026-07-28T03:08:09.000Z",
+                      "uid": "35240-6e4f5157-c5ca-46a1-b8d2-53b44085bd86"
+                    }
+                  ],
+                  "id": "878fc344-1bbf-4bf4-acbb-65c647c8d709",
+                  "createdAt": "2026-07-28T03:08:09.000Z",
+                  "updatedAt": "2026-07-28T03:08:09.000Z",
+                  "uid": "35240-878fc344-1bbf-4bf4-acbb-65c647c8d709"
+                },
+                {
+                  "name": "restore",
+                  "item": [
+                    {
+                      "name": "Import Data from a CSV in Files",
+                      "id": "29337e3c-fd8f-442a-a8be-da7357ba7621",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"file_address\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/data/restore",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "data",
+                            "restore"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4d92220f-7124-4e5d-a5b8-81b6b0aa29ed",
+                              "key": "deviceID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Import Data from a CSV in Files"
+                      },
+                      "response": [
+                        {
+                          "id": "9cd6590a-a443-4cc0-9897-8c15a9c6dbe5",
+                          "name": "Importing data from Files",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"file_address\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/device/:deviceID/data/restore",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "device",
+                                ":deviceID",
+                                "data",
+                                "restore"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:09.000Z",
+                          "updatedAt": "2026-07-28T03:08:09.000Z",
+                          "uid": "35240-9cd6590a-a443-4cc0-9897-8c15a9c6dbe5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:09.000Z",
+                      "updatedAt": "2026-07-28T03:08:09.000Z",
+                      "uid": "35240-29337e3c-fd8f-442a-a8be-da7357ba7621"
+                    }
+                  ],
+                  "id": "027ce684-87ac-481d-a5e4-394caefee209",
+                  "createdAt": "2026-07-28T03:08:09.000Z",
+                  "updatedAt": "2026-07-28T03:08:09.000Z",
+                  "uid": "35240-027ce684-87ac-481d-a5e4-394caefee209"
+                }
+              ],
+              "id": "98800131-2774-412e-88b5-0ab925472559",
+              "createdAt": "2026-07-28T03:08:09.000Z",
+              "updatedAt": "2026-07-28T03:08:09.000Z",
+              "uid": "35240-98800131-2774-412e-88b5-0ab925472559"
+            }
+          ],
+          "id": "b2c8fccf-60ff-466f-b8e6-f4574a5dd48b",
+          "createdAt": "2026-07-28T03:08:09.000Z",
+          "updatedAt": "2026-07-28T03:08:09.000Z",
+          "uid": "35240-b2c8fccf-60ff-466f-b8e6-f4574a5dd48b"
+        }
+      ],
+      "id": "5faa3b22-5225-476f-87a2-74b07b1dc561",
+      "createdAt": "2026-07-28T03:08:09.000Z",
+      "updatedAt": "2026-07-28T03:08:09.000Z",
+      "uid": "35240-5faa3b22-5225-476f-87a2-74b07b1dc561"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

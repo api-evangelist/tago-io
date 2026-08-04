@@ -1,0 +1,360 @@
+{
+  "info": {
+    "_postman_id": "6bf4dc75-cd0e-46ca-abc7-8921fb67f4be",
+    "name": "TagoIO Access Management Immutable Device API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:07.000Z",
+    "updatedAt": "2026-07-28T03:08:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6bf4dc75-cd0e-46ca-abc7-8921fb67f4be"
+  },
+  "item": [
+    {
+      "name": "device",
+      "item": [
+        {
+          "name": "{deviceID}",
+          "item": [
+            {
+              "name": "chunk",
+              "item": [
+                {
+                  "name": "backup",
+                  "item": [
+                    {
+                      "name": "Export Chunk",
+                      "id": "31025484-bcd1-4839-9e78-046c165e7f77",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"chunk_id\": \"<string>\",\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/chunk/backup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "chunk",
+                            "backup"
+                          ],
+                          "variable": [
+                            {
+                              "id": "480b0ef2-48d5-41e8-9a5d-c6fd8c5fe986",
+                              "key": "deviceID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Export a chunk as CSV to your TagoIO Files"
+                      },
+                      "response": [
+                        {
+                          "id": "4abde274-f77b-426a-8098-14a025de62b0",
+                          "name": "Chunk exported to Files",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"chunk_id\": \"<string>\",\n  \"file_address\": \"<string>\",\n  \"headers\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/device/:deviceID/chunk/backup",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "device",
+                                ":deviceID",
+                                "chunk",
+                                "backup"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"chunk_id\": \"<string>\",\n    \"file_address\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:08.000Z",
+                          "updatedAt": "2026-07-28T03:08:08.000Z",
+                          "uid": "35240-4abde274-f77b-426a-8098-14a025de62b0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:08.000Z",
+                      "updatedAt": "2026-07-28T03:08:08.000Z",
+                      "uid": "35240-31025484-bcd1-4839-9e78-046c165e7f77"
+                    }
+                  ],
+                  "id": "7a9667ae-c501-4cc9-a2af-0222ba1aeb3d",
+                  "createdAt": "2026-07-28T03:08:08.000Z",
+                  "updatedAt": "2026-07-28T03:08:08.000Z",
+                  "uid": "35240-7a9667ae-c501-4cc9-a2af-0222ba1aeb3d"
+                },
+                {
+                  "name": "{chunkID}",
+                  "item": [
+                    {
+                      "name": "Delete Chunk",
+                      "id": "748f54ae-fc19-4445-b403-105aad6fef44",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/chunk/:chunkID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "chunk",
+                            ":chunkID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0f5bdb02-32d4-403e-9b5e-0632d0289590",
+                              "key": "deviceID",
+                              "value": "<string>",
+                              "description": "(Required) Device ID"
+                            },
+                            {
+                              "id": "35abaeb6-92fe-4892-b0e8-42c58f5d571c",
+                              "key": "chunkID",
+                              "value": "<string>",
+                              "description": "(Required) Chunk ID"
+                            }
+                          ]
+                        },
+                        "description": "Delete chunk"
+                      },
+                      "response": [
+                        {
+                          "id": "b765151a-7241-4097-85a7-e17a8816eecf",
+                          "name": "Chunk deleted from device",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/device/:deviceID/chunk/:chunkID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "device",
+                                ":deviceID",
+                                "chunk",
+                                ":chunkID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                },
+                                {
+                                  "key": "chunkID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:08.000Z",
+                          "updatedAt": "2026-07-28T03:08:08.000Z",
+                          "uid": "35240-b765151a-7241-4097-85a7-e17a8816eecf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:08.000Z",
+                      "updatedAt": "2026-07-28T03:08:08.000Z",
+                      "uid": "35240-748f54ae-fc19-4445-b403-105aad6fef44"
+                    }
+                  ],
+                  "id": "4755b2e1-fbbc-48c3-858c-a73618b9cc33",
+                  "createdAt": "2026-07-28T03:08:08.000Z",
+                  "updatedAt": "2026-07-28T03:08:08.000Z",
+                  "uid": "35240-4755b2e1-fbbc-48c3-858c-a73618b9cc33"
+                },
+                {
+                  "name": "List Chunks",
+                  "id": "0bd6d894-6fa3-4f41-957c-e72c7e02da23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/device/:deviceID/chunk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "device",
+                        ":deviceID",
+                        "chunk"
+                      ],
+                      "variable": [
+                        {
+                          "id": "388341d9-4b92-44e8-900c-6076708c5f8d",
+                          "key": "deviceID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "List of chunks"
+                  },
+                  "response": [
+                    {
+                      "id": "22428ef0-1226-4f83-8e35-ac64b1620003",
+                      "name": "Getting a list of chunks by device",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/device/:deviceID/chunk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "device",
+                            ":deviceID",
+                            "chunk"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deviceID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"amount\": \"<number>\",\n      \"from\": \"<string>\",\n      \"id\": \"<string>\",\n      \"to\": \"<string>\"\n    },\n    {\n      \"amount\": \"<number>\",\n      \"from\": \"<string>\",\n      \"id\": \"<string>\",\n      \"to\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:08.000Z",
+                      "updatedAt": "2026-07-28T03:08:08.000Z",
+                      "uid": "35240-22428ef0-1226-4f83-8e35-ac64b1620003"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:08.000Z",
+                  "updatedAt": "2026-07-28T03:08:08.000Z",
+                  "uid": "35240-0bd6d894-6fa3-4f41-957c-e72c7e02da23"
+                }
+              ],
+              "id": "46e83ae4-92b7-4d07-8acf-ad780d511b51",
+              "createdAt": "2026-07-28T03:08:08.000Z",
+              "updatedAt": "2026-07-28T03:08:08.000Z",
+              "uid": "35240-46e83ae4-92b7-4d07-8acf-ad780d511b51"
+            }
+          ],
+          "id": "e16ab15f-73a4-449c-ab59-2e68bf22dfa9",
+          "createdAt": "2026-07-28T03:08:08.000Z",
+          "updatedAt": "2026-07-28T03:08:08.000Z",
+          "uid": "35240-e16ab15f-73a4-449c-ab59-2e68bf22dfa9"
+        }
+      ],
+      "id": "c62d4629-c589-4456-ba46-f8c55bcae60c",
+      "createdAt": "2026-07-28T03:08:08.000Z",
+      "updatedAt": "2026-07-28T03:08:08.000Z",
+      "uid": "35240-c62d4629-c589-4456-ba46-f8c55bcae60c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

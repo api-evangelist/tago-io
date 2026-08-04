@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "e9a9609e-ef70-43a5-a2f2-0e5b44ff4984",
+    "name": "TagoIO Access Management Tago RUN API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:31.000Z",
+    "updatedAt": "2026-07-28T03:08:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e9a9609e-ef70-43a5-a2f2-0e5b44ff4984"
+  },
+  "item": [
+    {
+      "name": "run",
+      "item": [
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "{userID}",
+              "item": [
+                {
+                  "name": "login",
+                  "item": [
+                    {
+                      "name": "Get User Token",
+                      "id": "298fb222-8339-4cfc-a68c-205195425a0c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/run/users/:userID/login?expire_time=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "run",
+                            "users",
+                            ":userID",
+                            "login"
+                          ],
+                          "query": [
+                            {
+                              "description": "hours,days,months.",
+                              "key": "expire_time",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e2c96f15-ab09-4e63-bfdf-85996294d814",
+                              "key": "userID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get TagoRUN User Token and allow to perform request to TagoRUN specific endpoints (not available).\n"
+                      },
+                      "response": [
+                        {
+                          "id": "97ffe7ee-7bdd-48da-a566-4780fed93ad2",
+                          "name": "Login as a RUN User",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/run/users/:userID/login?expire_time=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "run",
+                                "users",
+                                ":userID",
+                                "login"
+                              ],
+                              "query": [
+                                {
+                                  "description": "hours,days,months.",
+                                  "key": "expire_time",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"expire_time\": \"<string>\",\n    \"name\": \"<string>\",\n    \"run_user\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:31.000Z",
+                          "updatedAt": "2026-07-28T03:08:31.000Z",
+                          "uid": "35240-97ffe7ee-7bdd-48da-a566-4780fed93ad2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:31.000Z",
+                      "updatedAt": "2026-07-28T03:08:31.000Z",
+                      "uid": "35240-298fb222-8339-4cfc-a68c-205195425a0c"
+                    }
+                  ],
+                  "id": "207f6180-fcd6-4368-af8a-b8487e66f255",
+                  "createdAt": "2026-07-28T03:08:31.000Z",
+                  "updatedAt": "2026-07-28T03:08:31.000Z",
+                  "uid": "35240-207f6180-fcd6-4368-af8a-b8487e66f255"
+                }
+              ],
+              "id": "5431cafd-ba18-4660-adac-435e8481c1c5",
+              "createdAt": "2026-07-28T03:08:31.000Z",
+              "updatedAt": "2026-07-28T03:08:31.000Z",
+              "uid": "35240-5431cafd-ba18-4660-adac-435e8481c1c5"
+            }
+          ],
+          "id": "7e425b01-28d1-48f7-8505-5b4c02d228b8",
+          "createdAt": "2026-07-28T03:08:31.000Z",
+          "updatedAt": "2026-07-28T03:08:31.000Z",
+          "uid": "35240-7e425b01-28d1-48f7-8505-5b4c02d228b8"
+        },
+        {
+          "name": "Get RUN settings",
+          "id": "d291ef90-6918-4948-a6a1-e1936528ddb5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/run",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "run"
+              ]
+            },
+            "description": "Retrieve information about TagoRUN\n"
+          },
+          "response": [
+            {
+              "id": "c66a6a46-5f5b-485c-92fe-0e7ceaa4f8b0",
+              "name": "RUN settings retrieved",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/run",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "run"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"active\": \"<boolean>\",\n    \"auth_token_ttl\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"dictionary\": {},\n    \"email_domain\": {},\n    \"email_templates\": {\n      \"password_recover\": {\n        \"subject\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"welcome_actived\": {\n        \"subject\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"welcome_adminconfirm\": {\n        \"subject\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"welcome_autoconfirm\": {\n        \"subject\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    },\n    \"favicon\": {},\n    \"feature_devicewifisetup\": {\n      \"background_color\": \"<string>\",\n      \"button_cancel_background_color\": \"<string>\",\n      \"button_cancel_text_color\": \"<string>\",\n      \"button_confirm_background_color\": \"<string>\",\n      \"button_confirm_text_color\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"ip\": \"<string>\",\n      \"language\": \"<string>\",\n      \"name\": \"<string>\",\n      \"port\": \"<string>\",\n      \"protocol\": \"<string>\",\n      \"text_color\": \"<string>\",\n      \"translations\": {\n        \"EN\": {\n          \"done_desc\": \"<string>\",\n          \"done_title\": \"<string>\",\n          \"intro_desc\": \"<string>\",\n          \"intro_img\": \"<string>\",\n          \"intro_title\": \"<string>\",\n          \"param_title\": \"<string>\",\n          \"wait_desc\": \"<string>\",\n          \"wait_title\": \"<string>\",\n          \"wifi_config_desc\": \"<string>\",\n          \"wifi_config_title\": \"<string>\"\n        }\n      }\n    },\n    \"feature_geolocation\": {},\n    \"integration\": {\n      \"google_analytics\": \"<string>\",\n      \"zoho_salesiq\": \"<string>\"\n    },\n    \"logo\": {},\n    \"logo_options\": {\n      \"tooltip\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"name\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"security\": {},\n    \"sidebar_buttons\": [\n      {\n        \"color\": \"<string>\",\n        \"href\": \"<string>\",\n        \"iconUrl\": \"<string>\",\n        \"isInNewLine\": \"<boolean>\",\n        \"text\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"color\": \"<string>\",\n        \"href\": \"<string>\",\n        \"iconUrl\": \"<string>\",\n        \"isInNewLine\": \"<boolean>\",\n        \"text\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"signup_logo\": {},\n    \"signup_logo_options\": {},\n    \"signup_method\": \"<string>\",\n    \"sso_saml_active\": \"<boolean>\",\n    \"sub_title\": \"<string>\",\n    \"theme\": {\n      \"actionSchedule\": \"<string>\",\n      \"actionTriggerByData\": \"<string>\",\n      \"actionTriggerByMQTT\": \"<string>\",\n      \"actionTriggerByResource\": \"<string>\",\n      \"alertActionDangerBackground\": \"<string>\",\n      \"alertActionInfoBackground\": \"<string>\",\n      \"alertActionWarningBackground\": \"<string>\",\n      \"alertDangerBackground\": \"<string>\",\n      \"alertInfoBackground\": \"<string>\",\n      \"alertWarningBackground\": \"<string>\",\n      \"analysisExternal\": \"<string>\",\n      \"analysisInternal\": \"<string>\",\n      \"auth_bg_opacity\": \"<number>\",\n      \"auth_bg_src\": \"<string>\",\n      \"auth_bg_type\": \"<string>\",\n      \"auth_form_opacity\": {},\n      \"blueprint\": \"<string>\",\n      \"buttonDanger\": \"<string>\",\n      \"buttonDangerText\": \"<string>\",\n      \"buttonDefault\": \"<string>\",\n      \"buttonDefaultText\": \"<string>\",\n      \"buttonDisabled\": \"<string>\",\n      \"buttonDisabledText\": \"<string>\",\n      \"buttonIconLabel\": \"<string>\",\n      \"buttonPrimary\": \"<string>\",\n      \"buttonPrimaryText\": \"<string>\",\n      \"buttonSuccess\": \"<string>\",\n      \"buttonSuccessText\": \"<string>\",\n      \"buttonUpgrade\": \"<string>\",\n      \"buttonUpgradeText\": \"<string>\",\n      \"buttonWarning\": \"<string>\",\n      \"buttonWarningText\": \"<string>\",\n      \"contentBackground\": \"<string>\",\n      \"contentHeader\": \"<string>\",\n      \"contentHeaderGradient\": \"<string>\",\n      \"contentHeaderSeparator\": \"<string>\",\n      \"contentHeaderText\": \"<string>\",\n      \"dataStorageImmutable\": \"<string>\",\n      \"dataStorageMutable\": \"<string>\",\n      \"deviceInputOutput1Day\": \"<string>\",\n      \"deviceInputOutput3Days\": \"<string>\",\n      \"deviceInputOutput3Hours\": \"<string>\",\n      \"deviceInputOutput6Hours\": \"<string>\",\n      \"deviceInputOutputRest\": \"<string>\",\n      \"deviceListAlternateRow\": \"<string>\",\n      \"deviceListColumn\": \"<string>\",\n      \"dictionaryAlertIcon\": \"<string>\",\n      \"dictionaryPrimary\": \"<string>\",\n      \"dottedBorder\": \"<string>\",\n      \"dropdownAccent\": \"<string>\",\n      \"dropdownBackground\": \"<string>\",\n      \"dynamicTableAlternateRow\": \"<string>\",\n      \"dynamicTableColumn\": \"<string>\",\n      \"filesSelection\": \"<string>\",\n      \"floatingSidebarTitle\": \"<string>\",\n      \"footerBackground\": \"<string>\",\n      \"formControlBorder\": \"<string>\",\n      \"formControlFocus\": \"<string>\",\n      \"gaugeDanger\": \"<string>\",\n      \"gaugeEmpty\": \"<string>\",\n      \"gaugeFill\": \"<string>\",\n      \"gaugePrimaryText\": \"<string>\",\n      \"gaugeSecondaryText\": \"<string>\",\n      \"gaugeTick\": \"<string>\",\n      \"html5\": \"<string>\",\n      \"iconRadioSelected\": \"<string>\",\n      \"iconRadioSubTitle\": \"<string>\",\n      \"informationIcon\": \"<string>\",\n      \"inputBackground\": \"<string>\",\n      \"inputBackgroundReadOnly\": \"<string>\",\n      \"inputError\": \"<string>\",\n      \"inputForeground\": \"<string>\",\n      \"inputForegroundReadOnly\": \"<string>\",\n      \"lightBorder\": \"<string>\",\n      \"limitAlert\": \"<string>\",\n      \"link\": \"<string>\",\n      \"listNavColor\": \"<string>\",\n      \"listTitleLabel\": \"<string>\",\n      \"loading\": \"<string>\",\n      \"loginButton\": \"<string>\",\n      \"loginButtonText\": \"<string>\",\n      \"loginForeground\": \"<string>\",\n      \"loginForm\": \"<string>\",\n      \"modalContainer\": \"<string>\",\n      \"modalOverlay\": \"<string>\",\n      \"navDescription\": \"<string>\",\n      \"navbar\": \"<string>\",\n      \"navbarBetaDeveloperBorder\": \"<string>\",\n      \"navbarButton\": \"<string>\",\n      \"navbarDropdownBackground\": \"<string>\",\n      \"navbarDropdownBorder\": \"<string>\",\n      \"navbarDropdownOption\": \"<string>\",\n      \"navbarDropdownOptionBackground\": \"<string>\",\n      \"navbarDropdownOptionBorder\": \"<string>\",\n      \"navbarDropdownOptionHover\": \"<string>\",\n      \"navbarDropdownSecondaryText\": \"<string>\",\n      \"navbarDropdownSignoutButton\": \"<string>\",\n      \"navbarSettings\": \"<string>\",\n      \"navbarText\": \"<string>\",\n      \"notificationButtonAmount\": \"<string>\",\n      \"notificationButtonAmountText\": \"<string>\",\n      \"notificationEmptyIcon\": \"<string>\",\n      \"notificationEmptyTitle\": \"<string>\",\n      \"notificationFilterBackground\": \"<string>\",\n      \"notificationFilterMessageIcon\": \"<string>\",\n      \"notificationFooter\": \"<string>\",\n      \"notificationIconContainer\": \"<string>\",\n      \"notificationItem\": \"<string>\",\n      \"notificationItemBorder\": \"<string>\",\n      \"notificationItemDate\": \"<string>\",\n      \"notificationItemTextAccepted\": \"<string>\",\n      \"notificationItemUnread\": \"<string>\",\n      \"notificationText\": \"<string>\",\n      \"pdf\": \"<string>\",\n      \"primary\": \"<string>\",\n      \"publicPageNavigationBar\": \"<string>\",\n      \"quickstart\": \"<string>\",\n      \"quickstartSidebarBackground\": \"<string>\",\n      \"quickstartTask\": \"<string>\",\n      \"quickstartTaskFinished\": \"<string>\",\n      \"quickstartText\": \"<string>\",\n      \"regularText\": \"<string>\",\n      \"sidebarAccessSelected\": \"<string>\",\n      \"sidebarAccountSelected\": \"<string>\",\n      \"sidebarActionSelected\": \"<string>\",\n      \"sidebarAnalysisSelected\": \"<string>\",\n      \"sidebarBackground\": \"<string>\",\n      \"sidebarBillingSelected\": \"<string>\",\n      \"sidebarConnector\": \"<string>\",\n      \"sidebarDashboardSelected\": \"<string>\",\n      \"sidebarDeviceSelected\": \"<string>\",\n      \"sidebarExploreSelected\": \"<string>\",\n      \"sidebarFileSelected\": \"<string>\",\n      \"sidebarForegroundIcon\": \"<string>\",\n      \"sidebarHomeSelected\": \"<string>\",\n      \"sidebarIntegration\": \"<string>\",\n      \"sidebarItem\": \"<string>\",\n      \"sidebarItemHover\": \"<string>\",\n      \"sidebarItemOdd\": \"<string>\",\n      \"sidebarItemSelected\": \"<string>\",\n      \"sidebarNetwork\": \"<string>\",\n      \"sidebarRibbon\": \"<string>\",\n      \"sidebarRunSelected\": \"<string>\",\n      \"sidebarSecondBackground\": \"<string>\",\n      \"sidebarSeparator\": \"<string>\",\n      \"sidebarSeparatorForeground\": \"<string>\",\n      \"sidebarTagoCoreSelected\": \"<string>\",\n      \"sidebarText\": \"<string>\",\n      \"sidebarUserSelected\": \"<string>\",\n      \"snakeButtonOutline\": \"<string>\",\n      \"svgTagoFont\": \"<string>\",\n      \"svgTagoIOHole\": \"<string>\",\n      \"switchDisabledBackground\": \"<string>\",\n      \"switchLabelDark\": \"<string>\",\n      \"switchLabelWhite\": \"<string>\",\n      \"switchSlider\": \"<string>\",\n      \"tabLabelActive\": \"<string>\",\n      \"tabLabelBackground\": \"<string>\",\n      \"tabLabelBorder\": \"<string>\",\n      \"tabLabelHover\": \"<string>\",\n      \"tabText\": \"<string>\",\n      \"tableBackground\": \"<string>\",\n      \"tableBorder\": \"<string>\",\n      \"tableEvenRowBackground\": \"<string>\",\n      \"tableFooterBackground\": \"<string>\",\n      \"tableOddRowBackground\": \"<string>\",\n      \"toast\": \"<string>\",\n      \"toastText\": \"<string>\",\n      \"tooltipContainer\": \"<string>\",\n      \"tooltipText\": \"<string>\",\n      \"verticalTabItem\": \"<string>\",\n      \"verticalTabItemBorder\": \"<string>\",\n      \"widgetCardBackground\": \"<string>\",\n      \"widgetColors\": \"<string>\",\n      \"widgetIconsAccent\": \"<string>\",\n      \"widgetIconsBackground\": \"<string>\",\n      \"widgetIconsColor\": \"<string>\",\n      \"widgetIconsFooterBasic\": \"<string>\",\n      \"widgetIconsFooterPremium\": \"<string>\"\n    },\n    \"updated_at\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:31.000Z",
+              "updatedAt": "2026-07-28T03:08:31.000Z",
+              "uid": "35240-c66a6a46-5f5b-485c-92fe-0e7ceaa4f8b0"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:31.000Z",
+          "updatedAt": "2026-07-28T03:08:31.000Z",
+          "uid": "35240-d291ef90-6918-4948-a6a1-e1936528ddb5"
+        },
+        {
+          "name": "Edit RUN settings",
+          "id": "0614fdbc-e2e2-4b93-83c5-ef0d6cef469c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"profile\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/run",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "run"
+              ]
+            },
+            "description": "Edit information about TagoRUN\n"
+          },
+          "response": [
+            {
+              "id": "0f1622bd-3b3f-4e16-a490-7307ed078563",
+              "name": "Editing RUN information",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"profile\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/run",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "run"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:31.000Z",
+              "updatedAt": "2026-07-28T03:08:31.000Z",
+              "uid": "35240-0f1622bd-3b3f-4e16-a490-7307ed078563"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:31.000Z",
+          "updatedAt": "2026-07-28T03:08:31.000Z",
+          "uid": "35240-0614fdbc-e2e2-4b93-83c5-ef0d6cef469c"
+        }
+      ],
+      "id": "26baf49c-48f7-4bee-be9d-318b1c677f61",
+      "createdAt": "2026-07-28T03:08:31.000Z",
+      "updatedAt": "2026-07-28T03:08:31.000Z",
+      "uid": "35240-26baf49c-48f7-4bee-be9d-318b1c677f61"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

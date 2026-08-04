@@ -1,0 +1,937 @@
+{
+  "info": {
+    "_postman_id": "5af257f8-0675-44ee-8404-ea95026a9a91",
+    "name": "TagoIO Access Management Backup API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:47.000Z",
+    "updatedAt": "2026-07-28T03:07:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5af257f8-0675-44ee-8404-ea95026a9a91"
+  },
+  "item": [
+    {
+      "name": "profile",
+      "item": [
+        {
+          "name": "{profile_id}",
+          "item": [
+            {
+              "name": "backup",
+              "item": [
+                {
+                  "name": "{backup_id}",
+                  "item": [
+                    {
+                      "name": "download",
+                      "item": [
+                        {
+                          "name": "Download Backup",
+                          "id": "5007cc1c-2ef5-4dac-a75d-c5813791f40b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id/download",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "profile",
+                                ":profile_id",
+                                "backup",
+                                ":backup_id",
+                                "download"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "39dfa207-5089-40e9-8fb7-96c2bf7a5cea",
+                                  "key": "profile_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the profile"
+                                },
+                                {
+                                  "id": "88d62bdb-4997-43b5-97eb-4c35fe25c8c5",
+                                  "key": "backup_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The ID of the backup to download"
+                                }
+                              ]
+                            },
+                            "description": "Generates a secure, time-limited download URL for a specific backup. The download URL is valid for **2 hours**.\n\n**Security:** This endpoint requires account password verification to prevent unauthorized access to backup data. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.\n\n**Important:** Only backups with status `completed` can be downloaded.\n"
+                          },
+                          "response": [
+                            {
+                              "id": "9968c075-7a07-4776-bcaf-b2e264d2b823",
+                              "name": "Download URL generated successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":profile_id",
+                                    "backup",
+                                    ":backup_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "profile_id"
+                                    },
+                                    {
+                                      "key": "backup_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"url\": \"<string>\",\n  \"size\": \"<number>\",\n  \"size_unit\": \"<string>\",\n  \"file_size_mb\": \"<string>\",\n  \"expire_at\": \"<string>\",\n  \"backup_id\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:07:48.000Z",
+                              "updatedAt": "2026-07-28T03:07:48.000Z",
+                              "uid": "35240-9968c075-7a07-4776-bcaf-b2e264d2b823"
+                            },
+                            {
+                              "id": "4786e92e-91ad-4257-a3d3-bf38225e9036",
+                              "name": "Bad request - Backup not ready or invalid parameters",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":profile_id",
+                                    "backup",
+                                    ":backup_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "profile_id"
+                                    },
+                                    {
+                                      "key": "backup_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:07:48.000Z",
+                              "updatedAt": "2026-07-28T03:07:48.000Z",
+                              "uid": "35240-4786e92e-91ad-4257-a3d3-bf38225e9036"
+                            },
+                            {
+                              "id": "a995ab14-544d-4982-aed4-a1c4b57ec6fb",
+                              "name": "Unauthorized - Invalid password or OTP",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":profile_id",
+                                    "backup",
+                                    ":backup_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "profile_id"
+                                    },
+                                    {
+                                      "key": "backup_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:07:48.000Z",
+                              "updatedAt": "2026-07-28T03:07:48.000Z",
+                              "uid": "35240-a995ab14-544d-4982-aed4-a1c4b57ec6fb"
+                            },
+                            {
+                              "id": "364d5a33-fde0-47c0-865b-9b23cc4d0e82",
+                              "name": "Not found - Backup does not exist",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "profile",
+                                    ":profile_id",
+                                    "backup",
+                                    ":backup_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "profile_id"
+                                    },
+                                    {
+                                      "key": "backup_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:07:48.000Z",
+                              "updatedAt": "2026-07-28T03:07:48.000Z",
+                              "uid": "35240-364d5a33-fde0-47c0-865b-9b23cc4d0e82"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:48.000Z",
+                          "updatedAt": "2026-07-28T03:07:48.000Z",
+                          "uid": "35240-5007cc1c-2ef5-4dac-a75d-c5813791f40b"
+                        }
+                      ],
+                      "id": "b57f9454-71cc-4603-83af-56c67c4634e4",
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-b57f9454-71cc-4603-83af-56c67c4634e4"
+                    },
+                    {
+                      "name": "Delete Backup",
+                      "id": "327eec3e-c9a1-44db-a3bd-2fdb33ccb637",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":profile_id",
+                            "backup",
+                            ":backup_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "273a6aea-4ebe-405c-bd8a-b056b516c059",
+                              "key": "profile_id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the profile"
+                            },
+                            {
+                              "id": "154e0414-0d29-47e5-9dbc-96a01f896a33",
+                              "key": "backup_id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the backup to delete"
+                            }
+                          ]
+                        },
+                        "description": "Permanently removes a backup from storage. This action is irreversible.\n\n**Security:** This endpoint requires account password verification to prevent accidental or unauthorized deletion. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "c483cdcf-2893-49e7-ae5a-40251ac3499d",
+                          "name": "Backup deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "profile",
+                                ":profile_id",
+                                "backup",
+                                ":backup_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "profile_id"
+                                },
+                                {
+                                  "key": "backup_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:07:48.000Z",
+                          "updatedAt": "2026-07-28T03:07:48.000Z",
+                          "uid": "35240-c483cdcf-2893-49e7-ae5a-40251ac3499d"
+                        },
+                        {
+                          "id": "61282c7f-8159-43e5-96c3-d4fd0d5efd11",
+                          "name": "Unauthorized - Invalid password or OTP",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "profile",
+                                ":profile_id",
+                                "backup",
+                                ":backup_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "profile_id"
+                                },
+                                {
+                                  "key": "backup_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:07:48.000Z",
+                          "updatedAt": "2026-07-28T03:07:48.000Z",
+                          "uid": "35240-61282c7f-8159-43e5-96c3-d4fd0d5efd11"
+                        },
+                        {
+                          "id": "47019c8d-c558-40ab-9a13-ea6e62509cb3",
+                          "name": "Not found - Backup does not exist",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"password\": \"<string>\",\n  \"otp_type\": \"email\",\n  \"pin_code\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/profile/:profile_id/backup/:backup_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "profile",
+                                ":profile_id",
+                                "backup",
+                                ":backup_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "profile_id"
+                                },
+                                {
+                                  "key": "backup_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:07:48.000Z",
+                          "updatedAt": "2026-07-28T03:07:48.000Z",
+                          "uid": "35240-47019c8d-c558-40ab-9a13-ea6e62509cb3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-327eec3e-c9a1-44db-a3bd-2fdb33ccb637"
+                    }
+                  ],
+                  "id": "21424218-b58f-4be7-850d-afe4c457bec0",
+                  "createdAt": "2026-07-28T03:07:48.000Z",
+                  "updatedAt": "2026-07-28T03:07:48.000Z",
+                  "uid": "35240-21424218-b58f-4be7-850d-afe4c457bec0"
+                },
+                {
+                  "name": "Create Backup",
+                  "id": "ef619c29-640c-4215-b4b4-3f166f731999",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/profile/:profile_id/backup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profile",
+                        ":profile_id",
+                        "backup"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a99eb1ae-385a-4bb4-a514-25678ac2a080",
+                          "key": "profile_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the profile"
+                        }
+                      ]
+                    },
+                    "description": "Initiates a new backup generation for the specified profile. The backup is processed asynchronously in a background queue.\n\n**What's included in the backup:**\n- User storage files (uploaded via `/files` route)\n- Dashboard version history\n- Analysis script versions\n- All resource configurations as JSON files (devices, actions, dashboards, analysis, access management, networks, connectors, secrets, dictionaries, run users, etc.)\n\n**Important notes:**\n- Backups are rate-limited (1 per day based on your account timezone)\n- Free plan users do not have access to backup features\n- Backup generation may take several minutes depending on profile size\n- Restoration is manual - you can write scripts to parse the JSON files and recreate resources via API, or contact TagoIO support\n"
+                  },
+                  "response": [
+                    {
+                      "id": "a7a08393-b74a-440c-9dfa-07a9221e76d3",
+                      "name": "Backup creation initiated successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:profile_id/backup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":profile_id",
+                            "backup"
+                          ],
+                          "variable": [
+                            {
+                              "key": "profile_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"profile\": \"<string>\",\n  \"backup_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-a7a08393-b74a-440c-9dfa-07a9221e76d3"
+                    },
+                    {
+                      "id": "d6552eaa-fe84-42a1-8595-114dbbe418d6",
+                      "name": "Forbidden - Free plan or rate limit exceeded",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:profile_id/backup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":profile_id",
+                            "backup"
+                          ],
+                          "variable": [
+                            {
+                              "key": "profile_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-d6552eaa-fe84-42a1-8595-114dbbe418d6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:48.000Z",
+                  "updatedAt": "2026-07-28T03:07:48.000Z",
+                  "uid": "35240-ef619c29-640c-4215-b4b4-3f166f731999"
+                },
+                {
+                  "name": "List Backups",
+                  "id": "99f56cbb-45bb-46f2-947e-cd636d3c3c78",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/profile/:profile_id/backup?page=<integer>&amount=<integer>&orderBy=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "profile",
+                        ":profile_id",
+                        "backup"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number for pagination (default 1)",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of items per page (default 20)",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Sort order (e.g., 'created_at,desc' or 'created_at,asc')",
+                          "key": "orderBy",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "43b01dd1-2193-42cb-8fce-bf8a5f156776",
+                          "key": "profile_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the profile"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a paginated list of all backups for the specified profile. Use this endpoint to check backup status and find backup IDs for download or deletion.\n\n**Backup statuses:**\n- `queued` - Backup request received, waiting for processing\n- `processing` - Backup generation in progress\n- `completed` - Backup ready for download\n- `failed` - Backup generation failed (check error_message)\n"
+                  },
+                  "response": [
+                    {
+                      "id": "c2ebe039-51c5-4ef8-b361-435731e175aa",
+                      "name": "List of backups retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:profile_id/backup?page=<integer>&amount=<integer>&orderBy=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":profile_id",
+                            "backup"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination (default 1)",
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Number of items per page (default 20)",
+                              "key": "amount",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort order (e.g., 'created_at,desc' or 'created_at,asc')",
+                              "key": "orderBy",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "profile_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"file_path\": \"<string>\",\n      \"version_id\": \"<string>\",\n      \"file_size\": \"<number>\",\n      \"status\": \"failed\",\n      \"error_message\": \"<string>\",\n      \"created_at\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"file_path\": \"<string>\",\n      \"version_id\": \"<string>\",\n      \"file_size\": \"<number>\",\n      \"status\": \"queued\",\n      \"error_message\": \"<string>\",\n      \"created_at\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-c2ebe039-51c5-4ef8-b361-435731e175aa"
+                    },
+                    {
+                      "id": "5f47a0ce-a1c9-47de-9ce5-4579a8c303b7",
+                      "name": "Forbidden - Free plan users cannot access backup features",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/profile/:profile_id/backup?page=<integer>&amount=<integer>&orderBy=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "profile",
+                            ":profile_id",
+                            "backup"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination (default 1)",
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Number of items per page (default 20)",
+                              "key": "amount",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort order (e.g., 'created_at,desc' or 'created_at,asc')",
+                              "key": "orderBy",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "profile_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-5f47a0ce-a1c9-47de-9ce5-4579a8c303b7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:48.000Z",
+                  "updatedAt": "2026-07-28T03:07:48.000Z",
+                  "uid": "35240-99f56cbb-45bb-46f2-947e-cd636d3c3c78"
+                }
+              ],
+              "id": "585e3e68-d414-475e-bae3-46cb364e0248",
+              "createdAt": "2026-07-28T03:07:48.000Z",
+              "updatedAt": "2026-07-28T03:07:48.000Z",
+              "uid": "35240-585e3e68-d414-475e-bae3-46cb364e0248"
+            }
+          ],
+          "id": "9d1936f4-3da1-43ba-8fb7-2dcc6c364f73",
+          "createdAt": "2026-07-28T03:07:48.000Z",
+          "updatedAt": "2026-07-28T03:07:48.000Z",
+          "uid": "35240-9d1936f4-3da1-43ba-8fb7-2dcc6c364f73"
+        }
+      ],
+      "id": "9a9232dc-2002-486a-868c-9bbc8e04ff78",
+      "createdAt": "2026-07-28T03:07:48.000Z",
+      "updatedAt": "2026-07-28T03:07:48.000Z",
+      "uid": "35240-9a9232dc-2002-486a-868c-9bbc8e04ff78"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

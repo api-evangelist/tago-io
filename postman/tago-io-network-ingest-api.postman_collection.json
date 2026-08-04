@@ -1,0 +1,606 @@
+{
+  "info": {
+    "_postman_id": "719856cb-8817-405c-8b37-e37662fa1411",
+    "name": "TagoIO Access Management Network Ingest API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:09.000Z",
+    "updatedAt": "2026-07-28T03:08:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-719856cb-8817-405c-8b37-e37662fa1411"
+  },
+  "item": [
+    {
+      "name": "integration",
+      "item": [
+        {
+          "name": "network",
+          "item": [
+            {
+              "name": "resolve",
+              "item": [
+                {
+                  "name": "{serieNumber}",
+                  "item": [
+                    {
+                      "name": "{AuthorizationKey}",
+                      "item": [
+                        {
+                          "name": "Find Device by Serial & Authorization Key",
+                          "id": "0fc3a89e-ad1e-4380-9d45-3856a0854da6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "Token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/integration/network/resolve/:serieNumber/:AuthorizationKey",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "integration",
+                                "network",
+                                "resolve",
+                                ":serieNumber",
+                                ":AuthorizationKey"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d8cdcc14-a025-479c-918f-0589e3200080",
+                                  "key": "serieNumber",
+                                  "value": "<string>",
+                                  "description": "(Required) Device Serial Number registered at TagoIO"
+                                },
+                                {
+                                  "id": "18b3c023-508d-4559-bf13-6a54ad73c518",
+                                  "key": "AuthorizationKey",
+                                  "value": "<string>",
+                                  "description": "(Required) Authorization key for the profile, used to resolve the device token when multiple profiles may have the same serial number."
+                                }
+                              ]
+                            },
+                            "description": "Retrieve a valid device token using the device's serial number and a profile authorization key.  \nThis endpoint is recommended when you need additional security or if your Network is available to multiple profiles, as it allows serial numbers to be duplicated across different profiles.  \nYou must have both a Network and a Network-Token to use this endpoint."
+                          },
+                          "response": [
+                            {
+                              "id": "f6064a56-ae13-440b-a4d1-8cfcfecd5ebd",
+                              "name": "Successfully Token Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Token",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/integration/network/resolve/:serieNumber/:AuthorizationKey",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "integration",
+                                    "network",
+                                    "resolve",
+                                    ":serieNumber",
+                                    ":AuthorizationKey"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "serieNumber"
+                                    },
+                                    {
+                                      "key": "AuthorizationKey"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T03:08:10.000Z",
+                              "updatedAt": "2026-07-28T03:08:10.000Z",
+                              "uid": "35240-f6064a56-ae13-440b-a4d1-8cfcfecd5ebd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:08:10.000Z",
+                          "updatedAt": "2026-07-28T03:08:10.000Z",
+                          "uid": "35240-0fc3a89e-ad1e-4380-9d45-3856a0854da6"
+                        }
+                      ],
+                      "id": "a9341d89-05c6-4383-b89a-5f5bcfaebcff",
+                      "createdAt": "2026-07-28T03:08:10.000Z",
+                      "updatedAt": "2026-07-28T03:08:10.000Z",
+                      "uid": "35240-a9341d89-05c6-4383-b89a-5f5bcfaebcff"
+                    },
+                    {
+                      "name": "Find Device by Serial",
+                      "id": "ac4255d3-5701-4307-a2fe-a2a62833fe34",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "Token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/integration/network/resolve/:serieNumber",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "integration",
+                            "network",
+                            "resolve",
+                            ":serieNumber"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1233945f-94a2-49bb-a7d4-2a606d279b6f",
+                              "key": "serieNumber",
+                              "value": "<string>",
+                              "description": "(Required) Device Serial Number registered at TagoIO"
+                            }
+                          ]
+                        },
+                        "description": "Get a valid device-token using token serial number only. It will match the serial in any profile.\n:::warning  \nIf the serial number is duplicated between different profiles, you will get the device-token only for the latest device created. See [Find Device with Authorization](/docs/api/get-device-token-with-serial-number-authorization) for multiple profiles support.  \n:::\nYou must have a Network and a Network-Token to use this query."
+                      },
+                      "response": [
+                        {
+                          "id": "1835029a-6454-40bd-9814-2b6e41753c12",
+                          "name": "got a valid token",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/integration/network/resolve/:serieNumber",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "integration",
+                                "network",
+                                "resolve",
+                                ":serieNumber"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "serieNumber"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:10.000Z",
+                          "updatedAt": "2026-07-28T03:08:10.000Z",
+                          "uid": "35240-1835029a-6454-40bd-9814-2b6e41753c12"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:10.000Z",
+                      "updatedAt": "2026-07-28T03:08:10.000Z",
+                      "uid": "35240-ac4255d3-5701-4307-a2fe-a2a62833fe34"
+                    }
+                  ],
+                  "id": "331af0d3-c5ef-4d30-a98b-efa22c3587ab",
+                  "createdAt": "2026-07-28T03:08:10.000Z",
+                  "updatedAt": "2026-07-28T03:08:10.000Z",
+                  "uid": "35240-331af0d3-c5ef-4d30-a98b-efa22c3587ab"
+                }
+              ],
+              "id": "adc85680-32cd-4833-9eef-786375039eb3",
+              "createdAt": "2026-07-28T03:08:10.000Z",
+              "updatedAt": "2026-07-28T03:08:10.000Z",
+              "uid": "35240-adc85680-32cd-4833-9eef-786375039eb3"
+            },
+            {
+              "name": "{deviceID}",
+              "item": [
+                {
+                  "name": "params",
+                  "item": [
+                    {
+                      "name": "Edit Device Configuration Parameter",
+                      "id": "c6ff283a-2396-4963-adb9-4d4b6c920eea",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "Token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"sent\": \"<boolean>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"sent\": \"<boolean>\",\n    \"value\": \"<string>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/integration/network/:deviceID/params",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "integration",
+                            "network",
+                            ":deviceID",
+                            "params"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3c7a73be-621a-49e2-9f2c-4ec24380f098",
+                              "key": "deviceID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Edit a device configuration parameter using the Network-token. You must already have the device ID to use this endpoint.\nThis is useful when your Network integration requires configuration parameters for performing downlinks, or if your decoder benefits from configuration parameters for parsing data.\n:::info\nTo obtain the **Device ID**, first resolve the device-token, then use the [Device Information](/docs/api/current-device-information) endpoint to retrieve detailed information about the device.\n:::"
+                      },
+                      "response": [
+                        {
+                          "id": "a1b5b364-64e6-4364-a950-b3845bc4206e",
+                          "name": "Edit the configuration parameter",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Token",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"sent\": \"<boolean>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"key\": \"<string>\",\n    \"sent\": \"<boolean>\",\n    \"value\": \"<string>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/integration/network/:deviceID/params",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "integration",
+                                "network",
+                                ":deviceID",
+                                "params"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deviceID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:10.000Z",
+                          "updatedAt": "2026-07-28T03:08:10.000Z",
+                          "uid": "35240-a1b5b364-64e6-4364-a950-b3845bc4206e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:10.000Z",
+                      "updatedAt": "2026-07-28T03:08:10.000Z",
+                      "uid": "35240-c6ff283a-2396-4963-adb9-4d4b6c920eea"
+                    }
+                  ],
+                  "id": "73b49eb5-411e-4f1b-bd30-f75bc7a6361a",
+                  "createdAt": "2026-07-28T03:08:10.000Z",
+                  "updatedAt": "2026-07-28T03:08:10.000Z",
+                  "uid": "35240-73b49eb5-411e-4f1b-bd30-f75bc7a6361a"
+                }
+              ],
+              "id": "dda620cf-5270-43de-8a0f-aaeeb1fa9c6b",
+              "createdAt": "2026-07-28T03:08:10.000Z",
+              "updatedAt": "2026-07-28T03:08:10.000Z",
+              "uid": "35240-dda620cf-5270-43de-8a0f-aaeeb1fa9c6b"
+            },
+            {
+              "name": "data",
+              "item": [
+                {
+                  "name": "Send Data using Network",
+                  "id": "f9f9ac8b-b4cd-4bfe-b919-3f44ce6e755a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "Token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"variable\": \"<string>\",\n  \"value\": \"<string>\",\n  \"metadata\": {\n    \"serial\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/network/data?authorization_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "network",
+                        "data"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Authorization_Token\n",
+                          "key": "authorization_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Send data to TagoIO using the Network instead.\n\nThis endpoint allows the [Network Payload Parser](/docs/tagoio/devices/payload-parser/) to identify and redirect data to the correct device created using the Network associated with the Network Token and [Authorization Token](/docs/tagoio/integrations/general/authorization/).\n\nThe Network's Payload Parser is required to set the serial within the network parser. For example:\n\n``` javascript\n if (Array.isArray(payload)) {\n   const payload_received = payload.find(x => x.variable === \"payload\");\n   serial = payload_received?.metadata?.serial;\n }\n\n ```"
+                  },
+                  "response": [
+                    {
+                      "id": "1896fece-4154-481e-b8e6-5a7799bfe34d",
+                      "name": "Send Data",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Token",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"variable\": \"<string>\",\n  \"value\": \"<string>\",\n  \"metadata\": {\n    \"serial\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/integration/network/data?authorization_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "integration",
+                            "network",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Authorization_Token\n",
+                              "key": "authorization_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:10.000Z",
+                      "updatedAt": "2026-07-28T03:08:10.000Z",
+                      "uid": "35240-1896fece-4154-481e-b8e6-5a7799bfe34d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:10.000Z",
+                  "updatedAt": "2026-07-28T03:08:10.000Z",
+                  "uid": "35240-f9f9ac8b-b4cd-4bfe-b919-3f44ce6e755a"
+                }
+              ],
+              "id": "2ae5e543-3455-48e3-af81-bcbe0199c01f",
+              "createdAt": "2026-07-28T03:08:10.000Z",
+              "updatedAt": "2026-07-28T03:08:10.000Z",
+              "uid": "35240-2ae5e543-3455-48e3-af81-bcbe0199c01f"
+            }
+          ],
+          "id": "b4be9d3a-fae5-4e8c-a48c-05f3ad9a9b94",
+          "createdAt": "2026-07-28T03:08:10.000Z",
+          "updatedAt": "2026-07-28T03:08:10.000Z",
+          "uid": "35240-b4be9d3a-fae5-4e8c-a48c-05f3ad9a9b94"
+        }
+      ],
+      "id": "361812c1-5cf7-4084-b7a3-1a1b2d6ef051",
+      "createdAt": "2026-07-28T03:08:10.000Z",
+      "updatedAt": "2026-07-28T03:08:10.000Z",
+      "uid": "35240-361812c1-5cf7-4084-b7a3-1a1b2d6ef051"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

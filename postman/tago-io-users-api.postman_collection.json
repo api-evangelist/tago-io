@@ -1,0 +1,642 @@
+{
+  "info": {
+    "_postman_id": "acb4e792-2e5e-4f5b-bf37-8d9eaff5819b",
+    "name": "TagoIO Access Management Users API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:35.000Z",
+    "updatedAt": "2026-07-28T03:08:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-acb4e792-2e5e-4f5b-bf37-8d9eaff5819b"
+  },
+  "item": [
+    {
+      "name": "run",
+      "item": [
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "{userID}",
+              "item": [
+                {
+                  "name": "User Information",
+                  "id": "050c9af9-ff7f-4a7d-8294-382deb330d02",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/run/users/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "run",
+                        "users",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ca783734-f2a0-4be8-aec3-56f79801dd11",
+                          "key": "userID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get information about an user using userID\n"
+                  },
+                  "response": [
+                    {
+                      "id": "e1fc6245-66df-4d75-9759-f4491f228192",
+                      "name": "Getting RUN user information by ID",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/run/users/:userID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "run",
+                            "users",
+                            ":userID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": [\n    {\n      \"active\": \"<boolean>\",\n      \"company\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"email\": \"<string>\",\n      \"id\": \"<string>\",\n      \"language\": \"<string>\",\n      \"last_login\": \"<string>\",\n      \"name\": \"<string>\",\n      \"newsletter\": {},\n      \"options\": {\n        \"date_format\": \"<string>\",\n        \"time_format\": \"<string>\"\n      },\n      \"otp\": {},\n      \"phone\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"company\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"email\": \"<string>\",\n      \"id\": \"<string>\",\n      \"language\": \"<string>\",\n      \"last_login\": \"<string>\",\n      \"name\": \"<string>\",\n      \"newsletter\": {},\n      \"options\": {\n        \"date_format\": \"<string>\",\n        \"time_format\": \"<string>\"\n      },\n      \"otp\": {},\n      \"phone\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:35.000Z",
+                      "updatedAt": "2026-07-28T03:08:35.000Z",
+                      "uid": "35240-e1fc6245-66df-4d75-9759-f4491f228192"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:35.000Z",
+                  "updatedAt": "2026-07-28T03:08:35.000Z",
+                  "uid": "35240-050c9af9-ff7f-4a7d-8294-382deb330d02"
+                },
+                {
+                  "name": "Edit User",
+                  "id": "91efe38a-4a54-4baf-b2a9-83c6ba62ce3f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"active\": \"<boolean>\",\n  \"company\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"options\": {\n    \"date_format\": \"<string>\",\n    \"time_format\": \"<string>\"\n  },\n  \"phone\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/run/users/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "run",
+                        "users",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "06afa879-bb22-4cad-bc46-2cce63bc27c2",
+                          "key": "userID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Edit information about an user using userID\n"
+                  },
+                  "response": [
+                    {
+                      "id": "049be21b-feb3-4282-90f7-1d4ac7681909",
+                      "name": "Editing a RUN user information by ID",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"active\": \"<boolean>\",\n  \"company\": \"<string>\",\n  \"language\": \"<string>\",\n  \"name\": \"<string>\",\n  \"options\": {\n    \"date_format\": \"<string>\",\n    \"time_format\": \"<string>\"\n  },\n  \"phone\": \"<string>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/run/users/:userID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "run",
+                            "users",
+                            ":userID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:35.000Z",
+                      "updatedAt": "2026-07-28T03:08:35.000Z",
+                      "uid": "35240-049be21b-feb3-4282-90f7-1d4ac7681909"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:35.000Z",
+                  "updatedAt": "2026-07-28T03:08:35.000Z",
+                  "uid": "35240-91efe38a-4a54-4baf-b2a9-83c6ba62ce3f"
+                },
+                {
+                  "name": "Delete User",
+                  "id": "e5b73060-d53f-44ba-9f7e-f1eab409ab07",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/run/users/:userID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "run",
+                        "users",
+                        ":userID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8a342fa2-1258-4f66-b979-60c1e5cd5f27",
+                          "key": "userID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete user from Run using userID\n"
+                  },
+                  "response": [
+                    {
+                      "id": "d49f2932-6c59-4519-8bae-b2569150f80b",
+                      "name": "Deleting a RUN user by ID",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/run/users/:userID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "run",
+                            "users",
+                            ":userID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:35.000Z",
+                      "updatedAt": "2026-07-28T03:08:35.000Z",
+                      "uid": "35240-d49f2932-6c59-4519-8bae-b2569150f80b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:35.000Z",
+                  "updatedAt": "2026-07-28T03:08:35.000Z",
+                  "uid": "35240-e5b73060-d53f-44ba-9f7e-f1eab409ab07"
+                }
+              ],
+              "id": "981c8b7f-0437-4b3d-beab-d0923975492c",
+              "createdAt": "2026-07-28T03:08:35.000Z",
+              "updatedAt": "2026-07-28T03:08:35.000Z",
+              "uid": "35240-981c8b7f-0437-4b3d-beab-d0923975492c"
+            },
+            {
+              "name": "List Users",
+              "id": "4cbc4545-ac3a-4153-a31e-edde16e2d4b6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/run/users?page=<string>&name=<string>&email=<string>&timezone=<string>&company=<string>&phone=<string>&language=<string>&tags=<string>&active=<string>&id=<string>&last_login=<string>&created_at=<string>&amount=<string>&orderBy=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "run",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number.",
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's name.",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's email.",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's timezone.",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's company.",
+                      "key": "company",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's phone number.",
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's language.",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's tags and keys.",
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's activation status.",
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's id.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's last login.",
+                      "key": "last_login",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the RUN user's creation timestamp.",
+                      "key": "created_at",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount of RUN users by page.",
+                      "key": "amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order by the RUN users name/ascending/descending.",
+                      "key": "orderBy",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List users from Run\n"
+              },
+              "response": [
+                {
+                  "id": "3a7e67c3-776d-4d25-8ba0-6b39fdefab2f",
+                  "name": "Getting a list of RUN users",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/run/users?page=<string>&name=<string>&email=<string>&timezone=<string>&company=<string>&phone=<string>&language=<string>&tags=<string>&active=<string>&id=<string>&last_login=<string>&created_at=<string>&amount=<string>&orderBy=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "run",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number.",
+                          "key": "page",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's name.",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's email.",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's timezone.",
+                          "key": "timezone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's company.",
+                          "key": "company",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's phone number.",
+                          "key": "phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's language.",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's tags and keys.",
+                          "key": "tags",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's activation status.",
+                          "key": "active",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's id.",
+                          "key": "id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's last login.",
+                          "key": "last_login",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the RUN user's creation timestamp.",
+                          "key": "created_at",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount of RUN users by page.",
+                          "key": "amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order by the RUN users name/ascending/descending.",
+                          "key": "orderBy",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": [\n    {\n      \"active\": \"<boolean>\",\n      \"company\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"email\": \"<string>\",\n      \"id\": \"<string>\",\n      \"language\": \"<string>\",\n      \"last_login\": \"<string>\",\n      \"name\": \"<string>\",\n      \"newsletter\": {},\n      \"options\": {\n        \"date_format\": \"<string>\",\n        \"time_format\": \"<string>\"\n      },\n      \"otp\": {},\n      \"phone\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"company\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"email\": \"<string>\",\n      \"id\": \"<string>\",\n      \"language\": \"<string>\",\n      \"last_login\": \"<string>\",\n      \"name\": \"<string>\",\n      \"newsletter\": {},\n      \"options\": {\n        \"date_format\": \"<string>\",\n        \"time_format\": \"<string>\"\n      },\n      \"otp\": {},\n      \"phone\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"timezone\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:35.000Z",
+                  "updatedAt": "2026-07-28T03:08:35.000Z",
+                  "uid": "35240-3a7e67c3-776d-4d25-8ba0-6b39fdefab2f"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:35.000Z",
+              "updatedAt": "2026-07-28T03:08:35.000Z",
+              "uid": "35240-4cbc4545-ac3a-4153-a31e-edde16e2d4b6"
+            },
+            {
+              "name": "Create User",
+              "id": "264f1fbc-8004-4713-bbd8-2813fbbc6c80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/run/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "run",
+                    "users"
+                  ]
+                },
+                "description": "Create user on Run\n"
+              },
+              "response": [
+                {
+                  "id": "80596c68-f9a3-4369-abbd-8c0b4b7345b2",
+                  "name": "Creating a RUN user",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/run/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "run",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"user\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:35.000Z",
+                  "updatedAt": "2026-07-28T03:08:35.000Z",
+                  "uid": "35240-80596c68-f9a3-4369-abbd-8c0b4b7345b2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:35.000Z",
+              "updatedAt": "2026-07-28T03:08:35.000Z",
+              "uid": "35240-264f1fbc-8004-4713-bbd8-2813fbbc6c80"
+            }
+          ],
+          "id": "008bc9fd-da9d-4b15-acc8-5170a484894c",
+          "createdAt": "2026-07-28T03:08:35.000Z",
+          "updatedAt": "2026-07-28T03:08:35.000Z",
+          "uid": "35240-008bc9fd-da9d-4b15-acc8-5170a484894c"
+        }
+      ],
+      "id": "97b09b66-4086-4ce9-b9aa-985dc4a6c31b",
+      "createdAt": "2026-07-28T03:08:35.000Z",
+      "updatedAt": "2026-07-28T03:08:35.000Z",
+      "uid": "35240-97b09b66-4086-4ce9-b9aa-985dc4a6c31b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

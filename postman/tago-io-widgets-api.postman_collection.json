@@ -1,0 +1,700 @@
+{
+  "info": {
+    "_postman_id": "c3b84f8e-408a-4e0e-ab84-1fc0d39bb3e8",
+    "name": "TagoIO Access Management Widgets API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:36.000Z",
+    "updatedAt": "2026-07-28T03:08:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3b84f8e-408a-4e0e-ab84-1fc0d39bb3e8"
+  },
+  "item": [
+    {
+      "name": "dashboard",
+      "item": [
+        {
+          "name": "{dashboardID}",
+          "item": [
+            {
+              "name": "widget",
+              "item": [
+                {
+                  "name": "{widgetID}",
+                  "item": [
+                    {
+                      "name": "token",
+                      "item": [
+                        {
+                          "name": "Generate Token",
+                          "id": "c1a67fdf-ea30-4870-85dc-5b6fe25b8b59",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID/token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dashboard",
+                                ":dashboardID",
+                                "widget",
+                                ":widgetID",
+                                "token"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "bf584ac5-c420-447b-9f86-db7b90d6fd09",
+                                  "key": "dashboardID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "02f50a4a-70f5-411d-83b4-bc5702fe2273",
+                                  "key": "widgetID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Generates a secure, public token for [embedding](/docs/tagoio/widgets/general/embedding-widgets-to-your-website) a specific widget from a dashboard.  \nUse this token to display the widget in external applications or websites via the TagoIO embed service.  \n\nExample embed URL:  \n\n`https://embed.REGION.tago.io?widget=YOUR-WIDGET-ID&dashboard=YOUR-DASHBOARD-ID&token=YOUR-EMBED-TOKEN`  \n\nThis endpoint is intended for scenarios where you want to share or display a widget outside of the TagoIO platform while maintaining access control.\n"
+                          },
+                          "response": [
+                            {
+                              "id": "6171c1f2-9f42-4b9c-8cae-6440a3b95e3d",
+                              "name": "Generating a token",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID/token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "dashboard",
+                                    ":dashboardID",
+                                    "widget",
+                                    ":widgetID",
+                                    "token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "dashboardID"
+                                    },
+                                    {
+                                      "key": "widgetID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": {\n    \"widget_token\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T03:08:37.000Z",
+                              "updatedAt": "2026-07-28T03:08:37.000Z",
+                              "uid": "35240-6171c1f2-9f42-4b9c-8cae-6440a3b95e3d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:08:37.000Z",
+                          "updatedAt": "2026-07-28T03:08:37.000Z",
+                          "uid": "35240-c1a67fdf-ea30-4870-85dc-5b6fe25b8b59"
+                        }
+                      ],
+                      "id": "383e33f3-187f-4877-a0aa-7c32e4c38212",
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-383e33f3-187f-4877-a0aa-7c32e4c38212"
+                    },
+                    {
+                      "name": "Widget Information",
+                      "id": "30e692c4-160e-431c-916d-7adc24816dd9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboard",
+                            ":dashboardID",
+                            "widget",
+                            ":widgetID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "570fede7-3518-4665-bd63-169ecc6c113b",
+                              "key": "dashboardID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "7055609c-d513-4d8a-9633-12ca8ec1a748",
+                              "key": "widgetID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the complete JSON structure of the dashboard widget, including all settings and data/resource instructions used to populate the widget's data.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "818920c7-1399-4707-b5fb-a217661344b7",
+                          "name": "Getting a widget information",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dashboard",
+                                ":dashboardID",
+                                "widget",
+                                ":widgetID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dashboardID"
+                                },
+                                {
+                                  "key": "widgetID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"analysis_run\": {},\n    \"dashboard\": \"<string>\",\n    \"data\": [\n      {\n        \"origin\": \"<string>\",\n        \"query\": \"<string>\",\n        \"variables\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"origin\": \"<string>\",\n        \"query\": \"<string>\",\n        \"variables\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"display\": {\n      \"help\": \"<string>\",\n      \"show_units\": \"<boolean>\",\n      \"show_variables\": \"<boolean>\",\n      \"theme\": {\n        \"color\": {\n          \"background\": \"<string>\",\n          \"button\": \"<string>\",\n          \"dot\": \"<string>\",\n          \"header\": \"<string>\"\n        }\n      },\n      \"variables\": [\n        {\n          \"origin\": \"<string>\",\n          \"variable\": \"<string>\"\n        },\n        {\n          \"origin\": \"<string>\",\n          \"variable\": \"<string>\"\n        }\n      ]\n    },\n    \"id\": \"<string>\",\n    \"label\": \"<string>\",\n    \"realtime\": \"<boolean>\",\n    \"token\": {},\n    \"type\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:37.000Z",
+                          "updatedAt": "2026-07-28T03:08:37.000Z",
+                          "uid": "35240-818920c7-1399-4707-b5fb-a217661344b7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-30e692c4-160e-431c-916d-7adc24816dd9"
+                    },
+                    {
+                      "name": "Edit Widget",
+                      "id": "e5d023f8-b305-4c08-850f-acfaca0eb62c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dashboard\": \"<string>\",\n  \"display\": {\n    \"show_units\": \"<boolean>\",\n    \"show_variables\": \"<boolean>\",\n    \"theme\": {\n      \"color\": {\n        \"background\": \"<string>\",\n        \"button\": \"<string>\",\n        \"dot\": \"<string>\",\n        \"header\": \"<string>\"\n      }\n    },\n    \"variables\": [\n      {\n        \"origin\": \"<string>\",\n        \"variable\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"variable\": \"<string>\"\n      }\n    ]\n  },\n  \"label\": \"<string>\",\n  \"realtime\": \"<boolean>\",\n  \"type\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboard",
+                            ":dashboardID",
+                            "widget",
+                            ":widgetID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "871d88d7-06bd-4816-badc-795336bcc122",
+                              "key": "dashboardID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "06baeecb-bc8f-4590-bc16-87d52f683ce6",
+                              "key": "widgetID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Edit properties of a JSON within a dashboard of your profile.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "37c33bb0-6684-43c1-9d16-304fa3f74b40",
+                          "name": "Editing a widget",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"dashboard\": \"<string>\",\n  \"display\": {\n    \"show_units\": \"<boolean>\",\n    \"show_variables\": \"<boolean>\",\n    \"theme\": {\n      \"color\": {\n        \"background\": \"<string>\",\n        \"button\": \"<string>\",\n        \"dot\": \"<string>\",\n        \"header\": \"<string>\"\n      }\n    },\n    \"variables\": [\n      {\n        \"origin\": \"<string>\",\n        \"variable\": \"<string>\"\n      },\n      {\n        \"origin\": \"<string>\",\n        \"variable\": \"<string>\"\n      }\n    ]\n  },\n  \"label\": \"<string>\",\n  \"realtime\": \"<boolean>\",\n  \"type\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dashboard",
+                                ":dashboardID",
+                                "widget",
+                                ":widgetID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dashboardID"
+                                },
+                                {
+                                  "key": "widgetID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:37.000Z",
+                          "updatedAt": "2026-07-28T03:08:37.000Z",
+                          "uid": "35240-37c33bb0-6684-43c1-9d16-304fa3f74b40"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-e5d023f8-b305-4c08-850f-acfaca0eb62c"
+                    },
+                    {
+                      "name": "Delete Widget",
+                      "id": "ac039011-a7df-4771-a937-c0285ec8e579",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboard",
+                            ":dashboardID",
+                            "widget",
+                            ":widgetID"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3b3ce0b7-4f5c-4107-9dc4-1df87375915b",
+                              "key": "dashboardID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d62719aa-3185-44ac-9190-ef1588bde0df",
+                              "key": "widgetID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete a widget from the dashboard.\n\n:::warning  \n\nDeleting a widget does not automatically remove it from the dashboard arrangement. You must manually edit the dashboard arrangement to remove the deleted widget.  \n\n:::\n"
+                      },
+                      "response": [
+                        {
+                          "id": "c300afcf-4100-4eb1-bbc2-08f5fc95b3e2",
+                          "name": "Deleting a Widget",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/dashboard/:dashboardID/widget/:widgetID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "dashboard",
+                                ":dashboardID",
+                                "widget",
+                                ":widgetID"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dashboardID"
+                                },
+                                {
+                                  "key": "widgetID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:08:37.000Z",
+                          "updatedAt": "2026-07-28T03:08:37.000Z",
+                          "uid": "35240-c300afcf-4100-4eb1-bbc2-08f5fc95b3e2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-ac039011-a7df-4771-a937-c0285ec8e579"
+                    }
+                  ],
+                  "id": "44e9acc9-91b7-4f57-8bdf-6c2e64aacfb7",
+                  "createdAt": "2026-07-28T03:08:37.000Z",
+                  "updatedAt": "2026-07-28T03:08:37.000Z",
+                  "uid": "35240-44e9acc9-91b7-4f57-8bdf-6c2e64aacfb7"
+                },
+                {
+                  "name": "Create Widget",
+                  "id": "e4a8b4fe-a9bd-4928-8c05-fccade5a6f48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"analysis_run\": \"<string>\",\n  \"dashboard\": \"<string>\",\n  \"display\": {},\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"realtime\": \"<boolean>\",\n  \"type\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboard/:dashboardID/widget",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboard",
+                        ":dashboardID",
+                        "widget"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e5d9e875-41ed-41ba-8b53-f8bfca536f8d",
+                          "key": "dashboardID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create a widget within a specific dashboard in your profile.\nEach widget has unique properties. To ensure accuracy, we recommend opening your Admin Developer Panel, navigating to the desired Dashboard, and copying the Widget's JSON structure directly.  \n:::warning  \nAfter you create a widget, it is not automatically added to the dashboard's Arrangement parameter. You must manually edit the dashboard arrangement to include the widget's position in the grid.  \n:::\n"
+                  },
+                  "response": [
+                    {
+                      "id": "af8fdce0-d605-4163-a9fb-c500c71bff9a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"analysis_run\": \"<string>\",\n  \"dashboard\": \"<string>\",\n  \"display\": {},\n  \"id\": \"<string>\",\n  \"label\": \"<string>\",\n  \"realtime\": \"<boolean>\",\n  \"type\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboard/:dashboardID/widget",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboard",
+                            ":dashboardID",
+                            "widget"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboardID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-af8fdce0-d605-4163-a9fb-c500c71bff9a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:37.000Z",
+                  "updatedAt": "2026-07-28T03:08:37.000Z",
+                  "uid": "35240-e4a8b4fe-a9bd-4928-8c05-fccade5a6f48"
+                }
+              ],
+              "id": "67610e80-c5f6-4358-a036-c3a23711f23e",
+              "createdAt": "2026-07-28T03:08:37.000Z",
+              "updatedAt": "2026-07-28T03:08:37.000Z",
+              "uid": "35240-67610e80-c5f6-4358-a036-c3a23711f23e"
+            }
+          ],
+          "id": "da6a6350-4270-4787-b66d-4e5e4e404fc5",
+          "createdAt": "2026-07-28T03:08:37.000Z",
+          "updatedAt": "2026-07-28T03:08:37.000Z",
+          "uid": "35240-da6a6350-4270-4787-b66d-4e5e4e404fc5"
+        }
+      ],
+      "id": "757c9fa6-4a62-47d1-8196-5c4dbff2d3cc",
+      "createdAt": "2026-07-28T03:08:37.000Z",
+      "updatedAt": "2026-07-28T03:08:37.000Z",
+      "uid": "35240-757c9fa6-4a62-47d1-8196-5c4dbff2d3cc"
+    },
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "{dashboardID}",
+          "item": [
+            {
+              "name": "{widgetID}",
+              "item": [
+                {
+                  "name": "Resolve Widget Data",
+                  "id": "03ab9c62-b267-4619-9bfa-404fb2123111",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/:dashboardID/:widgetID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        ":dashboardID",
+                        ":widgetID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ff539f49-ecc1-4b33-af95-759197b0973f",
+                          "key": "dashboardID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "31d09018-7dd3-4ede-a22a-169bac278259",
+                          "key": "widgetID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieve all the data necessary to display a widget, according to its configuration in the `data` and `resource` fields.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "c6f876c5-fc52-49e9-9a55-a761774f9342",
+                      "name": "Getting widget Data",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data/:dashboardID/:widgetID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data",
+                            ":dashboardID",
+                            ":widgetID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboardID"
+                            },
+                            {
+                              "key": "widgetID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": {\n    \"content\": [\n      {\n        \"data\": {\n          \"origin\": \"<string>\",\n          \"query\": \"<string>\",\n          \"variables\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"result\": [\n          {\n            \"device\": \"<string>\",\n            \"group\": \"<string>\",\n            \"id\": \"<string>\",\n            \"origin\": \"<string>\",\n            \"serie\": \"<string>\",\n            \"time\": \"<string>\",\n            \"value\": \"<number>\",\n            \"variable\": \"<string>\"\n          },\n          {\n            \"device\": \"<string>\",\n            \"group\": \"<string>\",\n            \"id\": \"<string>\",\n            \"origin\": \"<string>\",\n            \"serie\": \"<string>\",\n            \"time\": \"<string>\",\n            \"value\": \"<number>\",\n            \"variable\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"data\": {\n          \"origin\": \"<string>\",\n          \"query\": \"<string>\",\n          \"variables\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"result\": [\n          {\n            \"device\": \"<string>\",\n            \"group\": \"<string>\",\n            \"id\": \"<string>\",\n            \"origin\": \"<string>\",\n            \"serie\": \"<string>\",\n            \"time\": \"<string>\",\n            \"value\": \"<number>\",\n            \"variable\": \"<string>\"\n          },\n          {\n            \"device\": \"<string>\",\n            \"group\": \"<string>\",\n            \"id\": \"<string>\",\n            \"origin\": \"<string>\",\n            \"serie\": \"<string>\",\n            \"time\": \"<string>\",\n            \"value\": \"<number>\",\n            \"variable\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"widget\": {\n      \"analysis_run\": {},\n      \"dashboard\": \"<string>\",\n      \"data\": [\n        {\n          \"origin\": \"<string>\",\n          \"query\": \"<string>\",\n          \"variables\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"origin\": \"<string>\",\n          \"query\": \"<string>\",\n          \"variables\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"display\": {\n        \"show_units\": \"<boolean>\",\n        \"show_variables\": \"<boolean>\",\n        \"theme\": {\n          \"color\": {\n            \"background\": \"<string>\",\n            \"button\": \"<string>\",\n            \"dot\": \"<string>\",\n            \"header\": \"<string>\"\n          }\n        },\n        \"variables\": [\n          {\n            \"origin\": \"<string>\",\n            \"variable\": \"<string>\"\n          },\n          {\n            \"origin\": \"<string>\",\n            \"variable\": \"<string>\"\n          }\n        ]\n      },\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"realtime\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  },\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:37.000Z",
+                      "updatedAt": "2026-07-28T03:08:37.000Z",
+                      "uid": "35240-c6f876c5-fc52-49e9-9a55-a761774f9342"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:37.000Z",
+                  "updatedAt": "2026-07-28T03:08:37.000Z",
+                  "uid": "35240-03ab9c62-b267-4619-9bfa-404fb2123111"
+                }
+              ],
+              "id": "04691ea5-846a-48ec-8588-1cc8c35bf2bd",
+              "createdAt": "2026-07-28T03:08:37.000Z",
+              "updatedAt": "2026-07-28T03:08:37.000Z",
+              "uid": "35240-04691ea5-846a-48ec-8588-1cc8c35bf2bd"
+            }
+          ],
+          "id": "3a4b3923-95f3-4480-be40-96d7221f554b",
+          "createdAt": "2026-07-28T03:08:37.000Z",
+          "updatedAt": "2026-07-28T03:08:37.000Z",
+          "uid": "35240-3a4b3923-95f3-4480-be40-96d7221f554b"
+        }
+      ],
+      "id": "f49c6428-dab4-4d22-ba49-97863b1f06fc",
+      "createdAt": "2026-07-28T03:08:37.000Z",
+      "updatedAt": "2026-07-28T03:08:37.000Z",
+      "uid": "35240-f49c6428-dab4-4d22-ba49-97863b1f06fc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

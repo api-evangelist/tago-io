@@ -1,0 +1,594 @@
+{
+  "info": {
+    "_postman_id": "d39885ea-70a6-4ece-a097-5ff52f5a83a9",
+    "name": "TagoIO Access Management Files API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:03.000Z",
+    "updatedAt": "2026-07-28T03:08:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d39885ea-70a6-4ece-a097-5ff52f5a83a9"
+  },
+  "item": [
+    {
+      "name": "files",
+      "item": [
+        {
+          "name": "permission",
+          "item": [
+            {
+              "name": "Edit Permission",
+              "id": "ba21b316-6296-4671-b88f-2189d26431fb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  },\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files/permission",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files",
+                    "permission"
+                  ]
+                },
+                "description": "Edit Permission"
+              },
+              "response": [
+                {
+                  "id": "be0355c0-c14b-4fd7-af84-a9b17ffd3360",
+                  "name": "Editing file to be public",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  },\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/permission",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "permission"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:04.000Z",
+                  "updatedAt": "2026-07-28T03:08:04.000Z",
+                  "uid": "35240-be0355c0-c14b-4fd7-af84-a9b17ffd3360"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-ba21b316-6296-4671-b88f-2189d26431fb"
+            }
+          ],
+          "id": "48cac6d7-901e-409d-ac41-3a4c58a909f3",
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-48cac6d7-901e-409d-ac41-3a4c58a909f3"
+        },
+        {
+          "name": "copy",
+          "item": [
+            {
+              "name": "Copy File",
+              "id": "0c1fd477-3ae8-4e74-be05-fda14cf9447b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files/copy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files",
+                    "copy"
+                  ]
+                },
+                "description": "File Copy"
+              },
+              "response": [
+                {
+                  "id": "36824160-1a80-4183-9733-34edf95bd58c",
+                  "name": "Making a file copy",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/copy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        "copy"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:04.000Z",
+                  "updatedAt": "2026-07-28T03:08:04.000Z",
+                  "uid": "35240-36824160-1a80-4183-9733-34edf95bd58c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-0c1fd477-3ae8-4e74-be05-fda14cf9447b"
+            }
+          ],
+          "id": "80e1079c-fee8-4acc-accd-f6c84bf08075",
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-80e1079c-fee8-4acc-accd-f6c84bf08075"
+        },
+        {
+          "name": "List Files",
+          "id": "1047e00c-760f-4ccd-a6ee-693bd113c3d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files?qty=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ],
+              "query": [
+                {
+                  "description": "Quantity of files to be returned in the response",
+                  "key": "qty",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get profile file list"
+          },
+          "response": [
+            {
+              "id": "a8bde012-acb5-4e90-a9a6-cb6ce93863de",
+              "name": "Get Profile's Files List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?qty=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Quantity of files to be returned in the response",
+                      "key": "qty",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"files\": [\n      {\n        \"filename\": \"<string>\",\n        \"last_modified\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"size\": \"<number>\"\n      },\n      {\n        \"filename\": \"<string>\",\n        \"last_modified\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"size\": \"<number>\"\n      }\n    ],\n    \"folders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"total\": \"<number>\",\n    \"usage\": \"<number>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-a8bde012-acb5-4e90-a9a6-cb6ce93863de"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-1047e00c-760f-4ccd-a6ee-693bd113c3d0"
+        },
+        {
+          "name": "Move File",
+          "id": "f7e00e3e-cbc4-4bb9-b7bb-6b31b5ed3503",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            },
+            "description": "Move file location within your profile"
+          },
+          "response": [
+            {
+              "id": "5de88720-adbc-4108-a302-863e167ed6e9",
+              "name": "Edit a file",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-5de88720-adbc-4108-a302-863e167ed6e9"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-f7e00e3e-cbc4-4bb9-b7bb-6b31b5ed3503"
+        },
+        {
+          "name": "Upload File",
+          "id": "c51d00f6-35e5-439f-80e0-629fde22b3b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"multipart_action\": \"<string>\",\n  \"parts\": [\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    },\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    }\n  ],\n  \"upload_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            },
+            "description": "Upload file"
+          },
+          "response": [
+            {
+              "id": "debf92fb-2cdd-45a1-a0c0-d5a8685a9f74",
+              "name": "Upload file part 1 / Upload file part 2 / Upload file part 3",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"multipart_action\": \"<string>\",\n  \"parts\": [\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    },\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    }\n  ],\n  \"upload_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "Etag",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-debf92fb-2cdd-45a1-a0c0-d5a8685a9f74"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-c51d00f6-35e5-439f-80e0-629fde22b3b0"
+        },
+        {
+          "name": "Delete a File",
+          "id": "e4ee49d6-e510-4c10-985e-602284a60090",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            },
+            "description": "Delete a file"
+          },
+          "response": [
+            {
+              "id": "f60ebffc-5c48-41a6-bdc8-1e013607a267",
+              "name": "Deleting a file",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:04.000Z",
+              "updatedAt": "2026-07-28T03:08:04.000Z",
+              "uid": "35240-f60ebffc-5c48-41a6-bdc8-1e013607a267"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:04.000Z",
+          "updatedAt": "2026-07-28T03:08:04.000Z",
+          "uid": "35240-e4ee49d6-e510-4c10-985e-602284a60090"
+        }
+      ],
+      "id": "904519bb-2372-4325-b804-a5dde9921124",
+      "createdAt": "2026-07-28T03:08:04.000Z",
+      "updatedAt": "2026-07-28T03:08:04.000Z",
+      "uid": "35240-904519bb-2372-4325-b804-a5dde9921124"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

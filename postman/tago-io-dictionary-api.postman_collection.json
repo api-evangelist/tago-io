@@ -1,0 +1,722 @@
+{
+  "info": {
+    "_postman_id": "fdadbce1-7b85-443d-8a2b-e4efa6a0cce6",
+    "name": "TagoIO Access Management Dictionary API",
+    "description": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:00.000Z",
+    "updatedAt": "2026-07-28T03:08:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fdadbce1-7b85-443d-8a2b-e4efa6a0cce6"
+  },
+  "item": [
+    {
+      "name": "dictionary",
+      "item": [
+        {
+          "name": "{dictionary_id}",
+          "item": [
+            {
+              "name": "{language}",
+              "item": [
+                {
+                  "name": "Update Dictionary Language",
+                  "id": "95f084c7-c8ae-4e97-9c71-d7e7293bdb3d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"dictionary\": {\n    \"test\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dictionary/:dictionary_id/:language",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dictionary",
+                        ":dictionary_id",
+                        ":language"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aa1b2d2c-7e15-45f4-b85b-148730cf7c81",
+                          "key": "dictionary_id",
+                          "value": "<string>",
+                          "description": "(Required) Can be obtained in the GET Dictionary response"
+                        },
+                        {
+                          "id": "94bc30b5-46d4-4f32-bc71-0c9a97b7b5af",
+                          "key": "language",
+                          "value": "<string>",
+                          "description": "(Required) Language that will be updated"
+                        }
+                      ]
+                    },
+                    "description": "Update Dictionary Language"
+                  },
+                  "response": [
+                    {
+                      "id": "30087e3e-dbce-4616-8eee-283dd5336bb0",
+                      "name": "Put Dictionary Language",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dictionary\": {\n    \"test\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dictionary/:dictionary_id/:language",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dictionary",
+                            ":dictionary_id",
+                            ":language"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dictionary_id"
+                            },
+                            {
+                              "key": "language"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:00.000Z",
+                      "updatedAt": "2026-07-28T03:08:00.000Z",
+                      "uid": "35240-30087e3e-dbce-4616-8eee-283dd5336bb0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:00.000Z",
+                  "updatedAt": "2026-07-28T03:08:00.000Z",
+                  "uid": "35240-95f084c7-c8ae-4e97-9c71-d7e7293bdb3d"
+                }
+              ],
+              "id": "31a47e7c-7ddc-4663-a7a6-bee83d92fd39",
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-31a47e7c-7ddc-4663-a7a6-bee83d92fd39"
+            },
+            {
+              "name": "Dictionary Information",
+              "id": "ca40ccce-6cc8-4509-b1b5-df6908a79c16",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dictionary",
+                    ":dictionary_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ef8d5272-1b57-43bc-b6ac-e09fdfced835",
+                      "key": "dictionary_id",
+                      "value": "<string>",
+                      "description": "(Required) Can be obtained in the GET Dictionary response"
+                    }
+                  ]
+                },
+                "description": "Get Dictionary Details"
+              },
+              "response": [
+                {
+                  "id": "d0bbb1c9-c2fc-47d1-b4e5-892a2848588e",
+                  "name": "Getting the Dictionary details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dictionary",
+                        ":dictionary_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dictionary_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": {\n    \"created_at\": \"<string>\",\n    \"fallback\": \"<string>\",\n    \"languages\": [\n      {\n        \"active\": \"<boolean>\",\n        \"code\": \"<string>\"\n      },\n      {\n        \"active\": \"<boolean>\",\n        \"code\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:00.000Z",
+                  "updatedAt": "2026-07-28T03:08:00.000Z",
+                  "uid": "35240-d0bbb1c9-c2fc-47d1-b4e5-892a2848588e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-ca40ccce-6cc8-4509-b1b5-df6908a79c16"
+            },
+            {
+              "name": "Update Dictionary",
+              "id": "3bf86a1f-2063-4473-b84e-b3815e1fd065",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fallback\": \"<string>\",\n  \"languages\": [\n    {\n      \"active\": \"<boolean>\",\n      \"code\": \"<string>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"code\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dictionary",
+                    ":dictionary_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c973cbb7-398d-43ed-a35d-d9ec6a71f703",
+                      "key": "dictionary_id",
+                      "value": "<string>",
+                      "description": "(Required) Can be obtained in the GET Dictionary response"
+                    }
+                  ]
+                },
+                "description": "Update Dictionary"
+              },
+              "response": [
+                {
+                  "id": "cf96f2e0-eef9-48c9-b2a4-8980d328b708",
+                  "name": "Updating a Dictionary name",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fallback\": \"<string>\",\n  \"languages\": [\n    {\n      \"active\": \"<boolean>\",\n      \"code\": \"<string>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"code\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dictionary",
+                        ":dictionary_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dictionary_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:00.000Z",
+                  "updatedAt": "2026-07-28T03:08:00.000Z",
+                  "uid": "35240-cf96f2e0-eef9-48c9-b2a4-8980d328b708"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-3bf86a1f-2063-4473-b84e-b3815e1fd065"
+            },
+            {
+              "name": "Delete Dictionary",
+              "id": "9785099e-6e59-4666-80ba-183ca08c6508",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dictionary",
+                    ":dictionary_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1fd0dd0d-84e7-4f5c-9a4b-6215fb802318",
+                      "key": "dictionary_id",
+                      "value": "<string>",
+                      "description": "(Required) Can be obtained in the GET Dictionary response"
+                    }
+                  ]
+                },
+                "description": "Delete Dictionary"
+              },
+              "response": [
+                {
+                  "id": "8bd93c8a-1dcc-4247-8e47-f4e2b824ed7c",
+                  "name": "Delete Dictionary",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dictionary/:dictionary_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dictionary",
+                        ":dictionary_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dictionary_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"result\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T03:08:00.000Z",
+                  "updatedAt": "2026-07-28T03:08:00.000Z",
+                  "uid": "35240-8bd93c8a-1dcc-4247-8e47-f4e2b824ed7c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-9785099e-6e59-4666-80ba-183ca08c6508"
+            }
+          ],
+          "id": "2be9459a-d0d3-423c-9d57-c3f0c781583e",
+          "createdAt": "2026-07-28T03:08:00.000Z",
+          "updatedAt": "2026-07-28T03:08:00.000Z",
+          "uid": "35240-2be9459a-d0d3-423c-9d57-c3f0c781583e"
+        },
+        {
+          "name": "{slug_or_dictionary_id}",
+          "item": [
+            {
+              "name": "{language}",
+              "item": [
+                {
+                  "name": "Get Dictionary Language Details",
+                  "id": "9afcf9e1-46a2-42ef-a280-f597b1c00db3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dictionary/:slug_or_dictionary_id/:language",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dictionary",
+                        ":slug_or_dictionary_id",
+                        ":language"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe6b672e-29f4-4199-a7fe-be5910c96089",
+                          "key": "slug_or_dictionary_id",
+                          "value": "<string>",
+                          "description": "(Required) Can be obtained in the GET Dictionary response"
+                        },
+                        {
+                          "id": "380a59ac-2523-449a-b82f-f9021be1f3e5",
+                          "key": "language",
+                          "value": "<string>",
+                          "description": "(Required) Language that will be returned keys"
+                        }
+                      ]
+                    },
+                    "description": "Get Dictionary Language Details"
+                  },
+                  "response": [
+                    {
+                      "id": "219ad30b-968b-4586-af22-5ebe7d20de45",
+                      "name": "Getting a dictionary language details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dictionary/:slug_or_dictionary_id/:language",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dictionary",
+                            ":slug_or_dictionary_id",
+                            ":language"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug_or_dictionary_id"
+                            },
+                            {
+                              "key": "language"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"result\": {\n    \"key\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:08:00.000Z",
+                      "updatedAt": "2026-07-28T03:08:00.000Z",
+                      "uid": "35240-219ad30b-968b-4586-af22-5ebe7d20de45"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:08:00.000Z",
+                  "updatedAt": "2026-07-28T03:08:00.000Z",
+                  "uid": "35240-9afcf9e1-46a2-42ef-a280-f597b1c00db3"
+                }
+              ],
+              "id": "30dc355e-9e7e-488b-9810-9e9eddca330f",
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-30dc355e-9e7e-488b-9810-9e9eddca330f"
+            }
+          ],
+          "id": "2ad8cdb2-e231-4747-8408-09502eaf418b",
+          "createdAt": "2026-07-28T03:08:00.000Z",
+          "updatedAt": "2026-07-28T03:08:00.000Z",
+          "uid": "35240-2ad8cdb2-e231-4747-8408-09502eaf418b"
+        },
+        {
+          "name": "List Dictionaries",
+          "id": "573a1643-4e11-4cfc-9c79-693c575f5ff2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dictionary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dictionary"
+              ]
+            },
+            "description": "List of Dictionaries"
+          },
+          "response": [
+            {
+              "id": "fd53e8fd-c169-4a35-ab9f-11da1eef858e",
+              "name": "Getting the dictionary list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dictionary",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dictionary"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": [\n    {\n      \"created_at\": \"<string>\",\n      \"fallback\": \"<string>\",\n      \"id\": \"<string>\",\n      \"languages\": [\n        {\n          \"active\": \"<boolean>\",\n          \"code\": \"<string>\"\n        },\n        {\n          \"active\": \"<boolean>\",\n          \"code\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    },\n    {\n      \"created_at\": \"<string>\",\n      \"fallback\": \"<string>\",\n      \"id\": \"<string>\",\n      \"languages\": [\n        {\n          \"active\": \"<boolean>\",\n          \"code\": \"<string>\"\n        },\n        {\n          \"active\": \"<boolean>\",\n          \"code\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"updated_at\": \"<string>\"\n    }\n  ],\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-fd53e8fd-c169-4a35-ab9f-11da1eef858e"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:00.000Z",
+          "updatedAt": "2026-07-28T03:08:00.000Z",
+          "uid": "35240-573a1643-4e11-4cfc-9c79-693c575f5ff2"
+        },
+        {
+          "name": "Create Dictionary",
+          "id": "dfbd3a8f-e856-4619-8ff9-cc8bb11367a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"fallback\": \"<string>\",\n  \"languages\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dictionary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dictionary"
+              ]
+            },
+            "description": "Create Dictionary"
+          },
+          "response": [
+            {
+              "id": "bfdbc3e1-216a-4946-9e9d-473a7e603c84",
+              "name": "Creating a dictionary",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"fallback\": \"<string>\",\n  \"languages\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dictionary",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dictionary"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"result\": {\n    \"dictionary\": \"<string>\"\n  },\n  \"status\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T03:08:00.000Z",
+              "updatedAt": "2026-07-28T03:08:00.000Z",
+              "uid": "35240-bfdbc3e1-216a-4946-9e9d-473a7e603c84"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:00.000Z",
+          "updatedAt": "2026-07-28T03:08:00.000Z",
+          "uid": "35240-dfbd3a8f-e856-4619-8ff9-cc8bb11367a2"
+        }
+      ],
+      "id": "b8774030-4501-4c62-91f4-b3ab0e09d1e6",
+      "createdAt": "2026-07-28T03:08:00.000Z",
+      "updatedAt": "2026-07-28T03:08:00.000Z",
+      "uid": "35240-b8774030-4501-4c62-91f4-b3ab0e09d1e6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.us-e1.tago.io"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Configuration Param API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration Param",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Device Params",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/params",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sent_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Boolean."
+              }
+            ]
+          },
+          "docs": "List params for the device\n"
+        },
+        {
+          "info": {
+            "name": "Create and Edit Device Params",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/params",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and edit params for the device\n"
+        },
+        {
+          "info": {
+            "name": "Delete Device Param",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/params/:paramID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "paramID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete param from the device\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

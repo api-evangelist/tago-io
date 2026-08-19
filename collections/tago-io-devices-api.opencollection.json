@@ -1,0 +1,377 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Devices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of devices by page."
+              },
+              {
+                "name": "filter[id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the device by ID."
+              },
+              {
+                "name": "filter[name]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the device name."
+              },
+              {
+                "name": "filter[visible]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the device visible status."
+              },
+              {
+                "name": "filter[active]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the device active status."
+              },
+              {
+                "name": "filter[connector]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the devices by the Connector ID."
+              },
+              {
+                "name": "filter[network]",
+                "value": "",
+                "type": "query",
+                "description": "Filter the devices by the Network ID."
+              },
+              {
+                "name": "filter[tags]",
+                "value": "",
+                "type": "query",
+                "description": "Filter device by it's tag. Check the example."
+              },
+              {
+                "name": "filter[updated_at]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by time the device was received data. Can be an ISO-8601 or a relative date"
+              },
+              {
+                "name": "filter[created_at]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by time the device was created. Can be an ISO-8601 or a relative date"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a list with all devices from the profile\n"
+        },
+        {
+          "info": {
+            "name": "Create Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create either an immutable or a mutable device. Immutable devices require chunking parameters and are optimized for long-term, append-only storage. Mutable devices behave like classic devices and do not require chunk settings."
+        },
+        {
+          "info": {
+            "name": "Device Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/:deviceID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Device information"
+        },
+        {
+          "info": {
+            "name": "Edit Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/device/:deviceID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify any property of the device.\n\nYou're only required to send the parameters you want to edit.\n\nIf changing network/connector, make sure you've deleted all tokens in the device first. Is also required to send both network and connector to edit any of both fields.\n"
+        },
+        {
+          "info": {
+            "name": "Delete Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/device/:deviceID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a device from the profile\n"
+        },
+        {
+          "info": {
+            "name": "Convert Device Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/convert",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Convert the device immutable or mutable.\n\nThe device must be empty before being converted. You can empty your device through your device's page. The Device-Token is preserved when converting using this route.\nThe device must be disabled before being converted. You can disable the device by going to the device's page and turn off the active switch."
+        },
+        {
+          "info": {
+            "name": "Data Amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data_amount",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the total number of data items stored within the device."
+        },
+        {
+          "info": {
+            "name": "Empty Device Storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/empty",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Empty a Device's Data"
+        },
+        {
+          "info": {
+            "name": "Get Device Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "qty",
+                "value": "",
+                "type": "query",
+                "description": "Numeric quantity of data to be returned"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Final date to get the data returned in ISO timestamp format (Not Required)"
+              }
+            ]
+          },
+          "docs": "Get Device Data for a specific Device within your profile"
+        },
+        {
+          "info": {
+            "name": "Send Device Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Send data to a specific Device within your profile\n"
+        },
+        {
+          "info": {
+            "name": "Edit Device Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+        },
+        {
+          "info": {
+            "name": "Delete Device Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "qty",
+                "value": "",
+                "type": "query",
+                "description": "Quantity of data records to delete. Default is 15."
+              },
+              {
+                "name": "ordination",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Default is descending."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip (pagination)."
+              },
+              {
+                "name": "variables",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by variable."
+              },
+              {
+                "name": "values",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by value. Accepts single or multiple values."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by id. Accepts single or multiple values."
+              },
+              {
+                "name": "groups",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n"
+              }
+            ]
+          },
+          "docs": "Delete specific data stored in the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

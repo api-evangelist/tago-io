@@ -1,0 +1,942 @@
+{
+  "item": [
+    {
+      "id": "266d4951-9d65-439f-982d-f90a4ee98511",
+      "name": "Device Data",
+      "description": {
+        "content": "Endpoints that act as a device using a Device Token (device-level permissions).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebdbdef4-50e3-4792-80bb-92d4fca0c342",
+          "name": "Device Information",
+          "request": {
+            "name": "Device Information",
+            "description": {
+              "content": "Get information about the current device\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5bc7f8a0-4f46-4816-a919-f7b444c278c7",
+              "name": "Get information about current device successfuly",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"active\": true,\n    \"connector\": \"62333bd36977fc001a2990c8\",\n    \"created_at\": \"2022-06-02T18:09:07.135Z\",\n    \"id\": \"6298fcc3e0b6840012b6abfa\",\n    \"last_input\": \"2022-06-02T19:40:54.517Z\",\n    \"name\": \"TagoIO Device\",\n    \"network\": \"62336c32ab6e0d0012e06c04\",\n    \"payload_decoder\": \"LyogVGhpcyBpcyBhIGRlZmF1bHQgZXhhbXBsZSBmb3IgcGF5bG9hZCBwYXJzZXIuCioqIFRoZSBpZ25vcmVfdmFycyB2YXJpYWJsZSBpbiB0aGlzIGNvZGUgc2hvdWxkIGJlIHVzZWQgdG8gaWdub3JlIHZhcmlhYmxlcwoqKiBmcm9tIHRoZSBkZXZpY2UgdGhhdCB5b3UgZG9uJ3Qgd2FudC4KKioKKiogVGVzdGluZzoKKiogWW91IGNhbiBkbyBtYW51YWwgdGVzdHMgdG8gdGhpcyBwYXJzZSBieSB1c2luZyB0aGUgRGV2aWNlIEVtdWxhdG9yLiBDb3B5IGFuZCBQYXN0ZSB0aGUgZm9sbG93aW5nIGNvZGU6CioqIFt7ICJ2YXJpYWJsZSI6ICJwYXlsb2FkIiwgInZhbHVlIjogIjAxMDk2MTEzOTUiIH1dCioqCiovCi8vIEFkZCBpZ25vcmFibGUgdmFyaWFibGVzIGluIHRoaXMgYXJyYXkuCmNvbnN0IGlnbm9yZV92YXJzID0gWydyZl9jaGFpbicsICdjaGFubmVsJywgJ21vZHVsYXRpb24nLCAnYXBwX2lkJywgJ2Rldl9pZCcsICd0aW1lJywgJ2d0d190cnVzdGVkJywgJ3BvcnQnXTsKCi8vIFJlbW92ZSB1bndhbnRlZCB2YXJpYWJsZXMuCnBheWxvYWQgPSBwYXlsb2FkLmZpbHRlcih4ID0+ICFpZ25vcmVfdmFycy5pbmNsdWRlcyh4LnZhcmlhYmxlKSk7CgovLyBZb3UgY2FuIGVkaXQgYW55IHZhcmlhYmxlIHRoYXQncyBiZWluZyBhZGRlZCB0byB5b3VyIGRldmljZS4KLy8gRm9yIGV4YW1wbGUsIGlmIHlvdSBuZWVkIHRvIGNvbnZlcnQgYSB2YXJpYWJsZSBmcm9tIEZhaHJlaW50aCB0byBDZWxzaXVzLCB1bmNvbW1lbnQgdGhlIGZvbGxvd2luZyBjb2RlOgovLyBjb25zdCB0ZW1wZXJhdHVyZSA9IHBheWxvYWQuZmluZCh4ID0+IHgudmFyaWFibGUgPT09ICJ0ZW1wZXJhdHVyZSIpOwovLyBpZiAodGVtcGVyYXR1cmUpIHsKLy8gICB0ZW1wZXJhdHVyZS52YWx1ZSA9ICg1IC8gOSkgKiAodGVtcGVyYXR1cmUudmFsdWUgLSAzMik7Ci8vICAgdGVtcGVyYXR1cmUudW5pdCA9ICJDIjsKLy8gfQ==\",\n    \"profile\": \"5e1e192a06fbee00265ccfb0\",\n    \"type\": \"mutable\",\n    \"updated_at\": \"2022-06-10T20:22:59.405Z\",\n    \"visible\": true\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa851808-7c71-4f99-85ae-920d619b16e2",
+          "name": "Get Data",
+          "request": {
+            "name": "Get Data",
+            "description": {
+              "content": "Get data from the device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Select the query mode."
+                },
+                {
+                  "disabled": false,
+                  "key": "qty",
+                  "value": "<integer>",
+                  "description": "Total quantity of data to retrieve."
+                },
+                {
+                  "disabled": false,
+                  "key": "details",
+                  "value": "<boolean>",
+                  "description": "Include additional fields (e.g., created_at)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordination",
+                  "value": "<string>",
+                  "description": "Sort order."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "variables",
+                  "value": "<string>",
+                  "description": "Filter data by variable."
+                },
+                {
+                  "disabled": false,
+                  "key": "values",
+                  "value": "<string>",
+                  "description": "Filter data by value."
+                },
+                {
+                  "disabled": false,
+                  "key": "groups",
+                  "value": "<string>",
+                  "description": "Filter by group identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>",
+                  "description": "Start timestamp or relative date."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<dateTime>",
+                  "description": "End timestamp or relative date."
+                },
+                {
+                  "disabled": false,
+                  "key": "function",
+                  "value": "<string>",
+                  "description": "Allowed values depend on query mode: aggregate → avg,sum,min,max; conditional → gt,gte,lt,lte,eq,ne."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b9019b4-12cd-4154-86bf-db5aa9fb9e12",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qty",
+                      "value": "20"
+                    },
+                    {
+                      "key": "details",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ordination",
+                      "value": "descending"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "15"
+                    },
+                    {
+                      "key": "variables",
+                      "value": "temperature"
+                    },
+                    {
+                      "key": "values",
+                      "value": "25"
+                    },
+                    {
+                      "key": "groups",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "2022-09-09T10:28:44Z"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2022-09-10T10:28:44Z"
+                    },
+                    {
+                      "key": "function",
+                      "value": "avg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"created_at\": \"2021-09-16T17:51:43.672Z\",\n      \"device\": \"612ea1694035dd0012f6d238\",\n      \"group\": \"1631814703672\",\n      \"location\": {\n        \"coordinates\": [\n          -78.677328,\n          35.770723\n        ],\n        \"type\": \"point\"\n      },\n      \"time\": \"2021-09-16T17:51:43.672Z\",\n      \"unit\": \"°C\",\n      \"value\": -12.67,\n      \"variable\": \"temperature\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f099796-9b8c-4b5a-bf54-a3b86859f2d3",
+          "name": "Edit Data",
+          "request": {
+            "name": "Edit Data",
+            "description": {
+              "content": "Edit specific data stored in the device. Same properties as the Create Data is accepted, edit requires the ID field of the data to be edited.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"color\": \"<string>\"\n    },\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "750dfc40-7248-4524-ab6c-0a7a17b17f5c",
+              "name": "Editing data register by ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"6298fcc3e0b6840012bb6abfa\",\n    \"metadata\": {\n      \"color\": \"blue\"\n    },\n    \"value\": \"27\"\n  },\n  {\n    \"id\": \"6298fcc3e0b6840012bb6abfa\",\n    \"metadata\": {\n      \"color\": \"blue\"\n    },\n    \"value\": \"27\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"1 item(s) updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "deaa3ac4-2ad9-4ede-8efc-7d1fe83d5160",
+          "name": "Send Data",
+          "request": {
+            "name": "Send Data",
+            "description": {
+              "content": "Send Device Data\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variable\": \"<string>\",\n  \"location\": {\n    \"lat\": \"<number>\",\n    \"lng\": \"<number>\"\n  },\n  \"value\": \"<string>\",\n  \"time\": \"<string>\",\n  \"group\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 9329,\n    \"key_1\": \"string\",\n    \"key_2\": 743\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0338f30f-c346-44a2-ae70-37853811f37c",
+              "name": "Sending data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"2 Data Added\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4ce238b-9c4b-40a9-8e75-2dcf0d8d0575",
+          "name": "Delete Data",
+          "request": {
+            "name": "Delete Data",
+            "description": {
+              "content": "Delete data from the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices.  \n:::\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "qty",
+                  "value": "15",
+                  "description": "Quantity of data records to delete. Default is 15."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordination",
+                  "value": "descending",
+                  "description": "Sort direction. Default is descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip (pagination)."
+                },
+                {
+                  "disabled": false,
+                  "key": "variables",
+                  "value": "<string>",
+                  "description": "Filter data by variable."
+                },
+                {
+                  "disabled": false,
+                  "key": "values",
+                  "value": "<string>",
+                  "description": "Filter data by value. Accepts single or multiple values."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Filter data by id. Accepts single or multiple values."
+                },
+                {
+                  "disabled": false,
+                  "key": "groups",
+                  "value": "<string>",
+                  "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "93860982-f36d-4907-ab5e-92ab5eae9e9d",
+              "name": "Deleting data using params",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "qty",
+                      "value": "20"
+                    },
+                    {
+                      "key": "ordination",
+                      "value": "descending"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "15"
+                    },
+                    {
+                      "key": "variables",
+                      "value": "temperature"
+                    },
+                    {
+                      "key": "values",
+                      "value": "12"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "6144a25e280ad80019688e689"
+                    },
+                    {
+                      "key": "groups",
+                      "value": "16731887966346"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"1 Data Removed\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3995425-36b4-4526-a5a1-125d1c98f263",
+          "name": "List Config. parameters",
+          "request": {
+            "name": "List Config. parameters",
+            "description": {
+              "content": "Retrieve configuration parameters for the current device. This is useful for delivering settings or instructions that your device can periodically check for updates.\n\n[Configuration Parameters](/docs/tagoio/devices/configuration-parameters-for-devices) can be used to provide URLs (such as for firmware updates) or any other settings needed to control device behavior.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "params"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sent_status",
+                  "value": "<string>",
+                  "description": "Filter by `sent` status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd0f402c-d6d2-4328-b1d2-c72071db0c1d",
+              "name": "List of configuration parameters returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "params"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sent_status",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"id\": \"6244401fe689b90014f9b299\",\n      \"key\": \"param_key\",\n      \"sent\": false,\n      \"value\": \"param_value\"\n    },\n    {\n      \"id\": \"6244401fe689b90014f9b299\",\n      \"key\": \"param_key\",\n      \"sent\": false,\n      \"value\": \"param_value\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff1bfc3a-c2df-493f-89b3-8d612d83882b",
+          "name": "Mark Config. Parameter as Read",
+          "request": {
+            "name": "Mark Config. Parameter as Read",
+            "description": {
+              "content": "Marks a configuration parameter as read on the current device.  \n\nThis is useful when collecting settings from Configuration Parameters and you need to track whether you have already processed the current value. Use this endpoint to set the `sent` field to `true`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "params",
+                ":paramID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paramID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Device-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4512d099-c13f-45c9-bb6a-8b63b858b631",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "params",
+                    ":paramID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paramID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Device-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Params Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85838958-d43f-4547-8c6f-df42b73d8e25",
+    "name": "TagoIO Access Management Device Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

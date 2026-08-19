@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/am",
+            "params": [
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all access policies in your profile"
+        },
+        {
+          "info": {
+            "name": "Create Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/am",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a policy that targets either Run User or Analysis"
+        },
+        {
+          "info": {
+            "name": "Update Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/:am_id",
+            "params": [
+              {
+                "name": "am_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Policy response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update policy"
+        },
+        {
+          "info": {
+            "name": "Delete Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/am/:am_id",
+            "params": [
+              {
+                "name": "am_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Policy request response"
+              }
+            ]
+          },
+          "docs": "Delete Policy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

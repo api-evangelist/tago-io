@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Statistics / Billing API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics / Billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/account/plan"
+          },
+          "docs": "Get the Account Plan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

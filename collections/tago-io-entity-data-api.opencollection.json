@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Entity Data API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Entity Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Entity Data Amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data_amount",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Entity Data Amount"
+        },
+        {
+          "info": {
+            "name": "Get Entity Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "(default 1)"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "(default: 20, max: 1000)"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "comma-separated list of fields to return"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "JSON object. Filter by an entity field. Requires the index paramenter"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "query",
+                "description": "First index searchable field from the entity field added to the filter parameter"
+              }
+            ]
+          },
+          "docs": "Get Entity Data"
+        },
+        {
+          "info": {
+            "name": "Add Entity Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Entity Data"
+        },
+        {
+          "info": {
+            "name": "Edit Entity Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit Entity Data"
+        },
+        {
+          "info": {
+            "name": "Delete Entity Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Entity Data"
+        },
+        {
+          "info": {
+            "name": "Export Entity Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/entity/:entity_id/data/backup",
+            "params": [
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Export data from the entity to a file in the Files.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

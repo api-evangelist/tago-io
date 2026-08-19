@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Notifications API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/run/notification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Notification for an user\n"
+        },
+        {
+          "info": {
+            "name": "List Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/run/notification/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of notifications for an user\n"
+        },
+        {
+          "info": {
+            "name": "Edit Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/run/notification/:notificationID",
+            "params": [
+              {
+                "name": "notificationID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit notification on Run\n"
+        },
+        {
+          "info": {
+            "name": "Delete Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/run/notification/:notificationID",
+            "params": [
+              {
+                "name": "notificationID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete notification on Run\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/run/users/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get information about an user using userID\n"
+        },
+        {
+          "info": {
+            "name": "Edit User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/run/users/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit information about an user using userID\n"
+        },
+        {
+          "info": {
+            "name": "Delete User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/run/users/:userID",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete user from Run using userID\n"
+        },
+        {
+          "info": {
+            "name": "List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/run/users",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's name."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's email."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's timezone."
+              },
+              {
+                "name": "company",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's company."
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's phone number."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's language."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's tags and keys."
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's activation status."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's id."
+              },
+              {
+                "name": "last_login",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's last login."
+              },
+              {
+                "name": "created_at",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the RUN user's creation timestamp."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of RUN users by page."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Order by the RUN users name/ascending/descending."
+              }
+            ]
+          },
+          "docs": "List users from Run\n"
+        },
+        {
+          "info": {
+            "name": "Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/run/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create user on Run\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

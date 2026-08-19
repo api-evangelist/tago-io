@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Backup API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Backup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Backups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/profile/:profile_id/backup",
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (default 1)"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page (default 20)"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (e.g., 'created_at,desc' or 'created_at,asc')"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of all backups for the specified profile. Use this endpoint to check backup status and find backup IDs for download or deletion.\n\n**Backup statuses:**\n- `queued` - Backup request received, waiting for processing\n- `processing` - Backup generation in progress\n- `completed` - Backup ready for download\n- `failed` - Backup generation failed (check error_message)\n"
+        },
+        {
+          "info": {
+            "name": "Create Backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/profile/:profile_id/backup",
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              }
+            ]
+          },
+          "docs": "Initiates a new backup generation for the specified profile. The backup is processed asynchronously in a background queue.\n\n**What's included in the backup:**\n- User storage files (uploaded via `/files` route)\n- Dashboard version history\n- Analysis script versions\n- All resource configurations as JSON files (devices, actions, dashboards, analysis, access management, networks, connectors, secrets, dictionaries, run users, etc.)\n\n**Important notes:**\n- Backups are rate-limited (1 per day based on "
+        },
+        {
+          "info": {
+            "name": "Download Backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/profile/:profile_id/backup/:backup_id/download",
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              },
+              {
+                "name": "backup_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the backup to download"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a secure, time-limited download URL for a specific backup. The download URL is valid for **2 hours**.\n\n**Security:** This endpoint requires account password verification to prevent unauthorized access to backup data. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.\n\n**Important:** Only backups with status `completed` can be downloaded.\n"
+        },
+        {
+          "info": {
+            "name": "Delete Backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/profile/:profile_id/backup/:backup_id",
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              },
+              {
+                "name": "backup_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the backup to delete"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Permanently removes a backup from storage. This action is irreversible.\n\n**Security:** This endpoint requires account password verification to prevent accidental or unauthorized deletion. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

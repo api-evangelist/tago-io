@@ -1,0 +1,558 @@
+{
+  "item": [
+    {
+      "id": "70a7b05f-db6c-4608-b34f-e917b75be3de",
+      "name": "Files",
+      "description": {
+        "content": "File storage operations (Profile Token).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ac86bcd-edb8-4e5e-8adc-a14c5b930b96",
+          "name": "List Files",
+          "request": {
+            "name": "List Files",
+            "description": {
+              "content": "Get profile file list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "qty",
+                  "value": "<string>",
+                  "description": "Quantity of files to be returned in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62be8bf0-43c9-4aa4-b891-4cdef29eb171",
+              "name": "Get Profile's Files List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "qty",
+                      "value": "number"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"files\": [\n      {\n        \"filename\": \"layer01.png\",\n        \"last_modified\": \"2023-10-16T13:25:04.000Z\",\n        \"public\": true,\n        \"size\": 63480\n      },\n      {\n        \"filename\": \"layer02.png\",\n        \"last_modified\": \"2023-10-16T13:23:58.000Z\",\n        \"public\": true,\n        \"size\": 233444\n      }\n    ],\n    \"folders\": [\n      \"reports\",\n      \"image\"\n    ],\n    \"total\": 50,\n    \"usage\": 6.02\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1e0c04c-64e7-4860-ae9b-1a0ce42f6b92",
+          "name": "Move File",
+          "request": {
+            "name": "Move File",
+            "description": {
+              "content": "Move file location within your profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b7b8042-46d1-4f78-bf32-eda0de0d8c4e",
+              "name": "Edit a file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"from\": \"/layer05.png\",\n    \"to\": \"/images/layer05.png\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1bc74ba-00d6-4919-83f0-684d204f63fc",
+          "name": "Upload File",
+          "request": {
+            "name": "Upload File",
+            "description": {
+              "content": "Upload file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"multipart_action\": \"<string>\",\n  \"parts\": [\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    },\n    {\n      \"ETag\": \"<string>\",\n      \"PartNumber\": \"<number>\"\n    }\n  ],\n  \"upload_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "547c8af3-3b7f-4887-a90c-74f97ae14429",
+              "name": "Upload file part 1 / Upload file part 2 / Upload file part 3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentType\": \"image/png\",\n  \"filename\": \"/Screenshot 2023-11-03 at 16.35.29.png\",\n  \"multipart_action\": \"start\",\n  \"public\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Etag",
+                  "value": "W/\"12e-fdk/2Vt3///sBaogLtoHsVN43c0\"",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"TJdGVdXNEdTQq9yIdclq8z3wPZ9dSA8NiLkDAhPb54H2FxW.k2jpsr1nmh7UeaWIYi7DdNllhDAv0JTvLWwEggYkWXhW8W7foUdlemg0aeQcj95D0yJJN65hdv9_RXYvzg7g4SiJ9YIj.y1R5LN.wvwznXnrzbOQ5hLjQ2eOqMI-\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a47da1bd-e76a-4d82-9887-9ac14833829f",
+          "name": "Delete a File",
+          "request": {
+            "name": "Delete a File",
+            "description": {
+              "content": "Delete a file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22f885c4-617b-41e0-85a3-fcaeb56bd6ca",
+              "name": "Deleting a file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Removed\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c40b3b6d-2366-4d84-a07e-846cd3c22c63",
+          "name": "Edit Permission",
+          "request": {
+            "name": "Edit Permission",
+            "description": {
+              "content": "Edit Permission",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "permission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  },\n  {\n    \"file\": \"<string>\",\n    \"public\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6493e8d8-3d2d-409e-a048-fd9011b93837",
+              "name": "Editing file to be public",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "permission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"file\": \"/layer05.png\",\n    \"public\": true\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34daee58-164a-4348-b379-37987dd1eced",
+          "name": "Copy File",
+          "request": {
+            "name": "Copy File",
+            "description": {
+              "content": "File Copy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "copy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  },\n  {\n    \"from\": \"<string>\",\n    \"to\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f894ee59-3a83-437d-85ad-ede04d203bdf",
+              "name": "Making a file copy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "copy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"from\": \"/layer05.png\",\n    \"to\": \"/layer05 - Copy.png\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6fa098af-e9b4-44db-8ec0-4badf48540c1",
+    "name": "TagoIO Access Management Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

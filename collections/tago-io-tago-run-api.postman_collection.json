@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "163e0dcb-e4ef-4958-b074-728fc25e6858",
+      "name": "Tago RUN",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d946f202-4bf5-43d1-9c68-c56a20a5d20b",
+          "name": "Get RUN settings",
+          "request": {
+            "name": "Get RUN settings",
+            "description": {
+              "content": "Retrieve information about TagoRUN\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa967969-7931-434b-8165-aafa79905ec3",
+              "name": "RUN settings retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"active\": true,\n    \"auth_token_ttl\": \"3 months\",\n    \"created_at\": \"2022-06-17T00:02:20.531Z\",\n    \"dictionary\": {},\n    \"email_domain\": {},\n    \"email_templates\": {\n      \"password_recover\": {\n        \"subject\": \"Password Recovery\",\n        \"value\": \"### Hi $name$.\\n\\nYou have requested to reset your password on $application.name$.\\n\\nClick [here]($recover_link$) and you'll be redirected to a secure site where you can set a new password.\"\n      },\n      \"welcome_actived\": {\n        \"subject\": \"Your account was activated!\",\n        \"value\": \"### Hi $name$.\\n\\nYour account was successfully confirmed. You are now able to log in!\"\n      },\n      \"welcome_adminconfirm\": {\n        \"subject\": \"Your account is being analysed\",\n        \"value\": \"### Hi $name$.\\n\\nWelcome!\\n\\nYour account creation has been submitted, but is currently being analysed. We'll keep you posted.\"\n      },\n      \"welcome_autoconfirm\": {\n        \"subject\": \"Welcome $name$!\",\n        \"value\": \"### Hi $name$.\\n\\nWelcome!\\n\\nBefore you start to enjoy all the features, click [here]($confirmation_link$) to confirm your email.\"\n      }\n    },\n    \"favicon\": {},\n    \"feature_devicewifisetup\": {\n      \"background_color\": \"white\",\n      \"button_cancel_background_color\": \"white\",\n      \"button_cancel_text_color\": \"black\",\n      \"button_confirm_background_color\": \"hsl(229, 100%, 23%)\",\n      \"button_confirm_text_color\": \"white\",\n      \"enabled\": false,\n      \"ip\": \"\",\n      \"language\": \"EN\",\n      \"name\": \"\",\n      \"port\": \"\",\n      \"protocol\": \"http\",\n      \"text_color\": \"rgb(60, 60, 60)\",\n      \"translations\": {\n        \"EN\": {\n          \"done_desc\": \"\",\n          \"done_title\": \"Device configured!\",\n          \"intro_desc\": \"Let's connect your device to Wi-Fi for you to start using it.\",\n          \"intro_img\": \"\",\n          \"intro_title\": \"Begin device setup\",\n          \"param_title\": \"Device found!\",\n          \"wait_desc\": \"\",\n          \"wait_title\": \"Waiting for device...\",\n          \"wifi_config_desc\": \"Go to the Wi-Fi settings on your phone and select the AcmeTracking-XXX network. It may take up to a minute to appear on the list. After connecting your phone to the AcmeTracking-XXX network via Wi-Fi, return to the TagoRun app to continue the setup.\",\n          \"wifi_config_title\": \"Manually connect to the Device Network\"\n        }\n      }\n    },\n    \"feature_geolocation\": {},\n    \"integration\": {\n      \"google_analytics\": \"\",\n      \"zoho_salesiq\": \"\"\n    },\n    \"logo\": {},\n    \"logo_options\": {\n      \"tooltip\": \"\",\n      \"type\": \"\",\n      \"value\": \"\"\n    },\n    \"name\": \"John Doe Run\",\n    \"profile\": \"62ab4302ee089b00134f33ff\",\n    \"security\": {},\n    \"sidebar_buttons\": [\n      {\n        \"color\": \"grey\",\n        \"href\": \"/\",\n        \"iconUrl\": \"https://svg.internal.tago.io/home.svg\",\n        \"text\": \"Home\",\n        \"type\": \"\"\n      },\n      {\n        \"color\": \"red\",\n        \"href\": \"users\",\n        \"iconUrl\": \"https://svg.internal.tago.io/group-profile-users.svg\",\n        \"text\": \"Users\",\n        \"type\": \"\"\n      },\n      {\n        \"color\": \"hsl(208, 56%, 46%)\",\n        \"href\": \"connections\",\n        \"iconUrl\": \"https://svg.internal.tago.io/wifi.svg\",\n        \"isInNewLine\": true,\n        \"text\": \"Connections\",\n        \"type\": \"\"\n      }\n    ],\n    \"signup_logo\": {},\n    \"signup_logo_options\": {},\n    \"signup_method\": \"default\",\n    \"sso_saml_active\": false,\n    \"sub_title\": \"Machine Management\",\n    \"theme\": {\n      \"actionSchedule\": \"#e6431e\",\n      \"actionTriggerByData\": \"rgb(85, 107, 47)\",\n      \"actionTriggerByMQTT\": \"hsl(296, 32%, 43%)\",\n      \"actionTriggerByResource\": \"hsl(208, 56%, 45%)\",\n      \"alertActionDangerBackground\": \"hsl(0, 49%, 54%)\",\n      \"alertActionInfoBackground\": \"hsl(200, 74%, 88%)\",\n      \"alertActionWarningBackground\": \"hsl(50, 100%, 86%)\",\n      \"alertDangerBackground\": \"hsl(0, 60%, 92%)\",\n      \"alertInfoBackground\": \"hsl(200, 65%, 91%)\",\n      \"alertWarningBackground\": \"hsl(50, 100%, 94%)\",\n      \"analysisExternal\": \"hsl(27, 80%, 49%)\",\n      \"analysisInternal\": \"hsl(208, 56%, 46%)\",\n      \"auth_bg_opacity\": 100,\n      \"auth_bg_src\": \"\",\n      \"auth_bg_type\": \"default\",\n      \"auth_form_opacity\": {},\n      \"blueprint\": \"hsl(230, 100%, 32%)\",\n      \"buttonDanger\": \"#e40000\",\n      \"buttonDangerText\": \"hsl(0, 100%, 100%)\",\n      \"buttonDefault\": \"hsl(0, 0%, 100%)\",\n      \"buttonDefaultText\": \"hsl(0, 0%, 0%)\",\n      \"buttonDisabled\": \"hsl(0, 0%, 90%)\",\n      \"buttonDisabledText\": \"hsl(0, 0%, 0%)\",\n      \"buttonIconLabel\": \"hsl(0, 4%, 29%)\",\n      \"buttonPrimary\": \"hsl(229, 100%, 23%)\",\n      \"buttonPrimaryText\": \"hsl(0, 0%, 100%)\",\n      \"buttonSuccess\": \"#007d05\",\n      \"buttonSuccessText\": \"hsl(0, 0%, 100%)\",\n      \"buttonUpgrade\": \"hsl(31, 92%, 66%)\",\n      \"buttonUpgradeText\": \"hsl(0, 0%, 0%)\",\n      \"buttonWarning\": \"hsl(31, 92%, 66%)\",\n      \"buttonWarningText\": \"hsl(0, 0%, 100%)\",\n      \"contentBackground\": \"hsl(0, 0%, 100%)\",\n      \"contentHeader\": \"hsl(0, 0%, 100%)\",\n      \"contentHeaderGradient\": \"rgb(218, 218, 220)\",\n      \"contentHeaderSeparator\": \"hsl(0, 4%, 29%)\",\n      \"contentHeaderText\": \"hsl(0, 4%, 29%)\",\n      \"dataStorageImmutable\": \"hsl(82, 39%, 30%)\",\n      \"dataStorageMutable\": \"hsl(180, 100%, 27%)\",\n      \"deviceInputOutput1Day\": \"hsl(298, 74%, 37%)\",\n      \"deviceInputOutput3Days\": \"hsl(341, 74%, 36%)\",\n      \"deviceInputOutput3Hours\": \"hsl(121, 84%, 40%)\",\n      \"deviceInputOutput6Hours\": \"hsl(29, 98%, 48%)\",\n      \"deviceInputOutputRest\": \"hsl(0, 0%, 50%)\",\n      \"deviceListAlternateRow\": \"hsla(0, 0%, 0%, .05)\",\n      \"deviceListColumn\": \"hsla(0, 0%, 0%, .05)\",\n      \"dictionaryAlertIcon\": \"hsl(0, 95%, 70%)\",\n      \"dictionaryPrimary\": \"hsl(208, 56%, 46%)\",\n      \"dottedBorder\": \"hsl(0, 4%, 29%)\",\n      \"dropdownAccent\": \"hsl(229, 100%, 23%)\",\n      \"dropdownBackground\": \"hsl(0, 0%, 100%)\",\n      \"dynamicTableAlternateRow\": \"hsla(0, 0%, 0%, .05)\",\n      \"dynamicTableColumn\": \"hsla(0, 0%, 0%, .05)\",\n      \"filesSelection\": \"hsl(207, 56%, 93%)\",\n      \"floatingSidebarTitle\": \"hsl(229, 100%, 23%)\",\n      \"footerBackground\": \"hsl(0, 0%, 100%)\",\n      \"formControlBorder\": \"hsla(0, 0%, 0%, 0.07)\",\n      \"formControlFocus\": \"hsl(208, 56%, 46%)\",\n      \"gaugeDanger\": \"#C02416\",\n      \"gaugeEmpty\": \"hsl(0, 0%, 80%)\",\n      \"gaugeFill\": \"hsl(208, 56%, 46%)\",\n      \"gaugePrimaryText\": \"hsl(0, 0%, 0%)\",\n      \"gaugeSecondaryText\": \"hsl(0, 0%, 45%)\",\n      \"gaugeTick\": \"hsl(0, 0%, 57%)\",\n      \"html5\": \"hsl(14, 93%, 54%)\",\n      \"iconRadioSelected\": \"hsl(0, 0%, 33%)\",\n      \"iconRadioSubTitle\": \"hsl(0, 0%, 45%)\",\n      \"informationIcon\": \"hsl(229, 100%, 23%)\",\n      \"inputBackground\": \"hsl(0, 0%, 99%)\",\n      \"inputBackgroundReadOnly\": \"hsl(0, 0%, 95%)\",\n      \"inputError\": \"#e40000\",\n      \"inputForeground\": \"hsl(225, 6%, 13%)\",\n      \"inputForegroundReadOnly\": \"hsl(0, 0%, 45%)\",\n      \"lightBorder\": \"hsla(0, 0%, 0%, 0.1)\",\n      \"limitAlert\": \"hsl(0, 49%, 54%)\",\n      \"link\": \"hsl(208, 56%, 46%)\",\n      \"listNavColor\": \"hsl(0, 0%, 100%)\",\n      \"listTitleLabel\": \"hsl(0, 0%, 33%)\",\n      \"loading\": \"hsl(0, 0%, 20%)\",\n      \"loginButton\": \"hsl(229, 81%, 54%)\",\n      \"loginButtonText\": \"hsl(0, 100%, 100%)\",\n      \"loginForeground\": \"hsl(0, 4%, 29%)\",\n      \"loginForm\": \"hsla(0, 100%, 100%, 1)\",\n      \"modalContainer\": \"hsl(0, 0%, 100%)\",\n      \"modalOverlay\": \"hsla(0, 0%, 0%, 0.5)\",\n      \"navDescription\": \"hsl(0, 0%, 55%)\",\n      \"navbar\": \"hsl(229, 100%, 23%)\",\n      \"navbarBetaDeveloperBorder\": \"rgb(0, 255, 126)\",\n      \"navbarButton\": \"hsl(229, 100%, 23%)\",\n      \"navbarDropdownBackground\": \"hsl(0, 0%, 100%)\",\n      \"navbarDropdownBorder\": \"hsl(0, 0%, 80%)\",\n      \"navbarDropdownOption\": \"hsl(0, 0%, 30%)\",\n      \"navbarDropdownOptionBackground\": \"hsl(0, 0%, 98%)\",\n      \"navbarDropdownOptionBorder\": \"rgb(225, 225, 225)\",\n      \"navbarDropdownOptionHover\": \"hsl(0, 0%, 94%)\",\n      \"navbarDropdownSecondaryText\": \"rgb(150, 150, 150)\",\n      \"navbarDropdownSignoutButton\": \"hsl(0, 0%, 100%)\",\n      \"navbarSettings\": \"hsl(0, 0%, 55%)\",\n      \"navbarText\": \"hsl(0, 100%, 100%)\",\n      \"notificationButtonAmount\": \"hsl(354, 81%, 60%)\",\n      \"notificationButtonAmountText\": \"hsl(0, 100%, 100%)\",\n      \"notificationEmptyIcon\": \"hsl(0, 0%, 78%)\",\n      \"notificationEmptyTitle\": \"hsl(0, 0%, 62%)\",\n      \"notificationFilterBackground\": \"hsl(240,4%,95%)\",\n      \"notificationFilterMessageIcon\": \"rgba(0, 0, 0, 0.2)\",\n      \"notificationFooter\": \"hsl(0, 0%, 98%)\",\n      \"notificationIconContainer\": \"rgba(0, 0, 0, 0.04)\",\n      \"notificationItem\": \"hsl(0, 0%, 100%)\",\n      \"notificationItemBorder\": \"hsl(0, 0%, 90%)\",\n      \"notificationItemDate\": \"rgba(0, 0, 0, 0.4)\",\n      \"notificationItemTextAccepted\": \"hsl(0, 0%, 62%)\",\n      \"notificationItemUnread\": \"hsla(0, 0%, 97%, 1)\",\n      \"notificationText\": \"hsl(0, 4%, 29%)\",\n      \"pdf\": \"hsl(3, 97%, 48%)\",\n      \"primary\": \"hsl(229, 100%, 23%)\",\n      \"publicPageNavigationBar\": \"#007d05\",\n      \"quickstart\": \"hsl(233, 45%, 50%)\",\n      \"quickstartSidebarBackground\": \"hsl(220, 16%, 96%)\",\n      \"quickstartTask\": \"hsl(223, 12%, 89%)\",\n      \"quickstartTaskFinished\": \"hsl(155, 54%, 46%)\",\n      \"quickstartText\": \"hsl(0, 100%, 100%)\",\n      \"regularText\": \"hsl(0, 4%, 29%)\",\n      \"sidebarAccessSelected\": \"hsl(300, 100%, 25%)\",\n      \"sidebarAccountSelected\": \"hsl(43, 94%, 37%)\",\n      \"sidebarActionSelected\": \"#e6431e\",\n      \"sidebarAnalysisSelected\": \"#294E80\",\n      \"sidebarBackground\": \"hsl(0, 0%, 100%)\",\n      \"sidebarBillingSelected\": \"rgb(28, 117, 8)\",\n      \"sidebarConnector\": \"hsl(208, 56%, 46%)\",\n      \"sidebarDashboardSelected\": \"hsl(321, 84%, 38%)\",\n      \"sidebarDeviceSelected\": \"#118c8c\",\n      \"sidebarExploreSelected\": \"hsl(206, 74%, 52%)\",\n      \"sidebarFileSelected\": \"#ea8d13\",\n      \"sidebarForegroundIcon\": \"hsl(0, 4%, 29%)\",\n      \"sidebarHomeSelected\": \"hsl(208, 56%, 46%)\",\n      \"sidebarIntegration\": \"hsl(0, 0%, 25%)\",\n      \"sidebarItem\": \"hsl(240, 4%, 100%)\",\n      \"sidebarItemHover\": \"hsl(240, 4%, 95%)\",\n      \"sidebarItemOdd\": \"rgba(0, 0, 0, .015)\",\n      \"sidebarItemSelected\": \"hsl(240, 4%, 97%)\",\n      \"sidebarNetwork\": \"hsl(156, 74%, 25%)\",\n      \"sidebarRibbon\": \"hsl(0, 0%, 97%)\",\n      \"sidebarRunSelected\": \"rgb(120, 90, 255)\",\n      \"sidebarSecondBackground\": \"hsl(240, 4%, 95%)\",\n      \"sidebarSeparator\": \"hsl(0, 0%, 100%)\",\n      \"sidebarSeparatorForeground\": \"hsla(0, 0%, 0%, .5)\",\n      \"sidebarTagoCoreSelected\": \"hsl(0, 0%, 0%)\",\n      \"sidebarText\": \"hsl(0, 4%, 29%)\",\n      \"sidebarUserSelected\": \"rgb(113, 20, 20)\",\n      \"snakeButtonOutline\": \"hsl(0, 0%, 60%)\",\n      \"svgTagoFont\": \"hsl(208, 56%, 46%)\",\n      \"svgTagoIOHole\": \"hsl(0, 0%, 100%)\",\n      \"switchDisabledBackground\": \"hsl(0, 0%, 77%)\",\n      \"switchLabelDark\": \"hsl(0, 0%, 97%)\",\n      \"switchLabelWhite\": \"hsla(0, 0%, 0%, .5)\",\n      \"switchSlider\": \"hsl(0, 0%, 100%)\",\n      \"tabLabelActive\": \"hsl(208, 56%, 46%)\",\n      \"tabLabelBackground\": \"hsl(240, 4%, 95%)\",\n      \"tabLabelBorder\": \"hsl(204, 12%, 92%)\",\n      \"tabLabelHover\": \"hsl(0, 0%, 100%)\",\n      \"tabText\": \"hsl(0, 4%, 29%)\",\n      \"tableBackground\": \"hsl(0, 100%, 100%)\",\n      \"tableBorder\": \"hsla(0, 0%, 0%, 0.1)\",\n      \"tableEvenRowBackground\": \"hsla(0, 0%, 0%, 0.03)\",\n      \"tableFooterBackground\": \"hsl(240, 4%, 95%)\",\n      \"tableOddRowBackground\": \"hsl(0, 100%, 100%)\",\n      \"toast\": \"hsl(0,0%,100%)\",\n      \"toastText\": \"hsl(0, 4%, 29%)\",\n      \"tooltipContainer\": \"hsl(229, 100%, 23%)\",\n      \"tooltipText\": \"hsl(0, 0%, 100%)\",\n      \"verticalTabItem\": \"hsl(240, 20%, 98%)\",\n      \"verticalTabItemBorder\": \"hsl(204, 12%, 92%)\",\n      \"widgetCardBackground\": \"hsl(0, 0%, 100%)\",\n      \"widgetColors\": \"hsl(208, 56%, 46%)\",\n      \"widgetIconsAccent\": \"hsl(229, 100%, 23%)\",\n      \"widgetIconsBackground\": \"hsl(0, 0%, 100%)\",\n      \"widgetIconsColor\": \"hsl(0, 4%, 29%)\",\n      \"widgetIconsFooterBasic\": \"hsl(0, 0%, 97%)\",\n      \"widgetIconsFooterPremium\": \"hsl(53, 100%, 55%)\"\n    },\n    \"updated_at\": \"2022-06-17T00:02:20.531Z\",\n    \"url\": \"62ab4302ee089b00134f33ff.run.tago.io\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb7b0b94-1a5d-40e4-a5d5-4dd7748ee040",
+          "name": "Edit RUN settings",
+          "request": {
+            "name": "Edit RUN settings",
+            "description": {
+              "content": "Edit information about TagoRUN\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"profile\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35a07751-9846-4af6-9aba-a6562aedd5e1",
+              "name": "Editing RUN information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": true,\n  \"name\": \"My new RUN name\",\n  \"profile\": \"612ea05e3cc07803480127151133\",\n  \"url\": \"612ea05e3cc07803480127151133.run.tago.io\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"TagoIO Run Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fca2bf0-5476-484c-9136-0f1911de6327",
+          "name": "Get User Token",
+          "request": {
+            "name": "Get User Token",
+            "description": {
+              "content": "Get TagoRUN User Token and allow to perform request to TagoRUN specific endpoints (not available).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run",
+                "users",
+                ":userID",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expire_time",
+                  "value": "<string>",
+                  "description": "hours,days,months."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66833770-f0ba-452c-a98a-2aec5271af1d",
+              "name": "Login as a RUN User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run",
+                    "users",
+                    ":userID",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expire_time",
+                      "value": "3 months"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"expire_time\": \"2022-06-21T03:01:10.908Z\",\n    \"name\": \"Login by Run Administrator(runadmin@mail.com)\",\n    \"run_user\": \"61eb25a4d6a4a20011d4cd3c\",\n    \"token\": \"fe82f846-d19c-42b3-863a-7e7dgcd519e6\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f7e7486b-728e-4c49-b2c9-a25ef0357dc9",
+    "name": "TagoIO Access Management Tago RUN API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

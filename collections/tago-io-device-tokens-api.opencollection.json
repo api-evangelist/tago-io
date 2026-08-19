@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Device Tokens API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/token/:deviceID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves list of all tokens from device\n"
+        },
+        {
+          "info": {
+            "name": "Create Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate and retrieve a new token\n"
+        },
+        {
+          "info": {
+            "name": "Delete Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/device/token/:tokenID",
+            "params": [
+              {
+                "name": "tokenID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a token\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

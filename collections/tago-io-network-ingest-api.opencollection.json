@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Network Ingest API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Network Ingest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find Device by Serial & Authorization Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/integration/network/resolve/:serieNumber/:AuthorizationKey",
+            "params": [
+              {
+                "name": "serieNumber",
+                "value": "",
+                "type": "path",
+                "description": "Device Serial Number registered at TagoIO"
+              },
+              {
+                "name": "AuthorizationKey",
+                "value": "",
+                "type": "path",
+                "description": "Authorization key for the profile, used to resolve the device token when multiple profiles may have the same serial number."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Token",
+              "value": "{{Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve a valid device token using the device's serial number and a profile authorization key.  \nThis endpoint is recommended when you need additional security or if your Network is available to multiple profiles, as it allows serial numbers to be duplicated across different profiles.  \nYou must have both a Network and a Network-Token to use this endpoint."
+        },
+        {
+          "info": {
+            "name": "Find Device by Serial",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/integration/network/resolve/:serieNumber",
+            "params": [
+              {
+                "name": "serieNumber",
+                "value": "",
+                "type": "path",
+                "description": "Device Serial Number registered at TagoIO"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Token",
+              "value": "{{Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get a valid device-token using token serial number only. It will match the serial in any profile.\n:::warning  \nIf the serial number is duplicated between different profiles, you will get the device-token only for the latest device created. See [Find Device with Authorization](/docs/api/get-device-token-with-serial-number-authorization) for multiple profiles support.  \n:::\nYou must have a Network and a Network-Token to use this query."
+        },
+        {
+          "info": {
+            "name": "Edit Device Configuration Parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/integration/network/:deviceID/params",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Token",
+              "value": "{{Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Edit a device configuration parameter using the Network-token. You must already have the device ID to use this endpoint.\nThis is useful when your Network integration requires configuration parameters for performing downlinks, or if your decoder benefits from configuration parameters for parsing data.\n:::info\nTo obtain the **Device ID**, first resolve the device-token, then use the [Device Information](/docs/api/current-device-information) endpoint to retrieve detailed information about the devic"
+        },
+        {
+          "info": {
+            "name": "Send Data using Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/integration/network/data",
+            "params": [
+              {
+                "name": "authorization_token",
+                "value": "",
+                "type": "query",
+                "description": "Authorization_Token\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Token",
+              "value": "{{Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Send data to TagoIO using the Network instead.\n\nThis endpoint allows the [Network Payload Parser](/docs/tagoio/devices/payload-parser/) to identify and redirect data to the correct device created using the Network associated with the Network Token and [Authorization Token](/docs/tagoio/integrations/general/authorization/).\n\nThe Network's Payload Parser is required to set the serial within the network parser. For example:\n\n``` javascript\n if (Array.isArray(payload)) {\n   const payload_received = "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

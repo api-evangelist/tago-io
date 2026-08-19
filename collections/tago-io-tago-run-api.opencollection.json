@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Tago RUN API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tago RUN",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get RUN settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/run"
+          },
+          "docs": "Retrieve information about TagoRUN\n"
+        },
+        {
+          "info": {
+            "name": "Edit RUN settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/run",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit information about TagoRUN\n"
+        },
+        {
+          "info": {
+            "name": "Get User Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/run/users/:userID/login",
+            "params": [
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expire_time",
+                "value": "",
+                "type": "query",
+                "description": "hours,days,months."
+              }
+            ]
+          },
+          "docs": "Get TagoRUN User Token and allow to perform request to TagoRUN specific endpoints (not available).\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

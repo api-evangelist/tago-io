@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "cb851e55-f2e1-4a16-92da-7a9678119973",
+      "name": "Access Management",
+      "description": {
+        "content": "Roles, permissions, and sharing (Profile Token).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "937a2b0d-3f23-45de-98dd-ed4ea94ee017",
+          "name": "List Policies",
+          "request": {
+            "name": "List Policies",
+            "description": {
+              "content": "List all access policies in your profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "am"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb13b06d-e557-40af-bfb3-83924d66bdb3",
+              "name": "Getting Policy List",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "am"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "created_at"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"active\": true,\n      \"id\": \"654a7e62a34b9c000006886c2\",\n      \"profile\": \"62fa9e65e0badb0019200\",\n      \"name\": \"My Analysis Policy\",\n      \"created_at\": \"2023-11-01T12:34:56.789Z\"\n    },\n    {\n      \"active\": true,\n      \"id\": \"654a7e62a34b9c000006886c2\",\n      \"profile\": \"62fa9e65e0badb0019200\",\n      \"name\": \"My Analysis Policy\",\n      \"created_at\": \"2023-11-01T12:34:56.789Z\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09a738a3-9f0a-451d-aabd-2f45e42c7725",
+          "name": "Create Policy",
+          "request": {
+            "name": "Create Policy",
+            "description": {
+              "content": "Create a policy that targets either Run User or Analysis",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "am"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"effect\": \"<string>\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"effect\": \"<string>\",\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"active\": \"<boolean>\",\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80d8c14e-3d1a-45d5-909d-2a1d76eb9eda",
+              "name": "Create Policy - Run User / Create Policy - Analysis",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "am"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"User permissions\",\n  \"permissions\": [\n    {\n      \"effect\": \"allow\",\n      \"action\": [\n        \"access\"\n      ],\n      \"resource\": [\n        \"device\"\n      ]\n    }\n  ],\n  \"targets\": [\n    [\n      \"run_user\"\n    ]\n  ],\n  \"tags\": [\n    {\n      \"key\": \"user\",\n      \"value\": \"admin\"\n    }\n  ],\n  \"active\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"am_id\": \"654a8bf3fefe2f00099a16a2\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d82674cc-1886-451c-bfa6-31b8f0068088",
+          "name": "Update Policy",
+          "request": {
+            "name": "Update Policy",
+            "description": {
+              "content": "Update policy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":am_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "am_id",
+                  "description": "(Required) Can be obtained in the GET Policy response"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"permissions\": [\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"action\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"effect\": \"<string>\",\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"targets\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b4c4613-16d3-4006-894a-4c11d972b70d",
+              "name": "Updating a policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":am_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "am_id",
+                      "description": "(Required) Can be obtained in the GET Policy response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": true,\n  \"name\": \"Updated policy name\",\n  \"permissions\": [\n    {\n      \"action\": [\n        \"access\"\n      ],\n      \"effect\": \"denied\",\n      \"resource\": [\n        \"device\"\n      ]\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"access\",\n      \"value\": \"blocked\"\n    }\n  ],\n  \"targets\": [\n    [\n      \"run_user\"\n    ]\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Access Management Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df263d3b-ee3d-42b2-992b-f749753ba5e1",
+          "name": "Delete Policy",
+          "request": {
+            "name": "Delete Policy",
+            "description": {
+              "content": "Delete Policy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "am",
+                ":am_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "am_id",
+                  "description": "(Required) Can be obtained in the GET Policy request response"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3275531e-ef3c-4f7c-8f1b-0b2dc3dc5588",
+              "name": "Delete policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "am",
+                    ":am_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "am_id",
+                      "description": "(Required) Can be obtained in the GET Policy request response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Access Management Successfully Deleted\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79887351-2118-466a-a927-ad97202f8eb9",
+    "name": "TagoIO Access Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

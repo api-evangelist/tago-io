@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Dashboards API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dashboard Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get settings information of the dashboard.\n"
+        },
+        {
+          "info": {
+            "name": "Edit Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify any property of the dashboard\n\n:::warning\nThe arrangement is **not automatically populated** when you create a widget.  \nAfter creating a widget, you **must manually edit the arrangement field** to include the new widget and specify its position in the dashboard.\n:::\n\nEach item in the arrangement array represents a widget's placement and sizing.\n"
+        },
+        {
+          "info": {
+            "name": "Delete Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the dashboard\n"
+        },
+        {
+          "info": {
+            "name": "List Dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount of dashboards per page."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Order dashboard by name."
+              },
+              {
+                "name": "fields[]",
+                "value": "",
+                "type": "query",
+                "description": "Select which properties to include for each dashboard in the response.\nPass the parameter multiple times to include more than one field.\n\nExample: `?fields[]=label&fields[]=id&fields[]=type`\n"
+              }
+            ]
+          },
+          "docs": "Retrieves a list with all dashboards from the profile\n"
+        },
+        {
+          "info": {
+            "name": "Create Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/dashboard",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a dashboard of type Blueprint or Normal Dashboard into your profile.\n\nIt's recommended to access your Admin Developer panel and Copy the Dashboard JSON Structure to see all available fields.\n"
+        },
+        {
+          "info": {
+            "name": "Duplicate Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/duplicate",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Duplicate an existing dashboard, including its configuration, widgets, and settings.  \nOptionally, set a new label for the duplicated dashboard and provide setup parameters to customize the copy.  \n\nUse this endpoint to quickly clone dashboards for reuse or further customization.\n"
+        },
+        {
+          "info": {
+            "name": "Generate Public Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/share/public",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expire_time",
+                "value": "",
+                "type": "query",
+                "description": "Time given in hours,days,weeks,months"
+              }
+            ]
+          },
+          "docs": "Make your dashboard accessible to anyone by generating a public access token.  \n\nPublic dashboards allow you to share live data and visualizations with users who do not have a TagoIO/TagoRUN account. \nYou control the expiration and can revoke access at any time.  \n\n[Learn more about sharing dashboards and public access](/docs/tagoio/dashboards/sharing-dashboards)\n"
+        },
+        {
+          "info": {
+            "name": "List Analysis related to Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/analysis",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of analysis related to this dashboard\n"
+        },
+        {
+          "info": {
+            "name": "List Devices related to Dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/devices",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of devices related to this dashboard\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

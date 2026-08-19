@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Profile API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Profile Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/profiled/:id/statistics",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Can be found in the profile's information tab \"More\""
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Filter the statistics by specific date"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Filter the statiscs with the timezone applied if not it returns the UTC time"
+              }
+            ]
+          },
+          "docs": "Get your Profile Statistics"
+        },
+        {
+          "info": {
+            "name": "Profile Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/profile/:id/summary",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Can be found in the profile's information tab \"More\""
+              }
+            ]
+          },
+          "docs": "Get your Profile Summary"
+        },
+        {
+          "info": {
+            "name": "Profile Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/profile/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Can be found in the profile's information tab \"More\""
+              }
+            ]
+          },
+          "docs": "Get your profile settings"
+        },
+        {
+          "info": {
+            "name": "Configure Service Provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/profile/:id/service",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configure external service providers for your profile. This allows you to set up integrations with third-party services for SMS and Email messaging.\n\n**Available service providers:**\n\n| Service Type | Provider | Description |\n|--------------|----------|-------------|\n| `sms` | Twilio | Send SMS messages via Twilio |\n| `sms` | SNS | Send SMS messages via Amazon SNS |\n| `email` | SendGrid | Send emails via SendGrid API |\n| `email` | SES | Send emails via Amazon SES |\n| `email` | SMTP | Send emails"
+        },
+        {
+          "info": {
+            "name": "Test Service Provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/profile/:id/service/test/:service_type",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the profile"
+              },
+              {
+                "name": "service_type",
+                "value": "",
+                "type": "path",
+                "description": "The type of service to test (sms or email)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test a configured service provider by sending a test message. This helps verify that your service provider configuration is working correctly before using it in production.\n\n**Supported service types:**\n- `sms` - Sends a test SMS message to the specified phone number\n- `email` - Sends a test email to the specified email address\n\n**Important notes:**\n- A service provider must be configured before testing\n- Test messages will consume your provider's quota/credits\n- For SMS, ensure the recipient nu"
+        },
+        {
+          "info": {
+            "name": "Generate Profile-Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/account/profile/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and retrieves a new token for the account\n"
+        },
+        {
+          "info": {
+            "name": "List Used Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/tags/keys/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "(Accepts Analysis, Device, User, Dashboard, Action)"
+              }
+            ]
+          },
+          "docs": "Get a list containing all device tags in use on your profile"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Dictionary API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dictionary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Dictionaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dictionary"
+          },
+          "docs": "List of Dictionaries"
+        },
+        {
+          "info": {
+            "name": "Create Dictionary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/dictionary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Dictionary"
+        },
+        {
+          "info": {
+            "name": "Dictionary Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dictionary/:dictionary_id",
+            "params": [
+              {
+                "name": "dictionary_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Dictionary response"
+              }
+            ]
+          },
+          "docs": "Get Dictionary Details"
+        },
+        {
+          "info": {
+            "name": "Update Dictionary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/dictionary/:dictionary_id",
+            "params": [
+              {
+                "name": "dictionary_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Dictionary response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Dictionary"
+        },
+        {
+          "info": {
+            "name": "Delete Dictionary",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/dictionary/:dictionary_id",
+            "params": [
+              {
+                "name": "dictionary_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Dictionary response"
+              }
+            ]
+          },
+          "docs": "Delete Dictionary"
+        },
+        {
+          "info": {
+            "name": "Update Dictionary Language",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/dictionary/:dictionary_id/:language",
+            "params": [
+              {
+                "name": "dictionary_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Dictionary response"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "path",
+                "description": "Language that will be updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Dictionary Language"
+        },
+        {
+          "info": {
+            "name": "Get Dictionary Language Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dictionary/:slug_or_dictionary_id/:language",
+            "params": [
+              {
+                "name": "slug_or_dictionary_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be obtained in the GET Dictionary response"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "path",
+                "description": "Language that will be returned keys"
+              }
+            ]
+          },
+          "docs": "Get Dictionary Language Details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

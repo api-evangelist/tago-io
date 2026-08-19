@@ -1,0 +1,272 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Device Data API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Device Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/info",
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get information about the current device\n"
+        },
+        {
+          "info": {
+            "name": "Get Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/data",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Select the query mode."
+              },
+              {
+                "name": "qty",
+                "value": "",
+                "type": "query",
+                "description": "Total quantity of data to retrieve."
+              },
+              {
+                "name": "details",
+                "value": "",
+                "type": "query",
+                "description": "Include additional fields (e.g., created_at)."
+              },
+              {
+                "name": "ordination",
+                "value": "",
+                "type": "query",
+                "description": "Sort order."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip."
+              },
+              {
+                "name": "variables",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by variable."
+              },
+              {
+                "name": "values",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by value."
+              },
+              {
+                "name": "groups",
+                "value": "",
+                "type": "query",
+                "description": "Filter by group identifier."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start timestamp or relative date."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End timestamp or relative date."
+              },
+              {
+                "name": "function",
+                "value": "",
+                "type": "query",
+                "description": "Allowed values depend on query mode: aggregate → avg,sum,min,max; conditional → gt,gte,lt,lte,eq,ne."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get data from the device."
+        },
+        {
+          "info": {
+            "name": "Send Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Send Device Data\n"
+        },
+        {
+          "info": {
+            "name": "Edit Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Edit specific data stored in the device. Same properties as the Create Data is accepted, edit requires the ID field of the data to be edited.\n:::info  \nThis request is only available when using Mutable Storage on Devices  \n:::"
+        },
+        {
+          "info": {
+            "name": "Delete Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/data",
+            "params": [
+              {
+                "name": "qty",
+                "value": "",
+                "type": "query",
+                "description": "Quantity of data records to delete. Default is 15."
+              },
+              {
+                "name": "ordination",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. Default is descending."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip (pagination)."
+              },
+              {
+                "name": "variables",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by variable."
+              },
+              {
+                "name": "values",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by value. Accepts single or multiple values."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by id. Accepts single or multiple values."
+              },
+              {
+                "name": "groups",
+                "value": "",
+                "type": "query",
+                "description": "Filter data by group. Accepts single or multiple values.\nFor multiple, send `groups[0]=foo&groups[1]=bar`.\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Delete data from the device.\n:::info  \nThis request is only available when using Mutable Storage on Devices.  \n:::\n"
+        },
+        {
+          "info": {
+            "name": "List Config. parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/params",
+            "params": [
+              {
+                "name": "sent_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by `sent` status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve configuration parameters for the current device. This is useful for delivering settings or instructions that your device can periodically check for updates.\n\n[Configuration Parameters](/docs/tagoio/devices/configuration-parameters-for-devices) can be used to provide URLs (such as for firmware updates) or any other settings needed to control device behavior.\n"
+        },
+        {
+          "info": {
+            "name": "Mark Config. Parameter as Read",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/device/params/:paramID",
+            "params": [
+              {
+                "name": "paramID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Device-Token",
+              "value": "{{Device-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Marks a configuration parameter as read on the current device.  \n\nThis is useful when collecting settings from Configuration Parameters and you need to track whether you have already processed the current value. Use this endpoint to set the `sent` field to `true`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

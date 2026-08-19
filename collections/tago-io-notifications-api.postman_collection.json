@@ -1,0 +1,416 @@
+{
+  "item": [
+    {
+      "id": "61f7a6e8-8ea9-4d0e-b140-1e071a104c98",
+      "name": "Notifications",
+      "description": {
+        "content": "Manage notifications (Profile Token).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1717e174-9d35-4117-8988-ca0500d8f0be",
+          "name": "Create Notification",
+          "request": {
+            "name": "Create Notification",
+            "description": {
+              "content": "Create Notification for an user\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run",
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buttons\": [\n    {\n      \"analysis\": \"<string>\",\n      \"color\": \"<string>\",\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"analysis\": \"<string>\",\n      \"color\": \"<string>\",\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"buttons_autodisable\": \"<boolean>\",\n  \"buttons_enabled\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"run_user\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "01fb1df5-4f40-408c-93ee-8ebdc5f89b1a",
+              "name": "Creating a RUN notification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run",
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"buttons\": [\n    {\n      \"analysis\": \"5515de2676ab4e3211109e41c\",\n      \"color\": \"green\",\n      \"id\": \"btn_1249384\",\n      \"label\": \"Acknowledge\"\n    }\n  ],\n  \"buttons_autodisable\": true,\n  \"buttons_enabled\": true,\n  \"message\": \"The temperature is lower than 18ºC.\",\n  \"run_user\": \"614edef8749df6a30280012a3caef\",\n  \"title\": \"Low Temperature\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"id\": \"3415de2676ff4e2001109e63b\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3109f72-2404-48d4-92a9-eac23d00db74",
+          "name": "List Notifications",
+          "request": {
+            "name": "List Notifications",
+            "description": {
+              "content": "List of notifications for an user\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run",
+                "notification",
+                ":userID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68c10007-6b44-479b-987e-cf838870432d",
+              "name": "List of the Run user notifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run",
+                    "notification",
+                    ":userID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"buttons\": [],\n      \"buttons_autodisable\": true,\n      \"buttons_enabled\": true,\n      \"created_at\": \"2022-06-20T17:35:26.753Z\",\n      \"message\": \"Your device has retuned to the regular temperature\",\n      \"read\": false,\n      \"title\": \"Temperature back to normal\"\n    },\n    {\n      \"buttons\": [],\n      \"buttons_autodisable\": true,\n      \"buttons_enabled\": true,\n      \"created_at\": \"2022-05-26T13:12:06.753Z\",\n      \"message\": \"The temperature is lower than 18ºC.\",\n      \"read\": true,\n      \"title\": \"Low Temperature\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b834338c-46cc-42da-a4d4-1eb942d93199",
+          "name": "Edit Notification",
+          "request": {
+            "name": "Edit Notification",
+            "description": {
+              "content": "Edit notification on Run\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run",
+                "notification",
+                ":notificationID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notificationID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buttons_enabled\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"read\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61cdb697-d7fd-4658-9ab2-d61a69355b35",
+              "name": "Editing a RUN user notification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run",
+                    "notification",
+                    ":notificationID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"buttons_enabled\": true,\n  \"message\": \"new notification message\",\n  \"read\": true,\n  \"title\": \"new notification title\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"TagoIO Notification User Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9dcd161-8b77-443b-9e01-0c91809bb24f",
+          "name": "Delete Notification",
+          "request": {
+            "name": "Delete Notification",
+            "description": {
+              "content": "Delete notification on Run\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "run",
+                "notification",
+                ":notificationID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notificationID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ccaaccc-ac78-405d-aef6-0dc180bbea3d",
+              "name": "Deleting a RUN user notification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "run",
+                    "notification",
+                    ":notificationID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Removed\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "282263ec-20b9-4871-b91d-8cc8aeb17087",
+    "name": "TagoIO Access Management Notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

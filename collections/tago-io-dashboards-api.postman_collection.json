@@ -1,0 +1,925 @@
+{
+  "item": [
+    {
+      "id": "a8560161-1d2c-4c3e-a7fa-4ae0995498e6",
+      "name": "Dashboards",
+      "description": {
+        "content": "Manage dashboards (Profile Token).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86758b60-458a-4353-9ac4-3de830c4767a",
+          "name": "Dashboard Information",
+          "request": {
+            "name": "Dashboard Information",
+            "description": {
+              "content": "Get settings information of the dashboard.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18bc5b6f-fc40-4342-aa05-81ac8cacc5b8",
+              "name": "Getting a dashboard information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"arrangement\": [\n      {\n        \"height\": 3,\n        \"tab\": null,\n        \"widget_id\": \"6230e740f5772600124c81e1\",\n        \"width\": 1,\n        \"x\": 0,\n        \"y\": 0\n      },\n      {\n        \"height\": 3,\n        \"tab\": null,\n        \"widget_id\": \"6230e75df5772600124c81e2\",\n        \"width\": 1,\n        \"x\": 1,\n        \"y\": 0\n      },\n      {\n        \"height\": 3,\n        \"tab\": null,\n        \"widget_id\": \"6230e44cf5772600124c81de\",\n        \"width\": 1,\n        \"x\": 2,\n        \"y\": 0\n      },\n      {\n        \"height\": 3,\n        \"tab\": null,\n        \"widget_id\": \"6230e84df5772600124c81e7\",\n        \"width\": 2.3333333333333335,\n        \"x\": 0.3333333333333333,\n        \"y\": 7\n      },\n      {\n        \"height\": 5,\n        \"tab\": null,\n        \"widget_id\": \"62750cf1253eb800126aefc0\",\n        \"width\": 2,\n        \"x\": 2.666666666666667,\n        \"y\": 7\n      }\n    ],\n    \"background\": {},\n    \"blueprint_device_behavior\": null,\n    \"blueprint_devices\": [\n      {\n        \"conditions\": [\n          {\n            \"key\": \"kmutable\",\n            \"value\": \"vmutable\"\n          }\n        ],\n        \"filter_conditions\": [],\n        \"id\": \"6230e392f5772600124c81db\",\n        \"name\": \"mutable_device\"\n      },\n      {\n        \"conditions\": [\n          {\n            \"key\": \"kimmutable\",\n            \"value\": \"vimmutable\"\n          }\n        ],\n        \"filter_conditions\": [],\n        \"id\": \"6230e42af5772600124c81dc\",\n        \"name\": \"immutable_device\"\n      },\n      {\n        \"conditions\": [\n          {\n            \"key\": \"klegacy\",\n            \"value\": \"vlegacy\"\n          }\n        ],\n        \"filter_conditions\": [],\n        \"id\": \"6230e42af5772600124c81dd\",\n        \"name\": \"legacy_device\"\n      }\n    ],\n    \"blueprint_selector_behavior\": null,\n    \"created_at\": \"2022-03-15T19:05:54.839Z\",\n    \"group_by\": [],\n    \"icon\": {},\n    \"id\": \"6230e392f5772600124c81da\",\n    \"label\": \"Device Types Blueprint\",\n    \"last_access\": \"2022-06-21T11:51:07.642Z\",\n    \"setup\": {},\n    \"tabs\": [],\n    \"tags\": [],\n    \"theme\": null,\n    \"type\": \"blueprint\",\n    \"updated_at\": \"2022-06-21T11:51:07.642Z\",\n    \"visible\": true\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b1ab136-004a-4596-b3f9-57eda85aa6df",
+          "name": "Edit Dashboard",
+          "request": {
+            "name": "Edit Dashboard",
+            "description": {
+              "content": "Modify any property of the dashboard\n\n:::warning\nThe arrangement is **not automatically populated** when you create a widget.  \nAfter creating a widget, you **must manually edit the arrangement field** to include the new widget and specify its position in the dashboard.\n:::\n\nEach item in the arrangement array represents a widget's placement and sizing.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"<string>\",\n  \"type\": \"<string>\",\n  \"visible\": \"<boolean>\",\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  \"tabs\": [\n    {\n      \"key\": \"<string>\",\n      \"link\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"link\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"blueprint_devices\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"conditions\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"filter_conditions\": [\n        {\n          \"type\": \"<string>\",\n          \"tag_key\": \"<string>\",\n          \"blueprint_device\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"tag_key\": \"<string>\",\n          \"blueprint_device\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"conditions\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"filter_conditions\": [\n        {\n          \"type\": \"<string>\",\n          \"tag_key\": \"<string>\",\n          \"blueprint_device\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"tag_key\": \"<string>\",\n          \"blueprint_device\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"arrangement\": [\n    {\n      \"height\": \"<number>\",\n      \"tab\": {},\n      \"widget_id\": \"<string>\",\n      \"width\": \"<number>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\"\n    },\n    {\n      \"height\": \"<number>\",\n      \"tab\": {},\n      \"widget_id\": \"<string>\",\n      \"width\": \"<number>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd5c8b1c-0fa5-40b2-bab8-342ff5da6bcc",
+              "name": "Updating a dashboard information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"label\": \"<string>\",\n  \"type\": \"blueprint\",\n  \"visible\": true,\n  \"icon\": {\n    \"color\": \"hsl(328, 89%, 47%)\",\n    \"url\": \"https://svg.internal.tago.io/arrowheads-pointing-to-the-left.svg\"\n  },\n  \"tabs\": [\n    {\n      \"key\": \"1648142133869\",\n      \"link\": \"\",\n      \"value\": \"new tab test\"\n    },\n    {\n      \"key\": \"1648142564354\",\n      \"link\": \"\",\n      \"value\": \"new tab 2 \"\n    },\n    {\n      \"key\": \"1648142571171\",\n      \"link\": \"\",\n      \"value\": \"new tab 3 \"\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"updatedkey\",\n      \"value\": \"updatedvalue\"\n    },\n    {\n      \"key\": \"updatedkey\",\n      \"value\": \"updatedvalue\"\n    }\n  ],\n  \"blueprint_devices\": [\n    {\n      \"id\": \"68d2f3e0a6343f0009318e4c\",\n      \"name\": \"sensor\",\n      \"type\": \"device\",\n      \"conditions\": [\n        {\n          \"key\": \"is_sensor\",\n          \"value\": \"true\"\n        }\n      ],\n      \"filter_conditions\": [\n        {\n          \"type\": \"tag_match\",\n          \"tag_key\": \"location\",\n          \"blueprint_device\": \"customer\"\n        }\n      ]\n    },\n    {\n      \"id\": \"68d2f3e0a6343f0009318e4c\",\n      \"name\": \"sensor\",\n      \"type\": \"device\",\n      \"conditions\": [\n        {\n          \"key\": \"is_sensor\",\n          \"value\": \"true\"\n        }\n      ],\n      \"filter_conditions\": [\n        {\n          \"type\": \"tag_match\",\n          \"tag_key\": \"location\",\n          \"blueprint_device\": \"customer\"\n        }\n      ]\n    }\n  ],\n  \"arrangement\": [\n    {\n      \"height\": 3,\n      \"tab\": {},\n      \"widget_id\": \"6230e740f5772600124c81e1\",\n      \"width\": 1,\n      \"x\": 0,\n      \"y\": 0\n    },\n    {\n      \"height\": 3,\n      \"tab\": {},\n      \"widget_id\": \"6230e740f5772600124c81e1\",\n      \"width\": 1,\n      \"x\": 0,\n      \"y\": 0\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Updated\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "396fd240-9a61-42e0-8c63-6d25f2753bdf",
+          "name": "Delete Dashboard",
+          "request": {
+            "name": "Delete Dashboard",
+            "description": {
+              "content": "Delete the dashboard\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76c9883b-2b47-460c-b6b9-d5e5ed3c916a",
+              "name": "Deleting a dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"Successfully Removed\",\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26426e8e-0fc5-44e1-91f8-74b935638987",
+          "name": "List Dashboards",
+          "request": {
+            "name": "List Dashboards",
+            "description": {
+              "content": "Retrieves a list with all dashboards from the profile\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>",
+                  "description": "Amount of dashboards per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Order dashboard by name."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields[]",
+                  "value": "<string>",
+                  "description": "Select which properties to include for each dashboard in the response.\nPass the parameter multiple times to include more than one field.\n\nExample: `?fields[]=label&fields[]=id&fields[]=type`\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields[]",
+                  "value": "<string>",
+                  "description": "Select which properties to include for each dashboard in the response.\nPass the parameter multiple times to include more than one field.\n\nExample: `?fields[]=label&fields[]=id&fields[]=type`\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb10f642-ef76-4427-ae58-233a91479dd3",
+              "name": "Get a list of dashboards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "amount",
+                      "value": "5"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "name"
+                    },
+                    {
+                      "key": "fields[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"623c74a15a13360011803f3e\",\n    \"label\": \"Door Sensor\",\n    \"profile\": \"612ea05e3cc0780012715111\",\n    \"visible\": true,\n    \"created_at\": \"2022-03-24T13:39:45.504Z\",\n    \"icon\": {},\n    \"last_access\": \"2022-06-13T20:53:32.583Z\",\n    \"type\": \"dashboard\"\n  },\n  {\n    \"id\": \"623c74a15a13360011803f3e\",\n    \"label\": \"Door Sensor\",\n    \"profile\": \"612ea05e3cc0780012715111\",\n    \"visible\": true,\n    \"created_at\": \"2022-03-24T13:39:45.504Z\",\n    \"icon\": {},\n    \"last_access\": \"2022-06-13T20:53:32.583Z\",\n    \"type\": \"dashboard\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "132b8e56-ba16-4871-af95-ae5aef157533",
+          "name": "Create Dashboard",
+          "request": {
+            "name": "Create Dashboard",
+            "description": {
+              "content": "Creates a dashboard of type Blueprint or Normal Dashboard into your profile.\n\nIt's recommended to access your Admin Developer panel and Copy the Dashboard JSON Structure to see all available fields.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"<string>\",\n  \"type\": \"<string>\",\n  \"icon\": {\n    \"color\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  \"tabs\": [\n    {\n      \"key\": \"<string>\",\n      \"link\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"link\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"visible\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "809d8517-e4d8-414c-b953-52aff6d86b12",
+              "name": "Creating a dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group_by\": [],\n  \"icon\": {\n    \"color\": \"hsl(328, 89%, 47%)\",\n    \"url\": \"https://svg.internal.tago.io/arrowheads-pointing-to-the-left.svg\"\n  },\n  \"label\": \"Tracker dashboard\",\n  \"profile\": \"612ea05e3cc0780012715111\",\n  \"tabs\": [\n    {\n      \"key\": \"1648142133869\",\n      \"link\": \"\",\n      \"value\": \"tab test\"\n    },\n    {\n      \"key\": \"1648142564354\",\n      \"link\": \"\",\n      \"value\": \"tab 2 \"\n    },\n    {\n      \"key\": \"1648142571171\",\n      \"link\": \"\",\n      \"value\": \"tab 3 \"\n    }\n  ],\n  \"tags\": [\n    {\n      \"key\": \"vehicle\",\n      \"value\": \"gas\"\n    },\n    {\n      \"key\": \"speed\",\n      \"value\": \"mph\"\n    }\n  ],\n  \"type\": \"dashboard\",\n  \"visible\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"dashboard\": \"614e0aa36f480300126652f9a38\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0ba1285-cb8f-4f9b-9311-15ef37a74bbe",
+          "name": "Duplicate Dashboard",
+          "request": {
+            "name": "Duplicate Dashboard",
+            "description": {
+              "content": "Duplicate an existing dashboard, including its configuration, widgets, and settings.  \nOptionally, set a new label for the duplicated dashboard and provide setup parameters to customize the copy.  \n\nUse this endpoint to quickly clone dashboards for reuse or further customization.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"new_label\": \"<string>\",\n  \"setup\": {\n    \"is_configured\": \"<boolean>\",\n    \"config\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d97d17b0-66c8-4c83-94c3-2f6baacb2a8b",
+              "name": "Dashboard duplicated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"setup\": {\n    \"is_configured\": true,\n    \"config\": [\n      {\n        \"id\": \"68c9baabb24379000ab1c8cc\",\n        \"name\": \"Freezer Simulator\"\n      }\n    ]\n  },\n  \"new_label\": \"Ice Cream Machine and Freezer - Copy\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"dashboard_id\": \"62b0df7927ce4d0012cf3c10\",\n    \"message\": \"Copy sent\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2642df4b-00b1-4498-9a2c-fa2f272b06c0",
+          "name": "Generate Public Token",
+          "request": {
+            "name": "Generate Public Token",
+            "description": {
+              "content": "Make your dashboard accessible to anyone by generating a public access token.  \n\nPublic dashboards allow you to share live data and visualizations with users who do not have a TagoIO/TagoRUN account. \nYou control the expiration and can revoke access at any time.  \n\n[Learn more about sharing dashboards and public access](/docs/tagoio/dashboards/sharing-dashboards)\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID",
+                "share",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expire_time",
+                  "value": "<string>",
+                  "description": "(Required) Time given in hours,days,weeks,months"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7a7a58e-2750-4871-9492-3a0dcd95a583",
+              "name": "Generating a  Public Token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID",
+                    "share",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expire_time",
+                      "value": "1 day"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"expire_time\": \"2022-06-20T23:10:59.285Z\",\n    \"token\": \"026b43fb-b33e-477a-bf17-70d1a0498562\"\n  },\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6a8580f-d87f-4494-8013-b9b6088b6b2a",
+          "name": "List Analysis related to Dashboard",
+          "request": {
+            "name": "List Analysis related to Dashboard",
+            "description": {
+              "content": "List of analysis related to this dashboard\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID",
+                "analysis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c96cf061-9187-4bf2-86e8-49affa2abd7f",
+              "name": "Getting a list of analysis related to the dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID",
+                    "analysis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"name\": \"Analysis 001\"\n    },\n    {\n      \"name\": \"Analysis 002\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc6e1d69-ca18-4aaf-bb0e-161fde8969fb",
+          "name": "List Devices related to Dashboard",
+          "request": {
+            "name": "List Devices related to Dashboard",
+            "description": {
+              "content": "List of devices related to this dashboard\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboard",
+                ":dashboardID",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboardID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c4a8adc-385f-4218-a857-e48c390c4f27",
+              "name": "Getting a list of devices related to a dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboard",
+                    ":dashboardID",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboardID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"id\": \"6238a3a27d792400139e5b47\",\n      \"name\": \"Device 001\"\n    },\n    {\n      \"id\": \"6238a294ea60bc00120f0371\",\n      \"name\": \"Device 002\"\n    },\n    {\n      \"id\": \"6230e64df5772600124c81df\",\n      \"name\": \"Device 003\"\n    },\n    {\n      \"id\": \"62322173635f730011d1874c\",\n      \"name\": \"Device 004\"\n    }\n  ],\n  \"status\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.us-e1.tago.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2c8a9f89-2b66-491c-bcff-adc48b893d20",
+    "name": "TagoIO Access Management Dashboards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy.",
+      "type": "text/plain"
+    }
+  }
+}

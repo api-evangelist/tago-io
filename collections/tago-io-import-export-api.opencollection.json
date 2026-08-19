@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Import/Export API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Import/Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export data to CSV in Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data/backup",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Export data to CSV in Files"
+        },
+        {
+          "info": {
+            "name": "Import Data from a CSV in Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/data/restore",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import Data from a CSV in Files"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

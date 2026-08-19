@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Widgets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Widgets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Widget Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/widget/:widgetID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the complete JSON structure of the dashboard widget, including all settings and data/resource instructions used to populate the widget's data.\n"
+        },
+        {
+          "info": {
+            "name": "Edit Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/widget/:widgetID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit properties of a JSON within a dashboard of your profile.\n"
+        },
+        {
+          "info": {
+            "name": "Delete Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/widget/:widgetID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a widget from the dashboard.\n\n:::warning  \n\nDeleting a widget does not automatically remove it from the dashboard arrangement. You must manually edit the dashboard arrangement to remove the deleted widget.  \n\n:::\n"
+        },
+        {
+          "info": {
+            "name": "Resolve Widget Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/data/:dashboardID/:widgetID",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all the data necessary to display a widget, according to its configuration in the `data` and `resource` fields.\n"
+        },
+        {
+          "info": {
+            "name": "Create Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/widget",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a widget within a specific dashboard in your profile.\nEach widget has unique properties. To ensure accuracy, we recommend opening your Admin Developer Panel, navigating to the desired Dashboard, and copying the Widget's JSON structure directly.  \n:::warning  \nAfter you create a widget, it is not automatically added to the dashboard's Arrangement parameter. You must manually edit the dashboard arrangement to include the widget's position in the grid.  \n:::\n"
+        },
+        {
+          "info": {
+            "name": "Generate Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/dashboard/:dashboardID/widget/:widgetID/token",
+            "params": [
+              {
+                "name": "dashboardID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "widgetID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generates a secure, public token for [embedding](/docs/tagoio/widgets/general/embedding-widgets-to-your-website) a specific widget from a dashboard.  \nUse this token to display the widget in external applications or websites via the TagoIO embed service.  \n\nExample embed URL:  \n\n`https://embed.REGION.tago.io?widget=YOUR-WIDGET-ID&dashboard=YOUR-DASHBOARD-ID&token=YOUR-EMBED-TOKEN`  \n\nThis endpoint is intended for scenarios where you want to share or display a widget outside of the TagoIO platfor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

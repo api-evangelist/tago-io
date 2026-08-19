@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TagoIO Access Management Immutable Device API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Immutable Device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Chunks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/chunk",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of chunks"
+        },
+        {
+          "info": {
+            "name": "Export Chunk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/chunk/backup",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Export a chunk as CSV to your TagoIO Files"
+        },
+        {
+          "info": {
+            "name": "Delete Chunk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.us-e1.tago.io/device/:deviceID/chunk/:chunkID",
+            "params": [
+              {
+                "name": "deviceID",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "chunkID",
+                "value": "",
+                "type": "path",
+                "description": "Chunk ID"
+              }
+            ]
+          },
+          "docs": "Delete chunk"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

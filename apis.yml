@@ -38,7 +38,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/tago-io/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: tago-io:tago-io-access-management-api
   name: TagoIO Access Management API

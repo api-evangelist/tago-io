@@ -310,6 +310,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -358,6 +360,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - Import Export
+  tags_raw:
   - Import/Export
   properties:
   - type: OpenAPI
@@ -406,6 +410,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -526,6 +532,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI

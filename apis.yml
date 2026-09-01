@@ -372,7 +372,7 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
-  - Import/Export
+  - Import Export
   tags_raw:
   - Import/Export
   properties:

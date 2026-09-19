@@ -40,6 +40,15 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tago-io.png
 tags:
   - IoT
+  - Devices
+  - Data Storage
+  - Dashboards
+  - Analysis
+  - Alerts
+  - MQTT
+  - Telemetry
+tags_raw:
+  - IoT
   - Internet of Things
   - Devices
   - Data Storage
@@ -449,6 +458,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - Profiles
+  tags_raw:
   - Profile
   properties:
   - type: OpenAPI

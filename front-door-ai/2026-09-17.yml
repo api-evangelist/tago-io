@@ -1,0 +1,28 @@
+# Front Door AI Index — tago-io — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: tago-io
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: tago.io
+  final_host: tago.io
+  ownership: own
+  owner: tago-io
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 4
+  host_score: 4
+  density: 1.08
+  words: 3696
+  tiers:
+    agentic: 2
+    core: 2
+    model: 0
+  ambiguous: 13
+  top_terms:
+    smart: 11
+    AI: 2
+    automation: 2
+    prompts: 2

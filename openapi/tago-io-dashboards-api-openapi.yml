@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Dashboards API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Dashboards API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -25,9 +27,7 @@ paths:
       tags:
       - Dashboards
       summary: Dashboard Information
-      description: 'Get settings information of the dashboard.
-
-        '
+      description: Get settings information of the dashboard.
       operationId: getInformation
       responses:
         '200':
@@ -267,7 +267,19 @@ paths:
       tags:
       - Dashboards
       summary: Edit Dashboard
-      description: "Modify any property of the dashboard\n\n:::warning\nThe arrangement is **not automatically populated** when you create a widget.  \nAfter creating a widget, you **must manually edit the arrangement field** to include the new widget and specify its position in the dashboard.\n:::\n\nEach item in the arrangement array represents a widget's placement and sizing.\n"
+      description: 'Modify any property of the dashboard
+
+
+        :::warning
+
+        The arrangement is **not automatically populated** when you create a widget.
+
+        After creating a widget, you **must manually edit the arrangement field** to include the new widget and specify its position in the dashboard.
+
+        :::
+
+
+        Each item in the arrangement array represents a widget''s placement and sizing.'
       operationId: editDashboard
       requestBody:
         content:
@@ -505,9 +517,7 @@ paths:
       tags:
       - Dashboards
       summary: Delete Dashboard
-      description: 'Delete the dashboard
-
-        '
+      description: Delete the dashboard
       operationId: deleteDashboard
       responses:
         '200':
@@ -533,9 +543,7 @@ paths:
       tags:
       - Dashboards
       summary: List Dashboards
-      description: 'Retrieves a list with all dashboards from the profile
-
-        '
+      description: Retrieves a list with all dashboards from the profile
       operationId: listDashboards
       parameters:
       - name: page
@@ -676,9 +684,7 @@ paths:
       description: 'Creates a dashboard of type Blueprint or Normal Dashboard into your profile.
 
 
-        It''s recommended to access your Admin Developer panel and Copy the Dashboard JSON Structure to see all available fields.
-
-        '
+        It''s recommended to access your Admin Developer panel and Copy the Dashboard JSON Structure to see all available fields.'
       operationId: createDashboard
       requestBody:
         content:
@@ -818,7 +824,12 @@ paths:
       tags:
       - Dashboards
       summary: Duplicate Dashboard
-      description: "Duplicate an existing dashboard, including its configuration, widgets, and settings.  \nOptionally, set a new label for the duplicated dashboard and provide setup parameters to customize the copy.  \n\nUse this endpoint to quickly clone dashboards for reuse or further customization.\n"
+      description: 'Duplicate an existing dashboard, including its configuration, widgets, and settings.
+
+        Optionally, set a new label for the duplicated dashboard and provide setup parameters to customize the copy.
+
+
+        Use this endpoint to quickly clone dashboards for reuse or further customization.'
       operationId: duplicateDashboard
       requestBody:
         required: false
@@ -894,7 +905,15 @@ paths:
       tags:
       - Dashboards
       summary: Generate Public Token
-      description: "Make your dashboard accessible to anyone by generating a public access token.  \n\nPublic dashboards allow you to share live data and visualizations with users who do not have a TagoIO/TagoRUN account. \nYou control the expiration and can revoke access at any time.  \n\n[Learn more about sharing dashboards and public access](/docs/tagoio/dashboards/sharing-dashboards)\n"
+      description: 'Make your dashboard accessible to anyone by generating a public access token.
+
+
+        Public dashboards allow you to share live data and visualizations with users who do not have a TagoIO/TagoRUN account.
+
+        You control the expiration and can revoke access at any time.
+
+
+        Learn more about sharing dashboards and public access'
       operationId: generatePublicToken
       parameters:
       - name: expire_time
@@ -936,9 +955,7 @@ paths:
       tags:
       - Dashboards
       summary: List Analysis related to Dashboard
-      description: 'List of analysis related to this dashboard
-
-        '
+      description: List of analysis related to this dashboard
       operationId: listAnalysisRelatedToDashboard
       responses:
         '200':
@@ -979,9 +996,7 @@ paths:
       tags:
       - Dashboards
       summary: List Devices related to Dashboard
-      description: 'List of devices related to this dashboard
-
-        '
+      description: List of devices related to this dashboard
       operationId: listDevicesRelatedToDashboard
       responses:
         '200':

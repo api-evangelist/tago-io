@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Device Tokens API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Device Tokens API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -24,9 +26,7 @@ paths:
       tags:
       - Device Tokens
       summary: List Tokens
-      description: 'Retrieves list of all tokens from device
-
-        '
+      description: Retrieves list of all tokens from device
       operationId: listOfTokens
       responses:
         '200':
@@ -36,9 +36,7 @@ paths:
       tags:
       - Device Tokens
       summary: Create Token
-      description: 'Generate and retrieve a new token
-
-        '
+      description: Generate and retrieve a new token
       operationId: createToken
       requestBody:
         content:
@@ -68,7 +66,7 @@ paths:
           text/plain:
             examples:
               Create token:
-                value: "{\r\n    \"expire_time\": \"never\", // ISO-8601 or relative date, e.g 1 day\r\n    \"name\": \"Token #2\",\r\n    \"permission\": \"full\", // full, read or write\r\n    \"serie_number\": \"\", //Optional\r\n    \"device\": \"6298fcc3e0b6840012b6abfa\"\r\n}"
+                value: "{\n    \"expire_time\": \"never\", // ISO-8601 or relative date, e.g 1 day\n    \"name\": \"Token #2\",\n    \"permission\": \"full\", // full, read or write\n    \"serie_number\": \"\", //Optional\n    \"device\": \"6298fcc3e0b6840012b6abfa\"\n}"
       responses:
         '201':
           description: Token created
@@ -104,9 +102,7 @@ paths:
       tags:
       - Device Tokens
       summary: Delete Token
-      description: 'Delete a token
-
-        '
+      description: Delete a token
       operationId: deleteToken
       responses:
         '200':

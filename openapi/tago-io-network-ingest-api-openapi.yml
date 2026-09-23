@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Network Ingest API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Network Ingest API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -31,7 +33,11 @@ paths:
       tags:
       - Network Ingest
       summary: Find Device by Serial & Authorization Key
-      description: "Retrieve a valid device token using the device's serial number and a profile authorization key.  \nThis endpoint is recommended when you need additional security or if your Network is available to multiple profiles, as it allows serial numbers to be duplicated across different profiles.  \nYou must have both a Network and a Network-Token to use this endpoint."
+      description: 'Retrieve a valid device token using the device''s serial number and a profile authorization key.
+
+        This endpoint is recommended when you need additional security or if your Network is available to multiple profiles, as it allows serial numbers to be duplicated across different profiles.
+
+        You must have both a Network and a Network-Token to use this endpoint.'
       operationId: getDeviceTokenWithSerialNumberAuthorization
       security:
       - Network-Token: []
@@ -61,7 +67,15 @@ paths:
       tags:
       - Network Ingest
       summary: Find Device by Serial
-      description: "Get a valid device-token using token serial number only. It will match the serial in any profile.\n:::warning  \nIf the serial number is duplicated between different profiles, you will get the device-token only for the latest device created. See [Find Device with Authorization](/docs/api/get-device-token-with-serial-number-authorization) for multiple profiles support.  \n:::\nYou must have a Network and a Network-Token to use this query."
+      description: 'Get a valid device-token using token serial number only. It will match the serial in any profile.
+
+        :::warning
+
+        If the serial number is duplicated between different profiles, you will get the device-token only for the latest device created. See Find Device with Authorization for multiple profiles support.
+
+        :::
+
+        You must have a Network and a Network-Token to use this query.'
       operationId: getDeviceTokenWithSerialNumber
       security:
       - Network-Token: []
@@ -96,7 +110,7 @@ paths:
 
         :::info
 
-        To obtain the **Device ID**, first resolve the device-token, then use the [Device Information](/docs/api/current-device-information) endpoint to retrieve detailed information about the device.
+        To obtain the **Device ID**, first resolve the device-token, then use the Device Information endpoint to retrieve detailed information about the device.
 
         :::'
       operationId: editDeviceConfigurationParameter
@@ -153,7 +167,27 @@ paths:
       tags:
       - Network Ingest
       summary: Send Data using Network
-      description: "Send data to TagoIO using the Network instead.\n\nThis endpoint allows the [Network Payload Parser](/docs/tagoio/devices/payload-parser/) to identify and redirect data to the correct device created using the Network associated with the Network Token and [Authorization Token](/docs/tagoio/integrations/general/authorization/).\n\nThe Network's Payload Parser is required to set the serial within the network parser. For example:\n\n``` javascript\n if (Array.isArray(payload)) {\n   const payload_received = payload.find(x => x.variable === \"payload\");\n   serial = payload_received?.metadata?.serial;\n }\n\n ```"
+      description: 'Send data to TagoIO using the Network instead.
+
+
+        This endpoint allows the Network Payload Parser to identify and redirect data to the correct device created using the Network associated with the Network Token and Authorization Token.
+
+
+        The Network''s Payload Parser is required to set the serial within the network parser. For example:
+
+
+        ``` javascript
+
+        if (Array.isArray(payload)) {
+
+        const payload_received = payload.find(x => x.variable === "payload");
+
+        serial = payload_received?.metadata?.serial;
+
+        }
+
+
+        ```'
       operationId: sendDataUsingNetwork
       parameters:
       - $ref: '#/components/parameters/authorization_token'
@@ -191,17 +225,6 @@ paths:
                     type: boolean
                     example: true
 components:
-  parameters:
-    authorization_token:
-      name: authorization_token
-      in: query
-      required: true
-      description: 'Authorization_Token
-
-        '
-      schema:
-        type: string
-        example: at72fb69a8dc714059b6cebee41693eb0
   schemas:
     NetworkDeviceData:
       type: object
@@ -224,6 +247,17 @@ components:
               example: SN123456789
           additionalProperties: false
       description: Network device data format with payload and serial metadata.
+  parameters:
+    authorization_token:
+      name: authorization_token
+      in: query
+      required: true
+      description: 'Authorization_Token
+
+        '
+      schema:
+        type: string
+        example: at72fb69a8dc714059b6cebee41693eb0
   securitySchemes:
     Device-Token:
       type: apiKey

@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Backup API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Backup API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -47,9 +49,7 @@ paths:
 
         - Backup generation may take several minutes depending on profile size
 
-        - Restoration is manual - you can write scripts to parse the JSON files and recreate resources via API, or contact TagoIO support
-
-        '
+        - Restoration is manual - you can write scripts to parse the JSON files and recreate resources via API, or contact TagoIO support'
       operationId: createProfileBackup
       responses:
         '200':
@@ -96,9 +96,7 @@ paths:
 
         - `completed` - Backup ready for download
 
-        - `failed` - Backup generation failed (check error_message)
-
-        '
+        - `failed` - Backup generation failed (check error_message)'
       operationId: listProfileBackups
       parameters:
       - name: page
@@ -208,9 +206,7 @@ paths:
         **Security:** This endpoint requires account password verification to prevent unauthorized access to backup data. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.
 
 
-        **Important:** Only backups with status `completed` can be downloaded.
-
-        '
+        **Important:** Only backups with status `completed` can be downloaded.'
       operationId: downloadProfileBackup
       requestBody:
         required: true
@@ -341,9 +337,7 @@ paths:
       description: 'Permanently removes a backup from storage. This action is irreversible.
 
 
-        **Security:** This endpoint requires account password verification to prevent accidental or unauthorized deletion. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.
-
-        '
+        **Security:** This endpoint requires account password verification to prevent accidental or unauthorized deletion. If you have Two-Factor Authentication (2FA) enabled, you must also provide the OTP code.'
       operationId: deleteProfileBackup
       requestBody:
         required: true

@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Profile API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Profile API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -595,7 +597,7 @@ paths:
 
         **Important notes:**
 
-        - Credentials are securely stored using [TagoIO Secrets](/docs/tagoio/getting-started/secrets). You must create the appropriate secrets before configuring a service provider.
+        - Credentials are securely stored using TagoIO Secrets. You must create the appropriate secrets before configuring a service provider.
 
         - Each service type can only have one active provider configuration at a time
 
@@ -612,9 +614,7 @@ paths:
 
         - **SES Email**: Create an AWS SQS Secret with your AWS credentials (region, access key, secret key)
 
-        - **SMTP Email**: Create an SMTP Secret with your server configuration
-
-        '
+        - **SMTP Email**: Create an SMTP Secret with your server configuration'
       operationId: configureProfileService
       requestBody:
         required: true
@@ -823,9 +823,7 @@ paths:
 
         - Test messages will consume your provider''s quota/credits
 
-        - For SMS, ensure the recipient number is in E.164 format (e.g., +15551234567)
-
-        '
+        - For SMS, ensure the recipient number is in E.164 format (e.g., +15551234567)'
       operationId: testProfileService
       requestBody:
         required: true
@@ -929,9 +927,7 @@ paths:
       tags:
       - Profile
       summary: Generate Profile-Token
-      description: 'Generates and retrieves a new token for the account
-
-        '
+      description: Generates and retrieves a new token for the account
       operationId: generateProfileToken
       security: []
       requestBody:

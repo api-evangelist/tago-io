@@ -1,28 +1,7 @@
 {
   "provider": "tago-io",
   "sources": [
-    "tago-io-access-management-api-openapi.yml",
-    "tago-io-account-api-openapi.yml",
-    "tago-io-backup-api-openapi.yml",
-    "tago-io-configuration-param-api-openapi.yml",
-    "tago-io-dashboards-api-openapi.yml",
-    "tago-io-device-data-api-openapi.yml",
-    "tago-io-device-tokens-api-openapi.yml",
-    "tago-io-devices-api-openapi.yml",
-    "tago-io-dictionary-api-openapi.yml",
-    "tago-io-entity-api-openapi.yml",
-    "tago-io-entity-data-api-openapi.yml",
-    "tago-io-files-api-openapi.yml",
-    "tago-io-immutable-device-api-openapi.yml",
-    "tago-io-import-export-api-openapi.yml",
-    "tago-io-network-ingest-api-openapi.yml",
-    "tago-io-notifications-api-openapi.yml",
-    "tago-io-profile-api-openapi.yml",
-    "tago-io-statistics-billing-api-openapi.yml",
-    "tago-io-tago-run-api-openapi.yml",
-    "tago-io-upload-api-openapi.yml",
-    "tago-io-users-api-openapi.yml",
-    "tago-io-widgets-api-openapi.yml"
+    "_original/tago-io-tago-io-rest-api-openapi.yml"
   ],
   "outputs": [
     "tago-io-access-management-api-openapi.yml",
@@ -51,6 +30,37 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tago-io-tago-io-rest-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "tago-io-tago-io-rest-api-openapi.yml: declared missing tag: Backup",
+    "tago-io-tago-io-rest-api-openapi.yml: declared missing tag: Configuration Param",
+    "tago-io-tago-io-rest-api-openapi.yml: declared missing tag: Tago RUN",
+    "tago-io-tago-io-rest-api-openapi.yml: declared missing tag: Upload",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "tago-io-access-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-backup-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-configuration-param-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-device-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-device-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-dictionary-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-entity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-entity-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-immutable-device-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-import-export-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-network-ingest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-statistics-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-tago-run-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-upload-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tago-io-widgets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Notifications API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Notifications API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -18,9 +20,7 @@ paths:
       tags:
       - Notifications
       summary: Create Notification
-      description: 'Create Notification for an user
-
-        '
+      description: Create Notification for an user
       operationId: createNotification
       requestBody:
         content:
@@ -81,7 +81,7 @@ paths:
           text/plain:
             examples:
               Create Notification:
-                value: "{\r\n    \"run_user\": \"<Run User ID>\",\r\n    \"title\": \"notification title\",\r\n    \"message\": \"message to be read\",\r\n    \"buttons\": [ // optional\r\n        {\r\n            \"label\": \"label of the button\",\r\n            \"id\": \"id_of_the_button\", // no space allowed\r\n            \"color\": \"color of the button\", //hexadecimal allowed\r\n            \"url\": \"url to redirect the user\", //optional\r\n            \"analysis\": \"analysis to run when clicked\" //optional\r\n        }\r\n    ],\r\n    \"buttons_enabled\": true, // optional\r\n    \"buttons_autodisable\": true // optional\r\n}"
+                value: "{\n    \"run_user\": \"<Run User ID>\",\n    \"title\": \"notification title\",\n    \"message\": \"message to be read\",\n    \"buttons\": [ // optional\n        {\n            \"label\": \"label of the button\",\n            \"id\": \"id_of_the_button\", // no space allowed\n            \"color\": \"color of the button\", //hexadecimal allowed\n            \"url\": \"url to redirect the user\", //optional\n            \"analysis\": \"analysis to run when clicked\" //optional\n        }\n    ],\n    \"buttons_enabled\": true, // optional\n    \"buttons_autodisable\": true // optional\n}"
       responses:
         '200':
           description: Creating a RUN notification
@@ -117,9 +117,7 @@ paths:
       tags:
       - Notifications
       summary: List Notifications
-      description: 'List of notifications for an user
-
-        '
+      description: List of notifications for an user
       operationId: listOfNotifications
       responses:
         '200':
@@ -191,9 +189,7 @@ paths:
       tags:
       - Notifications
       summary: Edit Notification
-      description: 'Edit notification on Run
-
-        '
+      description: Edit notification on Run
       operationId: editNotification
       requestBody:
         content:
@@ -231,9 +227,7 @@ paths:
       tags:
       - Notifications
       summary: Delete Notification
-      description: 'Delete notification on Run
-
-        '
+      description: Delete notification on Run
       operationId: deleteNotification
       responses:
         '200':

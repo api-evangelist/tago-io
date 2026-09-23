@@ -1,7 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: TagoIO Access Management Widgets API
-  description: "#### **How to use this documentation**\nThe documentation is split by which token you're required to use in the request.  \nTagoIO provides 4 different tokens:\n- **Device-Token**: The token from your device, which you can get from the device's page.\n    \n- **Profile-Token**: Also know as Account-Token. You get from your profile settings page.\n    \n- **Network-Token**: Is the token from your Network. Only available if you're owner of the network in your integrations page.\n    \n- **Analysis-Token:** The token from your analysis, available in the analysis page.\n---\n#### Setting the API Endpoint Region\nWhen making a request to the TagoIO API, you must also specify the appropriate regional endpoint. Choose one of the following endpoints based on your geographical region:\n\n- **United States East 1:**  \n    Use this endpoint when your application is based in the eastern United States.  \n    **URL:** `https://api.us-e1.tago.io/`\n    \n- **Europe West 1:**  \n    Use this endpoint when your application is based in Western Europe.  \n    **URL:** `https://api.eu-w1.tago.io/`\n\n- **Tago Deploy:**  \n  You should use your own API URL that is available in your Domains section of the TagoDeploy."
+  title: TagoIO Widgets API
+  description: '#### **How to use this documentation**
+
+    The documentation is split by which token you''re required to use in the request.'
   version: 1.0.0
   contact: {}
 servers:
@@ -31,9 +33,7 @@ paths:
       tags:
       - Widgets
       summary: Widget Information
-      description: 'Retrieve the complete JSON structure of the dashboard widget, including all settings and data/resource instructions used to populate the widget''s data.
-
-        '
+      description: Retrieve the complete JSON structure of the dashboard widget, including all settings and data/resource instructions used to populate the widget's data.
       operationId: getWidgetInformation
       responses:
         '200':
@@ -191,9 +191,7 @@ paths:
       tags:
       - Widgets
       summary: Edit Widget
-      description: 'Edit properties of a JSON within a dashboard of your profile.
-
-        '
+      description: Edit properties of a JSON within a dashboard of your profile.
       operationId: editWidget
       requestBody:
         content:
@@ -327,7 +325,16 @@ paths:
       tags:
       - Widgets
       summary: Delete Widget
-      description: "Delete a widget from the dashboard.\n\n:::warning  \n\nDeleting a widget does not automatically remove it from the dashboard arrangement. You must manually edit the dashboard arrangement to remove the deleted widget.  \n\n:::\n"
+      description: 'Delete a widget from the dashboard.
+
+
+        :::warning
+
+
+        Deleting a widget does not automatically remove it from the dashboard arrangement. You must manually edit the dashboard arrangement to remove the deleted widget.
+
+
+        :::'
       operationId: deleteWidget
       responses:
         '200':
@@ -366,9 +373,7 @@ paths:
       tags:
       - Widgets
       summary: Resolve Widget Data
-      description: 'Retrieve all the data necessary to display a widget, according to its configuration in the `data` and `resource` fields.
-
-        '
+      description: Retrieve all the data necessary to display a widget, according to its configuration in the `data` and `resource` fields.
       operationId: getWidgetData
       responses:
         '200':
@@ -650,7 +655,15 @@ paths:
       tags:
       - Widgets
       summary: Create Widget
-      description: "Create a widget within a specific dashboard in your profile.\nEach widget has unique properties. To ensure accuracy, we recommend opening your Admin Developer Panel, navigating to the desired Dashboard, and copying the Widget's JSON structure directly.  \n:::warning  \nAfter you create a widget, it is not automatically added to the dashboard's Arrangement parameter. You must manually edit the dashboard arrangement to include the widget's position in the grid.  \n:::\n"
+      description: 'Create a widget within a specific dashboard in your profile.
+
+        Each widget has unique properties. To ensure accuracy, we recommend opening your Admin Developer Panel, navigating to the desired Dashboard, and copying the Widget''s JSON structure directly.
+
+        :::warning
+
+        After you create a widget, it is not automatically added to the dashboard''s Arrangement parameter. You must manually edit the dashboard arrangement to include the widget''s position in the grid.
+
+        :::'
       operationId: createDashboardWidget
       requestBody:
         content:
@@ -751,7 +764,18 @@ paths:
       tags:
       - Widgets
       summary: Generate Token
-      description: "Generates a secure, public token for [embedding](/docs/tagoio/widgets/general/embedding-widgets-to-your-website) a specific widget from a dashboard.  \nUse this token to display the widget in external applications or websites via the TagoIO embed service.  \n\nExample embed URL:  \n\n`https://embed.REGION.tago.io?widget=YOUR-WIDGET-ID&dashboard=YOUR-DASHBOARD-ID&token=YOUR-EMBED-TOKEN`  \n\nThis endpoint is intended for scenarios where you want to share or display a widget outside of the TagoIO platform while maintaining access control.\n"
+      description: 'Generates a secure, public token for embedding a specific widget from a dashboard.
+
+        Use this token to display the widget in external applications or websites via the TagoIO embed service.
+
+
+        Example embed URL:
+
+
+        `https://embed.REGION.tago.io?widget=YOUR-WIDGET-ID&dashboard=YOUR-DASHBOARD-ID&token=YOUR-EMBED-TOKEN`
+
+
+        This endpoint is intended for scenarios where you want to share or display a widget outside of the TagoIO platform while maintaining access control.'
       operationId: generateToken
       responses:
         '200':

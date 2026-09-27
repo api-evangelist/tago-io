@@ -449,126 +449,6 @@ paths:
                     type: boolean
                     example: true
 components:
-  parameters:
-    DeleteFilterIds:
-      name: ids
-      in: query
-      description: Filter data by id. Accepts single or multiple values.
-      schema:
-        type: string
-        items:
-          type: string
-        example: 6144a25e280ad80019688e689
-    DeleteFilterGroups:
-      name: groups
-      in: query
-      description: 'Filter data by group. Accepts single or multiple values.
-
-        For multiple, send `groups[0]=foo&groups[1]=bar`.
-
-        '
-      schema:
-        type: string
-        items:
-          type: string
-        example: '16731887966346'
-    DeleteFilterValues:
-      name: values
-      in: query
-      description: Filter data by value. Accepts single or multiple values.
-      schema:
-        type: string
-        items:
-          type: string
-        example: '12'
-    DeleteFilterVariables:
-      name: variables
-      in: query
-      description: Filter data by variable.
-      schema:
-        type: string
-        example: temperature
-    DeleteFilterQty:
-      name: qty
-      in: query
-      description: Quantity of data records to delete. Default is 15.
-      schema:
-        type: integer
-        minimum: 1
-        default: 15
-        example: 20
-    DeleteFilterOrdination:
-      name: ordination
-      in: query
-      description: Sort direction. Default is descending.
-      schema:
-        type: string
-        enum:
-        - ascending
-        - descending
-        default: descending
-        example: descending
-    DeleteFilterSkip:
-      name: skip
-      in: query
-      description: Number of items to skip (pagination).
-      schema:
-        type: integer
-        minimum: 0
-        example: 15
-  schemas:
-    DeviceData:
-      description: 'Accepts a single item or an array of items when sent as application/json.
-
-        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
-
-        '
-      oneOf:
-      - $ref: '#/components/schemas/DeviceDataItem'
-      - $ref: '#/components/schemas/DeviceDataArray'
-    DeviceDataArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/DeviceDataItem'
-      description: Accepts a single item or an array of items.
-    DeviceDataItem:
-      type: object
-      required:
-      - variable
-      properties:
-        variable:
-          type: string
-          example: location
-        location:
-          type: object
-          properties:
-            lat:
-              type: number
-              example: 35.770723
-            lng:
-              type: number
-              example: -78.677328
-        value:
-          type: string
-          example: TagoIO Headquarters
-        time:
-          type: string
-          description: ISO 8601 string or Unix timestamp
-          example: '2023-12-01T12:34:56.000Z'
-        group:
-          type: string
-          description: Unique grouping ID for your data. Widgets often group by this.
-        unit:
-          type: string
-          example: '%'
-          description: Provide a unit of measurement to the data. Most widgets will display the unit.
-        metadata:
-          type: object
-          description: Can be attached to the data to influence widget behavior and store additional information.
-          additionalProperties: true
-          example:
-            color: red
-            icon: car
   requestBodies:
     DeviceDataBody:
       required: true
@@ -607,6 +487,126 @@ components:
               value: 41BC7E1F2A
             Custom format:
               value: sensor_id=123&temp=25.6&status=ok
+  parameters:
+    DeleteFilterValues:
+      name: values
+      in: query
+      description: Filter data by value. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: '12'
+    DeleteFilterSkip:
+      name: skip
+      in: query
+      description: Number of items to skip (pagination).
+      schema:
+        type: integer
+        minimum: 0
+        example: 15
+    DeleteFilterOrdination:
+      name: ordination
+      in: query
+      description: Sort direction. Default is descending.
+      schema:
+        type: string
+        enum:
+        - ascending
+        - descending
+        default: descending
+        example: descending
+    DeleteFilterIds:
+      name: ids
+      in: query
+      description: Filter data by id. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: 6144a25e280ad80019688e689
+    DeleteFilterVariables:
+      name: variables
+      in: query
+      description: Filter data by variable.
+      schema:
+        type: string
+        example: temperature
+    DeleteFilterGroups:
+      name: groups
+      in: query
+      description: 'Filter data by group. Accepts single or multiple values.
+
+        For multiple, send `groups[0]=foo&groups[1]=bar`.
+
+        '
+      schema:
+        type: string
+        items:
+          type: string
+        example: '16731887966346'
+    DeleteFilterQty:
+      name: qty
+      in: query
+      description: Quantity of data records to delete. Default is 15.
+      schema:
+        type: integer
+        minimum: 1
+        default: 15
+        example: 20
+  schemas:
+    DeviceDataItem:
+      type: object
+      required:
+      - variable
+      properties:
+        variable:
+          type: string
+          example: location
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+              example: 35.770723
+            lng:
+              type: number
+              example: -78.677328
+        value:
+          type: string
+          example: TagoIO Headquarters
+        time:
+          type: string
+          description: ISO 8601 string or Unix timestamp
+          example: '2023-12-01T12:34:56.000Z'
+        group:
+          type: string
+          description: Unique grouping ID for your data. Widgets often group by this.
+        unit:
+          type: string
+          example: '%'
+          description: Provide a unit of measurement to the data. Most widgets will display the unit.
+        metadata:
+          type: object
+          description: Can be attached to the data to influence widget behavior and store additional information.
+          additionalProperties: true
+          example:
+            color: red
+            icon: car
+    DeviceDataArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceDataItem'
+      description: Accepts a single item or an array of items.
+    DeviceData:
+      description: 'Accepts a single item or an array of items when sent as application/json.
+
+        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
+
+        '
+      oneOf:
+      - $ref: '#/components/schemas/DeviceDataItem'
+      - $ref: '#/components/schemas/DeviceDataArray'
   securitySchemes:
     Device-Token:
       type: apiKey

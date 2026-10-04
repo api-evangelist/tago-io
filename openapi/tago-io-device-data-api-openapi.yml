@@ -449,45 +449,34 @@ paths:
                     type: boolean
                     example: true
 components:
-  requestBodies:
-    DeviceDataBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DeviceData'
-          examples:
-            Send data (object):
-              value:
-                variable: location
-                value: TagoIO Headquarters
-                location:
-                  lat: 35.770723
-                  lng: -78.677328
-            Send data (array):
-              value:
-              - variable: location
-                value: TagoIO Headquarters
-                location:
-                  lat: 35.770723
-                  lng: -78.677328
-              - variable: location
-                value: New York Office
-                location:
-                  lat: 40.712776
-                  lng: -74.005974
-        text/plain:
-          schema:
-            type: string
-            description: Raw text data that will be processed by the device's Payload Parser to normalize into TagoIO JSON format.
-          examples:
-            Raw sensor data:
-              value: temperature:23.5,humidity:45.2,battery:87
-            HEX payload:
-              value: 41BC7E1F2A
-            Custom format:
-              value: sensor_id=123&temp=25.6&status=ok
   parameters:
+    DeleteFilterValues:
+      name: values
+      in: query
+      description: Filter data by value. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: '12'
+    DeleteFilterVariables:
+      name: variables
+      in: query
+      description: Filter data by variable.
+      schema:
+        type: string
+        example: temperature
+    DeleteFilterOrdination:
+      name: ordination
+      in: query
+      description: Sort direction. Default is descending.
+      schema:
+        type: string
+        enum:
+        - ascending
+        - descending
+        default: descending
+        example: descending
     DeleteFilterGroups:
       name: groups
       in: query
@@ -510,17 +499,6 @@ components:
         items:
           type: string
         example: 6144a25e280ad80019688e689
-    DeleteFilterOrdination:
-      name: ordination
-      in: query
-      description: Sort direction. Default is descending.
-      schema:
-        type: string
-        enum:
-        - ascending
-        - descending
-        default: descending
-        example: descending
     DeleteFilterSkip:
       name: skip
       in: query
@@ -538,32 +516,7 @@ components:
         minimum: 1
         default: 15
         example: 20
-    DeleteFilterValues:
-      name: values
-      in: query
-      description: Filter data by value. Accepts single or multiple values.
-      schema:
-        type: string
-        items:
-          type: string
-        example: '12'
-    DeleteFilterVariables:
-      name: variables
-      in: query
-      description: Filter data by variable.
-      schema:
-        type: string
-        example: temperature
   schemas:
-    DeviceData:
-      description: 'Accepts a single item or an array of items when sent as application/json.
-
-        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
-
-        '
-      oneOf:
-      - $ref: '#/components/schemas/DeviceDataItem'
-      - $ref: '#/components/schemas/DeviceDataArray'
     DeviceDataItem:
       type: object
       required:
@@ -607,6 +560,53 @@ components:
       items:
         $ref: '#/components/schemas/DeviceDataItem'
       description: Accepts a single item or an array of items.
+    DeviceData:
+      description: 'Accepts a single item or an array of items when sent as application/json.
+
+        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
+
+        '
+      oneOf:
+      - $ref: '#/components/schemas/DeviceDataItem'
+      - $ref: '#/components/schemas/DeviceDataArray'
+  requestBodies:
+    DeviceDataBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeviceData'
+          examples:
+            Send data (object):
+              value:
+                variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+            Send data (array):
+              value:
+              - variable: location
+                value: TagoIO Headquarters
+                location:
+                  lat: 35.770723
+                  lng: -78.677328
+              - variable: location
+                value: New York Office
+                location:
+                  lat: 40.712776
+                  lng: -74.005974
+        text/plain:
+          schema:
+            type: string
+            description: Raw text data that will be processed by the device's Payload Parser to normalize into TagoIO JSON format.
+          examples:
+            Raw sensor data:
+              value: temperature:23.5,humidity:45.2,battery:87
+            HEX payload:
+              value: 41BC7E1F2A
+            Custom format:
+              value: sensor_id=123&temp=25.6&status=ok
   securitySchemes:
     Device-Token:
       type: apiKey

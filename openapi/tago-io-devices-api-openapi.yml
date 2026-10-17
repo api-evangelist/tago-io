@@ -1169,74 +1169,16 @@ paths:
                     type: boolean
                     example: true
 components:
-  parameters:
-    DeleteFilterValues:
-      name: values
-      in: query
-      description: Filter data by value. Accepts single or multiple values.
-      schema:
-        type: string
-        items:
-          type: string
-        example: '12'
-    DeleteFilterVariables:
-      name: variables
-      in: query
-      description: Filter data by variable.
-      schema:
-        type: string
-        example: temperature
-    DeleteFilterOrdination:
-      name: ordination
-      in: query
-      description: Sort direction. Default is descending.
-      schema:
-        type: string
-        enum:
-        - ascending
-        - descending
-        default: descending
-        example: descending
-    DeleteFilterGroups:
-      name: groups
-      in: query
-      description: 'Filter data by group. Accepts single or multiple values.
+  schemas:
+    DeviceData:
+      description: 'Accepts a single item or an array of items when sent as application/json.
 
-        For multiple, send `groups[0]=foo&groups[1]=bar`.
+        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
 
         '
-      schema:
-        type: string
-        items:
-          type: string
-        example: '16731887966346'
-    DeleteFilterIds:
-      name: ids
-      in: query
-      description: Filter data by id. Accepts single or multiple values.
-      schema:
-        type: string
-        items:
-          type: string
-        example: 6144a25e280ad80019688e689
-    DeleteFilterSkip:
-      name: skip
-      in: query
-      description: Number of items to skip (pagination).
-      schema:
-        type: integer
-        minimum: 0
-        example: 15
-    DeleteFilterQty:
-      name: qty
-      in: query
-      description: Quantity of data records to delete. Default is 15.
-      schema:
-        type: integer
-        minimum: 1
-        default: 15
-        example: 20
-  schemas:
+      oneOf:
+      - $ref: '#/components/schemas/DeviceDataItem'
+      - $ref: '#/components/schemas/DeviceDataArray'
     DeviceDataItem:
       type: object
       required:
@@ -1280,15 +1222,73 @@ components:
       items:
         $ref: '#/components/schemas/DeviceDataItem'
       description: Accepts a single item or an array of items.
-    DeviceData:
-      description: 'Accepts a single item or an array of items when sent as application/json.
+  parameters:
+    DeleteFilterValues:
+      name: values
+      in: query
+      description: Filter data by value. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: '12'
+    DeleteFilterIds:
+      name: ids
+      in: query
+      description: Filter data by id. Accepts single or multiple values.
+      schema:
+        type: string
+        items:
+          type: string
+        example: 6144a25e280ad80019688e689
+    DeleteFilterSkip:
+      name: skip
+      in: query
+      description: Number of items to skip (pagination).
+      schema:
+        type: integer
+        minimum: 0
+        example: 15
+    DeleteFilterQty:
+      name: qty
+      in: query
+      description: Quantity of data records to delete. Default is 15.
+      schema:
+        type: integer
+        minimum: 1
+        default: 15
+        example: 20
+    DeleteFilterOrdination:
+      name: ordination
+      in: query
+      description: Sort direction. Default is descending.
+      schema:
+        type: string
+        enum:
+        - ascending
+        - descending
+        default: descending
+        example: descending
+    DeleteFilterGroups:
+      name: groups
+      in: query
+      description: 'Filter data by group. Accepts single or multiple values.
 
-        For text/plain content, use the [Payload Parser](/docs/tagoio/devices/payload-parser/) to normalize the data into TagoIO JSON format.
+        For multiple, send `groups[0]=foo&groups[1]=bar`.
 
         '
-      oneOf:
-      - $ref: '#/components/schemas/DeviceDataItem'
-      - $ref: '#/components/schemas/DeviceDataArray'
+      schema:
+        type: string
+        items:
+          type: string
+        example: '16731887966346'
+    DeleteFilterVariables:
+      name: variables
+      in: query
+      description: Filter data by variable.
+      schema:
+        type: string
+        example: temperature
   requestBodies:
     DeviceDataBody:
       required: true

@@ -225,17 +225,6 @@ paths:
                     type: boolean
                     example: true
 components:
-  parameters:
-    authorization_token:
-      name: authorization_token
-      in: query
-      required: true
-      description: 'Authorization_Token
-
-        '
-      schema:
-        type: string
-        example: at72fb69a8dc714059b6cebee41693eb0
   schemas:
     NetworkDeviceData:
       type: object
@@ -258,6 +247,17 @@ components:
               example: SN123456789
           additionalProperties: false
       description: Network device data format with payload and serial metadata.
+  parameters:
+    authorization_token:
+      name: authorization_token
+      in: query
+      required: true
+      description: 'Authorization_Token
+
+        '
+      schema:
+        type: string
+        example: at72fb69a8dc714059b6cebee41693eb0
   securitySchemes:
     Device-Token:
       type: apiKey

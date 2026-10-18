@@ -68,6 +68,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - Identity and Access Management
+  tags_raw:
   - Access Management
   properties:
   - type: OpenAPI
@@ -260,6 +262,8 @@ apis:
   humanURL: https://docs.tago.io/docs/tagoio/api/api_overview
   baseURL: https://api.us-e1.tago.io/
   tags:
+  - Dictionaries
+  tags_raw:
   - Dictionary
   properties:
   - type: OpenAPI
